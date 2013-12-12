@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Thu 14 Mar 2013 11:51:26 AM BRT
+# Last Change: Qui 12 Dez 2013 18:55:53 BRST
 ##
 
 set history filename ~/.gdb_history
