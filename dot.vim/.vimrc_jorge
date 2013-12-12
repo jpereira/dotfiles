@@ -1,0 +1,239 @@
+" Syntax Highlight
+syntax enable
+set bg=dark
+" 4 spaces for indenting
+set shiftwidth=4
+
+" 4 stops
+set tabstop=4
+
+" Spaces instead of tabs
+"set expandtab
+
+" Always  set auto indenting on
+set autoindent
+
+" select when using the mouse
+set selectmode=mouse
+
+" Line Numbers
+set nu
+
+" Comments color
+highlight Comment ctermfg=green
+
+" Blocket Platform
+au BufNewFile,BufRead bconf.txt.* set filetype=cfg
+au BufNewFile,BufRead *.tmpl set filetype=html
+
+set tags=tags;/
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+" Give a shortcut key to NERD Tree
+map <F5> :NERDTreeToggle<CR>
+
+set number                    " Numera as linhas
+set nobackup                  " NÃ£o salva arquivos de backup~
+set wildmode=longest,list     " Completa o comando com TAB igual o bash
+
+set ignorecase                " Ignora o case sensitive nas buscas
+set smartcase                 " Se tiver alguma letra maiÃºscula, ativa o case sensitive
+
+set smartindent               " Auto-indenta
+set expandtab                 " Identa com espaÃ§os
+
+set tabstop=2                 " Quantidade de espaÃ§os por identaÃ§Ã£o
+set shiftwidth=2              " Quantidade de espaÃ§os da auto-indentaÃ§Ã£o
+
+set guioptions-=T                    " Deixa a GUI sem a toolbar
+set autochdir                 " Vai pro diretÃ³rio do arquivo aberto
+
+" Corretor ortogrÃ¡fico
+set spelllang=pt              " Escolhe o dicionÃ¡rio
+
+" Inicia no modo INSERT
+set im
+imap <ESC> <C-L>
+
+" Cria e escolhe as abas
+noremap <C-T> :tabnew<CR>
+noremap <C-TAB> :tabnext<CR>
+noremap <C-S-TAB> :tabprevious<CR>
+inoremap <C-T> <C-O>:tabnew<CR>
+inoremap <C-TAB> <C-O>:tabnext<CR>
+inoremap <C-S-TAB> <C-O>:tabprevious<CR>
+
+" Mover texto com os TABs
+vnoremap < <gv
+vnoremap > >gv
+noremap <TAB> >
+noremap <S-TAB> <
+
+" Auto-fecha parÃªnteses, chaves etc.
+"inoremap { {}<LEFT>
+"inoremap ( ()<LEFT>
+"inoremap [ []<LEFT>
+"inoremap " ""<LEFT>
+"inoremap ' ''<LEFT>
+
+" Move linhas ou blocos usando ALT+SETA
+nnoremap <A-DOWN> mz:m+<CR>`z==
+nnoremap <A-UP> mz:m-2<CR>`z==
+inoremap <A-DOWN> <Esc>:m+<CR>==gi
+inoremap <A-UP> <Esc>:m-2<CR>==gi
+vnoremap <A-DOWN> :m'>+<CR>gv=`<my`>mzgv`yo`z
+vnoremap <A-UP> :m'<-2<CR>gv=`>my`<mzgv`yo`z
+
+" Deleta linha com CTRL+D
+noremap <C-D> dd
+vnoremap <C-D> <C-C>dd
+inoremap <C-D> <C-O>dd
+
+" Organiza identaÃ§Ã£o de um bloco selecionado com CTRL+ALT+F
+noremap <C-A-F> ==
+vnoremap <C-A-F> <C-Q>==
+inoremap <C-A-F> <C-O>==
+
+" Command-line com CTRL+ALT+C
+noremap <C-A-C> :
+vnoremap <C-A-C> <C-Q>:
+inoremap <C-A-C> <C-O>:
+
+" Busca com CTRL+F
+noremap <C-F> /
+vnoremap <C-F> <C-Q>/
+inoremap <C-F> <C-O>/
+
+" Abre arquivos com CTRL+O
+noremap <C-O> :tabnew 
+vnoremap <C-O> <C-Q>:tabnew 
+inoremap <C-O> <C-O>:tabnew 
+
+" FunÃ§Ã£o que usa o omnicomplete apenas com o CTRL+SPACE
+inoremap <C-SPACE> <C-X><C-O>
+filetype plugin on
+
+"""""""""""""""""""""""""""""
+" Atalhos comuns de teclado "
+"""""""""""""""""""""""""""""
+
+" Permite selecionar com SHIFT + SETA como no Windows
+set selectmode=mouse,key
+set mousemodel=popup
+set keymodel=startsel,stopsel
+set selection=exclusive
+
+" Backspace no modo de visÃ£o apaga a seleÃ§Ã£o
+vnoremap <BS> d
+
+" CTRL-X e SHIFT-Del corta
+vnoremap <C-X> "+x
+vnoremap <S-Del> "+x
+
+" CTRL-C e CTRL-Insert copia
+vnoremap <C-C> "+y
+vnoremap <C-Insert> "+y
+
+" CTRL-V e SHIFT-Insert cola
+noremap <C-V>        "+gP
+noremap <S-Insert>   "+gP
+inoremap <C-V>       <C-O>:set nosi<CR><C-R>+<C-O>:set si<CR>
+inoremap <S-Insert>  <C-R>+
+cnoremap <C-V>       <C-O>:set nosi<CR><C-R>+<C-O>:set si<CR>
+cnoremap <S-Insert>  <C-R>+
+
+" CTRL-S salva
+noremap <C-S>  :update<CR>
+vnoremap <C-S> <C-C>:update<CR>
+inoremap <C-S> <C-O>:update<CR>
+
+" CTRL-Z desfaz
+noremap <C-Z> u
+vnoremap <C-Z> <C-C>u
+inoremap <C-Z> <C-O>u
+
+" CTRL-Y refaz
+noremap <C-Y> <C-R>
+inoremap <C-Y> <C-O><C-R>
+
+" CTRL-A seleciona tudo
+noremap <C-A> gggH<C-O>G
+inoremap <C-A> <C-O>gg<C-O>gH<C-O>G
+cnoremap <C-A> <C-C>gggH<C-O>G
+onoremap <C-A> <C-C>gggH<C-O>G
+snoremap <C-A> <C-C>gggH<C-O>G
+xnoremap <C-A> <C-C>ggVG
+
+" CTRL-F4 fecha a janela
+noremap <C-F4> <C-W>c
+inoremap <C-F4> <C-O><C-W>c
+cnoremap <C-F4> <C-C><C-W>c
+onoremap <C-F4> <C-C><C-W>c
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" OpÃ§Ãµes de plugins (Retire essas linhas se nÃ£o tiver estes plugins) "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax on
+"colorscheme ir_black                                              " Escolhe o tema
+au BufNewFile,BufRead *.txt source ~/.vim/syntax/txt.vim          " Carrega o arquivo de sintaxe para TXT
+
+" Atalhos para plugins
+noremap <F5>  :NERDTree<CR>
+noremap <F7>  :set spell<CR>z=
+inoremap <F5> <C-O>:NERDTree<CR>
+inoremap <F7> <C-O>:set spell<CR><C-O>z=
+
+"""""""""""""""""""""""
+" InformaÃ§Ãµes e dicas "
+"""""""""""""""""""""""
+" Plugins recomendados:
+" - NERDTree :: Lista os arquivos em Ã¡rvore
+" - ir_black :: Colorscheme bem bonito
+" - txt.vim :: Sintaxe para arquivos de texto feito pelo aurelio.net
+" - jquery.vim :: Sintaxe para arquivos jquery.vim
+" - html_autoclosetag :: Fecha as tags HTML automaticamente
+" - snipMate :: Autocompleta funÃ§Ãµes inteiras
+"               Para que o <tab> do snipMate nÃ£o anule o TAB para identar
+"               blocos, edite o arquivo ~/.vim/after/plugin/snipMate.vim
+"               substituindo os mapeamentos 'ino' por 'imap' como no ex.:
+"               imap <silent> <tab> <c-r>=TriggerSnippet()<cr>
+"               imap <silent> <s-tab> <c-r>=BackwardsSnippet()<cr>
+"               imap <silent> <c-r><tab> <c-r>=ShowAvailableSnips()<cr>
+"               Apague todas as linhas comeÃ§adas por 'snor'.
+"
+" Corretor ortogrÃ¡fico em portuguÃªs brasileiro:
+" - FaÃ§a o download do dicionÃ¡rio em: http://www.broffice.org/verortografico/baixar
+" - Descompacte o arquivo
+" - No vim, digite o comando ':mkspell pt pt_BR'
+" - Copie o arquivo pt.utf-8.spl gerado para a pasta ~/.vim/spell/
+" - Ative a correÃ§Ã£o: ':set spell'
+" - Escolha o dicionÃ¡rio: ':set spelllang=pt'
+
+
+
+" Funcoes
+function! FindBconfKey()
+    let key = expand("<cWORD>")
+    let key = substitute(key, "[^a-zA-Z0-9._]\\+", "", "g")
+    echo "Searching: " . key 
+    let options = split(system("grep -n " . key . " $(find conf/bconf/ -type f -name bconf\\.* \| grep -v '/\\.svn/')"), "\n")
+    if len(options) == 0
+        echo "No results found!"
+        return
+    endif
+    let num_options = []
+    for line in options 
+        call add(num_options, ((len(num_options) + 1) . " " . line) )
+    endfor
+    let answer = input(join(num_options, "\n") . "\n")
+    if !empty(answer)
+        let selected = split(options[answer - 1], ":")
+        execute "tabe " . selected[0]
+        execute ":" . selected[1]
+    endif
+endfunction
+noremap <C-b> :call FindBconfKey() <CR>
