@@ -1,13 +1,13 @@
 #!/bin/bash
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Qui 12 Dez 2013 18:59:43 BRST
+# Last Change: Qui 12 Dez 2013 19:07:53 BRST
 ##
 unalias -a
 
 alias vi=vim
 
 if [ -e "$HOME/.bash_alias_work" ]; then
-    source 
+    source "$HOME/.bash_alias_work"
 fi
 
 alias edit-bash_alias-work="vi ~/.bash_alias_work && source ~/.bash_alias_work"

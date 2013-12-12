@@ -42,6 +42,8 @@ case $1 in
     exit
 esac
 
+echo "Copiando os arquivos de ${DIR_SRC}* para $DIR_DST"
+
 # main
 all=0
 for dot in $(find ./ -iname "dot.*"); do {
@@ -77,7 +79,7 @@ for dot in $(find ./ -iname "dot.*"); do {
     fi
 
     echo "rm -rf '$dst'" >> $batch
-    echo "cp -pRfv '$src' '$dst'" >> $batch
+    echo "cp -pRf '$src' '$dst'" >> $batch
 } done
 
 if [ ! -f "$batch" ]; then
