@@ -139,3 +139,5 @@
 	user = jpereira
 	token = token
 
+[credential]
+	helper = cache --timeout=3600
