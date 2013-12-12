@@ -1,6 +1,6 @@
 #!/bin/bash
 # Por Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Ter 06 Ago 2013 11:38:16 BRT
+# Last Change: Qui 12 Dez 2013 18:55:40 BRST
 ##
 
 # Enviroments
@@ -80,11 +80,4 @@ fi
 if [ -x /usr/games/fortune ];then
   /usr/games/fortune /usr/share/games/fortunes/brasil
 fi
-
-# Diretorios de programs personalizados
-for p in /home/programas/*; do
-	PATH="$PATH:$p:$p/bin"
-	export PATH
-done
-
 

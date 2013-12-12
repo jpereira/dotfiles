@@ -1,7 +1,7 @@
 " +------------------------------------------------+
 " File: .vimrc
 " Author: Jorge Pereira <jpereiran@gmail.com>
-" Last Change: Thu 18 Apr 2013 10:40:49 AM BRT
+" Last Change: Qui 12 Dez 2013 18:56:01 BRST
 " +------------------------------------------------+
 
 " coloca a data tipo Ter 26/Out/2004 hs 10:53 na linha atual

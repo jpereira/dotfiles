@@ -1,69 +1,65 @@
 #!/bin/bash
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Ter 10 Dez 2013 14:47:29 BRST
+# Last Change: Qui 12 Dez 2013 18:59:43 BRST
 ##
 unalias -a
 
-alias git.dfh="git df HEAD"
-
-alias cd.bomnegocio="cd ~/bomnegocio.com; ls"
 alias vi=vim
-alias ssh.casa="ssh -l root -p 22 jpereira.homeunix.org"
 
-alias ssh.wifilabs-tunel="ssh -l root wifilabs.mobicare.com.br"
-alias ssh.wifilabs-aptilo="ssh -l root 10.1.2.194"
+if [ -e "$HOME/.bash_alias_work" ]; then
+    source 
+fi
 
-alias ssh.prod-aptilo="ssh -l jpereira 200.151.252.251"
+alias edit-bash_alias-work="vi ~/.bash_alias_work && source ~/.bash_alias_work"
+alias edit-firewall="sudo vi /etc/init.d/firewall"
+alias edit-interfaces="sudo vi /etc/network/interfaces"
 
-alias ssh.net-tunel-gre="ssh -l root 172.16.16.28"
-alias ssh.net-radius="ssh -l root 172.16.16.77"
-
-alias ssh.cpe.devel="ssh -p 6922 -l root 189.122.4.56"
-alias ssh.cpe.stable="ssh -p 6922 -l root 186.215.231.107"
+alias git.dfh="git df HEAD"
 
 alias aircrack-ng='sudo /usr/bin/aircrack-ng'
 alias airodump-ng='sudo /usr/sbin/airodump-ng'
+
 alias aptf='sudo apt-get --force-yes -fy install'
 alias apt-search='apt-cache search'
 alias apt-get='sudo /usr/bin/apt-get'
 alias aptr='sudo apt-get --reinstall --force-yes -fy install'
-alias bateria='yacpi'
+
 alias beep='echo -en "\x07"'
 alias bx='BitchX'
 alias bx.localhost="/usr/bin/BitchX jorge localhost -c \#bash"
-alias cd.amule='cd $HOME/.aMule/Incoming/;ls'
+
 alias cd.blog="cd $HOME/Documents/blog; ls"
-alias cd.cvsroot='cd /home/cvs/cvsroot; ls'
-alias cd.gtk-rdp="cd /projetos/gtk-rdp;ls -l"
-alias cd.kernel='cd /usr/src/linux'
-alias cd.mamona="cd /usr/local/mamona && ls -la"
-alias cd.musics='cd /mnt/misc/musics/;ls '
-alias cd.projeto="cd /projetos;ls -l"
 alias cd.real="cd $(pwd -P); pwd"
-alias cdrom.off='cd ;umount /media/cdrom'
-alias cdrom.on='mount /media/cdrom; cd /media/cdrom; ls'
-alias cdrw.off='cd ;umount /mnt/cdrw'
-alias cdrw.on='mount /dev/cdrw; cd /mnt/cdrw; ls'
 alias cds='cd /etc/init.d/; ls'
 alias cd.src='cd /usr/src && ls'
 alias cfdisk="sudo cfdisk"
 alias chvt='sudo /bin/chvt'
+
 alias cp='cp -iv'
 alias cvshelp='cvs --help-synonyms'
 alias d='ls'
 alias dpkg='sudo /usr/bin/dpkg'
-alias edit-firewall="sudo vi /etc/init.d/firewall"
-alias edit-interfaces="sudo vi /etc/network/interfaces"
+
 alias formatar-cdrw='cdrecord dev=/dev/cdrom blank=fast'
 alias gdb="gdb --silent"
 alias gmplayer='/usr/bin/gmplayer -x 800 -y 600 -zoom'
 alias goterm='chvt 1'
+
 alias grep='grep --color'
 alias halt='sudo halt'
+
 alias iptables='sudo /sbin/iptables'
+
+alias mv='mv -iv'
+alias rm='rm -iv'
+
+alias p='pwd'
+
 alias la='ls -lah'
 alias l='ls -alF'
-alias lockx="/usr/bin/xscreensaver-command -lock"
+alias tm='tail -f /var/log/messages'
+alias v='ls -la'
+
 alias lsc='ls -1 | wc -l | cut -c 7'
 alias lsdir='ls -lh | grep "^d"'
 alias lsd='ls -ladh'
@@ -73,36 +69,35 @@ alias lsiz='ls -alS'
 alias ls='ls --color=auto'
 alias lsnew='ls -lctr'
 alias lsx='ls -lah | grep "^-..x"'
+
+alias lockx="/usr/bin/xscreensaver-command -lock"
 alias lynx-firefox='/usr/bin/lynx -useragent "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.5) Gecko/20070713 Firefox/2.0.0.5 Lynx"'
-alias make.tudo="make all install;sirene"
-alias mount.misc="gnome-mount -p Misc"
-alias mount.movies="gnome-mount -p Movies"
+
 alias mount='sudo /bin/mount'
 alias mouse='killall -9 gpm; sleep 2;sh /etc/rc.boot/gpm'
 alias mpg123='mpg123 -C'
+
 alias mplayer='/usr/bin/mplayer -x 800 -y 600 -zoom'
-alias mv='mv -iv'
+
 alias nautilusx='/usr/bin/nautilus --browser --sync ~'
 alias noback='find . -iname "*~" -exec rm -fv {} \;'
 alias nobeep='setterm -blen 0'
 alias noscanfs='tune2fs -c 0 -i 0 /dev/hda2'
 alias ping='ping -c4'
-alias p='pwd'
+
 alias reboot='sudo /sbin/reboot'
-alias rm='rm -iv'
+
 alias mrxvt="/usr/bin/mrxvt -rv -sr -fn 9x15 -title \"Terminal Mrxvt\" -g 90x30 -cr red -tnum 4"
 alias rsync='rsync -Cdravzp --progress '
 alias scanfs='tune2fs -c 1 -i 1 /dev/hda2'
-alias tm='tail -f /var/log/messages'
-alias tshark='sudo /usr/bin/tshark'
+
 alias umount='sudo /bin/umount'
 alias unbz='tar -xjfv'
 alias unlonck-gnome="killall -9 gnome-screensaver gnome-screensaver-dialog"
 alias untar='tar -xzvf'
 alias visudo='sudo visudo'
-alias v='ls -la'
-alias wgetcookie='wget -c --load-cookies=/home/jorge/.mozilla/firefox/default/cookies.txt'
+
+alias wgetcookie='wget -c --load-cookies=$HOME/.mozilla/firefox/default/cookies.txt'
 alias wireshark='sudo /usr/bin/wireshark'
-alias workbone='/usr/bin/workbone -a'
 alias xterm="/usr/bin/xterm -fg white -bg black -fn 10x20"
 

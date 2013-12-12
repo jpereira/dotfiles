@@ -61,9 +61,9 @@ for dot in $(find ./ -iname "dot.*"); do {
         exit
     fi
 
-    if [ -d "$src" ]; then
-        echo "find $src -type d -iname .git -exec rm -rf {} \;"
-    fi
+    #if [ -d "$src" ]; then
+    #    echo "find $src -type d -iname .git -exec rm -rf {} \;"
+    #fi
 
     if [ "$all" = "0" -a -f "$dst" ];then
         echo -n "AVISO: Arquivo de origem '$dst' existe, continuar? [s/n/A]"
@@ -76,8 +76,8 @@ for dot in $(find ./ -iname "dot.*"); do {
         fi
     fi
 
-    echo "# rm -rf '$dst'" >> $batch
-    echo "# cp -pRfv '$src' '$dst'" >> $batch
+    echo "rm -rf '$dst'" >> $batch
+    echo "cp -pRfv '$src' '$dst'" >> $batch
 } done
 
 if [ ! -f "$batch" ]; then
