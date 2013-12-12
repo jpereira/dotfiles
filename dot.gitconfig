@@ -110,7 +110,7 @@
 	#############
 	w = show
 	#############
-	meldon = config diff.external /home/pkumar/.meld.py
+	meldon = config diff.external ~/bin/meld-git.py
 	meldof = config --remove-section diff
 	#############
 	human = name-rev --name-only --refs=refs/heads/*
@@ -138,3 +138,4 @@
 [github]
 	user = jpereira
 	token = token
+
