@@ -1,6 +1,6 @@
 #!/bin/bash
 # Por Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Sex 13 Dez 2013 16:39:06 BRST
+# Last Change: Sex 13 Dez 2013 17:47:15 BRST
 ##
 
 export PATH="$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
@@ -17,6 +17,14 @@ export SVN_EDITOR="$EDITOR"
 export CVS_EDITOR="$EDITOR"
 #export MALLOC_CHECK_=2
 export ZZPATH="$HOME/bin/funcoeszz"
+
+export LESS_TERMCAP_mb=$'\E[01;31m' \
+       LESS_TERMCAP_md=$'\E[01;38;5;74m' \
+       LESS_TERMCAP_me=$'\E[0m' \
+       LESS_TERMCAP_se=$'\E[0m' \
+       LESS_TERMCAP_so=$'\E[38;5;246m' \
+       LESS_TERMCAP_ue=$'\E[0m' \
+       LESS_TERMCAP_us=$'\E[04;38;5;146m'
 
 # Terminal
 # Alterando a cor do terminal
@@ -36,7 +44,8 @@ parse_git_branch(){
 
 #export PS1="\[\e[44;33;1m\][\e["$high"m\u\e[44;33;1m@\e[44;32m\h \W]\$\[\e[m\] "
 #export PS1="\[\e[44;33;1m\][\e["$high"m\u\e[44;33;1m@\e[44;32m\h \W]\e[47;30m\\$\[\e[m\] "
-export PS1="[\u@\h \W]\\$ "
+#export PS1="[\u@\h \W]\\$ "
+export PS1="$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[01;32m\]\u@\h'; fi)\[\033[01;34m\] \w \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]:(\[\033[01;34m\] \")\$\[\033[00m\] "
 
 case "$TERM" in
   xterm*|rxvt*)
