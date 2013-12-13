@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Qui 12 Dez 2013 19:07:53 BRST
+# Last Change: Sex 13 Dez 2013 13:28:20 BRST
 ##
 unalias -a
 
@@ -31,13 +31,12 @@ alias bx.localhost="/usr/bin/BitchX jorge localhost -c \#bash"
 alias cd.blog="cd $HOME/Documents/blog; ls"
 alias cd.real="cd $(pwd -P); pwd"
 alias cds='cd /etc/init.d/; ls'
-alias cd.src='cd /usr/src && ls'
 alias cfdisk="sudo cfdisk"
 alias chvt='sudo /bin/chvt'
 
 alias cp='cp -iv'
 alias cvshelp='cvs --help-synonyms'
-alias d='ls'
+
 alias dpkg='sudo /usr/bin/dpkg'
 
 alias formatar-cdrw='cdrecord dev=/dev/cdrom blank=fast'
@@ -50,6 +49,7 @@ alias halt='sudo halt'
 
 alias iptables='sudo /sbin/iptables'
 
+alias d='ls'
 alias mv='mv -iv'
 alias rm='rm -iv'
 
@@ -74,7 +74,7 @@ alias lockx="/usr/bin/xscreensaver-command -lock"
 alias lynx-firefox='/usr/bin/lynx -useragent "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.5) Gecko/20070713 Firefox/2.0.0.5 Lynx"'
 
 alias mount='sudo /bin/mount'
-alias mouse='killall -9 gpm; sleep 2;sh /etc/rc.boot/gpm'
+alias restart-mouse='killall -9 gpm; sleep 2;sh /etc/rc.boot/gpm'
 alias mpg123='mpg123 -C'
 
 alias mplayer='/usr/bin/mplayer -x 800 -y 600 -zoom'
