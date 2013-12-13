@@ -1,10 +1,10 @@
-# .bashrc
-export ESCDELAY=0
+#!/bin/bash
+# Author: Jorge Pereira <jpereiran@gmail.com>
+# Data: Sex Dez 13 14:33:34 BRST 2013
+# ###
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
-source ~/.bash_profile
 
-# User specific aliases and functions
