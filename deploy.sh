@@ -15,8 +15,8 @@ if [ -z "$1" ]; then
     cat <<EOF
 Usage: $0 <opcao>
 
-    pull - Copia os arquivos do seu $HOME para $PWD
-    push - Copia os arquivos de $PWD para seu $HOME
+    push- Copia os arquivos do seu $HOME para $PWD
+    pull - Copia os arquivos de $PWD para seu $HOME
 
 EOF
     exit
