@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Seg 16 Dez 2013 14:37:21 BRST
+# Last Change: Qui 23 Jan 2014 18:09:47 BRST
 ##
 unalias -a
 
@@ -39,7 +39,6 @@ alias cvshelp='cvs --help-synonyms'
 
 alias dpkg='sudo /usr/bin/dpkg'
 
-alias formatar-cdrw='cdrecord dev=/dev/cdrom blank=fast'
 alias gdb="gdb --silent"
 alias gmplayer='/usr/bin/gmplayer -x 800 -y 600 -zoom'
 alias goterm='chvt 1'
