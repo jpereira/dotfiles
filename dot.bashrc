@@ -3,12 +3,9 @@
 # Data: Sex Dez 13 14:33:34 BRST 2013
 # ###
 
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
+echo "Carregando .bashrc..."
 
-if [ -f ~/.bash_profile ]; then
-    . ~/.bash_profile
-fi
+# Source global definitions
+[ -f /etc/bashrc ] && . /etc/bashrc
+[ -f ~/.bash_profile ] && . ~/.bash_profile
 
