@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Sex 13 Dez 2013 13:28:20 BRST
+# Last Change: Seg 16 Dez 2013 14:37:21 BRST
 ##
 unalias -a
 
@@ -8,9 +8,9 @@ alias vi=vim
 
 if [ -e "$HOME/.bash_alias_work" ]; then
     source "$HOME/.bash_alias_work"
+    alias edit-alias-work="vi ~/.bash_alias_work && source ~/.bash_alias_work"
 fi
 
-alias edit-bash_alias-work="vi ~/.bash_alias_work && source ~/.bash_alias_work"
 alias edit-firewall="sudo vi /etc/init.d/firewall"
 alias edit-interfaces="sudo vi /etc/network/interfaces"
 
