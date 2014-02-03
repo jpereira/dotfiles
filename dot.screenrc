@@ -1,0 +1,50 @@
+# Author: Jorge Pereira <jpereiran@gmail.com>
+# Last Changes: Thu Jan  3 11:04:12 BRST 2013
+# ##
+
+# inicia por padrao no diretorio abaixo
+shell -$SHELL
+shelltitle "$ |bash"
+#term "screen-256color-bce"
+
+hardstatus on
+hardstatus alwayslastline
+#hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %m/%d %C%a "
+#hardstatus alwayslastline "%{.bW}%{G}[ %{Y}%h %{G}][%{w}%?%-Lw%?%{G}(%{W}%n*%f %t%?(%u)%?%{G})%{w}%?%+Lw%?%?%= %{G}][%{Y} %H %{G}]"
+hardstatus alwayslastline "%{.kW}%{G}[ %{Y}%h %{G}][%{w}%?%-Lw%?%{G}(%{W}%n*%f %t%?(%u)%?%{G})%{w}%?%+Lw%?%?%= %{G}][%{Y} %H %{G}]"
+startup_message off
+
+bind R eval "source $HOME/.screenrc" "echo '.screenrc reloaded!'"
+
+bind ',' prev
+bind '.' next
+bind j focus down
+bind k focus up
+
+# MacOS X
+#bindkey "^[^[[D" prev
+#bindkey "^[^[[C" next
+
+# Linux <CTRL> + (LEFT || RIGHT)
+bindkey "^[[1;5D" prev
+bindkey "^[[1;5C" next
+
+
+# Problems com scrolling resolvidos seguido 
+# http://www.staldal.nu/tech/2009/01/11/how-to-use-mousewheel-in-gnu-screen/comment-page-1/
+defscrollback 5000
+altscreen on
+
+# tabs
+screen -t VIM   0 /bin/bash -c 'vim -p -c "NERDTree"'
+#screen -t bash  1 /bin/bash
+#screen -t bash  2 /bin/bash
+#screen -t bash  3 /bin/bash
+#screen -t pgsql 4 /bin/bash
+
+#screen -t VIM
+screen -t bash
+screen -t bash
+screen -t bash
+screen -t pgsql
+
