@@ -1,8 +1,19 @@
 #!/bin/bash
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Sex 13 Dez 2013 13:58:50 BRST
+# Last Change: Mon 03 Feb 2014 11:07:59 AM BRST
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
+
+screen-killtudo () 
+{ 
+    wins=($(screen -ls | awk '/Detac/ { print $1 }'));
+    for i in ${wins[*]};
+    do
+        echo "screen: Finalizando $i";
+        screen -S "$i" -X quit;
+    done
+}
+
 
 update-alias()
 {
