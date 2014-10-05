@@ -57,6 +57,7 @@ l = log --oneline
 lg = log --oneline --graph --decorate
 #############
 o = checkout
+co = checkout
 ob = checkout -b
 #############
 b = branch
