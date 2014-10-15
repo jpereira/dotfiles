@@ -1,7 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/Users/jorgepereira/Work/NiceExtract/src'
 let g:netrw_dirhist_2='/Users/jorgepereira/Work/atvfile/atv_porting_layer_broadcom7540'
 let g:netrw_dirhist_3='/Users/jpereira'
 let g:netrw_dirhist_4='/Users'
 let g:netrw_dirhist_5='/home/jpereira/Devel/Sputnik'
+let g:netrw_dirhist_6='/home/jorge.pereira/Devel/Mobicare/wifi/NETWIFI/extras/dnsmasq/dnsmasq-2.62'
+let g:netrw_dirhist_7='/home/jorge.pereira/Devel/MobicareWrt/openwrt/trunk.git/package/easycwmp-carrierwrt'
+let g:netrw_dirhist_8='/home/jorge.pereira/Devel/MobiWrt/openwrt/trunk.git/package/mobicare/dhcp-relay/patch'
+let g:netrw_dirhist_9='/tmp/proftpd-dfsg-1.3.4a/contrib'

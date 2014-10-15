@@ -1,12 +1,17 @@
 #!/bin/bash
 # Por Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Seg 16 Dez 2013 11:40:51 BRST
+# Last Change: Seg 25 Ago 2014 17:48:49 BRT
 ##
 
 echo "Carregando .bash_profile..."
 
 export PATH="$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
 #export LC_CTYPE="en_US.iso-8859-1"
+
+export LC_CTYPE="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+
+export LC_COLLATE="C"
 export EMAIL_ADDRESS="jpereiran@gmail.com"
 export CHANGE_LOG_EMAIL_ADDRESS="${EMAIL_ADDRESS}"
 export CHANGE_LOG_NAME="Jorge Pereira"

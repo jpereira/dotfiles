@@ -4,9 +4,13 @@
 # ###
 
 if [ "x$TERM" != "xdumb" ]; then
+
     echo "Carregando .bashrc..."
+
+    export PATH="/bin:/sbin:/usr/bin:/usr/sbin:$PATH"
 
     # Source global definitions
     [ -f /etc/bashrc ] && . /etc/bashrc
     [ -f ~/.bash_profile ] && . ~/.bash_profile
 fi
+
