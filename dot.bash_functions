@@ -1,8 +1,13 @@
 #!/bin/bash
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Mon 03 Feb 2014 11:07:59 AM BRST
+# Last Change: Qua 15 Out 2014 11:28:44 BRT
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
+
+dpkg-purge-all()
+{
+    dpkg --list |grep "^rc" | cut -d " " -f 3 | xargs sudo dpkg --purge
+}
 
 screen-killtudo () 
 { 
@@ -14,6 +19,9 @@ screen-killtudo ()
     done
 }
 
+ssh-alog() {
+    ssh -l jorge.pereira $1.alog.mobicare.com.br
+}
 
 update-alias()
 {

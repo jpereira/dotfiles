@@ -1,8 +1,13 @@
 " +------------------------------------------------+
 " File: .vimrc
 " Author: Jorge Pereira <jpereiran@gmail.com>
-" Last Change: Sex 13 Dez 2013 15:48:11 BRST
+" Last Change: Wed Feb 12 12:52:43 2014
 " +------------------------------------------------+
+
+" corrigindo bug ao abrir vim+nerdtree a partir do screen
+if match($TERM, "screen") !=- 1 || match($TERM, "screen.linux") != -1
+  set term=xterm
+endif
 
 " coloca a data tipo Ter 26/Out/2004 hs 10:53 na linha atual
 iab ,d <C-R>=strftime("%a %d/%b/%Y hs %H:%M")<CR>
