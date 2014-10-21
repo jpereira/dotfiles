@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Qui 23 Jan 2014 18:09:47 BRST
+# Last Change: Tue Oct 21 00:33:40 2014
 ##
 unalias -a
 
@@ -40,13 +40,10 @@ alias cvshelp='cvs --help-synonyms'
 alias dpkg='sudo /usr/bin/dpkg'
 
 alias gdb="gdb --silent"
-alias gmplayer='/usr/bin/gmplayer -x 800 -y 600 -zoom'
 alias goterm='chvt 1'
 
 alias grep='grep --color'
 alias halt='sudo halt'
-
-alias iptables='sudo /sbin/iptables'
 
 alias d='ls'
 alias mv='mv -iv'
@@ -65,38 +62,27 @@ alias lsd='ls -ladh'
 alias lsf='ls -lah | grep "^-"'
 alias lsh='ls -a | grep "^\."'
 alias lsiz='ls -alS'
-alias ls='ls --color=auto'
+alias ls="ls $ARG_LS"
 alias lsnew='ls -lctr'
 alias lsx='ls -lah | grep "^-..x"'
 
 alias lockx="/usr/bin/xscreensaver-command -lock"
 alias lynx-firefox='/usr/bin/lynx -useragent "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.5) Gecko/20070713 Firefox/2.0.0.5 Lynx"'
 
-alias mount='sudo /bin/mount'
-alias restart-mouse='killall -9 gpm; sleep 2;sh /etc/rc.boot/gpm'
-alias mpg123='mpg123 -C'
-
 alias mplayer='/usr/bin/mplayer -x 800 -y 600 -zoom'
 
-alias nautilusx='/usr/bin/nautilus --browser --sync ~'
 alias noback='find . -iname "*~" -exec rm -fv {} \;'
 alias nobeep='setterm -blen 0'
 alias noscanfs='tune2fs -c 0 -i 0 /dev/hda2'
 alias ping='ping -c4'
 
-alias reboot='sudo /sbin/reboot'
-
-alias mrxvt="/usr/bin/mrxvt -rv -sr -fn 9x15 -title \"Terminal Mrxvt\" -g 90x30 -cr red -tnum 4"
 alias rsync='rsync -Cdravzp --progress '
 alias scanfs='tune2fs -c 1 -i 1 /dev/hda2'
 
 alias umount='sudo /bin/umount'
 alias unbz='tar -xjfv'
-alias unlonck-gnome="killall -9 gnome-screensaver gnome-screensaver-dialog"
 alias untar='tar -xzvf'
 alias visudo='sudo visudo'
 
 alias wgetcookie='wget -c --load-cookies=$HOME/.mozilla/firefox/default/cookies.txt'
-alias wireshark='sudo /usr/bin/wireshark'
-alias xterm="/usr/bin/xterm -fg white -bg black -fn 10x20"
 

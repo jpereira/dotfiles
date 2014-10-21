@@ -46,7 +46,7 @@ echo "Copiando os arquivos de ${DIR_SRC}* para $DIR_DST"
 
 # main
 all=0
-for dot in $(find ./ -iname "dot.*"); do {
+for dot in $(find . -iname "dot.*"); do {
     dot="${dot//.\/dot./}"
     src="${DIR_SRC}${dot}"
     dst="${DIR_DST}${dot}"

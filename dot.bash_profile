@@ -1,9 +1,21 @@
 #!/bin/bash
 # Por Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Seg 25 Ago 2014 17:48:49 BRT
+# Last Change: Tue Oct 21 00:40:22 2014
 ##
 
 echo "Carregando .bash_profile..."
+
+case $(uname -s) in
+    Darwin)
+        export LSCOLORS=ExFxCxDxBxegedabagacad
+        export CLICOLOR=1
+        export ARG_LS="-G"
+        export PS1='\[\e[0;33m\]\h:\W \u\$\[\e[m\] '
+    ;;
+
+    *)
+        export ARG_LS="--color=auto"
+esac
 
 export PATH="$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
 #export LC_CTYPE="en_US.iso-8859-1"
@@ -41,8 +53,6 @@ parse_git_branch(){
 	fi
 }
 
-#export PS1="\[\e[44;33;1m\][\e["$high"m\u\e[44;33;1m@\e[44;32m\h \W]\$\[\e[m\] "
-#export PS1="\[\e[44;33;1m\][\e["$high"m\u\e[44;33;1m@\e[44;32m\h \W]\e[47;30m\\$\[\e[m\] "
 export PS1="[\u@\h \W]\\$ "
 
 case "$TERM" in
@@ -69,16 +79,10 @@ for d in ${dots[*]}; do
     fi
 done
 
-# allow xhost
-#if [ $UID != 0 ];then
-#	xhost + 1> /dev/null 2>&1
-#fi
-
 # fortune!
 if [ -x /usr/games/fortune ];then
   /usr/games/fortune /usr/share/games/fortunes/brasil
 fi
 
-#ulimit -c1
 ulimit -c unlimited
 
