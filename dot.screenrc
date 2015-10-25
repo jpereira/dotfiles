@@ -46,5 +46,5 @@ screen -t VIM   0 /bin/bash -c 'vim -p -c "NERDTree"'
 screen -t bash
 screen -t bash
 screen -t bash
-screen -t pgsql
+screen -t bash
 

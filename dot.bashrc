@@ -1,16 +1,17 @@
-#!/bin/bash
 # Author: Jorge Pereira <jpereiran@gmail.com>
 # Data: Sex Dez 13 14:33:34 BRST 2013
 # ###
 
-if [ "x$TERM" != "xdumb" ]; then
+if [ "$TERM" != "dumb" ]; then
 
-    echo "Carregando .bashrc..."
+	export PATH="/opt/radius/bin/:/bin:/sbin:/usr/bin:/usr/sbin:$PATH"
 
-    export PATH="/bin:/sbin:/usr/bin:/usr/sbin:$PATH"
+	# Source global definitions
+	echo "#.bashrc: Carregando /etc/bashrc"
+	[ -f /etc/bashrc ] && . /etc/bashrc
 
-    # Source global definitions
-    [ -f /etc/bashrc ] && . /etc/bashrc
-    [ -f ~/.bash_profile ] && . ~/.bash_profile
+	echo "#.bashrc: Carregando .bash_profile"
+	[ -f ~/.bash_profile ] && source ~/.bash_profile
+
+	echo "feito"
 fi
-

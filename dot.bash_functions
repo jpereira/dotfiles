@@ -1,8 +1,62 @@
-#!/bin/bash
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Qua 15 Out 2014 11:28:44 BRT
+# Last Change: Qua 23 Set 2015 11:52:25 BRT
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
+
+radius-genredis() {
+	local namespace=$1
+	shift
+	local avps=$@
+
+	for avp in ${avps[*]}; do
+		avp_str="$(echo $avp | tr "[A-Z]" "[a-z]" | tr "-" "_")"
+cat <<EOF
+# avp: ${avp}
+${namespace}.get_${avp_str} {
+    update {
+       &${avp} := "%{redis_cache:HGET \"%{Acct-Session-Id}\" \"$avp\"}"
+       &${avp} -= ""
+    }
+}
+
+${namespace}.set_${avp_str} {
+    if (&${avp}) {
+        "%{redis_cache:HSET \"%{Acct-Session-Id}\" $avp \"%{$avp}\"}"
+    }
+}
+
+EOF
+	done
+}
+
+git-update-from-upstream() {
+    set -fx
+    git fetch --all
+    git pull upstream
+    set +fx
+}
+
+git-update-from() {
+    if [ -z "$1" ]; then
+        echo "Qual branch?"
+        return
+    fi
+}
+
+android-toolchain-config() {
+    echo "<android-toolchain-config>"
+    ls -1 ${ANDROID_TOOLCHAIN}
+    echo "</android-toolchain-config>"
+
+    echo -n "Qual toolchain deseja utilizar? "
+    read opt
+    echo "Utilizando a '$opt'"
+
+    export PATH="$PATH_OLD"
+    export PATH="$PATH:$ANDROID_TOOLCHAIN/$opt/prebuilt/linux-x86_64/bin/"
+
+    echo "Novo \$PATH: $PATH"
+}
 
 dpkg-purge-all()
 {
@@ -60,18 +114,18 @@ edit-functions()
 	source $HOME/.bash_functions
 }
 
-function scp-to-casa() {
+scp-to-casa() {
     to=$1
     shift
     echo "Copiando '$@' para $to"
     scp $@ root@jpereira.homeunix.org:$to
 }
 
-function debian-update() {
+debian-update() {
     echo "Atualizando..."
-    apt-get update
-    apt-get dist-upgrade
-    apt-get upgrade
+    apt-get  update 
+    apt-get -fy dist-upgrade
+    apt-get -fy upgrade
 }
 
 man() {
@@ -168,6 +222,10 @@ my-ver()
     lynx -dump -head http://$1
 }
 
+cd.real()
+{
+   cd $(pwd -P); ls -l 
+}
 my-show-size-of-my-home()
 {
     cd ~ && {

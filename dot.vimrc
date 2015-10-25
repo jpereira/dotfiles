@@ -1,9 +1,10 @@
 " +------------------------------------------------+
 " File: .vimrc
 " Author: Jorge Pereira <jpereiran@gmail.com>
-" Last Change: Wed Feb 12 12:52:43 2014
+" Last Change: Seg 06 Jul 2015 15:15:47 BRT
 " +------------------------------------------------+
 
+set modeline
 " corrigindo bug ao abrir vim+nerdtree a partir do screen
 if match($TERM, "screen") !=- 1 || match($TERM, "screen.linux") != -1
   set term=xterm
@@ -16,10 +17,10 @@ iab ,m <jpereiran@gmail.com>
 set textwidth=0
 set title
 set titlestring=%<Nome=%t%m%r%h%w
-\%=
-\BUFFER=%n
-\%(\ %a%)
-\%28([]))
+"\%=
+"\BUFFER=%n
+"\%(\ %a%)
+"\%28([]))
 
 " =============== DATA AUTOMÁTICA ===========================
 " insira na em seus arquivos =   "ultima modificação:"
@@ -130,7 +131,7 @@ call pathogen#helptags()
 map <F5> :NERDTreeToggle<CR>
 
 " Spaces instead of tabs
-set expandtab
+"set expandtab
 
 " Always  set auto indenting on
 set autoindent
@@ -247,7 +248,7 @@ set wrap
 
 " new options
 " navigation
-"autocmd BufEnter * lcd %:p:h
+autocmd BufEnter * lcd %:p:h
 set wildmode=longest:list
 set path=.;~,/usr/include
 set includeexpr=substitute(v:fname,'^\\(.*\\)$','templates/\\1.tmpl',)
