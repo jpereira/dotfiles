@@ -22,6 +22,7 @@ enabled = 1
 autoupdate = 1
 
 [alias]
+ld =  log --pretty=format:\"[%h] %ae, %ar: %s\" --stat
 chlogm =  !sh -c 'git log $1...$2  --pretty=format:\"%s [view commit](http://github.com/$3/$4/commit/%H) \"' -)]
 s = status
 st = status
@@ -143,3 +144,5 @@ token = token
 
 [credential]
 helper = cache --timeout=3600
+[push]
+	default = matching

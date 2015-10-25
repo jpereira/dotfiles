@@ -1,41 +1,29 @@
-#!/bin/bash
 # Por Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Tue Oct 21 00:40:22 2014
+# Last Change: Seg 05 Out 2015 11:54:53 BRT
 ##
+echo "#.bash_profile Carregando"
 
-echo "Carregando .bash_profile..."
-
-case $(uname -s) in
-    Darwin)
-        export LSCOLORS=ExFxCxDxBxegedabagacad
-        export CLICOLOR=1
-        export ARG_LS="-G"
-        export PS1='\[\e[0;33m\]\h:\W \u\$\[\e[m\] '
-    ;;
-
-    *)
-        export ARG_LS="--color=auto"
-esac
-
-export PATH="$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
-#export LC_CTYPE="en_US.iso-8859-1"
+export OS="$(uname -s)"
+export PATH="/opt/radius/bin:$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
+export PATH="~/Devel/Android/Sdk/platform-tools/:$PATH"
+export PATH_OLD="$PATH"
 
 export LC_CTYPE="en_US.UTF-8"
 export LANG="en_US.UTF-8"
-
 export LC_COLLATE="C"
+#export MALLOC_CHECK_=2
+export HISTCONTROL="ignoredups"
+export ESCDELAY=0
+export EDITOR="vim"
+
 export EMAIL_ADDRESS="jpereiran@gmail.com"
 export CHANGE_LOG_EMAIL_ADDRESS="${EMAIL_ADDRESS}"
 export CHANGE_LOG_NAME="Jorge Pereira"
 
-export HISTCONTROL="ignoredups"
-export ESCDELAY=0
-
-export EDITOR="vim"
 export SVN_EDITOR="$EDITOR"
 export CVS_EDITOR="$EDITOR"
-#export MALLOC_CHECK_=2
 export ZZPATH="$HOME/bin/funcoeszz"
+export ANDROID_TOOLCHAIN="/opt/android-ndk/toolchain/toolchains"
 
 # Terminal
 # Alterando a cor do terminal
@@ -57,8 +45,7 @@ export PS1="[\u@\h \W]\\$ "
 
 case "$TERM" in
   xterm*|rxvt*)
-    #export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-    export PROMPT_COMMAND='if [[ $? -ne 0 ]]; then echo  -ne "\033[1;31m:(\033[0m\n";fi'
+    #export PROMPT_COMMAND='if [[ $? -ne 0 ]]; then echo  -ne "\033[1;31m:(\033[0m\n";fi'
   ;;
 
   *)
@@ -69,12 +56,14 @@ esac
 [ -L $HOME/bin -o -d $HOME/bin ] || mkdir -p $HOME/bin
 
 # Carregando alias personalizadas
-dots=(.bash_alias .bash_functions bin/funcoeszz)
+rc_so="~/.bash_profile-$SO"
+dots=(.bash_alias .bash_functions bin/funcoeszz $rc_so)
 
 for d in ${dots[*]}; do
     dot="$HOME/$d"
     #echo "Carregando $dot"
     if [ "$TERM" != "dumb" -a -f "$dot" ];then
+        echo "Carregando $dot"
         source $dot
     fi
 done
@@ -84,5 +73,6 @@ if [ -x /usr/games/fortune ];then
   /usr/games/fortune /usr/share/games/fortunes/brasil
 fi
 
+# always core files
 ulimit -c unlimited
 
