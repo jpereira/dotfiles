@@ -36,13 +36,7 @@ defscrollback 5000
 altscreen on
 
 # tabs
-screen -t VIM   0 /bin/bash -c 'vim -p -c "NERDTree"'
-#screen -t bash  1 /bin/bash
-#screen -t bash  2 /bin/bash
-#screen -t bash  3 /bin/bash
-#screen -t pgsql 4 /bin/bash
-
-#screen -t VIM
+screen -t bash
 screen -t bash
 screen -t bash
 screen -t bash
