@@ -37,6 +37,7 @@ ss = stash save
 #############
 d = diff
 df = diff
+dfh = diff HEAD
 dc = diff --cached
 dk = diff --check
 dck = diff --cached --check
