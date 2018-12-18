@@ -1,8 +1,10 @@
 " +------------------------------------------------+
 " File: .vimrc
 " Author: Jorge Pereira <jpereiran@gmail.com>
-" Last Change: Seg 06 Jul 2015 15:15:47 BRT
+" Last Change: Sun Dec 16 11:41:28 2018
 " +------------------------------------------------+
+
+set backspace=indent,eol,start
 
 set modeline
 " corrigindo bug ao abrir vim+nerdtree a partir do screen
@@ -122,7 +124,7 @@ set bg=dark
 set shiftwidth=4
 
 " 4 stops
-set tabstop=4
+set tabstop=2
 
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
@@ -131,7 +133,7 @@ call pathogen#helptags()
 map <F5> :NERDTreeToggle<CR>
 
 " Spaces instead of tabs
-"set expandtab
+set expandtab
 
 " Always  set auto indenting on
 set autoindent
