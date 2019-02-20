@@ -1,10 +1,19 @@
 [user]
 name = Jorge Pereira
 email = jpereiran@gmail.com
+#email = jpereira@freeradius.org
+#email = jpereira@gnome.org
 
 [core]
 editor = vim
 whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
+[github]
+user = jpereira
+token = token
+
+[credential]
+helper = cache --timeout=3600
 
 [sendemail]
 smtpencryption = tls
@@ -17,6 +26,17 @@ to = git@vger.kernel.org
 [web]
 browser = google-chrome
 
+[push]
+default = matching
+
+# sign all commits by default in any local repository
+[commit]
+gpgsign = true
+
+[core]
+editor = vim
+whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
 [rerere]
 enabled = 1
 autoupdate = 1
@@ -27,6 +47,8 @@ chlogm =  !sh -c 'git log $1...$2  --pretty=format:\"%s [view commit](http://git
 s = status
 st = status
 sb = status -s -b
+#############
+clean-all = clean -fdx
 #############
 sa = stash apply
 sc = stash clear
@@ -93,6 +115,7 @@ psuo = push -u origin
 pluo = pull -u origin
 #############
 rb = rebase
+rb-squash-by-id = rebase -i --autosquash
 #############
 re = reset
 rh = reset HEAD
@@ -138,12 +161,6 @@ whitespace = red reverse
 added = green bold
 changed = yellow bold
 untracked = red bold
+[rebase]
+autosquash = true
 
-[github]
-user = jpereira
-token = token
-
-[credential]
-helper = cache --timeout=3600
-[push]
-	default = matching
