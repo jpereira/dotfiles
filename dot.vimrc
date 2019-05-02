@@ -1,7 +1,7 @@
 " +------------------------------------------------+
 " File: .vimrc
 " Author: Jorge Pereira <jpereiran@gmail.com>
-" Last Change: Sun Dec 16 11:41:28 2018
+" Last Change: qua 23 jan 2019 18:28:53 -02
 " +------------------------------------------------+
 
 set backspace=indent,eol,start
@@ -124,7 +124,7 @@ set bg=dark
 set shiftwidth=4
 
 " 4 stops
-set tabstop=2
+set tabstop=8
 
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
@@ -133,7 +133,7 @@ call pathogen#helptags()
 map <F5> :NERDTreeToggle<CR>
 
 " Spaces instead of tabs
-set expandtab
+"set expandtab
 
 " Always  set auto indenting on
 set autoindent
