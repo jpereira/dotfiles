@@ -42,11 +42,10 @@ enabled = 1
 autoupdate = 1
 
 [alias]
-ld =  log --pretty=format:\"[%h] %ae, %ar: %s\" --stat
-chlogm =  !sh -c 'git log $1...$2  --pretty=format:\"%s [view commit](http://github.com/$3/$4/commit/%H) \"' -)]
 s = status
 st = status
 sb = status -s -b
+cp = cherry-pick
 #############
 clean-all = clean -fdx
 #############
@@ -80,6 +79,12 @@ ac = apply --check
 #############
 l = log --oneline
 lg = log --oneline --graph --decorate
+ld = log --pretty=format:\"[%h] %ae, %ar: %s\" --stat
+ll = log --graph --decorate --simplify-by-decoration
+chlogm =  !sh -c 'git log $1...$2  --pretty=format:\"%s [view commit](http://github.com/$3/$4/commit/%H)\"'
+
+# FreeRadius
+fr-chlogm =  !sh -c 'git log $1...$2  --pretty=format:\"%s [view commit](http://github.com/freeradius/freeradius-server/commit/%H)\"'
 #############
 o = checkout
 co = checkout
@@ -92,6 +97,7 @@ br = branch -r
 #############
 f = fetch
 fo = fetch origin
+fapn = fetch --all -pn
 #############
 fp = format-patch
 #############
@@ -99,17 +105,21 @@ fk = fsck
 #############
 m = merge
 #############
-pr = prune -v
+#pr = prune -v
 #############
 ps = push
+pso = push origin
+psof = push origin -f
 pl = pull
-pb = pull --rebase
+pr = pull --rebase
 psf = push -f
 psu = push -u
 plu = pull -u
 pso = push origin
 plo = pull origin
-pbo = pull --rebase origin
+pro = pull --rebase origin
+pru = pull --rebase upstream
+prum = pull --rebase upstream master
 psfo = push -f origin
 psuo = push -u origin
 pluo = pull -u origin
@@ -119,6 +129,8 @@ rb-squash-by-id = rebase -i --autosquash
 #############
 re = reset
 rh = reset HEAD
+rh1 = reset HEAD^1
+undo = reset HEAD^1
 reh = reset --hard
 rem = reset --mixed
 res = reset --soft

@@ -10,6 +10,10 @@ set print array on
 set print pretty on
 set print union on
 
+#set detach-on-fork off
+#set non-stop off
+#set pagination off
+
 def close_stdout
 call close(1)
 end

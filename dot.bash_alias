@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Qui 20 Ago 2015 18:34:28 BRT
+# Last Change: Wed 24 Apr 2019 09:36:32 PM -03
 ##
 unalias -a
 
@@ -10,6 +10,19 @@ if [ -e "$HOME/.bash_alias_work" ]; then
     echo "Carregando $HOME/.bash_alias_work"
     alias edit-alias-work="vi ~/.bash_alias_work && source ~/.bash_alias_work"
 fi
+
+# docker
+docker-run-prev-container() {
+	set -fx
+
+	prev_container_id="$(docker ps -aq | head -n1)"
+	
+	docker commit "$prev_container_id" "prev_container/$prev_container_id"
+	docker run -it --entrypoint=bash "prev_container/$prev_container_id"
+
+	set +fx
+}
+
 
 # filtra pacotes http
 function tcpdump-http() {
@@ -22,6 +35,19 @@ function tcpdump-http() {
 	set +fx
 }
 
+function cd.rlm() {
+	cd src/modules/rlm_$1
+}
+
+alias router.iperf3="iperf3 -c 192.168.1.254"
+
+alias ssh.aws.ipv4="ssh -i ~/Documents/Pessoais/Keys/SSH/aws-jorge1.pem -l root www.jorgepereira.com.br"
+alias ssh.router="ssh -l root 192.168.1.254"
+
+alias cd.fr="cd ~/Devel/FreeRadius/freeradius-server.git"
+alias cd.gdriver="cd ~/jpereiran@gmail.com; ls -l"
+alias cd.gdriver.fr="cd.gdriver; cd Documents/Work/NetworkRADIUS; ls -l"
+
 alias edit-firewall="sudo vi /etc/init.d/firewall"
 alias edit-interfaces="sudo vi /etc/network/interfaces"
 
@@ -30,14 +56,16 @@ alias git.dfh="git df HEAD"
 alias aircrack-ng='sudo /usr/bin/aircrack-ng'
 alias airodump-ng='sudo /usr/sbin/airodump-ng'
 
-alias aptf='sudo apt-get --force-yes -fy install'
+alias apt="sudo apt"
+
+alias aptf='apt install'
+alias aptr='apt --reinstall install'
+
 alias apt-search='apt-cache search'
-alias apt-get='sudo /usr/bin/apt-get'
-alias aptr='sudo apt-get --reinstall --force-yes -fy install'
+alias apt-get='sudo apt-get'
 
 alias beep='echo -en "\x07"'
 alias bx='BitchX'
-alias bx.localhost="/usr/bin/BitchX jorge localhost -c \#bash"
 
 alias cd.blog="cd $HOME/Documents/blog; ls"
 alias cds='cd /etc/init.d/; ls'

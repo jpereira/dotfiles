@@ -1,7 +1,60 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Qua 23 Set 2015 11:52:25 BRT
+# Last Change: ter 16 abr 2019 21:00:29 -03
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
+git-remote2ssh() {
+  git remote -v | awk '/\(fetch\)$/ {
+    gsub("https://github.com/", "git@github.com:", $2)
+
+    printf("git remote set-url %s %s\n", $1, $2)
+  }'
+}
+
+show-wifi() {
+	watch -n2 'nmcli -f "CHAN,BARS,SIGNAL,SSID" d wifi list'
+}
+
+cleanup-ssh-sessions() {
+	rm -fv ~/.ssh/sessions/*
+}
+
+cleanup-snap() {
+
+	snap list --all | awk '/disabled/{print $1, $3}' | \
+	while read snapname revision; do
+		sudo snap remove "$snapname" --revision="$revision"
+	done
+}
+
+parse_git_branch() {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+function update-resolvconf2google8888 (){
+	echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
+	cat /etc/resolv.conf
+	echo "------------- testing"
+	ping -c2 www.google.com.br
+}
+
+function vim-to-html() {
+   local in="$1"
+
+   if [ -z "$in" ]; then
+       echo "Usage: $0 </path/caipirinha.c>"
+       return
+   fi
+
+   echo "Converting $in to HTML ${in}.html" 
+
+   vim -c "let g:html_no_progress = 1" -c "set bg=dark" -c TOhtml -c "w!" -c 'qa!' $in
+}
+
+radius-get_def() {
+#    [ -n "$1" ] && d="$1" || d="src/"
+
+    grep --color '"'$1'"' -r src/
+}
 
 radius-genredis() {
 	local namespace=$1
@@ -29,6 +82,17 @@ EOF
 	done
 }
 
+git-commit-all-as-Update() {
+	git status | awk '/modified/ { printf("git ci -m \"Update %s\" %s\n",$2,$2); }'
+}
+
+git-commit-fixup() {
+	git status | grep "modified:" | while read _notinuse _file; do
+		_hash=$(git log --oneline --pretty=format:"%h" -1 $_file)
+		echo "git commit --fixup $_hash $_file"
+	done
+
+}
 git-update-from-upstream() {
     set -fx
     git fetch --all
@@ -154,11 +218,11 @@ function html_onlyField()
     grep "$str" $2 | sed "s/.* $str\"//g; s/\".*$//g; /^$/d" | sort -n | uniq
 }
 
-function ipc_clean() {
-	echo -n "(*) Cleaning semaphores..."
-	ipcs -s | awk '/[0-9]/ { print $2}' | while read a; do ipcrm -s $a; done
-	echo "ok"
-}
+#function ipc_clean() {
+	#echo -n "(*) Cleaning semaphores..."
+	#ipcs -s | awk '/[0-9]/ { print $2}' | while read a; do ipcrm -s $a; done
+	#echo "ok"
+#}
 
 html_scape()
 {

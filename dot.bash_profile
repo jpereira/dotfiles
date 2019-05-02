@@ -1,13 +1,14 @@
 # Por Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Seg 05 Out 2015 11:54:53 BRT
+# Last Change: qui 18 abr 2019 18:05:12 -03
 ##
 echo "#.bash_profile Carregando"
 
 export OS="$(uname -s)"
-export PATH="/opt/radius/bin:$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
+export PATH="/opt/radius/bin:$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/snap/bin"
 export PATH="~/Devel/Android/Sdk/platform-tools/:$PATH"
 export PATH_OLD="$PATH"
 
+export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export LC_COLLATE="C"
@@ -24,6 +25,9 @@ export SVN_EDITOR="$EDITOR"
 export CVS_EDITOR="$EDITOR"
 export ZZPATH="$HOME/bin/funcoeszz"
 export ANDROID_TOOLCHAIN="/opt/android-ndk/toolchain/toolchains"
+
+#export GIT_CURL_VERBOSE=1
+#export GIT_TRACE=1
 
 # Terminal
 # Alterando a cor do terminal
@@ -67,6 +71,14 @@ for d in ${dots[*]}; do
         source $dot
     fi
 done
+
+if [ -n "$DISPLAY" ]; then
+  if [ -f ~/.Xmodmap ]; then
+    #echo "Loading ~/.Xmodmap"
+    xmodmap ~/.Xmodmap
+  fi
+fi
+
 
 # fortune!
 if [ -x /usr/games/fortune ];then
