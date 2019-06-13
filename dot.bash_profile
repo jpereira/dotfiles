@@ -1,10 +1,10 @@
 # Por Jorge Pereira <jpereiran@gmail.com>
-# Last Change: qui 18 abr 2019 18:05:12 -03
+# Last Change: Thu 13 Jun 2019 11:37:17 AM -03
 ##
 echo "#.bash_profile Carregando"
 
 export OS="$(uname -s)"
-export PATH="/opt/radius/bin:$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/snap/bin"
+export PATH="/opt/bin:$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/snap/bin"
 export PATH="~/Devel/Android/Sdk/platform-tools/:$PATH"
 export PATH_OLD="$PATH"
 
