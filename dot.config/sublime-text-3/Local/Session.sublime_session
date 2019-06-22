@@ -1,0 +1,1182 @@
+{
+	"folder_history":
+	[
+	],
+	"last_version": 3207,
+	"last_window_id": 3,
+	"log_indexing": false,
+	"settings":
+	{
+		"new_window_height": 480.0,
+		"new_window_settings":
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+					[
+						"cid",
+						"cidr_list"
+					],
+					[
+						"pulse",
+						"pulse_shit"
+					],
+					[
+						"uint",
+						"uint32_t"
+					],
+					[
+						"docker",
+						"docker_image"
+					]
+				]
+			},
+			"build_system_choices":
+			[
+			],
+			"build_varint": "",
+			"command_palette":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"console":
+			{
+				"height": 0.0,
+				"history":
+				[
+				]
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"file_history":
+			[
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/lib/server/xlat_eval.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/tests/modules/cache_rbtree/cache-method-update.unlang",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/tests/modules/cache_rbtree/cache-method-logic.unlang",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/r.sh",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/repl.sh",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/tests/daemon/all.mk",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/lib/server/tmpl.h",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/raddb/mods-available/cache",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/modules/rlm_cache/rlm_cache.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/tests/modules/cache_rbtree/cache-method-bin.unlang",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/modules/rlm_cache/rlm_cache.c",
+				"/opt/docker-rootfs/freeradius/freeradius4/etc/raddb/mods-enabled/cache",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/bin/build.",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/bin/build.sh",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/tests/modules/cache_rbtree/cache-method-bin.attrs",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/tests/modules/cache_rbtree/cache-method-logic.attrs",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/tests/modules/cache_rbtree/cache-method-update.attrs",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/bin/start-devbox-freeradius.sh",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/Dockerfile.deps-ubuntu_1804",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/Makefile",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/modules/rlm_eap/types/rlm_eap_pwd/const_time.h",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/bin/radsniff.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/modules/cache_rbtree/cache-method-logic.unlang",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/keywords/all.mk",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/Dockerfile.deps-ubuntu_1604",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/scripts/docker/build-ubuntu18/Dockerfile",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/scripts/docker/build-ubuntu18/Dockerfile.deps",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/scripts/docker/build-ubuntu18/Dockerfile.jenkins",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/scripts/travis/eapol_test-build.sh",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/scripts/travis/build.sh",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/raddb/mods-available/cache",
+				"/home/jpereira/jpereiran@gmail.com/Documents/Work/NetworkRADIUS/Projects/SAPO/etc/raddb/scripts/ProxyCheck.py",
+				"/opt/ps-pulse-linux/run.sh",
+				"/home/jpereira/Devel/github-jpereira/sandbox/pulse-vpn-client-ubuntu1904.sh",
+				"/home/jpereira/jpereiran@gmail.com/Documents/Work/NetworkRADIUS/Projects/SAPO/etc/raddb/scripts/test.sh",
+				"/home/jpereira/jpereiran@gmail.com/Documents/Work/NetworkRADIUS/Projects/SAPO/etc/raddb/scripts/ProxyCheck.sh",
+				"/home/jpereira/Devel/github-jpereira/sandbox/run.sh",
+				"/opt/apps/pulse/run.sh",
+				"/opt/apps/pulse/resolv-deps.sh",
+				"/opt/downloads/usr/local/pulse/PulseClient_x86_64.sh",
+				"/home/jpereira/jpereiran@gmail.com/Documents/Work/NetworkRADIUS/Projects/SAPO/script/sapo.py",
+				"/home/jpereira/jpereiran@gmail.com/Documents/Work/NetworkRADIUS/Projects/SAPO/script/load-database.py",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/bin/start-docker-infra.sh",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/bin/run-radtest.sh",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/README.md",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/modules/rlm_cache/rlm_cache.h",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/lib/server/map.h",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/modules/cache_rbtree/cache-update.unlang",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/modules/cache_rbtree/module.conf",
+				"/opt/docker-rootfs/freeradius/freeradius4/etc/raddb/sites-enabled/default",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/bin/start-docker-build-deps.sh",
+				"/home/jpereira/Devel/FreeRadius/bin/run-radtest.sh",
+				"/opt/docker-rootfs/freeradius/freeradius4/etc/raddb/mods-available/cache",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/modules/cache_rbtree/cache-logic.unlang",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/modules/cache_rbtree/map.attrs",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/modules/cache_rbtree/cache-update.attrs",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/modules/cache_rbtree/cache-logic.attrs",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/modules/cache_rbtree/cache-bin.unlang",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/modules/cache_rbtree/cache-bin.attrs",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/modules/cache_rbtree/all.mk",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/raddb/sites-available/tls-cache",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/raddb/policy.d/eap",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/raddb/mods-available/cache_eap",
+				"/home/jpereira/Devel/FreeRadius/run-radtest.sh",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/raddb/mods-available/json",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/raddb/radiusd.conf",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/lib/util/proto.c",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/Dockerfile.infra",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/bin/run-docker-infra.sh",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/bin/entrypoint-infra.sh",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/bin/run-docker-build-deps.sh",
+				"/home/jpereira/Devel/FreeRadius/run-docker-infra.sh",
+				"/opt/docker-rootfs/freeradius/freeradius4/etc/raddb/mods-config/files/authorize",
+				"/opt/docker-rootfs/freeradius/freeradius4/etc/raddb/mods-enabled/files",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/modules/rlm_files/rlm_files.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/lib/unlang/interpret.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/lib/server/cond_eval.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/lib/server/main_loop.c",
+				"/home/jpereira/Devel/FreeRadius/docker/Dockerfile.infra",
+				"/home/jpereira/Devel/FreeRadius/docker/infra/Makefile",
+				"/home/jpereira/jpereiran@gmail.com/Documents/Work/NetworkRADIUS/Projects/Heriot-Watt University/desc.txt",
+				"/home/jpereira/jpereiran@gmail.com/Documents/Work/NetworkRADIUS/Projects/Heriot-Watt University/eduroam3/etc/raddb/policy.d/filter",
+				"/home/jpereira/jpereiran@gmail.com/Documents/Work/NetworkRADIUS/Projects/Heriot-Watt University/eduroam3/etc/raddb/sites-available/default",
+				"/home/jpereira/jpereiran@gmail.com/Documents/Work/NetworkRADIUS/Projects/Heriot-Watt University/eduroam3/etc/raddb/sites-enabled/default",
+				"/home/jpereira/.ssh/config",
+				"/home/jpereira/Devel/FreeRadius/docker/freeradius-server/Dockerfile.infra",
+				"/home/jpereira/Devel/FreeRadius/docker/README.md",
+				"/home/jpereira/Devel/FreeRadius/docker/entrypoint-infra.sh",
+				"/home/jpereira/Devel/FreeRadius/docker/Dockerfile.deps",
+				"/home/jpereira/Devel/FreeRadius/run-docker.sh",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-v3.0.x.git/src/main/mainconfig.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-v3.0.x.git/src/main/threads.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-v3.0.x.git/src/include/radiusd.h",
+				"/home/jpereira/.local/share/applications/windows10.desktop"
+			],
+			"find":
+			{
+				"height": 33.0
+			},
+			"find_in_files":
+			{
+				"height": 0.0,
+				"where_history":
+				[
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+					"expire",
+					"cache_it",
+					"merge",
+					"cache_update",
+					">hits",
+					"cache.load",
+					"c->hits",
+					"_load",
+					"attr_cache_entry_hits",
+					"FR_CACHE_ENTRY_HITS",
+					"cache_bin_key_octets",
+					"cache.",
+					"cache_update",
+					"-w",
+					"apt-get update",
+					"wget",
+					"bionic",
+					"time",
+					"CLANG",
+					"cache_inser",
+					"merge",
+					"cache_acquire",
+					"cache_ref",
+					"cache_set_ttl",
+					"ttl",
+					"set_tt",
+					"merge",
+					"cache.delete",
+					"true",
+					"mod_method_delete",
+					"cache_merge",
+					"\n\t\t",
+					"denied_cidr_list",
+					"ln",
+					"-w",
+					"jpereiran/sanddockers:devbox-freeradius-server",
+					"dist-",
+					"cache_ref2",
+					"rlm_cache_handle_t *handle = NULL",
+					"TMPL_VERIFY",
+					"rlm_cache_handle_t *handle;",
+					"cache_ref2",
+					"cache_unref",
+					"_delete",
+					"cache_ref2",
+					"_status",
+					"cache_unref(request, inst, &ref);",
+					"cache_find",
+					"cache_it",
+					"NOTFOUND",
+					"like ne",
+					"mod_method_store",
+					"ref.entry->key",
+					"ref.entry->key_len",
+					"cache_unprep",
+					"cache_prep",
+					"rlm_cache_entry_t",
+					"rlm_cache_bucket_t",
+					"CACHE_BUCKET_INIT",
+					"bkt",
+					"rlm_cache_bucket_t",
+					"CACHE_BUCKET_INIT",
+					"_store",
+					"cache_unload_bucket",
+					"cache_load_bucket",
+					"cache.lookup",
+					"cache",
+					"mod_method_add",
+					"mod_method_lookup",
+					"bkt.key",
+					"bkt.key_len",
+					"ry->key_len",
+					"bkt.key",
+					"cache_it",
+					"_statu",
+					"stats",
+					"FR_CACHE_ENTRY_HITS",
+					"hits",
+					"hit",
+					"cache_set_ttl",
+					"ttl",
+					"cache.merge.new",
+					"cache_insert",
+					"rlm_cache_redis",
+					"rlm_cache_rbtree",
+					"ttl",
+					"```",
+					"cache_tls_session",
+					"cache_eap",
+					"rad_assert(bkt.entry",
+					"mod_method_lookup",
+					"set_ttl",
+					"bkt.exists",
+					"rad_ass",
+					"bkt.exists",
+					"merge",
+					"Updated entry TTL",
+					"ttl",
+					"CACHE_COMMON_INIT",
+					"rlm_cache_common_t",
+					"bkt",
+					"_bucket",
+					"FR_CACHE",
+					"FR_CACHE_ENTRY_HITS",
+					"Update",
+					"cache_insert",
+					"merge",
+					"cache_insert",
+					"mod_cache_it",
+					"fr_proto_tlv_stack_print",
+					"stk:",
+					"open(",
+					"getusersfile",
+					"filename",
+					"usersfile",
+					"files",
+					"authenticate pap",
+					":State",
+					"cache",
+					"&request:State",
+					"recv Access-Request",
+					"accept",
+					"EVAL_DEBUG",
+					"WATCHDOG",
+					"sd_watchdog_event",
+					"/usr/local/src/repositories",
+					"8",
+					"llvm8"
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+					"cache.clear",
+					"mod_method_clear",
+					"cache_ref",
+					"rlm_cache_handle_t *handle;",
+					"rlm_cache_handle_t *handle = NULL;",
+					"cache_unref(request, inst, ref.entry, ref.handle);",
+					"cache_unref(request, inst, ref->entry, ref->handle);",
+					"ref.key",
+					"ref.key_len",
+					"cache_unref",
+					"cache_ref",
+					"rlm_cache_ref_t",
+					"CACHE_REF_INIT",
+					"ref",
+					"rlm_cache_ref_t",
+					"CACHE_REF_INIT",
+					"cache_unprep",
+					"cache_prep",
+					"cache_load_prep",
+					"cache.load",
+					"mod_method_store",
+					"mod_method_load",
+					"bkt.entry->key",
+					"bkt->entry->key",
+					"bkt->entry->key_len",
+					"bkt->entry->key",
+					"rlm_cache_rbtree",
+					"rlm_cache_redis",
+					"bkt.entry",
+					"bkt->entry",
+					"CACHE_BUCKET_INIT",
+					"rlm_cache_bucket_t",
+					"cmn",
+					"_common",
+					"/opt/src",
+					"${clangver}",
+					"llvm${clangver}"
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"incremental_find":
+			{
+				"height": 33.0
+			},
+			"input":
+			{
+				"height": 0.0
+			},
+			"menu_visible": true,
+			"output.find_results":
+			{
+				"height": 0.0
+			},
+			"pinned_build_system": "",
+			"replace":
+			{
+				"height": 62.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_symbol":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"show_minimap": true,
+			"show_open_files": false,
+			"show_tabs": true,
+			"side_bar_visible": true,
+			"side_bar_width": 150.0,
+			"status_bar_visible": true,
+			"template_settings":
+			{
+			}
+		},
+		"new_window_width": 640.0
+	},
+	"windows":
+	[
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+					[
+						"server",
+						"server_name"
+					],
+					[
+						"cid",
+						"cidr_list"
+					],
+					[
+						"pulse",
+						"pulse_shit"
+					],
+					[
+						"uint",
+						"uint32_t"
+					],
+					[
+						"docker",
+						"docker_image"
+					]
+				]
+			},
+			"buffers":
+			[
+				{
+					"file": "/opt/docker-rootfs/freeradius/freeradius4/etc/raddb/sites-enabled/default",
+					"settings":
+					{
+						"buffer_size": 41568,
+						"encoding": "UTF-8",
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/modules/proto_radius/proto_radius_udp.c",
+					"settings":
+					{
+						"buffer_size": 16433,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/lib/io/network.c",
+					"settings":
+					{
+						"buffer_size": 40076,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/modules/proto_radius/proto_radius_tcp.c",
+					"settings":
+					{
+						"buffer_size": 17770,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/lib/io/master.c",
+					"settings":
+					{
+						"buffer_size": 75943,
+						"encoding": "UTF-8",
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/modules/proto_control/radmin.c",
+					"settings":
+					{
+						"buffer_size": 23481,
+						"encoding": "UTF-8",
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/jpereira/jpereiran@gmail.com/Documents/Work/NetworkRADIUS/Projects/Shreveport/draft.txt",
+					"settings":
+					{
+						"buffer_size": 2964,
+						"encoding": "UTF-8",
+						"line_ending": "Unix"
+					}
+				}
+			],
+			"build_system": "",
+			"build_system_choices":
+			[
+			],
+			"build_varint": "",
+			"command_palette":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"console":
+			{
+				"height": 0.0,
+				"history":
+				[
+				]
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"file_history":
+			[
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/scripts/travis/build.sh",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/bin/build.sh",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/+1529",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/modules/proto_control/radmin.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/modules/rlm_cache/rlm_cache.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/modules/rlm_cache/serialize.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/lib/server/xlat_tokenize.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/lib/server/cf_parse.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/lib/server/cf_file.c",
+				"/home/jpereira/Devel/FreeRadius/r.sh",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/bin/build.envs",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/scripts/docker/build-ubuntu16/Dockerfile.deps",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/scripts/travis/Dockerfile",
+				"/opt/docker-rootfs/freeradius/freeradius4/etc/raddb/sites-enabled/control-socket",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/bin/radclient.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/tests/config/test.conf",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/tests/Makefile",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/lib/server/cond_eval.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/lib/server/cond_tokenize.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/lib/unlang/compile.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/lib/server/tmpl.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/lib/server/map.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/lib/server/cond_eval.",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/bin/radmin.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/raddb/sites-available/control-socket",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/tests/eapol_test/all.mk",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/lib/server/virtual_servers.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/raddb/mods-available/logtee",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-v3.0.x.git/raddb/sites-available/control-socket",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/bin/radwho.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-v3.0.x.git/src/main/radmin.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/lib/server/paircmp.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/raddb/radiusd.conf",
+				"/home/jpereira/.ssh/config",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/lib/server/xlat_eval.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/tests/modules/cache_rbtree/cache-method-update.unlang",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/tests/modules/cache_rbtree/cache-method-logic.unlang",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/r.sh",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/repl.sh",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/tests/daemon/all.mk",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/lib/server/tmpl.h",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/raddb/mods-available/cache",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/tests/modules/cache_rbtree/cache-method-bin.unlang",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/modules/rlm_cache/rlm_cache.c",
+				"/opt/docker-rootfs/freeradius/freeradius4/etc/raddb/mods-enabled/cache",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/bin/build.",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/tests/modules/cache_rbtree/cache-method-bin.attrs",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/tests/modules/cache_rbtree/cache-method-logic.attrs",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/tests/modules/cache_rbtree/cache-method-update.attrs",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/bin/start-devbox-freeradius.sh",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/Dockerfile.deps-ubuntu_1804",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/Makefile",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/modules/rlm_eap/types/rlm_eap_pwd/const_time.h",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/bin/radsniff.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/modules/cache_rbtree/cache-method-logic.unlang",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/keywords/all.mk",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/Dockerfile.deps-ubuntu_1604",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/scripts/docker/build-ubuntu18/Dockerfile",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/scripts/docker/build-ubuntu18/Dockerfile.deps",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/scripts/docker/build-ubuntu18/Dockerfile.jenkins",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/scripts/travis/eapol_test-build.sh",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/scripts/travis/build.sh",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/raddb/mods-available/cache",
+				"/home/jpereira/jpereiran@gmail.com/Documents/Work/NetworkRADIUS/Projects/SAPO/etc/raddb/scripts/ProxyCheck.py",
+				"/opt/ps-pulse-linux/run.sh",
+				"/home/jpereira/Devel/github-jpereira/sandbox/pulse-vpn-client-ubuntu1904.sh",
+				"/home/jpereira/jpereiran@gmail.com/Documents/Work/NetworkRADIUS/Projects/SAPO/etc/raddb/scripts/test.sh",
+				"/home/jpereira/jpereiran@gmail.com/Documents/Work/NetworkRADIUS/Projects/SAPO/etc/raddb/scripts/ProxyCheck.sh",
+				"/home/jpereira/Devel/github-jpereira/sandbox/run.sh",
+				"/opt/apps/pulse/run.sh",
+				"/opt/apps/pulse/resolv-deps.sh",
+				"/opt/downloads/usr/local/pulse/PulseClient_x86_64.sh",
+				"/home/jpereira/jpereiran@gmail.com/Documents/Work/NetworkRADIUS/Projects/SAPO/script/sapo.py",
+				"/home/jpereira/jpereiran@gmail.com/Documents/Work/NetworkRADIUS/Projects/SAPO/script/load-database.py",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/bin/start-docker-infra.sh",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/bin/run-radtest.sh",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/README.md",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/modules/rlm_cache/rlm_cache.h",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/lib/server/map.h",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/modules/cache_rbtree/cache-update.unlang",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/modules/cache_rbtree/module.conf",
+				"/opt/docker-rootfs/freeradius/freeradius4/etc/raddb/sites-enabled/default",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/bin/start-docker-build-deps.sh",
+				"/home/jpereira/Devel/FreeRadius/bin/run-radtest.sh",
+				"/opt/docker-rootfs/freeradius/freeradius4/etc/raddb/mods-available/cache",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/modules/cache_rbtree/cache-logic.unlang",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/modules/cache_rbtree/map.attrs",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/modules/cache_rbtree/cache-update.attrs",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/modules/cache_rbtree/cache-logic.attrs",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/modules/cache_rbtree/cache-bin.unlang",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/modules/cache_rbtree/cache-bin.attrs",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/tests/modules/cache_rbtree/all.mk",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/raddb/sites-available/tls-cache",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/raddb/policy.d/eap",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/raddb/mods-available/cache_eap",
+				"/home/jpereira/Devel/FreeRadius/run-radtest.sh",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/raddb/mods-available/json",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/raddb/radiusd.conf",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/lib/util/proto.c",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/Dockerfile.infra",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/bin/run-docker-infra.sh",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/bin/entrypoint-infra.sh",
+				"/home/jpereira/Devel/FreeRadius/sanddockers.git/freeradius-server/bin/run-docker-build-deps.sh",
+				"/home/jpereira/Devel/FreeRadius/run-docker-infra.sh",
+				"/opt/docker-rootfs/freeradius/freeradius4/etc/raddb/mods-config/files/authorize",
+				"/opt/docker-rootfs/freeradius/freeradius4/etc/raddb/mods-enabled/files",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/modules/rlm_files/rlm_files.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/lib/unlang/interpret.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/lib/server/cond_eval.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-master.git/src/lib/server/main_loop.c",
+				"/home/jpereira/Devel/FreeRadius/docker/Dockerfile.infra",
+				"/home/jpereira/Devel/FreeRadius/docker/infra/Makefile",
+				"/home/jpereira/jpereiran@gmail.com/Documents/Work/NetworkRADIUS/Projects/Heriot-Watt University/desc.txt",
+				"/home/jpereira/jpereiran@gmail.com/Documents/Work/NetworkRADIUS/Projects/Heriot-Watt University/eduroam3/etc/raddb/policy.d/filter",
+				"/home/jpereira/jpereiran@gmail.com/Documents/Work/NetworkRADIUS/Projects/Heriot-Watt University/eduroam3/etc/raddb/sites-available/default",
+				"/home/jpereira/jpereiran@gmail.com/Documents/Work/NetworkRADIUS/Projects/Heriot-Watt University/eduroam3/etc/raddb/sites-enabled/default",
+				"/home/jpereira/Devel/FreeRadius/docker/freeradius-server/Dockerfile.infra",
+				"/home/jpereira/Devel/FreeRadius/docker/README.md",
+				"/home/jpereira/Devel/FreeRadius/docker/entrypoint-infra.sh",
+				"/home/jpereira/Devel/FreeRadius/docker/Dockerfile.deps",
+				"/home/jpereira/Devel/FreeRadius/run-docker.sh",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-v3.0.x.git/src/main/mainconfig.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-v3.0.x.git/src/main/threads.c",
+				"/home/jpereira/Devel/FreeRadius/freeradius-server-v3.0.x.git/src/include/radiusd.h",
+				"/home/jpereira/.local/share/applications/windows10.desktop"
+			],
+			"find":
+			{
+				"height": 28.0
+			},
+			"find_in_files":
+			{
+				"height": 0.0,
+				"where_history":
+				[
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+					"exit_status",
+					"strdup",
+					"do_connect",
+					"server",
+					"file",
+					"-s",
+					"server",
+					"strdup",
+					"map->lhs->type != TMPL_TYPE_ATTR",
+					"(vpt->type != TMPL_TYPE_ATTR)",
+					"tmpl_type_",
+					"cf_file_read",
+					"cf_pair_alloc",
+					"cs_all",
+					"goto fail;",
+					"cf_section_alloc",
+					"cs",
+					"*cs",
+					"talloc_free",
+					"clang",
+					"clangver",
+					"(mutated->rhs->type == TMPL_TYPE_LIST)",
+					")_UNDEF",
+					")_STRU",
+					"g",
+					"listen se",
+					"ctx",
+					"cmd_table",
+					"cmd_exit",
+					"quit",
+					"cmd_exit",
+					"ctx",
+					"cmd_exit",
+					"quit",
+					"cache.",
+					"filename",
+					"testdir",
+					"name",
+					"PORT",
+					"test.conf",
+					"radiusd.conf",
+					"unix",
+					"\"server\"",
+					"cf_section_find_next",
+					"type",
+					"paircmp_t",
+					"cf_section_",
+					"fr_dict_internal_afrom_file",
+					"int main",
+					"dict",
+					"fr_dict_internal_afrom_file",
+					"fr_check_lib_magic",
+					"fr_dict_internal_afrom_file",
+					"fr_dict_",
+					"fr_dict_internal_afrom_file",
+					"expire",
+					"cache_it",
+					"merge",
+					"cache_update",
+					">hits",
+					"cache.load",
+					"c->hits",
+					"_load",
+					"attr_cache_entry_hits",
+					"FR_CACHE_ENTRY_HITS",
+					"cache_bin_key_octets",
+					"cache.",
+					"cache_update",
+					"-w",
+					"apt-get update",
+					"wget",
+					"bionic",
+					"time",
+					"CLANG",
+					"cache_inser",
+					"merge",
+					"cache_acquire",
+					"cache_ref",
+					"cache_set_ttl",
+					"ttl",
+					"set_tt",
+					"merge",
+					"cache.delete",
+					"true",
+					"mod_method_delete",
+					"cache_merge",
+					"\n\t\t",
+					"denied_cidr_list",
+					"ln",
+					"-w",
+					"jpereiran/sanddockers:devbox-freeradius-server",
+					"dist-",
+					"cache_ref2",
+					"rlm_cache_handle_t *handle = NULL",
+					"TMPL_VERIFY",
+					"rlm_cache_handle_t *handle;",
+					"cache_ref2",
+					"cache_unref",
+					"_delete",
+					"cache_ref2",
+					"_status",
+					"cache_unref(request, inst, &ref);",
+					"cache_find",
+					"cache_it",
+					"NOTFOUND",
+					"like ne",
+					"mod_method_store",
+					"ref.entry->key",
+					"ref.entry->key_len",
+					"cache_unprep",
+					"cache_prep",
+					"rlm_cache_entry_t",
+					"rlm_cache_bucket_t",
+					"CACHE_BUCKET_INIT",
+					"bkt",
+					"rlm_cache_bucket_t",
+					"CACHE_BUCKET_INIT",
+					"_store",
+					"cache_unload_bucket",
+					"cache_load_bucket",
+					"cache.lookup",
+					"cache",
+					"mod_method_add",
+					"mod_method_lookup",
+					"bkt.key",
+					"bkt.key_len",
+					"ry->key_len",
+					"bkt.key"
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+					"!tmpl_is_attr(map->lhs)",
+					"!tmpl_is_attr(vpt)",
+					"goto error;",
+					"TALLOC_FREE",
+					"tmpl_is_list(mutated->rhs)",
+					"cache.clear",
+					"mod_method_clear",
+					"cache_ref",
+					"rlm_cache_handle_t *handle;",
+					"rlm_cache_handle_t *handle = NULL;",
+					"cache_unref(request, inst, ref.entry, ref.handle);",
+					"cache_unref(request, inst, ref->entry, ref->handle);",
+					"ref.key",
+					"ref.key_len",
+					"cache_unref",
+					"cache_ref",
+					"rlm_cache_ref_t",
+					"CACHE_REF_INIT",
+					"ref",
+					"rlm_cache_ref_t",
+					"CACHE_REF_INIT",
+					"cache_unprep",
+					"cache_prep",
+					"cache_load_prep",
+					"cache.load",
+					"mod_method_store",
+					"mod_method_load",
+					"bkt.entry->key",
+					"bkt->entry->key",
+					"bkt->entry->key_len",
+					"bkt->entry->key",
+					"rlm_cache_rbtree",
+					"rlm_cache_redis",
+					"bkt.entry",
+					"bkt->entry",
+					"CACHE_BUCKET_INIT",
+					"rlm_cache_bucket_t",
+					"cmn",
+					"_common",
+					"/opt/src",
+					"${clangver}",
+					"llvm${clangver}"
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"groups":
+			[
+				{
+					"selected": 1,
+					"sheets":
+					[
+						{
+							"buffer": 0,
+							"file": "/opt/docker-rootfs/freeradius/freeradius4/etc/raddb/sites-enabled/default",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 41568,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										9440,
+										9440
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Text/Plain text.tmLanguage",
+									"translate_tabs_to_spaces": false
+								},
+								"translation.x": 0.0,
+								"translation.y": 2062.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 6,
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/modules/proto_radius/proto_radius_udp.c",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 16433,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										16433,
+										16433
+									]
+								],
+								"settings":
+								{
+									"history_list_is_closing": true,
+									"syntax": "Packages/C++/C.sublime-syntax",
+									"translate_tabs_to_spaces": false
+								},
+								"translation.x": 0.0,
+								"translation.y": 9343.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 4,
+							"type": "text"
+						}
+					]
+				},
+				{
+					"selected": 3,
+					"sheets":
+					[
+						{
+							"buffer": 2,
+							"file": "/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/lib/io/network.c",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 40076,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										38721,
+										38721
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C++/C.sublime-syntax",
+									"translate_tabs_to_spaces": false
+								},
+								"translation.x": 0.0,
+								"translation.y": 28601.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 3,
+							"type": "text"
+						},
+						{
+							"buffer": 3,
+							"file": "/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/modules/proto_radius/proto_radius_tcp.c",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 17770,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										17760,
+										17760
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C++/C.sublime-syntax",
+									"translate_tabs_to_spaces": false
+								},
+								"translation.x": 0.0,
+								"translation.y": 10955.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 2,
+							"type": "text"
+						},
+						{
+							"buffer": 4,
+							"file": "/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/lib/io/master.c",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 75943,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										65051,
+										65051
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C++/C.sublime-syntax",
+									"translate_tabs_to_spaces": false
+								},
+								"translation.x": 0.0,
+								"translation.y": 45890.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 1,
+							"type": "text"
+						},
+						{
+							"buffer": 5,
+							"file": "/home/jpereira/Devel/FreeRadius/freeradius-server.git/src/modules/proto_control/radmin.c",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 23481,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										21169,
+										21169
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C++/C.sublime-syntax",
+									"translate_tabs_to_spaces": false
+								},
+								"translation.x": 0.0,
+								"translation.y": 17220.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 0,
+							"type": "text"
+						},
+						{
+							"buffer": 6,
+							"file": "/home/jpereira/jpereiran@gmail.com/Documents/Work/NetworkRADIUS/Projects/Shreveport/draft.txt",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 2964,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										872,
+										872
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Text/Plain text.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 125.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 5,
+							"type": "text"
+						}
+					]
+				}
+			],
+			"incremental_find":
+			{
+				"height": 28.0
+			},
+			"input":
+			{
+				"height": 0.0
+			},
+			"layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					],
+					[
+						1,
+						0,
+						2,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					0.5,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			},
+			"menu_visible": true,
+			"output.find_results":
+			{
+				"height": 0.0
+			},
+			"pinned_build_system": "",
+			"position": "0,0,0,0,0,677,401,1317,881,1920,1080",
+			"project": "",
+			"replace":
+			{
+				"height": 52.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_symbol":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"selected_group": 1,
+			"settings":
+			{
+			},
+			"show_minimap": true,
+			"show_open_files": false,
+			"show_tabs": true,
+			"side_bar_visible": true,
+			"side_bar_width": 150.0,
+			"status_bar_visible": true,
+			"template_settings":
+			{
+			},
+			"window_id": 1,
+			"workspace_name": ""
+		}
+	],
+	"workspaces":
+	{
+		"recent_workspaces":
+		[
+		]
+	}
+}
