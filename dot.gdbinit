@@ -1,8 +1,7 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Wed 15 May 2019 08:03:18 PM -03
+# Last Change: Seg 05 Out 2015 14:41:01 BRT
 ##
 
-set breakpoint pending on
 set history filename ~/.gdb_history
 set history save
 set history save on 

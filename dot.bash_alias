@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Wed 24 Apr 2019 09:36:32 PM -03
+# Last Change: Mon 10 Jun 2019 08:28:40 PM -03
 ##
 unalias -a
 
@@ -39,8 +39,17 @@ function cd.rlm() {
 	cd src/modules/rlm_$1
 }
 
-alias router.iperf3="iperf3 -c 192.168.1.254"
+#
+# Devel commands
+#
+alias grep-h="grep --include '*.h'"
+alias grep-c="grep --include '*.c'"
 
+alias update-own2me="sudo chown $USER:$USER -R"
+
+alias test-iperf3-torouter="iperf3 -c 192.168.1.254"
+
+alias scp.aws.ipv4="scp -i ~/Documents/Pessoais/Keys/SSH/aws-jorge1.pem"
 alias ssh.aws.ipv4="ssh -i ~/Documents/Pessoais/Keys/SSH/aws-jorge1.pem -l root www.jorgepereira.com.br"
 alias ssh.router="ssh -l root 192.168.1.254"
 
@@ -58,7 +67,7 @@ alias airodump-ng='sudo /usr/sbin/airodump-ng'
 
 alias apt="sudo apt"
 
-alias aptf='apt install'
+alias aptf='apt -y install'
 alias aptr='apt --reinstall install'
 
 alias apt-search='apt-cache search'
