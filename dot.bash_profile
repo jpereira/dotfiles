@@ -1,12 +1,14 @@
 # Por Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Thu 13 Jun 2019 11:37:17 AM -03
+# Last Change: Wed 29 May 2019 12:52:31 PM EDT
 ##
 echo "#.bash_profile Carregando"
 
 export OS="$(uname -s)"
-export PATH="/opt/bin:$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/snap/bin"
+export PATH="/opt/radius/bin:$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/snap/bin"
 export PATH="~/Devel/Android/Sdk/platform-tools/:$PATH"
-export PATH_OLD="$PATH"
+export PATH="~/bin/netExtenderClient:$PATH"
+
+#export PATH_OLD="$PATH"
 
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"

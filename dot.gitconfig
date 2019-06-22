@@ -1,7 +1,7 @@
 [user]
 name = Jorge Pereira
-email = jpereiran@gmail.com
-#email = jpereira@freeradius.org
+#email = jpereiran@gmail.com
+email = jpereira@freeradius.org
 #email = jpereira@gnome.org
 
 [core]
@@ -97,7 +97,7 @@ br = branch -r
 #############
 f = fetch
 fo = fetch origin
-fapn = fetch --all -pn
+fa = fetch --all -pn
 #############
 fp = format-patch
 #############
@@ -120,6 +120,7 @@ plo = pull origin
 pro = pull --rebase origin
 pru = pull --rebase upstream
 prum = pull --rebase upstream master
+pruv3 = pull --rebase upstream v3.0.x
 psfo = push -f origin
 psuo = push -u origin
 pluo = pull -u origin

@@ -1,7 +1,93 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: ter 16 abr 2019 21:00:29 -03
+# Last Change: Sat 22 Jun 2019 06:50:40 PM -03
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
+
+show-disk-speed() {
+	local _p=${1:-$PWD}
+	local _f="${_p}/tempfile.$$"
+
+	rm -f $_f
+
+	sync
+
+	echo "# Cleanup kernel cache"
+	sudo /sbin/sysctl -w vm.drop_caches=3
+
+	echo
+	echo "# Creating the file '$_f'"
+	dd if=/dev/zero of=${_f} bs=1M count=4096
+
+	sync
+	echo
+	echo "# Reading the content '$_f'" 
+	sudo dd if=${_f} of=/dev/null bs=1M count=4096
+
+	rm -f ${_f}
+
+	echo
+}
+
+#
+# Docker-*
+#
+docker-cleanup-unknown-images() {
+	docker images -a | awk '/<none>/ { print $3}' | xargs docker rmi -f
+}
+
+docker-stop-instances() {
+	docker ps --format '{{.Names}}' | while read docker_pid; do
+		echo -n "(*) Stopping: "
+		docker stop $docker_pid
+	done
+}
+
+docker-cleanup-instances-stoppeds() {
+	docker ps -a --format '{{.Names}} {{.Status}}' | while read docker_image docker_status; do
+		if echo "$docker_status" | grep -iq "exited"; then
+			echo -n "(*) Removing: "
+			docker rm -f $docker_image
+		fi
+	done
+}
+
+docker-cleanup-instances() {
+	docker ps -a --format '{{.Names}}' | while read docker_image; do
+		#docker stop $docker_image
+		echo docker rm -f $docker_image
+	done
+}
+
+docker-show-ips() {
+	docker ps --format '{{.Names}}' | while read docker_image; do
+		_ip=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $docker_image)
+
+		echo "docker_image: $docker_image ipaddr: $_ip"
+	done | sort -n -k4 | column -t
+}
+
+docker-run-bash-in() {
+	docker exec -it $1 /bin/bash
+}
+
+#
+# UPDATE-*
+#
+
+update-photos-date-to() {
+	local _d="$(date '+%Y-%m-%d %H:%M:%S')"
+	#shift
+
+	echo exiftool -AllDates=\"$_d\" -overwrite_original $@
+}
+
+git-push-all-local-branches() {
+	git branch -l | while read _branch; do
+		echo "~> Pushing the branch origin/$_branch"
+		git push -f origin $_branch
+	done
+}
+
 git-remote2ssh() {
   git remote -v | awk '/\(fetch\)$/ {
     gsub("https://github.com/", "git@github.com:", $2)
@@ -26,7 +112,7 @@ cleanup-snap() {
 	done
 }
 
-parse_git_branch() {
+git_parse_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
@@ -50,36 +136,13 @@ function vim-to-html() {
    vim -c "let g:html_no_progress = 1" -c "set bg=dark" -c TOhtml -c "w!" -c 'qa!' $in
 }
 
-radius-get_def() {
-#    [ -n "$1" ] && d="$1" || d="src/"
-
-    grep --color '"'$1'"' -r src/
-}
-
-radius-genredis() {
-	local namespace=$1
-	shift
-	local avps=$@
-
-	for avp in ${avps[*]}; do
-		avp_str="$(echo $avp | tr "[A-Z]" "[a-z]" | tr "-" "_")"
-cat <<EOF
-# avp: ${avp}
-${namespace}.get_${avp_str} {
-    update {
-       &${avp} := "%{redis_cache:HGET \"%{Acct-Session-Id}\" \"$avp\"}"
-       &${avp} -= ""
-    }
-}
-
-${namespace}.set_${avp_str} {
-    if (&${avp}) {
-        "%{redis_cache:HSET \"%{Acct-Session-Id}\" $avp \"%{$avp}\"}"
-    }
-}
-
-EOF
-	done
+git-doit-stash-clear-update-stashapply() {
+	set -fx
+	git stash clear
+	git stash
+	git prum
+	git stash apply
+	set +fx
 }
 
 git-commit-all-as-Update() {
@@ -87,12 +150,22 @@ git-commit-all-as-Update() {
 }
 
 git-commit-fixup() {
+	local curr_branch="$(git describe --all @{0} | sed 's@^heads/@@g')"
+	local prev_branch="$(git describe --all @{-1} | sed 's@^heads/@@g')"
+	local _e=echo
+
+	[ "$1" = "run" ] && _e=eval
+
 	git status | grep "modified:" | while read _notinuse _file; do
 		_hash=$(git log --oneline --pretty=format:"%h" -1 $_file)
-		echo "git commit --fixup $_hash $_file"
+		$_e "git commit --fixup $_hash $_file"
 	done
 
+	$_e "git rebase -i --autosquash ${prev_branch}~10"
+	$_e "git pull --rebase upstream"
+	$_e "git push -f origin $curr_branch"
 }
+
 git-update-from-upstream() {
     set -fx
     git fetch --all
@@ -127,18 +200,14 @@ dpkg-purge-all()
     dpkg --list |grep "^rc" | cut -d " " -f 3 | xargs sudo dpkg --purge
 }
 
-screen-killtudo () 
+cleanup-screen-sessions() 
 { 
-    wins=($(screen -ls | awk '/Detac/ { print $1 }'));
-    for i in ${wins[*]};
+    screen -ls | awk '/Detac/ { print $1 }' | while read _s;
     do
-        echo "screen: Finalizando $i";
-        screen -S "$i" -X quit;
+        echo "~~> screen: Finalizando $_s";
+        screen -S "$_s" -X quit;
+	screen -wipe $_s
     done
-}
-
-ssh-alog() {
-    ssh -l jorge.pereira $1.alog.mobicare.com.br
 }
 
 update-alias()
@@ -152,6 +221,17 @@ update-alias()
 	alias 1> $HOME/.bash_alias 2>&-
 	source $HOME/.bash_alias
 }
+
+# edita o arquivo personalizado de alias
+edit-ssh-config()
+{	
+	if [ ! -f $HOME/.ssh/config];then
+		echo "AVISO: Arquivo de ssh/config invalido!"
+		exit 0
+	fi
+	vi ~/.ssh/config
+}
+
 
 # edita o arquivo personalizado de alias
 edit-alias()
