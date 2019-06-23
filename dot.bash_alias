@@ -1,9 +1,9 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
 # Last Change: Mon 10 Jun 2019 08:28:40 PM -03
 ##
-unalias -a
 
-alias vi=vim
+# Reset all aliases
+unalias -a
 
 if [ -e "$HOME/.bash_alias_work" ]; then
     source "$HOME/.bash_alias_work"
@@ -11,139 +11,79 @@ if [ -e "$HOME/.bash_alias_work" ]; then
     alias edit-alias-work="vi ~/.bash_alias_work && source ~/.bash_alias_work"
 fi
 
-# docker
-docker-run-prev-container() {
-	set -fx
-
-	prev_container_id="$(docker ps -aq | head -n1)"
-	
-	docker commit "$prev_container_id" "prev_container/$prev_container_id"
-	docker run -it --entrypoint=bash "prev_container/$prev_container_id"
-
-	set +fx
-}
-
-
-# filtra pacotes http
-function tcpdump-http() {
-	local iface="${1:-eth0}"
-	shift
-	local args="$@"
-
-	set -fx
-	tcpdump -nve -i ${iface} -A -s 0 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0) and (not host 54.94.230.94) $args'
-	set +fx
-}
-
-function cd.rlm() {
-	cd src/modules/rlm_$1
-}
-
 #
-# Devel commands
+#	Lazzy
 #
-alias grep-h="grep --include '*.h'"
-alias grep-c="grep --include '*.c'"
-
-alias update-own2me="sudo chown $USER:$USER -R"
-
-alias test-iperf3-torouter="iperf3 -c 192.168.1.254"
-
-alias scp.aws.ipv4="scp -i ~/Documents/Pessoais/Keys/SSH/aws-jorge1.pem"
-alias ssh.aws.ipv4="ssh -i ~/Documents/Pessoais/Keys/SSH/aws-jorge1.pem -l root www.jorgepereira.com.br"
-alias ssh.router="ssh -l root 192.168.1.254"
-
-alias cd.fr="cd ~/Devel/FreeRadius/freeradius-server.git"
-alias cd.gdriver="cd ~/jpereiran@gmail.com; ls -l"
-alias cd.gdriver.fr="cd.gdriver; cd Documents/Work/NetworkRADIUS; ls -l"
-
-alias edit-firewall="sudo vi /etc/init.d/firewall"
-alias edit-interfaces="sudo vi /etc/network/interfaces"
-
-alias git.dfh="git df HEAD"
-
-alias aircrack-ng='sudo /usr/bin/aircrack-ng'
-alias airodump-ng='sudo /usr/sbin/airodump-ng'
-
-alias apt="sudo apt"
-
-alias aptf='apt -y install'
-alias aptr='apt --reinstall install'
-
-alias apt-search='apt-cache search'
-alias apt-get='sudo apt-get'
-
-alias beep='echo -en "\x07"'
-alias bx='BitchX'
-
-alias cd.blog="cd $HOME/Documents/blog; ls"
-alias cds='cd /etc/init.d/; ls'
-alias cfdisk="sudo cfdisk"
-alias chvt='sudo /bin/chvt'
-
-alias cp='cp -iv'
-alias cvshelp='cvs --help-synonyms'
-
-alias dpkg='sudo /usr/bin/dpkg'
-
-alias gdb="gdb --silent"
-alias gmplayer='/usr/bin/gmplayer -x 800 -y 600 -zoom'
-alias goterm='chvt 1'
-
-alias grep='grep --color'
-alias halt='sudo halt'
-
-alias iptables='sudo /sbin/iptables'
-
+ls -G 1> /dev/null 2>&1 && alias ls="ls -G" || alias ls='ls --color=auto'
 alias d='ls'
 alias mv='mv -iv'
 alias rm='rm -iv'
-
 alias p='pwd'
-
 alias la='ls -lah'
 alias l='ls -alF'
-alias tm='tail -f /var/log/messages'
 alias v='ls -la'
-
 alias lsc='ls -1 | wc -l | cut -c 7'
 alias lsdir='ls -lh | grep "^d"'
 alias lsd='ls -ladh'
 alias lsf='ls -lah | grep "^-"'
 alias lsh='ls -a | grep "^\."'
 alias lsiz='ls -alS'
-alias ls='ls --color=auto'
 alias lsnew='ls -lctr'
 alias lsx='ls -lah | grep "^-..x"'
+alias tm='tail -f /var/log/messages'
 
-alias lockx="/usr/bin/xscreensaver-command -lock"
-alias lynx-firefox='/usr/bin/lynx -useragent "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.5) Gecko/20070713 Firefox/2.0.0.5 Lynx"'
+alias cd.dev="cd ~/Devel; ls -l"
+alias cd.devel="cd ~/Devel; ls -l"
+alias cd.fr="cd ~/Devel/FreeRadius/freeradius-server.git"
+alias cd.gdriver="cd ~/jpereiran@gmail.com; ls -l"
+alias cd.gdriver.fr="cd.gdriver; cd Documents/Work/NetworkRADIUS; ls -l"
 
-alias mount='sudo /bin/mount'
-alias restart-mouse='killall -9 gpm; sleep 2;sh /etc/rc.boot/gpm'
-alias mpg123='mpg123 -C'
-
-alias mplayer='/usr/bin/mplayer -x 800 -y 600 -zoom'
-
-alias nautilusx='/usr/bin/nautilus --browser --sync ~'
+#
+#	Devel commands
+#
+alias vi=vim
+alias grep='grep --color'
+alias grep-h="grep --include '*.h'"
+alias grep-c="grep --include '*.c'"
+alias beep='echo -en "\x07"'
+alias gdb="gdb --silent"
 alias noback='find . -iname "*~" -exec rm -fv {} \;'
 alias nobeep='setterm -blen 0'
-alias noscanfs='tune2fs -c 0 -i 0 /dev/hda2'
+alias rsync='rsync -Cdravzp --progress '
+alias untar='tar -xzvf'
+alias unbz='tar -xjfv'
+alias visudo='sudo visudo'
 alias ping='ping -c4'
 
+
+#
+#	Misc
+#
+alias update-own2me="sudo chown $USER:$USER -R"
+alias test-iperf3-torouter="iperf3 -c 192.168.1.254"
+
+#
+#	Scp
+#
+alias scp.aws.ipv4="scp -i ~/Documents/Pessoais/Keys/SSH/aws-jorge1.pem"
+alias ssh.aws.ipv4="ssh -i ~/Documents/Pessoais/Keys/SSH/aws-jorge1.pem -l root www.jorgepereira.com.br"
+alias ssh.router="ssh -l root 192.168.1.254"
+
+#
+# Linux
+#
+alias apt="sudo apt"
+alias aptf='apt -y install'
+alias aptr='apt --reinstall install'
+alias apt-search='apt-cache search'
+alias apt-get='sudo apt-get'
+alias dpkg='sudo /usr/bin/dpkg'
+alias iptables='sudo /sbin/iptables'
+alias lockx="/usr/bin/xscreensaver-command -lock"
+alias lynx-firefox='/usr/bin/lynx -useragent "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.5) Gecko/20070713 Firefox/2.0.0.5 Lynx"'
+alias noscanfs='tune2fs -c 0 -i 0 /dev/hda2'
 alias reboot='sudo /sbin/reboot'
-
 alias mrxvt="/usr/bin/mrxvt -rv -sr -fn 9x15 -title \"Terminal Mrxvt\" -g 90x30 -cr red -tnum 4"
-alias rsync='rsync -Cdravzp --progress '
-alias scanfs='tune2fs -c 1 -i 1 /dev/hda2'
-
-alias umount='sudo /bin/umount'
-alias unbz='tar -xjfv'
 alias unlonck-gnome="killall -9 gnome-screensaver gnome-screensaver-dialog"
-alias untar='tar -xzvf'
-alias visudo='sudo visudo'
-
 alias wgetcookie='wget -c --load-cookies=$HOME/.mozilla/firefox/default/cookies.txt'
-alias wireshark='sudo /usr/bin/wireshark'
 alias xterm="/usr/bin/xterm -fg white -bg black -fn 10x20"
-

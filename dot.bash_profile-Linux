@@ -1,0 +1,10 @@
+#
+#	Only for Linux
+#
+
+decho "$HOME/.bash_profile-Linux"
+
+#
+#	Vars
+#
+export PATH="/snap/bin:$PATH"

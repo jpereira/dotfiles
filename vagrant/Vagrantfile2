@@ -1,0 +1,62 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Author: Jorge Pereira <jpereiran@gmail.com>
+
+vm_os01 = "ubuntu/cosmic64"
+vm_os02 = "precise32"
+
+domain  = 'tapioca.lan'
+
+nodes = [
+#  { :hostname => 'sandbox01', :box => vm_os01, :ram => '256' },
+  { :hostname => 'freeradius', :box => vm_os01, :ram => '256', :ip => "10.10.10.2" },
+]
+
+# modules[]
+module OS
+    def OS.windows?
+        (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
+    end
+
+    def OS.mac?
+        (/darwin/ =~ RUBY_PLATFORM) != nil
+    end
+
+    def OS.unix?
+        !OS.windows?
+    end
+
+    def OS.linux?
+        OS.unix? and not OS.mac?
+    end
+end
+
+# main()
+Vagrant.configure("2") do |config|
+  # boot
+  nodes.each do |node|
+    config.vm.define node[:hostname] do |nodeconfig|
+      nodeconfig.vm.box            = node[:box]
+      nodeconfig.vm.hostname       = node[:hostname] + "-vm"
+      nodeconfig.ssh.forward_agent = true
+
+      if node[:ip] != '' then
+        nodeconfig.vm.network :private_network, ip: node[:ip]
+      end
+
+      memory = node[:ram] ? node[:ram] : 256;
+      nodeconfig.vm.provider :virtualbox do |vb|
+        vb.customize [ "modifyvm", :id, "--cpuexecutioncap", "50" ]
+        vb.customize [ "modifyvm", :id, "--memory", memory.to_s ]
+      end
+    end
+  end
+
+  # provisioning
+  config.vm.provision :shell, :inline => "apt-get update --fix-missing"
+  config.vm.provision :shell, :inline => "apt-get -fy dist-upgrade"
+  
+  config.vm.provision :shell, :inline => "apt-get -fy install vim docker build-essential"
+end
+
