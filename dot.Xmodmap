@@ -5,4 +5,3 @@
 keycode 78 = XF86MonBrightnessDown NoSymbol XF86MonBrightnessDown
 keycode 127 = XF86MonBrightnessUp NoSymbol XF86MonBrightnessUp
 keycode 105 = XF86Search NoSymbol XF86Search
-

@@ -1,0 +1,8 @@
+#
+#	Only for MacOSx
+#
+
+decho "$HOME/.bash_profile-Darwin"
+
+# sublime
+export PATH="$PATH:/Applications/Sublime Text.app/Contents/SharedSupport/bin/"
