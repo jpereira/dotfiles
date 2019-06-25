@@ -6,3 +6,15 @@ decho "$HOME/.bash_profile-Darwin"
 
 # sublime
 export PATH="$PATH:/Applications/Sublime Text.app/Contents/SharedSupport/bin/"
+
+# sublime merge
+export PATH="$PATH:/Applications/Sublime Merge.app/Contents/SharedSupport/bin/"
+
+# If you'd like to mimic the colors of a typical Linux terminal:
+export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
+export CLICOLOR=1
+
+# Commands
+export _DD=gdd
+export _LS=gls
+

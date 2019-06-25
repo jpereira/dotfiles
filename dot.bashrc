@@ -4,7 +4,7 @@
 
 if [ "$TERM" != "dumb" ]; then
 
-	export PATH="/opt/radius/bin/:/bin:/sbin:/usr/bin:/usr/sbin:$PATH"
+	export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 	# Source global definitions
 	#echo "#.bashrc: Carregando /etc/bashrc"
@@ -14,3 +14,4 @@ if [ "$TERM" != "dumb" ]; then
 	[ -f ~/.bash_profile ] && source ~/.bash_profile
 
 fi
+

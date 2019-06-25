@@ -1,16 +1,23 @@
 [user]
 name = Jorge Pereira
-#email = jpereiran@gmail.com
-email = jpereira@freeradius.org
-#email = jpereira@gnome.org
+email = jpereiran@gmail.com
+
+[github]
+user = jpereira
+#token = token
+
+[includeIf "gitdir:~/Devel/FreeRadius/**"]
+path = .gitconfig-freeradius
+
+[includeIf "gitdir:~/Devel/GNOME/**"]
+path = .gitconfig-gnome
+
+[gui]
+pruneduringfetch = true
 
 [core]
 editor = vim
 whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-
-[github]
-user = jpereira
-token = token
 
 [credential]
 helper = cache --timeout=3600
@@ -29,13 +36,18 @@ browser = google-chrome
 [push]
 default = matching
 
+[gpg]
+program = gpg
+
 # sign all commits by default in any local repository
 [commit]
 gpgsign = true
+template = ~/.gitconfig_stCommitMsg
 
 [core]
 editor = vim
 whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+excludesfile = ~/.gitignore_global
 
 [rerere]
 enabled = 1
@@ -58,6 +70,7 @@ ss = stash save
 #############
 d = diff
 df = diff
+dt = difftool
 dfh = diff HEAD
 dc = diff --cached
 dk = diff --check
@@ -65,6 +78,8 @@ dck = diff --cached --check
 #############
 c = commit
 ci = commit
+cinosign = commit --no-gpg-sign
+cins = commit --no-gpg-sign
 ca = commit -a
 cm = commit -m
 cam = commit -am
@@ -120,6 +135,7 @@ plo = pull origin
 pro = pull --rebase origin
 pru = pull --rebase upstream
 prum = pull --rebase upstream master
+pruv4 = pull --rebase upstream master
 pruv3 = pull --rebase upstream v3.0.x
 psfo = push -f origin
 psuo = push -u origin
@@ -176,4 +192,21 @@ changed = yellow bold
 untracked = red bold
 [rebase]
 autosquash = true
+
+[diff]
+tool = "sourcetree"
+
+[difftool "sourcetree"]
+cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+path = 
+
+[merge]
+tool = "Sublime Merge"
+
+[mergetool "sourcetree"]
+cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+trustExitCode = true
+
+[mergetool "Sublime Merge"]
+cmd = smerge mergetool \"$BASE\" \"$REMOTE\" \"$LOCAL\" -o \"$MERGED\"
 

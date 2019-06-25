@@ -1,16 +1,20 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Sat Jun 22 21:58:12 2019
+# Last Change: Tue Jun 25 16:44:05 2019
 ##
 
 # Reset all aliases
 unalias -a
 
 if [ -e "$HOME/.bash_alias_work" ]; then
+    decho "$HOME/.bash_alias_work"
     source "$HOME/.bash_alias_work"
-    echo "Carregando $HOME/.bash_alias_work"
     alias edit-alias-work="vi ~/.bash_alias_work && source ~/.bash_alias_work"
 fi
 
+#
+#	Personal sudo
+#
+[ -e "$HOME/bin/sudo" ] && alias sudo="$HOME/bin/sudo"
 #
 #	Lazzy
 #
@@ -32,14 +36,29 @@ alias lsnew='ls -lctr'
 alias lsx='ls -lah | grep "^-..x"'
 alias tm='tail -f /var/log/messages'
 
-alias cd.dev="cd ~/Devel; ls -l"
-alias cd.devel="cd ~/Devel; ls -l"
-alias cd.fr="cd ~/Devel/FreeRadius/freeradius-server.git"
-alias cd.gdriver="cd ~/jpereiran@gmail.com; ls -l"
-alias cd.gdriver.fr="cd.gdriver; cd Documents/Work/NetworkRADIUS; ls -l"
+alias set-editor-to-subl="export EDITOR='subl' EDITOR_OPTS='-w'"
+alias set-editor-to-vim="export EDITOR='vim' EDITOR_OPTS=''"
 
-alias set-editor-to-subl="export EDITOR=subl"
-alias set-editor-to-vim="export EDITOR=vim"
+#
+#	Dynamic aliases
+#
+_set-edit2alias "$HOME/.ssh/config" "sshconfig"
+_set-edit2alias "$HOME/.ssh/config.hosts" "sshconfig.hosts"
+_set-edit2alias "$HOME/.gdbinit"
+_set-edit2alias "$HOME/.gitconfig"
+_set-edit2alias "$HOME/.screenrc"
+_set-edit2alias "$HOME/.vimrc"
+_set-edit2alias "$HOME/.bash_alias"
+_set-edit2alias "$HOME/.bash_functions"
+_set-edit2alias "$HOME/.bash_profile"
+_set-edit2alias "$HOME/.bash_profile-Darwin"
+_set-edit2alias "$HOME/.bash_profile-Linux"
+_set-edit2alias "$HOME/.bashrc"
+_set-edit2alias "$HOME/.profile"
+
+_set-dir2alias "$HOME/Devel"
+_set-dir2alias "$HOME/Devel/github-jpereira"
+_set-dir2alias "$HOME/Devel/FreeRADIUS"
 
 #
 #	Devel commands
@@ -49,44 +68,41 @@ alias grep='grep --color'
 alias grep-h="grep --include '*.h'"
 alias grep-c="grep --include '*.c'"
 alias beep='echo -en "\x07"'
-alias gdb="gdb --silent"
-alias noback='find . -iname "*~" -exec rm -fv {} \;'
 alias nobeep='setterm -blen 0'
+alias gdb="gdb --silent"
 alias rsync='rsync -Cdravzp --progress '
 alias untar='tar -xzvf'
 alias unbz='tar -xjfv'
 alias visudo='sudo visudo'
 alias ping='ping -c4'
 
-
 #
 #	Misc
 #
-alias update-own2me="sudo chown $USER:$USER -R"
+alias update-own2me="sudo chown -R $USER:$GROUP"
 alias test-iperf3-torouter="iperf3 -c 192.168.1.254"
 
 #
-#	Scp
+#	Scp/Ssh
 #
 alias scp.aws.ipv4="scp -i ~/Documents/Pessoais/Keys/SSH/aws-jorge1.pem"
-alias ssh.aws.ipv4="ssh -i ~/Documents/Pessoais/Keys/SSH/aws-jorge1.pem -l root www.jorgepereira.com.br"
+alias ssh.aws.ipv4="ssh -i ~/Documents/Pessoais/Keys/SSH/aws-jorge1.pem -l root"
 alias ssh.router="ssh -l root 192.168.1.254"
 
 #
-# Linux
+#	Linux
 #
-alias apt="sudo apt"
+alias apt="sudo /usr/bin/apt"
 alias aptf='apt -y install'
 alias aptr='apt --reinstall install'
 alias apt-search='apt-cache search'
-alias apt-get='sudo apt-get'
+alias apt-get='sudo /usr/bin/apt-get'
 alias dpkg='sudo /usr/bin/dpkg'
 alias iptables='sudo /sbin/iptables'
 alias lockx="/usr/bin/xscreensaver-command -lock"
 alias lynx-firefox='/usr/bin/lynx -useragent "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.5) Gecko/20070713 Firefox/2.0.0.5 Lynx"'
-alias noscanfs='tune2fs -c 0 -i 0 /dev/hda2'
+alias noscanfs='tune2fs -c 0 -i 0'
 alias reboot='sudo /sbin/reboot'
 alias mrxvt="/usr/bin/mrxvt -rv -sr -fn 9x15 -title \"Terminal Mrxvt\" -g 90x30 -cr red -tnum 4"
-alias unlonck-gnome="killall -9 gnome-screensaver gnome-screensaver-dialog"
 alias wgetcookie='wget -c --load-cookies=$HOME/.mozilla/firefox/default/cookies.txt'
 alias xterm="/usr/bin/xterm -fg white -bg black -fn 10x20"

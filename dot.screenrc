@@ -29,9 +29,7 @@ bind k focus up
 bindkey "^[[1;5D" prev
 bindkey "^[[1;5C" next
 
-
-# Problems com scrolling resolvidos seguido 
-# http://www.staldal.nu/tech/2009/01/11/how-to-use-mousewheel-in-gnu-screen/comment-page-1/
+# scrolling
 defscrollback 5000
 altscreen on
 
@@ -41,4 +39,3 @@ screen -t bash
 screen -t bash
 screen -t bash
 screen -t bash
-

@@ -1,0 +1,15 @@
+Host *
+	ControlPath ~/.ssh/sessions/S.%r@%h:%p.sock
+	ControlMaster auto
+	ControlPersist 1h
+	Compression yes
+	UseKeychain yes
+	AddKeysToAgent yes
+	IdentityFile ~/.ssh/id_rsa
+
+Host router
+	Hostname router.lan
+	User root
+
+Include ~/.ssh/config.hosts
+

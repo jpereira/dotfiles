@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Sat 22 Jun 2019 06:50:40 PM -03
+# Last Change: Tue Jun 25 16:49:43 2019
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
 
@@ -21,20 +21,20 @@ show-disk-speed() {
 
 	echo
 	echo "# Creating the file '$_f'"
-	dd if=/dev/zero of=${_f} bs=1M count=4096
+	$_DD if=/dev/zero of=${_f} bs=1M count=8096 status=progress 
 
 	sync
 	echo
+
 	echo "# Reading the content '$_f'" 
-	sudo dd if=${_f} of=/dev/null bs=1M count=4096
+	$_DD if=${_f} of=/dev/null bs=1M count=8096 status=progress 
 
 	rm -f ${_f}
 
 	echo
 }
 
-show-size-of-my-home()
-{
+show-size-of-my-home() {
     cd ~ && {
         ls -a | grep -v "^\\.\\.\?$" | xargs du -hs | sort --key=1
     }
@@ -49,12 +49,12 @@ show-wifi() {
 #
 # filtra pacotes http
 function tcpdump-http() {
-	local iface="${1:-eth0}"
+	local iface="${1:-any}"
 	shift
 	local args="$@"
 
 	set -fx
-	tcpdump -nve -i ${iface} -A -s 0 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0) and (not host 54.94.230.94) $args'
+	sudo tcpdump -nve -i ${iface} -A -s 0 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0) and (not host 54.94.230.94) $args'
 	set +fx
 }
 
@@ -63,24 +63,16 @@ function tcpdump-http() {
 #
 docker-run-prev-container() {
 	set -fx
-
-	prev_container_id="$(docker ps -aq | head -n1)"
-	
+	local prev_container_id="$(docker ps -aq | head -n1)"
 	docker commit "$prev_container_id" "prev_container/$prev_container_id"
 	docker run -it --entrypoint=bash "prev_container/$prev_container_id"
-
 	set +fx
 }
 
-docker-cleanup-unknown-images() {
+docker-cleanup-images-unknown() {
+	set -fx
 	docker images -a | awk '/<none>/ { print $3}' | xargs docker rmi -f
-}
-
-docker-stop-instances() {
-	docker ps --format '{{.Names}}' | while read docker_pid; do
-		echo -n "(*) Stopping: "
-		docker stop $docker_pid
-	done
+	set +fx
 }
 
 docker-cleanup-instances-stoppeds() {
@@ -92,10 +84,16 @@ docker-cleanup-instances-stoppeds() {
 	done
 }
 
-docker-cleanup-instances() {
+docker-cleanup-instances-all() {
 	docker ps -a --format '{{.Names}}' | while read docker_image; do
-		#docker stop $docker_image
-		echo docker rm -f $docker_image
+		docker rm -f $docker_image
+	done
+}
+
+docker-stop-instances() {
+	docker ps --format '{{.Names}}' | while read docker_pid; do
+		echo -n "(*) Stopping: "
+		docker stop $docker_pid
 	done
 }
 
@@ -114,28 +112,24 @@ docker-run-bash-in() {
 #
 #	update-*
 #
-update-alias()
-{
-	if [ ! -f $HOME/.bash_alias ];then
-		echo "AVISO: Arquivo de alias invalido!"
-		exit 0
-	fi
-
-	mv -fv $HOME/.bash_alias $HOME/.bash_alias.old
-	alias 1> $HOME/.bash_alias 2>&-
-	source $HOME/.bash_alias
-}
-
 update-photos-date-to() {
 	local _d="$(date '+%Y-%m-%d %H:%M:%S')"
-	#shift
+
+	echo "# Commands! Use '| sh' to execute"
 
 	echo exiftool -AllDates=\"$_d\" -overwrite_original $@
 }
 
-function update-resolvconf2google8888 (){
-	echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
+function update-resolvconf2google8888() {
+	sudo tee /etc/resolv.conf <<EOF
+# Created at $(date) by update-resolvconf2google8888
+nameserver 8.8.8.8
+nameserver 8.8.8.4
+EOF
+
+	echo "------------- /etc/resolv.conf"
 	cat /etc/resolv.conf
+
 	echo "------------- testing"
 	ping -c2 www.google.com.br
 }
@@ -146,16 +140,13 @@ function update-resolvconf2google8888 (){
 cleanup-ssh-sessions() {
 	rm -fv ~/.ssh/sessions/*
 }
+alias ssh-cleanup-sessions="cleanup-ssh-sessions"
 
 cleanup-snap() {
 	snap list --all | awk '/disabled/{print $1, $3}' | \
 	while read snapname revision; do
 		sudo snap remove "$snapname" --revision="$revision"
 	done
-}
-
-git_parse_branch() {
-	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
 function vim-to-html() {
@@ -166,7 +157,7 @@ function vim-to-html() {
        return
    fi
 
-   echo "Converting $in to HTML ${in}.html" 
+   echo "# Converting $in to HTML ${in}.html" 
 
    vim -c "let g:html_no_progress = 1" -c "set bg=dark" -c TOhtml -c "w!" -c 'qa!' $in
 }
@@ -174,35 +165,36 @@ function vim-to-html() {
 #
 #	git-*
 #
-git-push-all-local-branches() {
+alias git-enable-debug="export GIT_CURL_VERBOSE=1 GIT_TRACE=1"
+alias git-disable-debug="unset GIT_CURL_VERBOSE GIT_TRACE"
+
+git_parse_branch() {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+git-push-all-origin-branches() {
 	git branch -l | while read _branch; do
-		echo "~> Pushing the branch origin/$_branch"
+		echo "# ~> Pushing the branch origin/$_branch"
 		git push -f origin $_branch
 	done
 }
 
-git-remote2ssh() {
-  git remote -v | awk '/\(fetch\)$/ {
-    gsub("https://github.com/", "git@github.com:", $2)
-
-    printf("git remote set-url %s %s\n", $1, $2)
-  }'
+git-convert-remote2ssh() {
+	git remote -v | \
+	awk '/\(fetch\)$/ {
+		gsub("https://github.com/", "git@github.com:", $2)
+		printf("git remote set-url %s %s\n", $1, $2)
+	}'
 }
 
-git-doit-stash-clear-update-stashapply() {
-	set -fx
-	git stash clear
-	git stash
-	git prum
-	git stash apply
-	set +fx
-}
+git-commit-as-update() {
+	echo "# Use '| sh' to execute"
 
-git-commit-all-as-Update() {
 	git status | awk '/modified/ { printf("git ci -m \"Update %s\" %s\n",$2,$2); }'
 }
 
-git-commit-fixup() {
+git-commit-as-fixup() {
+	local _deep="${1:-10}"
 	local curr_branch="$(git describe --all @{0} | sed 's@^heads/@@g')"
 	local prev_branch="$(git describe --all @{-1} | sed 's@^heads/@@g')"
 	local _e=echo
@@ -214,88 +206,87 @@ git-commit-fixup() {
 		$_e "git commit --fixup $_hash $_file"
 	done
 
-	$_e "git rebase -i --autosquash ${prev_branch}~10"
+	$_e "git rebase -i --autosquash ${prev_branch}~${_deep}"
 	$_e "git pull --rebase upstream"
 	$_e "git push -f origin $curr_branch"
-}
-
-git-update-from-upstream() {
-    set -fx
-    git fetch --all
-    git pull upstream
-    set +fx
-}
-
-git-update-from() {
-    if [ -z "$1" ]; then
-        echo "Qual branch?"
-        return
-    fi
-}
-
-#
-#	dpkg-*
-#
-dpkg-purge-all()
-{
-    dpkg --list |grep "^rc" | cut -d " " -f 3 | xargs sudo dpkg --purge
 }
 
 #
 #	cleanup-*
 #
-cleanup-screen-sessions() 
-{ 
-    screen -ls | awk '/Detac/ { print $1 }' | while read _s;
-    do
-        echo "~~> screen: Finalizando $_s";
+cleanup-screen-sessions() {
+    screen -ls | awk '/Detac/ { print $1 }' | while read _s; do
+        echo "# ~~> screen: Removing $_s";
+
         screen -S "$_s" -X quit;
-	screen -wipe $_s
+		screen -wipe $_s
     done
 }
 
 #
 #	edit-*
 #
-_edit-config()
-{
+_edit-config() {
 	local _f="$1"
+
 	if [ ! -f "$_f" ];then
 		echo "WARNING: The file $_f is not found"
 		return 1
 	fi
 
-	echo "~> Calling: $EDITOR $_f"
+	echo "# ~> Calling: $EDITOR $_f"
 
-	[ -n "$EDITOR" ] && eval "$EDITOR $_f" || vim $_f
+	[ -n "$EDITOR" ] && eval "$EDITOR ${EDITOR_OPTS[*]} $_f" || vim $_f
 
 	# Need to reload?
 	if echo $_f | grep -i bash; then
-		source $_f
+		source ~/.bashrc
 	fi
 
 	echo "exiting."
 }
 
-alias edit-sshconfig="_edit-config $HOME/.ssh/config"
-alias edit-gdbinit="_edit-config $HOME/.gdbinit"
-alias edit-gitconfig="_edit-config $HOME/.gitconfig"
-alias edit-screenrc="_edit-config $HOME/.screenrc"
-alias edit-vimrc="_edit-config $HOME/.vimrc"
+_set-edit2alias() {
+	local _file="$1"
+	local _name="$2"
+	
+	[ -z "$_name" ] && _name="$(basename $_file | sed 's/^\.//g')"
 
-alias edit-bash_alias="_edit-config $HOME/.bash_alias"
-alias edit-bash_functions="_edit-config $HOME/.bash_functions"
-alias edit-bash_profile="_edit-config $HOME/.bash_profile"
-alias edit-bashrc="_edit-config $HOME/.bashrc"
+	eval "alias edit-${_name}='_edit-config ${_file}'"
+}
 
 #
-#	debian-*
+#	Create alias to directories. (super lazzyyyyyy)
 #
+_set-dir2alias() {
+	local _path="$1"
+	local _name="$(basename $_path | sed 's/\.git//g')"
+
+	[ ! -d "$_path" ] && return
+
+	eval "alias cd.${_name}='echo \"# cd $_path\"; cd $_path; ls -l'"
+
+	for _d in $(ls ${_path}); do
+		_dir="${_path}/${_d}"
+		[ ! -d "$_dir" ] && continue
+		
+		eval "alias cd.${_name}.${_d}='echo \"# cd $_dir\"; cd $_dir; ls -l'"
+	done
+}
+
+#
+#	debian-* / dpkg-*
+#
+dpkg-purge-all() {
+    sudo dpkg --list | grep "^rc" | cut -d " " -f 3 | xargs sudo dpkg --purge
+}
+
 debian-update() {
-    echo "Atualizando..."
-    apt-get  update 
-    apt-get -fy dist-upgrade
-    apt-get -fy upgrade
+    echo "# Udating the system."
+
+    sudo apt update
+    sudo apt -fy dist-upgrade
+    sudo apt -fy upgrade
 }
 
 man() {
@@ -320,8 +311,7 @@ man() {
 #
 #	gdb-*
 #
-gdb-attach-by-pid()
-{
+gdb-attach-by-pid() {
 	if [ $# -lt 1 ];then
 		echo "Usage: $0 <pid> <gdb commands>"
 		return
@@ -343,53 +333,47 @@ gdb-attach-by-pid()
 #
 #	my-*
 #
-my-nobacks()
-{
-    find . -name "*~"  -exec rm -rfv {} ";"
-    find . -name ".*~" -exec rm -rfv {} ";"
+my-nobacks() {
+	echo "# Removing all '*~' and '.*~' in $PWD"
+
+    find $PWD -name "*~"  -exec rm -fv {} ";"
+    find $PWD -name ".*~" -exec rm -fv {} ";"
 }
+alias noback="my-nobacks"
 
 # clean buff of memory
-my-clean-buffersmemory()
-{
-  echo "(*) Cleaning cache..."
-  sudo sysctl -w vm.drop_caches=1
-  sudo sysctl -w vm.drop_caches=2
-  sudo sysctl -w vm.drop_caches=3
+my-clean-buffersmemory() {
+    echo "(*) Cleaning cache..."
+
+    sudo sysctl -w vm.drop_caches=1
+    sudo sysctl -w vm.drop_caches=2
+    sudo sysctl -w vm.drop_caches=3
 }
 
 #
-# faz busca por um bin nos PATH's
+#	Look for bin in $PATH
 #
-find-bin()
-{
-    local ACHOU=12
-
+find-bin() {
     if [ -z "$1" ];then
         echo "Usage: $0 <comando>"
-    else
-        ls ${PATH//:/ } 2>&- | grep -i $1 | sort -n | uniq | \
-		while read _file; do 
-			if ( (which ${_file} 1> /dev/null 2>&1));then
-				echo $(which ${_file})
-			else 
-				echo ":${_file}"
-			fi
-		done | sort -n
-		
-		if [ "${ACHOU}" = "false" ];then
-			echo "Nada encontrado referente a ($1) no \$PATH."
-			exit 1
-		fi
+        return
     fi
+
+	ls ${PATH//:/ } 2>&- | grep -i $1 | sort -n | uniq | \
+	while read _file; do 
+		if which ${_file} 1> /dev/null 2>&1;then
+			echo $(which ${_file})
+		else 
+			echo ":${_file}"
+		fi
+	done | sort -n
 }
 
 #
 #	cp-progressbar
 #
 # executa o comando cp com um progress bar
-cp-progressbar()
-{
+cp-progressbar() {
    set -e
    strace -q -ewrite cp -- "${1}" "${2}" 2>&1 \
       | awk '{
@@ -407,3 +391,4 @@ cp-progressbar()
          }
          END { print "" }' total_size=$(stat -c '%s' "${1}") count=0
 }
+
