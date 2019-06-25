@@ -1,11 +1,11 @@
 # Por Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Wed 29 May 2019 12:52:31 PM EDT
+# Last Change: Mon Jun 24 12:37:13 2019
 ##
 
 #
 # Disable the print messages
 #
-#NODEBUG=1
+NODEBUG=1
 
 decho() {
   [ -z "$NODEBUG" ] && echo "# ~> $@"
@@ -30,6 +30,7 @@ export HISTCONTROL="ignoredups"
 export ESCDELAY=0
 export EDITOR="vim"
 export DISPLAY=${DISPLAY:-:0.0}
+export GPG_TTY=$(tty)
 
 #
 # Settings by $OS
@@ -53,8 +54,6 @@ export CHANGE_LOG_EMAIL_ADDRESS="${EMAIL_ADDRESS}"
 export CHANGE_LOG_NAME="Jorge Pereira"
 export SVN_EDITOR="$EDITOR"
 export CVS_EDITOR="$EDITOR"
-#export GIT_CURL_VERBOSE=1
-#export GIT_TRACE=1
 
 parse_git_branch(){
   local he="$(git branch 2>&- | sed '/^\*/!d; s/.* //')"
@@ -88,7 +87,7 @@ esac
 #
 # e.g: for business & customers & OS
 #
-dots=(.bash_alias .bash_functions bin/funcoeszz)
+dots=(.bash_functions .bash_alias bin/funcoeszz)
 
 for d in ${dots[*]}; do
     dot="$HOME/$d"
@@ -104,10 +103,8 @@ done
 #
 if [ -n "$DISPLAY" ]; then
   if which xmodmap 1> /dev/null 2>&1; then
-    if [ -e ~/.Xmodmap ]; then
-      decho "~/.Xmodmap"
-      xmodmap ~/.Xmodmap
-    fi
+    decho "~/.Xmodmap"
+    xmodmap ~/.Xmodmap
   fi
 fi
 
@@ -122,4 +119,3 @@ fi
 
 # always core files
 ulimit -c unlimited
-

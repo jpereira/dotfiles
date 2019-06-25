@@ -26,5 +26,16 @@ for dot in $(ls -1 | grep ^dot); do {
         continue
     fi
 
-    ln -fs $from $to
+    ln -vfs "$from" "$to"
 } done
+
+mkdir -p ~/.ssh/ ~/bin/$OS/
+ln -fs $PWD/ssh/config ~/.ssh/config
+
+case $OS in
+  Darwin)
+	/usr/bin/sudo cp bin/$OS/sudo-touchid ~/bin/
+	/usr/bin/sudo chown root:staff ~/bin/sudo
+	/usr/bin/sudo chmod 4755 ~/bin/sudo
+  ;;
+esac

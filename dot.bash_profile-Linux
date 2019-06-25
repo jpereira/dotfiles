@@ -8,3 +8,6 @@ decho "$HOME/.bash_profile-Linux"
 #	Vars
 #
 export PATH="/snap/bin:$PATH"
+
+# Commands
+export _DD=dd
