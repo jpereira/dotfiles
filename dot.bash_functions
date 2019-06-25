@@ -215,7 +215,7 @@ git-commit-as-fixup() {
 #	cleanup-*
 #
 cleanup-screen-sessions() {
-    screen -ls | awk '/Detac/ { print $1 }' | while read _s; do
+    screen -ls | awk '/De/ { print $1 }' | while read _s; do
         echo "# ~~> screen: Removing $_s";
 
         screen -S "$_s" -X quit;
