@@ -1,9 +1,9 @@
 # Por Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Mon Jun 24 12:37:13 2019
+# Last Change: Tue Jun 25 23:40:55 2019
 ##
 
 #
-# Disable the print messages
+#	Disable the print messages
 #
 NODEBUG=1
 
@@ -12,12 +12,12 @@ decho() {
 }
 
 #
-# Main
+#	Main
 #
 decho "$HOME/.bash_profile"
 
 #
-# Global vars
+#	Global vars
 #
 export OS="$(uname -s)"
 export PATH="$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
@@ -31,6 +31,11 @@ export ESCDELAY=0
 export EDITOR="vim"
 export DISPLAY=${DISPLAY:-:0.0}
 export GPG_TTY=$(tty)
+
+#
+#	Ansible settings
+#
+export ANSIBLE_HOST_KEY_CHECKING=False
 
 #
 # Settings by $OS
@@ -64,7 +69,7 @@ parse_git_branch(){
 }
 
 #
-# Terminal
+#	Terminal
 #
 export PS1="[\u@\h \W]\\$ "
 
@@ -78,7 +83,7 @@ case "$TERM" in
 esac
 
 #
-# Home bin
+#	Home bin
 #
 [ -L $HOME/bin -o -d $HOME/bin ] || mkdir -p $HOME/bin
 
@@ -99,7 +104,7 @@ for d in ${dots[*]}; do
 done
 
 #
-# Display/X11
+#	Display/X11
 #
 if [ -n "$DISPLAY" ]; then
   if which xmodmap 1> /dev/null 2>&1; then
@@ -109,7 +114,7 @@ if [ -n "$DISPLAY" ]; then
 fi
 
 #
-# fortune!
+#	fortune!
 #
 if [ -x /usr/games/fortune ];then
   /usr/games/fortune /usr/share/games/fortunes/brasil
@@ -117,5 +122,7 @@ elif which fortune 1> /dev/null 2>&1; then
   fortune
 fi
 
-# always core files
+#	always core files
 ulimit -c unlimited
+
+:q!q:q!
