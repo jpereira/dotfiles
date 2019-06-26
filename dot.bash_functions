@@ -1,7 +1,34 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Tue Jun 25 16:49:43 2019
+# Last Change: Tue Jun 25 23:46:49 2019
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
+
+#
+#	fr. (FreeRADIUS helper commands)
+#
+# Usage: cd freeradius-server.git/share && fr.dictinary-check ../src/
+#
+function fr.dictinary-check() {
+	local _src="${1:-../src}"
+
+	echo "# Checking missing 'dictionary.*' in ./dictionary"
+
+	for _d in dictionary.*; do
+		[ ! -f "$_d" ] && continue
+
+		# Is it ready included?
+		# I know,log(n). But, don't care about performance.
+		grep -q "\$INCLUDE ${_d}$" dictionary dictionary.* && continue
+
+		# Check if exist some source-code referencing/loading the dictionary
+		# yep, its is simple. fine for now.
+		if [ -d "$_src" ]; then
+			grep -q "\"${_d}" -r "${_src}" 2>&- && continue
+		fi
+
+		echo "\$INCLUDE $_d"
+	done | grep -v -E "\.(dhcp|vqp|illegal)" | sort -n
+}
 
 #
 #	show-*
@@ -228,6 +255,7 @@ cleanup-screen-sessions() {
 #
 _edit-config() {
 	local _f="$1"
+	local _r="$2"
 
 	if [ ! -f "$_f" ];then
 		echo "WARNING: The file $_f is not found"
@@ -239,9 +267,7 @@ _edit-config() {
 	[ -n "$EDITOR" ] && eval "$EDITOR ${EDITOR_OPTS[*]} $_f" || vim $_f
 
 	# Need to reload?
-	if echo $_f | grep -i bash; then
-		source ~/.bashrc
-	fi
+	[ -n "$_r" ] && eval "source ~/.bashrc"
 
 	echo "exiting."
 }
