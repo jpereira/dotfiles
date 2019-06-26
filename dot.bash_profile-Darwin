@@ -10,6 +10,9 @@ export PATH="$PATH:/Applications/Sublime Text.app/Contents/SharedSupport/bin/"
 # sublime merge
 export PATH="$PATH:/Applications/Sublime Merge.app/Contents/SharedSupport/bin/"
 
+# Pip3
+export PATH="$PATH:$HOME/Library/Python/3.7/bin/"
+
 # If you'd like to mimic the colors of a typical Linux terminal:
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 export CLICOLOR=1
