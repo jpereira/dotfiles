@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Tue Jun 25 23:46:49 2019
+# Last Change: Fri Jun 28 14:50:08 2019
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
 
@@ -33,6 +33,16 @@ function fr.dictinary-check() {
 #
 #	show-*
 #
+show-cpu-infos() {
+	if [ "$OS" = "Darwin" ]; then
+		if ! osx-cpu-temp -Ccgf; then
+			brew install osx-cpu-temp
+		fi
+	else
+		echo "not found"
+	fi
+}
+
 show-disk-speed() {
 	local _p=${1:-$PWD}
 	local _f="${_p}/tempfile.$$"
@@ -96,19 +106,21 @@ docker-run-prev-container() {
 	set +fx
 }
 
-docker-cleanup-images-unknown() {
+docker-cleanup-containers-untagged() {
 	set -fx
 	docker images -a | awk '/<none>/ { print $3}' | xargs docker rmi -f
 	set +fx
 }
 
-docker-cleanup-instances-stoppeds() {
+docker-cleanup-instances-stopped() {
+	set -fx
 	docker ps -a --format '{{.Names}} {{.Status}}' | while read docker_image docker_status; do
 		if echo "$docker_status" | grep -iq "exited"; then
 			echo -n "(*) Removing: "
 			docker rm -f $docker_image
 		fi
 	done
+	set +fx
 }
 
 docker-cleanup-instances-all() {
@@ -127,7 +139,6 @@ docker-stop-instances() {
 docker-show-ips() {
 	docker ps --format '{{.Names}}' | while read docker_image; do
 		_ip=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $docker_image)
-
 		echo "docker_image: $docker_image ipaddr: $_ip"
 	done | sort -n -k4 | column -t
 }
@@ -234,7 +245,7 @@ git-commit-as-fixup() {
 	done
 
 	$_e "git rebase -i --autosquash ${prev_branch}~${_deep}"
-	$_e "git pull --rebase upstream"
+	$_e "git pull --rebase upstream ${prev_branch}"
 	$_e "git push -f origin $curr_branch"
 }
 

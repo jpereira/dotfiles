@@ -1,5 +1,5 @@
 # Por Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Tue Jun 25 23:40:55 2019
+# Last Change: Fri Jun 28 17:50:55 2019
 ##
 
 #
@@ -92,16 +92,20 @@ esac
 #
 # e.g: for business & customers & OS
 #
-dots=(.bash_functions .bash_alias bin/funcoeszz)
+if [ "$TERM" != "dumb" ]; then
+     dots=(/usr/local/etc/profile.d/bash_completion.sh
+           /etc/profile.d/bash_completion.sh
+           /etc/bash/bash_completion.sh
+           $HOME/.bash_functions
+           $HOME/.bash_alias
+           $HOME/bin/funcoeszz)
 
-for d in ${dots[*]}; do
-    dot="$HOME/$d"
-
-    if [ "$TERM" != "dumb" -a -f "$dot" ];then
-        decho "$dot"
-        source $dot
-    fi
-done
+    for d in ${dots[*]}; do
+        [ ! -f "$d" ] && continue
+        decho "$d"
+        source $d
+    done
+fi
 
 #
 #	Display/X11
@@ -125,4 +129,3 @@ fi
 #	always core files
 ulimit -c unlimited
 
-:q!q:q!

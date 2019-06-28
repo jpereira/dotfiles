@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Tue Jun 25 16:44:05 2019
+# Last Change: Fri Jun 28 14:50:34 2019
 ##
 
 # Reset all aliases
@@ -8,7 +8,7 @@ unalias -a
 if [ -e "$HOME/.bash_alias_work" ]; then
     decho "$HOME/.bash_alias_work"
     source "$HOME/.bash_alias_work"
-    alias edit-alias-work="vi ~/.bash_alias_work && source ~/.bash_alias_work"
+    alias edit-alias-work="$EDITOR ~/.bash_alias_work && source ~/.bash_alias_work"
 fi
 
 #
@@ -19,6 +19,8 @@ fi
 #	Lazzy
 #
 ls --color=auto 1> /dev/null 2>&1 && alias ls='ls --color=auto' || alias ls="ls -G"
+alias cd..="cd .."
+alias cd.="cd .."
 alias d='ls'
 alias mv='mv -iv'
 alias rm='rm -iv'
@@ -35,6 +37,7 @@ alias lsiz='ls -alS'
 alias lsnew='ls -lctr'
 alias lsx='ls -lah | grep "^-..x"'
 alias tm='tail -f /var/log/messages'
+alias reload-bashrc="source ~/.bashrc"
 
 alias set-editor-to-subl="export EDITOR='subl' EDITOR_OPTS='-w'"
 alias set-editor-to-vim="export EDITOR='vim' EDITOR_OPTS=''"
@@ -106,3 +109,4 @@ alias reboot='sudo /sbin/reboot'
 alias mrxvt="/usr/bin/mrxvt -rv -sr -fn 9x15 -title \"Terminal Mrxvt\" -g 90x30 -cr red -tnum 4"
 alias wgetcookie='wget -c --load-cookies=$HOME/.mozilla/firefox/default/cookies.txt'
 alias xterm="/usr/bin/xterm -fg white -bg black -fn 10x20"
+
