@@ -1,212 +1,212 @@
 [user]
-name = Jorge Pereira
-email = jpereiran@gmail.com
+	name = Jorge Pereira
+	email = jpereiran@gmail.com
 
 [github]
-user = jpereira
-#token = token
+	user = jpereira
+	token = token
 
 [includeIf "gitdir:~/Devel/FreeRadius/**"]
-path = .gitconfig-freeradius
+	path = .gitconfig-freeradius
 
 [includeIf "gitdir:~/Devel/GNOME/**"]
-path = .gitconfig-gnome
+	path = .gitconfig-gnome
 
 [gui]
-pruneduringfetch = true
+	pruneduringfetch = true
 
 [core]
-editor = vim
-whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	editor = vim
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
 [credential]
-helper = cache --timeout=3600
+	helper = cache --timeout=3600
 
 [sendemail]
-smtpencryption = tls
-smtpserver = smtp.gmail.com
-smtpuser = jpereiran@gmail.com
-smtppass = *******
-smtpserverport = 587
-to = git@vger.kernel.org
+	smtpencryption = tls
+	smtpserver = smtp.gmail.com
+	smtpuser = jpereiran@gmail.com
+	smtppass = *******
+	smtpserverport = 587
+	to = git@vger.kernel.org
 
 [web]
-browser = google-chrome
+	browser = google-chrome
 
 [push]
-default = matching
+	default = current
 
 [gpg]
-program = gpg
+	program = gpg
 
 # sign all commits by default in any local repository
 [commit]
-gpgsign = true
-template = ~/.gitconfig_stCommitMsg
+	gpgsign = true
+	template = ~/.gitconfig_stCommitMsg
 
 [core]
-editor = vim
-whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-excludesfile = ~/.gitignore_global
+	editor = vim
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	excludesfile = ~/.gitignore_global
 
 [rerere]
-enabled = 1
-autoupdate = 1
+	enabled = 1
+	autoupdate = 1
 
 [alias]
-s = status
-st = status
-sb = status -s -b
-cp = cherry-pick
-#############
-clean-all = clean -fdx
-#############
-sa = stash apply
-sc = stash clear
-sd = stash drop
-sl = stash list
-sp = stash pop
-ss = stash save
-#############
-d = diff
-df = diff
-dt = difftool
-dfh = diff HEAD
-dc = diff --cached
-dk = diff --check
-dck = diff --cached --check
-#############
-c = commit
-ci = commit
-cinosign = commit --no-gpg-sign
-cins = commit --no-gpg-sign
-ca = commit -a
-cm = commit -m
-cam = commit -am
-cd = commit --amend
-cad = commit -a --amend
-#############
-a = add .
-#############
-ap = apply
-as = apply --stat
-ac = apply --check
-#############
-l = log --oneline
-lg = log --oneline --graph --decorate
-ld = log --pretty=format:\"[%h] %ae, %ar: %s\" --stat
-ll = log --graph --decorate --simplify-by-decoration
-chlogm =  !sh -c 'git log $1...$2  --pretty=format:\"%s [view commit](http://github.com/$3/$4/commit/%H)\"'
+	s = status
+	st = status
+	sb = status -s -b
+	cp = cherry-pick
+	############
+	clean-all = clean -fdx
+	############
+	sa = stash apply
+	sc = stash clear
+	sd = stash drop
+	sl = stash list
+	sp = stash pop
+	ss = stash save
+	############
+	d = diff
+	df = diff
+	dt = difftool
+	dfh = diff HEAD
+	dc = diff --cached
+	dk = diff --check
+	dck = diff --cached --check
+	############
+	c = commit
+	ci = commit
+	cinosign = commit --no-gpg-sign
+	cins = commit --no-gpg-sign
+	ca = commit -a
+	cm = commit -m
+	cam = commit -am
+	cd = commit --amend
+	cad = commit -a --amend
+	############
+	a = add .
+	############
+	ap = apply
+	as = apply --stat
+	ac = apply --check
+	############
+	l = log --oneline
+	lg = log --oneline --graph --decorate
+	ld = log --pretty=format:\"[%h] %ae, %ar: %s\" --stat
+	ll = log --graph --decorate --simplify-by-decoration
+	chlogm =  !sh -c 'git log $1...$2  --pretty=format:\"%s [view commit](http://github.com/$3/$4/commit/%H)\"'
 
-# FreeRadius
-fr-chlogm =  !sh -c 'git log $1...$2  --pretty=format:\"%s [view commit](http://github.com/freeradius/freeradius-server/commit/%H)\"'
-#############
-o = checkout
-co = checkout
-ob = checkout -b
-#############
-b = branch
-ba = branch -a
-bd = branch -d
-br = branch -r
-#############
-f = fetch
-fo = fetch origin
-fa = fetch --all -pn
-#############
-fp = format-patch
-#############
-fk = fsck
-#############
-m = merge
-#############
-#pr = prune -v
-#############
-ps = push
-pso = push origin
-psof = push origin -f
-pl = pull
-pr = pull --rebase
-psf = push -f
-psu = push -u
-plu = pull -u
-pso = push origin
-plo = pull origin
-pro = pull --rebase origin
-pru = pull --rebase upstream
-prum = pull --rebase upstream master
-pruv4 = pull --rebase upstream master
-pruv3 = pull --rebase upstream v3.0.x
-psfo = push -f origin
-psuo = push -u origin
-pluo = pull -u origin
-#############
-rb = rebase
-rb-squash-by-id = rebase -i --autosquash
-#############
-re = reset
-rh = reset HEAD
-rh1 = reset HEAD^1
-undo = reset HEAD^1
-reh = reset --hard
-rem = reset --mixed
-res = reset --soft
-rehh = reset --hard HEAD
-remh = reset --mixed HEAD
-resh = reset --soft HEAD
-#############
-r = remote
-ra = remote add
-rm = remote rm
-rv = remote -v
-rp = remote prune
-rs = remote show
-rso = remote show origin
-rpo = remote prune origin
-#############
-w = show
-#############
-meldon = config diff.external ~/bin/meld-git.py
-meldof = config --remove-section diff
-#############
-human = name-rev --name-only --refs=refs/heads/*
+	 FreeRadius
+	fr-chlogm =  !sh -c 'git log $1...$2  --pretty=format:\"%s [view commit](http://github.com/freeradius/freeradius-server/commit/%H)\"'
+	############
+	o = checkout
+	co = checkout
+	ob = checkout -b
+	############
+	b = branch
+	ba = branch -a
+	bd = branch -d
+	br = branch -r
+	############
+	f = fetch
+	fo = fetch origin
+	fa = fetch --all -pn
+	############
+	fp = format-patch
+	############
+	fk = fsck
+	############
+	m = merge
+	############
+	pr = prune -v
+	############
+	ps = push
+	pso = push origin
+	psof = push origin -f
+	pl = pull
+	pr = pull --rebase
+	psf = push -f
+	psu = push -u
+	plu = pull -u
+	pso = push origin
+	plo = pull origin
+	pro = pull --rebase origin
+	pru = pull --rebase upstream
+	prum = pull --rebase upstream master
+	pruv4 = pull --rebase upstream master
+	pruv3 = pull --rebase upstream v3.0.x
+	psfo = push -f origin
+	psuo = push -u origin
+	pluo = pull -u origin
+	############
+	rb = rebase
+	rb-squash-by-id = rebase -i --autosquash
+	############
+	re = reset
+	rh = reset HEAD
+	rh1 = reset HEAD^1
+	undo = reset HEAD^1
+	reh = reset --hard
+	rem = reset --mixed
+	res = reset --soft
+	rehh = reset --hard HEAD
+	remh = reset --mixed HEAD
+	resh = reset --soft HEAD
+	############
+	r = remote
+	ra = remote add
+	rm = remote rm
+	rv = remote -v
+	rp = remote prune
+	rs = remote show
+	rso = remote show origin
+	rpo = remote prune origin
+	############
+	w = show
+	############
+	meldon = config diff.external ~/bin/meld-git.py
+	meldof = config --remove-section diff
+	############
+	human = name-rev --name-only --refs=refs/heads/*
 
 [color]
-ui = true
+	ui = true
 
 [color "branch"]
-current = yellow bold
-local = green bold
-remote = cyan bold
+	current = yellow bold
+	local = green bold
+	remote = cyan bold
 
 [color "diff"]
-meta = yellow bold
-frag = magenta bold
-old = red bold
-new = green bold
-whitespace = red reverse
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
 
 [color "status"]
-added = green bold
-changed = yellow bold
-untracked = red bold
+	added = green bold
+	changed = yellow bold
+	untracked = red bold
 [rebase]
-autosquash = true
+	autosquash = true
 
 [diff]
-tool = "sourcetree"
+	tool = "sourcetree"
 
 [difftool "sourcetree"]
-cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-path = 
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
 
 [merge]
-tool = "Sublime Merge"
+	tool = "Sublime Merge"
 
 [mergetool "sourcetree"]
-cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-trustExitCode = true
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 
 [mergetool "Sublime Merge"]
-cmd = smerge mergetool \"$BASE\" \"$REMOTE\" \"$LOCAL\" -o \"$MERGED\"
+	cmd = smerge mergetool \"$BASE\" \"$REMOTE\" \"$LOCAL\" -o \"$MERGED\"
 
