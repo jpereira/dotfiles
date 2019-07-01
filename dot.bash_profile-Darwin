@@ -18,6 +18,8 @@ export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 export CLICOLOR=1
 
 # Commands
+alias show-cpu-info="sysctl -n machdep.cpu.brand_string"
+
 export _DD=gdd
 export _LS=gls
 
