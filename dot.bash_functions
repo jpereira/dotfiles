@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Fri Jun 28 14:50:08 2019
+# Last Change: Fri Jun 28 19:00:09 2019
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
 
@@ -33,7 +33,7 @@ function fr.dictinary-check() {
 #
 #	show-*
 #
-show-cpu-infos() {
+show-cpu-temp() {
 	if [ "$OS" = "Darwin" ]; then
 		if ! osx-cpu-temp -Ccgf; then
 			brew install osx-cpu-temp
