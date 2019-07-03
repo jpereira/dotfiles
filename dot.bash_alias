@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Fri Jun 28 14:50:34 2019
+# Last Change: Wed Jul  3 16:47:57 2019
 ##
 
 # Reset all aliases
@@ -18,7 +18,22 @@ fi
 #
 #	Lazzy
 #
-ls --color=auto 1> /dev/null 2>&1 && alias ls='ls --color=auto' || alias ls="ls -G"
+if ls --color=auto 1> /dev/null 2>&1; then
+	# coreutils/Linux?
+	alias ls='ls --color=auto'
+else
+	# Darwin?
+	alias ls="ls -G"
+fi
+
+# lazzy....
+if ! type sl 1> /dev/null 2>&1; then
+	alias sl="ls"
+	alias sl-l="ls -l"
+	alias sl-la="ls -la"
+fi
+alias ls-l="ls -l"
+alias ls-la="ls -la"
 alias cd..="cd .."
 alias cd.="cd .."
 alias d='ls'
