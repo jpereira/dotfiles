@@ -6,7 +6,7 @@
 	user = jpereira
 	token = token
 
-[includeIf "gitdir:~/Devel/FreeRadius/**"]
+[includeIf "gitdir:~/Devel/FreeRADIUS/**"]
 	path = .gitconfig-freeradius
 
 [includeIf "gitdir:~/Devel/GNOME/**"]
@@ -94,11 +94,11 @@
 	############
 	l = log --oneline
 	lg = log --oneline --graph --decorate
-	ld = log --pretty=format:\"[%h] %ae, %ar: %s\" --stat
+	ld = log --pretty=format:\"[%h] gpg:%G?, <%ae>, %ar: %s\" --stat
 	ll = log --graph --decorate --simplify-by-decoration
 	chlogm =  !sh -c 'git log $1...$2  --pretty=format:\"%s [view commit](http://github.com/$3/$4/commit/%H)\"'
 
-	 FreeRadius
+#	 FreeRadius
 	fr-chlogm =  !sh -c 'git log $1...$2  --pretty=format:\"%s [view commit](http://github.com/freeradius/freeradius-server/commit/%H)\"'
 	############
 	o = checkout
@@ -190,6 +190,7 @@
 	added = green bold
 	changed = yellow bold
 	untracked = red bold
+
 [rebase]
 	autosquash = true
 
