@@ -23,3 +23,5 @@ alias show-cpu-info="sysctl -n machdep.cpu.brand_string"
 export _DD=gdd
 export _LS=gls
 
+# FreeRADIUS
+export DYLD_LIBRARY_PATH=./build/lib/.libs/
