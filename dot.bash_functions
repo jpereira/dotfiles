@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Fri Jun 28 19:00:09 2019
+# Last Change: Thu Jul  4 21:49:08 2019
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
 
@@ -244,8 +244,9 @@ git-commit-as-fixup() {
 		$_e "git commit --fixup $_hash $_file"
 	done
 
-	$_e "git rebase -i --autosquash ${prev_branch}~${_deep}"
-	$_e "git pull --rebase upstream ${prev_branch}"
+	$_e "git rebase -i --autosquash HEAD~${_deep}"
+	#$_e "git pull --rebase upstream ${prev_branch}"
+	$_e "git pull --rebase upstream"
 	$_e "git push -f origin $curr_branch"
 }
 
