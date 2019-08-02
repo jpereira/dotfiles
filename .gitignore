@@ -1,5 +1,6 @@
 *.swp
 dot.config/sublime-text-3/Cache/
 vagrant/.vagrant
+dot.vim/.netrwhist
 *.log
 

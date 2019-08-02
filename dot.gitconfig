@@ -211,3 +211,5 @@
 [mergetool "Sublime Merge"]
 	cmd = smerge mergetool \"$BASE\" \"$REMOTE\" \"$LOCAL\" -o \"$MERGED\"
 
+[branch]
+	autosetuprebase = always

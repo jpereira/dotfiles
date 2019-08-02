@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Thu Jul  4 21:49:08 2019
+# Last Change: Fri Aug  2 09:55:54 2019
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
 
@@ -31,8 +31,35 @@ function fr.dictinary-check() {
 }
 
 #
+#	asciidoctor
+#
+adoc-ls2link() {
+	ls -1 | while read _f; do
+		[ "$_f" = "index.adoc" ] && continue
+
+		if [ -d "$_f" ]; then
+			#echo "* link:$_f[$_f]"
+			echo "* $_f"
+			ls -1 "$_f" | while read _d; do
+				echo "** link:$_f/$_d[$_d]"
+			done
+		else
+			echo "* link:$_f[$_f]"
+		fi
+	done
+}
+
+#
 #	show-*
 #
+show-cpu-cores() {
+	if [ "$OS" = "Darwin" ]; then
+		sysctl -n hw.logicalcpu
+	else
+		grep "cpu family" /proc/cpuinfo | wc -l
+	fi
+}
+
 show-cpu-temp() {
 	if [ "$OS" = "Darwin" ]; then
 		if ! osx-cpu-temp -Ccgf; then
@@ -231,22 +258,54 @@ git-commit-as-update() {
 	git status | awk '/modified/ { printf("git ci -m \"Update %s\" %s\n",$2,$2); }'
 }
 
+git-cleanup-branch() {
+	local _rem_branches=""
+	local _loc_branches=""
+
+	for _b in $@; do
+		_rem_branches="$_rem_branches :${_b}"
+		_loc_branches="$_loc_branches ${_b}"
+	done
+
+	if [ -z "${_rem_branches[@]}" ]; then
+		echo "git-cleanup-branch: Nothing to do!"
+		return
+	fi
+
+	git push -f origin ${_rem_branches[@]}
+	git branch -D ${_loc_branches[@]}
+}
+
+git-commit-fixup() {
+	local _d="${1:-10}"
+
+	#git stash
+
+	GIT_SEQUENCE_EDITOR=: git rebase -i --autosquash HEAD~$_d
+
+	#git stash apply
+}
+
 git-commit-as-fixup() {
-	local _deep="${1:-10}"
+
 	local curr_branch="$(git describe --all @{0} | sed 's@^heads/@@g')"
 	local prev_branch="$(git describe --all @{-1} | sed 's@^heads/@@g')"
 	local _e=echo
 
-	[ "$1" = "run" ] && _e=eval
+	[ -z "$curr_branch" ] && curr_branch="master"
+
+	[ "$1" = "run" ] && { _e=eval; shift; }
+
+	local _deep="${1:-10}"
 
 	git status | grep "modified:" | while read _notinuse _file; do
-		_hash=$(git log --oneline --pretty=format:"%h" -1 $_file)
+		_hash=$(git log --oneline --pretty=format:"%h" -1 -- $_file)
 		$_e "git commit --fixup $_hash $_file"
 	done
 
-	$_e "git rebase -i --autosquash HEAD~${_deep}"
-	#$_e "git pull --rebase upstream ${prev_branch}"
-	$_e "git pull --rebase upstream"
+	$_e "GIT_SEQUENCE_EDITOR=: git rebase -i --autosquash HEAD~${_deep}"
+	$_e "git pull --rebase upstream ${prev_branch}"
+	#$_e "git pull --rebase upstream"
 	$_e "git push -f origin $curr_branch"
 }
 

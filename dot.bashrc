@@ -12,6 +12,5 @@ if [ "$TERM" != "dumb" ]; then
 
 	#echo "#.bashrc: Carregando .bash_profile"
 	[ -f ~/.bash_profile ] && source ~/.bash_profile
-
 fi
 
