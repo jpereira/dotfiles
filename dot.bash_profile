@@ -1,5 +1,5 @@
 # Por Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Fri Jun 28 17:50:55 2019
+# Last Change: Fri Jul 12 10:35:56 2019
 ##
 
 #
@@ -36,6 +36,9 @@ export GPG_TTY=$(tty)
 #	Ansible settings
 #
 export ANSIBLE_HOST_KEY_CHECKING=False
+
+# Reset aliases
+unalias -a
 
 #
 # Settings by $OS
@@ -126,6 +129,7 @@ elif which fortune 1> /dev/null 2>&1; then
   fortune
 fi
 
-#	always core files
-ulimit -c unlimited
+#	always core files?
+#ulimit -c unlimited
+# sudo launchctl limit core 0 0
 

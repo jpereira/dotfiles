@@ -1,9 +1,6 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Wed Jul  3 16:47:57 2019
+# Last Change: Fri Jul 12 01:04:32 2019
 ##
-
-# Reset all aliases
-unalias -a
 
 if [ -e "$HOME/.bash_alias_work" ]; then
     decho "$HOME/.bash_alias_work"
