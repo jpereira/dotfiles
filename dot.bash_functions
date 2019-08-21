@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Fri Aug  2 09:55:54 2019
+# Last Change: Thu Aug 15 13:43:06 2019
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
 
@@ -47,6 +47,16 @@ adoc-ls2link() {
 			echo "* link:$_f[$_f]"
 		fi
 	done
+}
+
+# Cleanup from markup convertion.
+adoc-cleanup() {
+	cat $1 | sed '
+	s/\.\.\.\./\`\`\`/g;
+	s/\`\+/\`/g;
+	s/+\`/\`/g;
+	' > ${1}.$$
+	mv -f ${1}.$$ ${1}
 }
 
 #
@@ -272,8 +282,9 @@ git-cleanup-branch() {
 		return
 	fi
 
-	git push -f origin ${_rem_branches[@]}
 	git branch -D ${_loc_branches[@]}
+	git push -f origin ${_rem_branches[@]}
+	git fetch --all --force -pn
 }
 
 git-commit-fixup() {
