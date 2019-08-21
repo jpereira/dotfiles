@@ -19,6 +19,9 @@ export PATH="/usr/local/opt/openssl/bin:$PATH"
 # llvm
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
+# pdflatex
+export PATH="/usr/local/texlive/2019basic/bin/x86_64-darwin:$PATH"
+
 # If you'd like to mimic the colors of a typical Linux terminal:
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 export CLICOLOR=1
