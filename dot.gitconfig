@@ -58,8 +58,11 @@
 	st = status
 	sb = status -s -b
 	cp = cherry-pick
+	cpc = cherry-pick --continue
+	cpa = cherry-pick --abort
 	############
 	clean-all = clean -fdx
+	cfdx = clean -fdx
 	############
 	sa = stash apply
 	sc = stash clear
@@ -78,6 +81,8 @@
 	############
 	c = commit
 	ci = commit
+	cif = commit --fixup
+	cf = commit --fixup
 	cinosign = commit --no-gpg-sign
 	cins = commit --no-gpg-sign
 	ca = commit -a
@@ -113,6 +118,7 @@
 	f = fetch
 	fo = fetch origin
 	fa = fetch --all -pn
+	fapn = fetch --all -pn
 	############
 	fp = format-patch
 	############
@@ -125,6 +131,8 @@
 	ps = push
 	pso = push origin
 	psof = push origin -f
+	po = push origin
+	pof = push origin -f
 	pl = pull
 	pr = pull --rebase
 	psf = push -f
