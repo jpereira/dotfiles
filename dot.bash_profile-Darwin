@@ -28,9 +28,13 @@ export CLICOLOR=1
 
 # FreeRADIUS
 export DYLD_LIBRARY_PATH=./build/lib/.libs/
+
 # Commands
 export _DD=gdd
 export _LS=gls
+
+# gcc settings
+export CC=llvm-gcc
 
 # Darwin functions/aliases
 alias show-cpu-info="sysctl -n machdep.cpu.brand_string"

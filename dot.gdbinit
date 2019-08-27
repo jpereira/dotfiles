@@ -1,6 +1,8 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Seg 05 Out 2015 14:41:01 BRT
+# Last Change: Thu Aug 22 16:54:06 2019
 ##
+
+set startup-with-shell off
 
 set history filename ~/.gdb_history
 set history save
