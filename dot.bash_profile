@@ -1,5 +1,5 @@
 # Por Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Fri Jul 12 10:35:56 2019
+# Last Change: Mon Aug 26 21:07:20 2019
 ##
 
 #
@@ -31,6 +31,11 @@ export ESCDELAY=0
 export EDITOR="vim"
 export DISPLAY=${DISPLAY:-:0.0}
 export GPG_TTY=$(tty)
+
+#
+#	FreeRADIUS
+#
+export FR_LIBRARY_PATH=./build/lib/local/.libs/
 
 #
 #	Ansible settings
