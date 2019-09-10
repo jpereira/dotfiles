@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Thu Aug 15 13:43:06 2019
+# Last Change: Mon Sep  9 21:21:10 2019
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
 
@@ -283,7 +283,11 @@ git-cleanup-branch() {
 	fi
 
 	git branch -D ${_loc_branches[@]}
-	git push -f origin ${_rem_branches[@]}
+
+	for _b in ${_rem_branches[@]}; do
+		git push -f origin $_b
+	done
+
 	git fetch --all --force -pn
 }
 
