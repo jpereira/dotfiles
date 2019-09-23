@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Mon Sep  9 21:21:10 2019
+# Last Change: Tue Sep 17 19:58:29 2019
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
 
@@ -68,6 +68,11 @@ show-cpu-cores() {
 	else
 		grep "cpu family" /proc/cpuinfo | wc -l
 	fi
+}
+
+show-random-ip() {
+	echo $(dd if=/dev/urandom bs=4 count=1 2>/dev/null | \
+	            od -An -tu1 | sed -e 's/^ *//' -e 's/  */./g; s/\.$//g')
 }
 
 show-cpu-temp() {
@@ -150,14 +155,14 @@ docker-cleanup-containers-untagged() {
 }
 
 docker-cleanup-instances-stopped() {
-	set -fx
+#	set -fx
 	docker ps -a --format '{{.Names}} {{.Status}}' | while read docker_image docker_status; do
 		if echo "$docker_status" | grep -iq "exited"; then
 			echo -n "(*) Removing: "
 			docker rm -f $docker_image
 		fi
 	done
-	set +fx
+#	set +fx
 }
 
 docker-cleanup-instances-all() {
@@ -291,7 +296,7 @@ git-cleanup-branch() {
 	git fetch --all --force -pn
 }
 
-git-commit-fixup() {
+git-rebase-fixup-autosquash() {
 	local _d="${1:-10}"
 
 	#git stash
@@ -299,6 +304,14 @@ git-commit-fixup() {
 	GIT_SEQUENCE_EDITOR=: git rebase -i --autosquash HEAD~$_d
 
 	#git stash apply
+}
+
+git-fixup-with-last-commit() {
+	local _last_commit="$(git log --pretty=format:%h -1)"
+
+	git commit --fixup $_last_commit .
+
+	GIT_SEQUENCE_EDITOR=: git rebase -i --autosquash HEAD^^
 }
 
 git-commit-as-fixup() {

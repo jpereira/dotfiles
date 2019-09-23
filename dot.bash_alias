@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Tue Sep 10 18:08:19 2019
+# Last Change: Thu Sep 19 20:56:56 2019
 ##
 
 if [ -e "$HOME/.bash_alias_work" ]; then
@@ -104,6 +104,13 @@ alias test-iperf3-torouter="iperf3 -c 192.168.1.254"
 alias scp.aws.ipv4="scp -i ~/Documents/Pessoais/Keys/SSH/aws-jorge1.pem"
 alias ssh.aws.ipv4="ssh -i ~/Documents/Pessoais/Keys/SSH/aws-jorge1.pem -l root"
 alias ssh.router="ssh -l root 192.168.1.254"
+alias ssh.capacete="ssh -l admin 192.168.1.253"
+
+alias ssh.dev01="ssh -l root 192.168.1.41"
+alias ssh.dev02="ssh -l root 192.168.1.42"
+alias ssh.dev03="ssh -l root 192.168.1.43"
+alias ssh.dev04="ssh -l root 192.168.1.44"
+alias ssh.dev05="ssh -l root 192.168.1.45"
 
 #
 #	Linux
