@@ -88,7 +88,7 @@
 	ca = commit -a
 	cm = commit -m
 	cam = commit -am
-	cd = commit --amend
+	cia = commit --amend
 	cad = commit -a --amend
 	############
 	a = add .
@@ -108,6 +108,8 @@
 	############
 	o = checkout
 	co = checkout
+	cv3 = checkout v3.0.x
+	cvm = checkout master
 	ob = checkout -b
 	############
 	b = branch

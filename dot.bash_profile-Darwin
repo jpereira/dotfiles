@@ -4,6 +4,9 @@
 
 decho "$HOME/.bash_profile-Darwin"
 
+# llvm
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+
 # sublime
 export PATH="$PATH:/Applications/Sublime Text.app/Contents/SharedSupport/bin"
 
@@ -15,9 +18,6 @@ export PATH="$PATH:$HOME/Library/Python/3.7/bin/"
 
 # openssl
 export PATH="/usr/local/opt/openssl/bin:$PATH"
-
-# llvm
-export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # pdflatex
 export PATH="/usr/local/texlive/2019basic/bin/x86_64-darwin:$PATH"
@@ -37,7 +37,7 @@ export _DD=gdd
 export _LS=gls
 
 # gcc settings
-export CC=llvm-gcc
+export CC=clang-8
 
 # Darwin functions/aliases
 alias show-cpu-info="sysctl -n machdep.cpu.brand_string"
