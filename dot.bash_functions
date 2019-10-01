@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Tue Sep 17 19:58:29 2019
+# Last Change: Thu Sep 26 11:08:31 2019
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
 
@@ -308,10 +308,18 @@ git-rebase-fixup-autosquash() {
 
 git-fixup-with-last-commit() {
 	local _last_commit="$(git log --pretty=format:%h -1)"
+	local _files="${@:-.}"
 
-	git commit --fixup $_last_commit .
+	set -fx
+	git commit --fixup $_last_commit ${_files[*]}
 
 	GIT_SEQUENCE_EDITOR=: git rebase -i --autosquash HEAD^^
+	set +fx
+}
+
+git-show-lost-found() {
+	git fsck --full --no-reflogs --unreachable --lost-found | \
+		awk '/commit/ { print $3}' | xargs -n 1 git log -n 1 --pretty=oneline
 }
 
 git-commit-as-fixup() {
