@@ -3,9 +3,13 @@ Host *
 	ControlMaster auto
 	ControlPersist 1h
 	Compression yes
+	IdentityFile ~/.ssh/id_rsa
+	# Only OSx
 	UseKeychain yes
 	AddKeysToAgent yes
-	IdentityFile ~/.ssh/id_rsa
+
+Host networkradius.com
+	IdentityFile ~/.ssh/jpereira@networkradius.com-id_rsa.pub
 
 Host router
 	Hostname router.lan
