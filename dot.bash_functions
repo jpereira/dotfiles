@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Thu Sep 26 11:08:31 2019
+# Last Change: Thu Oct 24 13:17:11 2019
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
 
@@ -466,6 +466,27 @@ gdb-attach-by-pid() {
 #
 #	my-*
 #
+my-ssh-tcpdump2wireshark() {
+	local _host="$1"
+	local _iface="$2"
+	local _filter="$3"
+
+	echo "DEBUG: host='$_host', iface='$_iface', filter='$_filter'"
+	set -fx
+	ssh $_host 'tcpdump -U -i '$_iface' -w - "'$_filter'"' | wireshark -i -
+	set +fx
+}
+
+my-hexcount() {
+	echo "# hexdump"
+	echo "$@" | tr " " "\n" | paste - - - - - - - - 
+
+	_tot=$(echo "$@" | tr " " "\n" | wc -l)
+	_toth=$(printf "%#x" $_tot)
+	echo
+	echo "# Total: $_tot ($_toth)"
+}
+
 my-nobacks() {
 	echo "# Removing all '*~' and '.*~' in $PWD"
 
@@ -500,6 +521,15 @@ find-bin() {
 			echo ":${_file}"
 		fi
 	done | sort -n
+}
+
+#
+#	ipv6
+#
+ipv62hex() {
+	echo "# ~> Converting $1 to hexa"
+
+	sipcalc $1 | sed '/Compressed addres/!d; s/.*- //g; s/://g; s/^/0x/g'
 }
 
 #
