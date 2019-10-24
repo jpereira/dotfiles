@@ -8,7 +8,7 @@
 command script import ~/.lldb/lldbinit.py
 
 # wish lldb supported colors :/
-settings set prompt "lldb> "
+#settings set prompt "lldb> "
 #settings set prompt "\033[31m(lldb)\033[0m "
 
 # breakpoint shortcuts

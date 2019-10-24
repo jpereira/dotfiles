@@ -25,6 +25,15 @@ export PATH="/usr/local/texlive/2019basic/bin/x86_64-darwin:$PATH"
 # couchbase server
 export PATH="/Applications/Couchbase Server.app/Contents/Resources/couchbase-core/bin:$PATH"
 
+# brew bin
+export PATH="/usr/local/bin:$PATH"
+
+# fix openssl.cnf complain messages
+export OPENSSL_CONF=/dev/null
+
+# use touchid for ssh key
+export SSH_AUTH_SOCK=$HOME/.sekey/ssh-agent.ssh
+
 # If you'd like to mimic the colors of a typical Linux terminal:
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 export CLICOLOR=1
