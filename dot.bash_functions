@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Thu Oct 24 13:17:11 2019
+# Last Change: Tue Oct 29 18:33:26 2019
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
 
@@ -471,9 +471,16 @@ my-ssh-tcpdump2wireshark() {
 	local _iface="$2"
 	local _filter="$3"
 
+	if [ -z "$_filter" ]; then
+		echo "Usage: my-ssh-tcpdump2wireshark <ip/host> <iface> <tcpdump filter>"
+		echo
+		echo "e.g: 'ether host 00:01:02:03'"
+		return
+	fi
+
 	echo "DEBUG: host='$_host', iface='$_iface', filter='$_filter'"
 	set -fx
-	ssh $_host 'tcpdump -U -i '$_iface' -w - "'$_filter'"' | wireshark -i -
+	ssh $_host tcpdump -U -i $_iface -w - \"$_filter\" | wireshark -i -
 	set +fx
 }
 
