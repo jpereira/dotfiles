@@ -39,7 +39,9 @@ export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 export CLICOLOR=1
 
 # FreeRADIUS
-export DYLD_LIBRARY_PATH=./build/lib/.libs/
+#export DYLD_LIBRARY_PATH=./build/lib/.libs/
+export ASAN_OPTIONS="symbolize=1 detect_leaks=1 detect_stack_use_after_return=1"
+export LSAN_OPTIONS="fast_unwind_on_malloc=0:malloc_context_size=50"
 
 # Commands
 export _DD=gdd
