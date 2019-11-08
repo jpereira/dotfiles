@@ -109,7 +109,7 @@
 	o = checkout
 	co = checkout
 	cv3 = checkout v3.0.x
-	cvm = checkout master
+	com = checkout master
 	ob = checkout -b
 	############
 	b = branch
