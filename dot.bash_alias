@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Wed Oct 16 19:38:33 2019
+# Last Change: Mon Nov 25 19:22:05 2019
 ##
 
 if [ -e "$HOME/.bash_alias_work" ]; then
