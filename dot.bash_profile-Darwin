@@ -40,6 +40,7 @@ export CLICOLOR=1
 
 # FreeRADIUS
 #export DYLD_LIBRARY_PATH=./build/lib/.libs/
+export ASAN_SYMBOLIZER_PATH="$(which llvm-symbolizer)"
 export ASAN_OPTIONS="symbolize=1 detect_leaks=1 detect_stack_use_after_return=1"
 export LSAN_OPTIONS="fast_unwind_on_malloc=0:malloc_context_size=50"
 
@@ -48,7 +49,7 @@ export _DD=gdd
 export _LS=gls
 
 # gcc settings
-export CC=clang-8
+export CC=clang-9
 
 # Darwin functions/aliases
 alias show-cpu-info="sysctl -n machdep.cpu.brand_string"

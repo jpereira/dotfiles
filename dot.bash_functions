@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Tue Oct 29 18:33:26 2019
+# Last Change: Mon Nov 25 19:23:13 2019
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
 
@@ -248,6 +248,10 @@ function vim-to-html() {
 alias git-enable-debug="export GIT_CURL_VERBOSE=1 GIT_TRACE=1"
 alias git-disable-debug="unset GIT_CURL_VERBOSE GIT_TRACE"
 
+open-git-changed-with-subl() {
+	subl $(git st -s | sed 's/M//g' )
+}
+
 git_parse_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
@@ -474,7 +478,7 @@ my-ssh-tcpdump2wireshark() {
 	if [ -z "$_filter" ]; then
 		echo "Usage: my-ssh-tcpdump2wireshark <ip/host> <iface> <tcpdump filter>"
 		echo
-		echo "e.g: 'ether host 00:01:02:03'"
+		echo "e.g: my-ssh-tcpdump2wireshark root@router.lan br-lan 'ether host 00:16:3e:2f:98:47'"
 		return
 	fi
 
