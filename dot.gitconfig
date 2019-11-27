@@ -204,15 +204,46 @@
 [rebase]
 	autosquash = true
 
+[branch]
+	autosetuprebase = always
+
+[fetch]
+	prune = true
+
+#
+#	Diff
+#
 [diff]
-	tool = "sourcetree"
+	tool = meld
+#	tool = "sourcetree"
+
+[difftool]
+	prompt = false
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 
+[difftool "meld"]
+	trustExitCode = true
+	# osx
+	cmd = open -W -a Meld --args \"$LOCAL\" \"$PWD/$REMOTE\"
+	# linux
+#	cmd = meld \"$LOCAL\" \"$PWD/$REMOTE\"
+
+#
+#	Merge
+#
 [merge]
-	tool = "Sublime Merge"
+	tool = meld
+#	tool = "Sublime Merge"
+
+[mergetool]
+	prompt = false
+
+[mergetool "meld"]
+	trustExitCode = true
+	cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
 
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
@@ -220,7 +251,4 @@
 
 [mergetool "Sublime Merge"]
 	cmd = smerge mergetool \"$BASE\" \"$REMOTE\" \"$LOCAL\" -o \"$MERGED\"
-
-[branch]
-	autosetuprebase = always
 
