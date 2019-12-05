@@ -55,10 +55,19 @@ export CC=clang-9
 alias show-cpu-info="sysctl -n machdep.cpu.brand_string"
 alias ldd="otool -L"
 
+function pyenv-hack-install() {
+	for _v in $@; do
+		echo "## Installing $_v"
+
+		CFLAGS="-I$(brew --prefix readline)/include -I$(brew --prefix openssl)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix readline)/lib -L$(brew --prefix openssl)/lib" PYTHON_CONFIGURE_OPTS=--enable-unicode=ucs2 pyenv install -v $_v
+	done
+}
+
 function set-cc-xcode-clang() {
 	export CC=$(xcodebuild -find clang)
 	echo CC=\"$CC\"
 }
+
 function set-cc-brew-llvm() {
 	local _v="$1"
 
