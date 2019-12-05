@@ -55,6 +55,10 @@ export CC=clang-9
 alias show-cpu-info="sysctl -n machdep.cpu.brand_string"
 alias ldd="otool -L"
 
+function pyenv-hack-list() {
+	pyenv versions
+}
+
 function pyenv-hack-init() {
 	pyenv local $1
 	eval "$(pyenv init -)"
