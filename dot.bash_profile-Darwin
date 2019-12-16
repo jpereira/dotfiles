@@ -25,6 +25,9 @@ export PATH="/usr/local/texlive/2019basic/bin/x86_64-darwin:$PATH"
 # couchbase server
 export PATH="/Applications/Couchbase Server.app/Contents/Resources/couchbase-core/bin:$PATH"
 
+# mysql-client
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
 # brew bin
 export PATH="/usr/local/bin:$PATH"
 
