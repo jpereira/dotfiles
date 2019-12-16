@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Mon Nov 25 19:23:13 2019
+# Last Change: Sun Dec 15 22:43:33 2019
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
 
@@ -564,5 +564,15 @@ cp-progressbar() {
             }
          }
          END { print "" }' total_size=$(stat -c '%s' "${1}") count=0
+}
+
+#
+# ffmpeg
+#
+my-ffmpeg-reduce() {
+	for m in $@; do
+		echo "# Reducing $m"
+		ffmpeg -i $m -vcodec libx265 -crf 20 reduced-${m}
+	done
 }
 
