@@ -52,7 +52,7 @@ export _DD=gdd
 export _LS=gls
 
 # gcc settings
-export CC=clang-9
+export CC=/usr/local/Cellar/llvm/9.0.0_1/bin/clang-9
 
 # Darwin functions/aliases
 alias show-cpu-info="sysctl -n machdep.cpu.brand_string"

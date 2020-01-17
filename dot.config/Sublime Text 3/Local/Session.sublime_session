@@ -1,6 +1,8 @@
 {
 	"folder_history":
 	[
+		"/Volumes/Users/jpereira/Devel/FreeRADIUS/networkradius-jorge.git/customers/cloud5/config-old/HSIA/Cloud5-HSIA-radius04/freeradius/sql",
+		"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/proto_control",
 		"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/m4",
 		"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/xlat",
 		"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src",
@@ -11,7 +13,7 @@
 		"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/doc/antora"
 	],
 	"last_version": 3211,
-	"last_window_id": 132,
+	"last_window_id": 152,
 	"log_indexing": false,
 	"settings":
 	{
@@ -23,6 +25,38 @@
 				"selected_items":
 				[
 					[
+						"n",
+						"nothing"
+					],
+					[
+						"rad",
+						"rad_assert"
+					],
+					[
+						"fr_",
+						"fr_skip_whitespace"
+					],
+					[
+						"size",
+						"sizeof"
+					],
+					[
+						"file",
+						"filename"
+					],
+					[
+						"fr_con",
+						"fr_conf_txt"
+					],
+					[
+						"fr_conf",
+						"fr_conf_file"
+					],
+					[
+						"talloc",
+						"talloc_free"
+					],
+					[
 						"func",
 						"funcname"
 					],
@@ -121,10 +155,6 @@
 					[
 						"tes",
 						"tests"
-					],
-					[
-						"file",
-						"file_proc"
 					],
 					[
 						"this",
@@ -268,134 +298,134 @@
 			},
 			"file_history":
 			[
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/util/debug.h",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/freeradius-devel/server/client.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-config/sql/main/mysql/schema.sql",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/customer/colliers/sample-acct-start.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/customer/colliers/var/log/radius/radacct/10.255.1.18/detail-20191209",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/customer/colliers/sample-acct-stop.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/net2out.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/modules/rlm_python3/rlm_python3.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-config/python3/example.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-config/sql/main/mysql/queries.conf",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/doc/ChangeLog",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-config/python3/ex",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-enabled/python3",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/modules/rlm_python3/example.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/modules/rlm_python/rlm_python.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/include/conf.h",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/main/modules.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-available/python3",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/rlm_python3/example.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/rlm_python3/rlm_python3.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/raddb/mods-enabled/python3",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/rlm_python/rlm_python.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/raddb/mods-config/python3/example.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-available/python",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/share/dictionary.pica8",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/acct-start-seq.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/db-colliers.com.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-enabled/sql",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/sites-enabled/default",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/bin/run-radacct.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/acct-start.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/bin/build.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/util/control_test.c",
-				"/Volumes/Users/jpereira/Devel/Sandbox/Coccinella/fix-format.cocci",
-				"/Volumes/Users/jpereira/Devel/coccinelle.git/python/python_documentation.md",
-				"/Volumes/Users/jpereira/Downloads/sample.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/modules/rlm_python/example.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-enabled/python",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/source",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/raddb/mods-available/python",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/NetworkRADIUS/03837.wiki.networkradius.com.git/minutes/weekly/2019-12-06.md",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/modules/rlm_python3/configure.ac",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/modules/rlm_python3/all.mk",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/bootstrap-python.sh",
-				"/Volumes/Users/jpereira/Devel/Sandbox/Coccinella/sample.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/bin/run-radtest.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/boiler.mk",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-config/files/authorize",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/modules/rlm_python3/rlm_python.c",
-				"/Volumes/Users/jpereira/Devel/Sandbox/Coccinella/t.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/r.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/util/event.h",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/util/event.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/server/trunk.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/coccinelle/check_vb_strvalue.cocci",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/xlat/base.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/proto_radius/proto_radius_load.c",
-				"/Volumes/Users/jpereira/Devel/Sandbox/Coccinella/printf(\"nome %s%s%d%s %s\")",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/server/xlat_builtin.c",
-				"/Volumes/Users/jpereira/Devel/Sandbox/sample-snprintf.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/server/xlat_tokenize.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/share/dictionary",
-				"/Volumes/Users/jpereira/Devel/coccinelle.git/demos/format.cocci",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/build/coccinelle.mk",
-				"/Volumes/Users/jpereira/Devel/Sandbox/sample-format-string.c",
-				"/Volumes/Users/jpereira/Devel/coccinelle.git/tests/formatlist.cocci",
-				"/Volumes/Users/jpereira/Devel/coccinelle.git/tests/log.cocci",
-				"/Volumes/Users/jpereira/Devel/coccinelle.git/tests/fns.cocci",
-				"/Volumes/Users/jpereira/Devel/coccinelle.git/tests/idstr.cocci",
-				"/Volumes/Users/jpereira/Devel/coccinelle.git/tests/format2.cocci",
-				"/Volumes/Users/jpereira/Devel/coccinelle.git/tests/fns.c",
-				"/Volumes/Users/jpereira/Devel/github-jpereira/scapy.git/test/regression.uts",
-				"/Volumes/Users/jpereira/Devel/github-jpereira/scapy.git/test/radius.uts",
-				"/Volumes/Users/jpereira/Devel/github-jpereira/scapy.git/scapy/layers/radius.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/radmin/all.mk",
-				"/tmp/a",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/all.mk",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/networkradius-jorge.git/customers/cloud5/notes.txt",
+				"/Volumes/Users/jpereira/Google Drive/Documents/Work/NetworkRADIUS/Projects/Cloud5/servers.txt",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/networkradius-jorge.git/customers/cloud5/raddb/cloud5/db.conf",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/networkradius-jorge.git/customers/cloud5/raddb/mods-enabled/sql-hotel",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/networkradius-jorge.git/customers/cloud5/raddb/sites-enabled/server-hotel",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/networkradius-jorge.git/customers/cloud5/config-old/HSIA/Cloud5-HSIA-radius04/freeradius/sql.conf",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/networkradius-jorge.git/customers/cloud5/raddb/mods-config/sql/main/mysql/queries.conf",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/networkradius-jorge.git/customers/cloud5/raddb/cloud5/billing-hotel.pl",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/networkradius-jorge.git/customers/cloud5/raddb/mods-enabled/billing-hotel",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/cloud5/db.conf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-available/sql-hotel",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-available/sql",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/raddb/mods-available/sql",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-available/billing-hotel",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/cloud5/billing-hotel.pl",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-enabled/sql-hotel",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/sites-enabled/server-hotel",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/clients.conf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-enabled/billing-hotel",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-enabled/hotel-sql",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/sites-enabled/hotel-server",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-available/hotel-sql",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-config/sql/main/mysql/queries.conf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-enabled/mods-config/sql/main/mysql/queries.conf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-enabled/hotel-billing",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/sites-available/default",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/sites-enabled/default",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-available/cloud5-billing-hotel",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/cloud5/cloud5.pl",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/config-old/HSIA/Cloud5-HSIA-radius04/freeradius/sql.conf",
+				"/Volumes/Users/jpereira/Google Drive/Temp/Muambas/LISTA.txt",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/certs/client.cnf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/certs/ca.cnf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/certs/inner-server.cnf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/certs/server.cnf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-enabled/cloud5",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-enabled/sql",
+				"/etc/raddb/mods-enabled/sql",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-available/sql",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/radiusd.conf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/config-old/HSIA/Cloud5-HSIA-radius04/freeradius/radiusd.conf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/config-old/HSIA/Cloud5-HSIA-radius04/freeradius/users",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/users",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/proxy.conf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/config-old/HSIA/Cloud5-HSIA-radius04/freeradius/proxy.conf",
+				"/tmp/s",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/util/dict_tokenize.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/include/util/dict_util.c",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-enabled/eap",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/config-old/HSIA/Cloud5-HSIA-radius04/freeradius/policy.txt",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/hints",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-available/cloud5-billing",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-available/perl",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/cloud5/billing.pl",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/config-old/HSIA/Cloud5-HSIA-radius04/freeradius/experimental.conf",
+				"/Volumes/Users/jpereira/Devel/github-jpereira/sanddockers.git/freeradius-server/bin/start-devbox.sh",
+				"/Volumes/Users/jpereira/Temp/Cloud5 Files/HSIA/Cloud5-HSIA-radius01/raddb/sites-enabled/control-socket",
+				"/Volumes/Users/jpereira/Devel/github-jpereira/sanddockers.git/freeradius-server/bin/start-devbox-centos7.sh",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/redhat/freeradius.spec",
+				"/Volumes/Users/jpereira/Temp/Cloud5 Files/HSIA/Cloud5-HSIA-radius01/raddb/sites-enabled/inner-tunnel",
+				"/Volumes/Users/jpereira/.ssh/config.hosts",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/main/tls.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/main/modcall.c",
+				"/Volumes/Users/jpereira/Devel/github-jpereira/mbed-os/features/nanostack/sal-stack-nanostack/source/Security/kmp/kmp_api.c",
+				"/Volumes/Users/jpereira/Devel/github-jpereira/mbed-os/features/nanostack/sal-stack-nanostack/source/Security/protocols/sec_prot.h",
+				"/Volumes/Users/jpereira/Devel/github-jpereira/mbed-os/features/nanostack/sal-stack-nanostack/source/Security/protocols/eap_tls_sec_prot/auth_eap_tls_sec_prot.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/doc/antora/modules/developers/pages/coverage.adoc",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/build/coverage.mk",
 				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/Makefile",
-				"/usr/local/lib/python3.7/site-packages/scapy/layers/radius.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/coccinelle/warning_null_dereference.cocci",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/coccinelle/fix_array_size.cocci",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/util/print.c",
-				"/Volumes/Users/jpereira/.gitconfig",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/tcpdump2freeradius.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/pcap2decode-proto.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/coccinelle/find_unsigned.cocci",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/doc/antora/modules/developers/pages/index.adoc",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/doc/antora/modules/developers/nav.adoc",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/build/coccinelle.mk",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/docker/crossbuild/crossbuild.mk",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/install.mk",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/main.mk",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/Make.inc.in",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/doc/antora/modules/developers/pages/contributing.adoc",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/all.mk",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/doc/antora/modules/developers/pages/coccinelle.adoc",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/rlm_python/rlm_python.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/doc/developers/index.adoc",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/util/event.c",
 				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/coccinelle/semantic_parentheses.cocci",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/radius/packet_wireshark01.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/packet_AFTR-Name-rfc6334.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/run-unit-attr.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/hare2.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/hare.sh",
-				"/Volumes/Users/jpereira/Devel/Sandbox/sample-scapy.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/packet_domain-list.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/packet_ia-na.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/packet_ia-pd.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/packet_ia-ta.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/packet_ntp-server.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/packet_sip-server-d.txt",
-				"/usr/local/lib/python3.7/site-packages/scapy/packet.py",
-				"/Volumes/Users/jpereira/Devel/Sandbox/dpkt-sample.py",
-				"/usr/local/lib/python3.7/site-packages/scapy/utils.py",
-				"/usr/local/lib/python3.7/site-packages/pyshark/packet/layer.py",
-				"/Volumes/Users/jpereira/Devel/Sandbox/sample-pyshark.py",
-				"/usr/local/lib/python3.7/site-packages/dpkt/radius.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/def get_constants(prefix):",
-				"/usr/local/lib/python3.7/site-packages/dpkt/pcap.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/packet_client_server.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/x.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/batch-tests.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/jorge.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/rfc8415.txt",
-				"/var/folders/ld/6tg9c6qj4fx4c85q26mcqrsh0000gn/T/tmpxin40yov",
-				"/tmp/hare",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/tcpdump2freeradius.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/proto_dhcpv4/dhcpclient.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/eap_aka_sim/state_machine.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/git",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/ld",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/packet_mud.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/share/dictionary/dhcpv6/dictionary.rfc6939",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/rfc6939.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/packet_AFTR-Name-RFC6334.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/rfc6355.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/raddb/mods-config/sql/main/mysql/schema.sql",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-config/sql/main/ndb/schema.sql",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-config/sql/main/oracle/schema.sql",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-config/sql/main/sqlite/queries.conf"
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/bin/build.sh",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/main/modules.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/coccinelle/fix_use_of_NUM_ELEMENTS.cocci",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/coccinelle/check_vb_strvalue.cocci",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/freeradius-devel/unlang/compile.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/server/module.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/util/table.h",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/util/table.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/include/server/rcode.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/freeradius-devel/server/main_config.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/include/server/client.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/test-set-mod-status.sh",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/server/rcode.h",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/include/server/module.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/rlm_lua/lua.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/util/log.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/server/log.c",
+				"/tmp/cu",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/proto_control/proto_control_unix.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/include/server/rcode.h",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/server/command.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/server/stats.h",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/run-dhcperfcli.sh",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/io/worker.h",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/io/worker.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/io/time_tracking.h",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/include/io/worker.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/proto_control/radmin.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/util/misc.h",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/proto_control/conduit.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/proto_control/conduit.h",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/bin/radmin.c",
+				"/tmp/cmds.txt",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/bin/radiusd.mk",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/bin/all.mk",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/io/network.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.sublime-project",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/NetworkRADIUS/03837.wiki.networkradius.com.git/minutes/weekly/2019-12-20.md",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/bin/radmin> show profile status",
+				"/Volumes/Users/jpereira/.gitconfig",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/util/value.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/radmin/all.mk",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/radmin/show-profile-status.txt",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/raddb/sites-enabled/frd-dhcp-dummy",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/.travis.yml"
 			],
 			"find":
 			{
@@ -406,6 +436,8 @@
 				"height": 113.0,
 				"where_history":
 				[
+					" ",
+					"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git",
 					"",
 					"${Q}",
 					""
@@ -416,141 +448,163 @@
 				"case_sensitive": false,
 				"find_history":
 				[
-					"radclient",
-					"_client_free",
-					"tls_required",
-					"acctstoptime",
-					"netcallednumber",
-					"column_list",
-					"radacctid",
-					"column_list",
-					"start",
-					"PyModuleDef_HEAD_INIT",
-					"build",
-					"proxy",
-					"endif",
-					"proxy",
-					"Py_DECREF(pyth_val);",
-					"#ifdef WITH_PROXY",
-					"Py_DECREF",
-					"wide_name",
-					"Octets",
-					"Octet",
-					":-0",
-					"int",
-					"INSERT INTO",
-					"inst->instantiate.",
-					"inst->instantiate.det",
-					"do_python_single",
-					"LOG_PREFIX",
-					"pRet is",
-					"do_python_single",
-					"funcname",
-					"do_python_single",
-					"Pica8",
-					"Pic8",
-					"realm",
-					"column_list",
-					"UPDATE",
-					"\t",
-					"\\t",
-					"\\n",
-					" ",
-					"\\",
+					"```",
+					"sql",
 					"accounting",
-					"mysql",
-					"column_list",
-					"acctsessionid",
-					"delegatedipv6prefix",
-					"calling",
-					"net-call-pri",
-					"netalerttime",
-					"radacct",
-					"Jorge",
-					"PyImport_ImportModule",
-					"rlm_python",
-					"cflag",
-					"python_cflags",
-					"PYTHON_CONFIG_BIN",
-					"rlm-python3-bin",
-					"PY_LIB_DIR",
-					"}m",
-					"python_path",
-					"PY_PREFIX",
-					"smart_try_dir",
-					"/config",
-					"PY_LIB_DIR",
-					"Python.h",
-					"/config",
-					"for ",
-					"-l",
-					"/lib",
-					"wide_path",
-					"python_error_log",
-					"python_path",
-					"wide_path",
-					"DEBUG",
-					"python_path",
-					"show_p",
-					"show_",
-					"PyUnicodeUCS2_Split",
-					"wide_path",
-					"show_pa",
-					"python_path",
-					"path",
-					"python_interpreter_init",
-					"Py_Initialize",
-					"xota",
-					"show_",
-					"stack",
-					"do_",
-					"import",
-					"python_function_load",
-					"PySys_SetPath",
-					"python_path",
-					"stack",
-					"python_error_log",
-					".d",
-					"ERROR offset 1 'No matching closing brace'",
-					"rand",
-					"mod_event_list_set",
-					"ERROR(\"Failed openi",
-					"mod_instantiate",
-					"ERROR(\"Failed openi",
-					"dict",
-					"list",
-					"gaasdada",
-					"sport=1812",
-					"COCCINELLE_C_CMDS",
-					"ADD_ANALYZE_COCCINELLE",
-					"include",
-					"@@\n",
-					"d",
-					"va_arg",
-					"va",
-					"vap",
-					"fr_vasprintf",
-					"difftool",
-					"Meld",
-					"getlayer",
-					"raw_packet_cache_fields",
-					"getfieldval",
-					"explore",
-					"layer_name",
-					"_show_or_dump",
-					"show",
-					"_show_or_dump",
-					"display",
-					"_show_or_dump",
-					"_get_field_or_layer_repr",
-					"_get_all_field_lines"
+					"accounting_onoff_query",
+					"authorize_group_check_query",
+					"authorize_reply_query",
+					"authorize_check_query",
+					"sql_user_name",
+					"stale",
+					"deletestalesessions",
+					"groupreply_table",
+					"groupcheck_table",
+					"authreply_table",
+					"user_table",
+					"authcheck_table",
+					"nas_table",
+					"postauth_table",
+					"acct_table1",
+					"radius_db",
+					":Console:",
+					"check_stale_sessions",
+					"connect",
+					"server ",
+					"hotel-billing",
+					"INCLUDE",
+					"sql",
+					"billing-hotel",
+					"cloud5",
+					"cloud5_db_",
+					"DB_STALE_SESSIONS_LOGIN",
+					"STALE_SESSIONS_PASSWORD",
+					"DB_STALE_SESSIONS_USERNAME",
+					"DB_USERNAME",
+					"DB_HOST",
+					"$INCLUDE",
+					"INCLUDE",
+					"radius_db",
+					"STALE_SESSIONS_PASSWORD",
+					"rh1_radius",
+					"DB_NAME",
+					"MYSQL_PASSWORD",
+					"MYSQL_USERNAME",
+					"MYSQL_DB",
+					"MYSQL_HOST",
+					"DBI:mysql:CMS:${MYSQL_HOST}",
+					"CMS",
+					"sql",
+					"preacct {",
+					"pre-proxy",
+					"post",
+					"post-auth",
+					"Proxy-To-Realm :=",
+					"authorize {",
+					"y398Lk4eol",
+					"accthost",
+					"home_server",
+					"windows-01.us-il-chi",
+					"cloud5_com",
+					"marriot",
+					"marrior",
+					"narrior",
+					"realm LOCAL",
+					"trerror_printf(\"Failed to find libfreeradiu",
+					"talloc_free(dict);",
+					"goto",
+					"_strerror_printf(\"Failed to find li",
+					"dict_protocol_add",
+					"peap {",
+					"cisco_accounting_username_bug",
+					"ignore_unknown_eap_types",
+					"default_eap_type",
+					"peap {",
+					"default_eap_type",
+					"func_checksimul",
+					"func_preacct",
+					"func_authorize",
+					"func_authenticate",
+					"func_accounting",
+					"sub-config",
+					"config",
+					"innflux",
+					"sql01.private.innflux.net",
+					"docker_rootfs",
+					"We STRONGLY recommned",
+					"getenv",
+					"modcall_debug",
+					"9374889673090817929195",
+					"eapol",
+					"sec_prot_send",
+					"kmp_api_t",
+					"sec_prot_send",
+					"sec_prot_eui64_addr_get",
+					"sec_prot_t",
+					"auth_eap_tls_sec_prot_message_send",
+					"Coverage",
+					"COCCINELLE_IN",
+					"COCCINELLE_OUTPUT",
+					"${Q}",
+					"COCCINELLE_MODE",
+					"testre",
+					"COCCINELLE_OPT",
+					"pthread_mutex",
+					"--with-rlm-python-bin=python2",
+					"|",
+					"table_sorted_value_by_str",
+					"fr_table_sorted_num_by_str",
+					"fr_table_value_by_str",
+					"_status",
+					"fr_table_value_by_str",
+					"_table",
+					"fr_table_sorted_num_by_str",
+					"__clang_analyzer__",
+					"#if",
+					"__clang_analyzer__",
+					"fr_log_levels",
+					"fr_table_value_by_str",
+					"disallow",
+					"alive",
+					"table_sorted_value_by_str",
+					"fr_table_sorted_num_by_str",
+					"rcode_table",
+					"|",
+					"cmd_set_module_status",
+					"fr_command_print_help",
+					"MATCHED_NAME",
+					"fr_command_print_help",
+					"when /= (worker->",
+					"fr_command_run"
 				],
-				"highlight": true,
+				"highlight": false,
 				"in_selection": false,
 				"preserve_case": false,
 				"regex": false,
 				"replace_history":
 				[
+					"billing-hotel",
+					"hotel-billing",
+					"cloud5.db.",
+					"DB_STALE_SESSIONS_LOGIN",
+					"DB_LOGIN",
+					"DB_SERVER",
+					"DB_PASSWORD",
+					"DB_USERNAME",
+					"DB_NAME",
+					"DB_HOST",
+					"DBI:mysql:${MYSQL_DB}:${MYSQL_HOST}",
+					"&Proxy-To-Realm :=",
+					"${MYSQL_HOST}",
+					"FILES",
+					"OUTPUT",
+					"$(Q)",
+					"SPATCH_MODE",
+					"COCCINELLE_MODE",
+					" ",
+					"tapiocaaaaaaaa",
+					"profile_ctx",
+					"profile->",
 					"",
 					"PYTHON3_CONFIG_BIN",
 					"",
@@ -655,7 +709,7 @@
 			"pinned_build_system": "",
 			"replace":
 			{
-				"height": 48.0
+				"height": 70.0
 			},
 			"save_all_on_build": true,
 			"select_file":
@@ -697,7 +751,7 @@
 			"show_open_files": true,
 			"show_tabs": true,
 			"side_bar_visible": false,
-			"side_bar_width": 219.0,
+			"side_bar_width": 223.0,
 			"status_bar_visible": true,
 			"template_settings":
 			{
@@ -707,832 +761,6 @@
 	},
 	"windows":
 	[
-		{
-			"auto_complete":
-			{
-				"selected_items":
-				[
-					[
-						"func",
-						"funcname"
-					],
-					[
-						"ex",
-						"extras_opts"
-					],
-					[
-						"COCC",
-						"COCCINELLE_OUT"
-					],
-					[
-						"coc",
-						"cocci"
-					],
-					[
-						"myda",
-						"mydata"
-					],
-					[
-						"my",
-						"mydata_free"
-					],
-					[
-						"pack",
-						"packet_desc"
-					],
-					[
-						"decode",
-						"decode_proto"
-					],
-					[
-						"coun",
-						"counter"
-					],
-					[
-						"pro",
-						"decode_proto"
-					],
-					[
-						"prin",
-						"pcap_print"
-					],
-					[
-						"pca",
-						"pcap_file"
-					],
-					[
-						"pcap",
-						"pcap_file"
-					],
-					[
-						"targe",
-						"target_name"
-					],
-					[
-						"FR_TY",
-						"FR_TYPE_STRUCT"
-					],
-					[
-						"fr_cur",
-						"fr_cursor_append"
-					],
-					[
-						"out",
-						"output"
-					],
-					[
-						"data",
-						"data_len"
-					],
-					[
-						"buff",
-						"buffer"
-					],
-					[
-						"_",
-						"_NUMBER"
-					],
-					[
-						"re",
-						"request"
-					],
-					[
-						"reque",
-						"request_file"
-					],
-					[
-						"RADI",
-						"RADIUSD_BIN"
-					],
-					[
-						"RAD",
-						"RADIUSD_BIN"
-					],
-					[
-						"tes",
-						"tests"
-					],
-					[
-						"file",
-						"file_proc"
-					],
-					[
-						"this",
-						"this_round"
-					],
-					[
-						"build",
-						"build_dir"
-					],
-					[
-						"OS",
-						"OS_TYPE"
-					],
-					[
-						"PA",
-						"PACKAGE"
-					],
-					[
-						"test",
-						"test-systemd"
-					],
-					[
-						"bui",
-						"build_log"
-					],
-					[
-						"docker",
-						"docker-exec"
-					],
-					[
-						"pando",
-						"pandoc_url"
-					],
-					[
-						"uint",
-						"vp_uint8"
-					],
-					[
-						"tuple",
-						"tuple_len"
-					],
-					[
-						"share",
-						"shared_attribute"
-					],
-					[
-						"RLM",
-						"RLM_MODULE_OK"
-					],
-					[
-						"cur",
-						"cur_frame"
-					],
-					[
-						"RLM_MODU",
-						"RLM_MODULE_OK"
-					],
-					[
-						"RLM_",
-						"RLM_MODULE_FAIL"
-					],
-					[
-						"sp1",
-						"sp1_len"
-					],
-					[
-						"ini",
-						"instantiation"
-					],
-					[
-						"ADOC",
-						"ADOC_FILES"
-					],
-					[
-						"doc",
-						"doc_xlat"
-					],
-					[
-						"tmp",
-						"tmp_file"
-					],
-					[
-						"freer",
-						"freeradius_test"
-					],
-					[
-						"cast",
-						"cast-qual"
-					],
-					[
-						"key",
-						"key_datum"
-					]
-				]
-			},
-			"buffers":
-			[
-				{
-					"contents": "* the %{listen:interface} is broken\n\n* the %{md5:Caipirinha} is replying octal.\nmay be some alias.\n\n%{md5:} = default X\n%{md5_hex:} = hex\n%{md5_octal:} = octal\n\n* the %{explode: } should receive a string instead of char or at least print warning for delimiter bigger then 1\n\n\n* create tests for urlquote/unquote, because in v4 only accept variables not the raw data.\n\n* what have to do with %{trigger: } ? it is not clear.\n\n* should document ${feature.option}\n\n* create macros for FR_TYPE_UINT64\n\n---\nradmin crashes\nshow network 0 socket list\n\nradmin> stats worker 0 self\ncpu.event_loop_serviced\t\t-45.332\n\nuptime\n\n# asciidoctor html\nsudo gem install tilt concurrent-ruby\n\ntmpl_aexpand\nfr_cursor_init\ntmpl_cursor_init\n\n\n---\ncluster name: freeradius\nuser: admin\npass: 123456\n\nData: 256\n\nexport LCB_LOGLEVEL=5 LCB_OPTIONS=send_hello=false\n\nBuckets -> Add DAta Bucket \n\tName: radius\n\tMemory Quota: 128\n\tType: couchbase\n\nDocuments:\n\nAdd Document -> Bucket: \"radius\"\n\n{\"clientIdentifier\":\"tapioca01\",\"clientLifetime\":\"10\",\"clientSecret\":\"testing123\",\"clientShortname\":\"caipirinha\",\"idleTimeout\":\"5\",\"maxConnections\":\"4\",\"nasType\":\"teste1\"}\n\nDocuments: \n\nExemplo\n\n   new client {\n        map sql \"SELECT nasname,shortname,secret,type,server FROM nas WHERE nasname = '%{Packet-Src-IP-Address}'\" {\n            &control:FreeRADIUS-Client-IP-Address := 'nasname'\n            &control:FreeRADIUS-Client-Shortname := 'shortname'\n            &control:FreeRADIUS-Client-Secret := 'secret'\n            &control:FreeRADIUS-Client-NAS-Type := 'type'\n            &control:FreeRADIUS-Client-Virtual-Server := 'server'\n        }\n    }\n\n    new client {\n        map sql \"SELECT nasname,shortname,secret,type,server FROM nas WHERE nasname = '%{Packet-Src-IP-Address}' LIMIT 1\"  {\n            ipaddr = 'nasname'\n            shortname = 'shortname'\n            secret = 'secret'\n        }\n\n        ok\n    }\n\n    add client {\n        ok\n    }\n\n    deny client {\n        ok\n    }\n\n\n\n\n\n\n\n\nconfig                        Show the configuration for a given client.\n...  client>\n...  client>\nconfig                        Show the configuration for a given client.\n...  client> config\n...  config>\nconfig                        IPADDR [(udp|tcp)]\n...  config> 127.0.0.1\nERROR: No matching command for input string ��\nFailed running command\n...  config> show client config 127.0.0.1 tcp\nERROR: Failed resolving \"show\" to IPv4 address: nodename nor servname provided, or not known\nFailed running command\n...  config>\n\n\n\nAlan, btw I rebased the rlm_cache methods PR https://github.com/FreeRADIUS/freeradius-server/pull/3013 with the master and we could see the tests working fine.\n\n\n\n\n\n\nencode-pair Client-ID-DUID-LLT-Hardware-Type = \"78:4f:43:81:c0:d1\",      \\\n            Client-ID-DUID-LLT-Time = \"Feb  1 2015 08:28:28 WIB\",        \\\n            Client-ID-DUID-LLT-Link-Layer-Address = \"78:4f:43:81:c0:d1\", \\\n            Client-ID-DUID-UUID = 0x00010001130D1EA2000C29A3D330\n\n\n\n\n\ndecode-pair -\nmatch \n\n            \n\n\n\n",
-					"file": "notes.txtr",
-					"file_size": 2990,
-					"file_write_time": 132174548368614217,
-					"settings":
-					{
-						"buffer_size": 2986,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "/Volumes/Users/jpereira/Desktop/IELTS/dicas.txt",
-					"settings":
-					{
-						"buffer_size": 18,
-						"encoding": "UTF-8",
-						"line_ending": "Unix",
-						"name": "* Dicas"
-					}
-				}
-			],
-			"build_system": "",
-			"build_system_choices":
-			[
-			],
-			"build_varint": "",
-			"command_palette":
-			{
-				"height": 0.0,
-				"last_filter": "",
-				"selected_items":
-				[
-					[
-						"",
-						"Bookmarks: Select Previous"
-					]
-				],
-				"width": 0.0
-			},
-			"console":
-			{
-				"height": 150.0,
-				"history":
-				[
-					"sublime.get_clipboard()",
-					"dir(sublime)",
-					"sublime.status_message(\"bucetaaaa\")",
-					"sublime.status_message(\"buceta\")",
-					"sublime.status_message",
-					"dir(sublime)",
-					"sublime",
-					"import sublime",
-					"sys.version",
-					"sys.path",
-					"import sys",
-					"help",
-					"?"
-				]
-			},
-			"distraction_free":
-			{
-				"menu_visible": true,
-				"show_minimap": false,
-				"show_open_files": false,
-				"show_tabs": false,
-				"side_bar_visible": false,
-				"status_bar_visible": false
-			},
-			"expanded_folders":
-			[
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git"
-			],
-			"file_history":
-			[
-				"/Volumes/Users/jpereira/Desktop/IELTS/transitions.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/rlm_securid/rlm_securid.h",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/rlm_securid/mem.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/rlm_python/rlm_python.c",
-				"/Volumes/Users/jpereira/Google Drive/Muambas/IMG_0140.JPG",
-				"/Volumes/Users/jpereira/Google Drive/Muambas/IMG_0141.JPG",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/raddb/mods-enabled/python",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/rlm_perl/rlm_perl.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/raddb/mods-config/python/example.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/rlm_python/all.mk.in",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/raddb/mods-config/python3/example.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/raddb/sites-enabled/default",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/scripts/docker/debian10/docker-entrypoint.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/scripts/docker/debian8/docker-entrypoint.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/scripts/docker/debian9/docker-entrypoint.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/scripts/docker/debiansid/docker-entrypoint.sh",
-				"/Volumes/Users/jpereira/Devel/tmp/w.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/scripts/docker/ubuntu14/docker-entrypoint.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/scripts/docker/ubuntu16/docker-entrypoint.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/scripts/docker/ubuntu18/docker-entrypoint.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/scripts/docker/README.md",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/doc/ChangeLog",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/scripts/docker/alpine/docker-entrypoint.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/scripts/docker/centos7/docker-entrypoint.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/scripts/docker/centos8/docker-entrypoint.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/freeradius-devel/server/xlat_eval.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-config/sql/main/mysql/queries.conf",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/io/master.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/include/io/master.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/load-mysql.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/customer/colliers/net2out.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/server/xlat_eval.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/customer/colliers/sample-acct-update.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/util/debug.h",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/freeradius-devel/server/client.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-config/sql/main/mysql/schema.sql",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/customer/colliers/sample-acct-start.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/customer/colliers/var/log/radius/radacct/10.255.1.18/detail-20191209",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/customer/colliers/sample-acct-stop.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/net2out.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/modules/rlm_python3/rlm_python3.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-config/python3/example.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-config/python3/ex",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-enabled/python3",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/modules/rlm_python3/example.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/modules/rlm_python/rlm_python.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/include/conf.h",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/main/modules.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-available/python3",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/rlm_python3/example.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/rlm_python3/rlm_python3.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/raddb/mods-enabled/python3",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-available/python",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/share/dictionary.pica8",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/acct-start-seq.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/db-colliers.com.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-enabled/sql",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/sites-enabled/default",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/bin/run-radacct.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/acct-start.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/bin/build.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/util/control_test.c",
-				"/Volumes/Users/jpereira/Devel/Sandbox/Coccinella/fix-format.cocci",
-				"/Volumes/Users/jpereira/Devel/coccinelle.git/python/python_documentation.md",
-				"/Volumes/Users/jpereira/Downloads/sample.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/modules/rlm_python/example.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-enabled/python",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/source",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/raddb/mods-available/python",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/NetworkRADIUS/03837.wiki.networkradius.com.git/minutes/weekly/2019-12-06.md",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/modules/rlm_python3/configure.ac",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/modules/rlm_python3/all.mk",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/bootstrap-python.sh",
-				"/Volumes/Users/jpereira/Devel/Sandbox/Coccinella/sample.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/bin/run-radtest.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/boiler.mk",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-config/files/authorize",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/modules/rlm_python3/rlm_python.c",
-				"/Volumes/Users/jpereira/Devel/Sandbox/Coccinella/t.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/r.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/util/event.h",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/util/event.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/server/trunk.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/coccinelle/check_vb_strvalue.cocci",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/xlat/base.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/proto_radius/proto_radius_load.c",
-				"/Volumes/Users/jpereira/Devel/Sandbox/Coccinella/printf(\"nome %s%s%d%s %s\")",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/server/xlat_builtin.c",
-				"/Volumes/Users/jpereira/Devel/Sandbox/sample-snprintf.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/server/xlat_tokenize.c",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/share/dictionary",
-				"/Volumes/Users/jpereira/Devel/coccinelle.git/demos/format.cocci",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/build/coccinelle.mk",
-				"/Volumes/Users/jpereira/Devel/Sandbox/sample-format-string.c",
-				"/Volumes/Users/jpereira/Devel/coccinelle.git/tests/formatlist.cocci",
-				"/Volumes/Users/jpereira/Devel/coccinelle.git/tests/log.cocci",
-				"/Volumes/Users/jpereira/Devel/coccinelle.git/tests/fns.cocci",
-				"/Volumes/Users/jpereira/Devel/coccinelle.git/tests/idstr.cocci",
-				"/Volumes/Users/jpereira/Devel/coccinelle.git/tests/format2.cocci",
-				"/Volumes/Users/jpereira/Devel/coccinelle.git/tests/fns.c",
-				"/Volumes/Users/jpereira/Devel/github-jpereira/scapy.git/test/regression.uts",
-				"/Volumes/Users/jpereira/Devel/github-jpereira/scapy.git/test/radius.uts",
-				"/Volumes/Users/jpereira/Devel/github-jpereira/scapy.git/scapy/layers/radius.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/radmin/all.mk",
-				"/tmp/a",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/all.mk",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/Makefile",
-				"/usr/local/lib/python3.7/site-packages/scapy/layers/radius.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/coccinelle/warning_null_dereference.cocci",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/coccinelle/fix_array_size.cocci",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/util/print.c",
-				"/Volumes/Users/jpereira/.gitconfig",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/tcpdump2freeradius.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/pcap2decode-proto.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/coccinelle/find_unsigned.cocci",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/coccinelle/semantic_parentheses.cocci",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/radius/packet_wireshark01.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/packet_AFTR-Name-rfc6334.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/run-unit-attr.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/hare2.sh",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/hare.sh",
-				"/Volumes/Users/jpereira/Devel/Sandbox/sample-scapy.py",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/packet_domain-list.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/packet_ia-na.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/packet_ia-pd.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/packet_ia-ta.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/packet_ntp-server.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/packet_sip-server-d.txt"
-			],
-			"find":
-			{
-				"height": 39.0
-			},
-			"find_in_files":
-			{
-				"height": 113.0,
-				"where_history":
-				[
-					"",
-					"${Q}",
-					""
-				]
-			},
-			"find_state":
-			{
-				"case_sensitive": false,
-				"find_history":
-				[
-					"python_parse_config",
-					"python_module_import_config",
-					"rad_ass",
-					"->pythonconf_dict",
-					"PyEval_ReleaseThread",
-					"PyEval_SaveThread",
-					"Py_Finalize",
-					"PyModule_AddIntConstant",
-					"PyDict_SetItemString",
-					"Py_Finalize",
-					"_free",
-					"inst->modu",
-					">modu",
-					"python_interpreter_free",
-					"PyImport_Cleanup",
-					"pythonconf_dict",
-					"Py_Fina",
-					"pythonconf_dict",
-					"PyDict_New",
-					"pythonconf_dict",
-					"PyImport",
-					"python_interpreter_free",
-					"inst->module",
-					"python_interpreter_free",
-					"pythonconf_dict",
-					"inst->module",
-					"Py_Finalize",
-					"mod_unload",
-					"python_interpreter_free",
-					"Py_Finalize",
-					"Py_FinalizeEx",
-					"PyImport_Cleanup",
-					"inst->module",
-					"python_module_import_config",
-					"default_path",
-					"free",
-					"default_path",
-					"python_path",
-					"PySys_SetPath",
-					"attr_response_packet_type",
-					"radclient",
-					"_client_free",
-					"tls_required",
-					"acctstoptime",
-					"netcallednumber",
-					"column_list",
-					"radacctid",
-					"column_list",
-					"start",
-					"PyModuleDef_HEAD_INIT",
-					"build",
-					"proxy",
-					"endif",
-					"proxy",
-					"Py_DECREF(pyth_val);",
-					"#ifdef WITH_PROXY",
-					"Py_DECREF",
-					"wide_name",
-					"Octets",
-					"Octet",
-					":-0",
-					"int",
-					"INSERT INTO",
-					"inst->instantiate.",
-					"inst->instantiate.det",
-					"do_python_single",
-					"LOG_PREFIX",
-					"pRet is",
-					"do_python_single",
-					"funcname",
-					"do_python_single",
-					"Pica8",
-					"Pic8",
-					"realm",
-					"column_list",
-					"UPDATE",
-					"\t",
-					"\\t",
-					"\\n",
-					" ",
-					"\\",
-					"accounting",
-					"mysql",
-					"column_list",
-					"acctsessionid",
-					"delegatedipv6prefix",
-					"calling",
-					"net-call-pri",
-					"netalerttime",
-					"radacct",
-					"Jorge",
-					"PyImport_ImportModule",
-					"rlm_python",
-					"cflag",
-					"python_cflags",
-					"PYTHON_CONFIG_BIN",
-					"rlm-python3-bin",
-					"PY_LIB_DIR",
-					"}m",
-					"python_path",
-					"PY_PREFIX",
-					"smart_try_dir",
-					"/config",
-					"PY_LIB_DIR",
-					"Python.h",
-					"/config",
-					"for ",
-					"-l",
-					"/lib",
-					"wide_path",
-					"python_error_log",
-					"python_path",
-					"wide_path",
-					"DEBUG",
-					"python_path",
-					"show_p",
-					"show_",
-					"PyUnicodeUCS2_Split",
-					"wide_path",
-					"show_pa",
-					"python_path",
-					"path",
-					"python_interpreter_init",
-					"Py_Initialize",
-					"xota",
-					"show_",
-					"stack",
-					"do_"
-				],
-				"highlight": true,
-				"in_selection": false,
-				"preserve_case": false,
-				"regex": false,
-				"replace_history":
-				[
-					"",
-					"PYTHON3_CONFIG_BIN",
-					"",
-					"count_mat",
-					"unit_lookup_payload2attrs",
-					"${testdir}/config/",
-					"test_dir",
-					"octets[8]",
-					"octets",
-					"Client-Link-Layer-Type",
-					"Client-Link-Layer-",
-					"",
-					"xoxot",
-					"xoxota",
-					"VALUE",
-					"#",
-					"Message-Type",
-					"#  ",
-					"Message-Type",
-					"Jan  1 1970 12:00:00 UTC",
-					"decode",
-					"Client-ID-DUID-UUID",
-					"${Q}",
-					"REQUEST_FILE",
-					"digest",
-					"DIGEST_",
-					"${BUILD_DIR}/",
-					"RADIUSD_RUN",
-					"$(OUTPUT)/",
-					"OUTPUT",
-					"",
-					"FILES",
-					"RADMIN_TEST_RET",
-					"RADMIN_TEST_OUT_EXP",
-					"RADMIN_TEST_RET",
-					"RADMIN_FLAG_FILES",
-					"",
-					"$(RADMIN_BIN)",
-					"test.conf",
-					"radiusd",
-					"RADMIN_OUTPUT_DIR",
-					"RADMIN_GDB_LOG",
-					"RADMIN_RADIUS_LOG",
-					"RADMIN_TEST_PATH",
-					"RADMIN_CONFIG_PATH",
-					"RGDB_LOG",
-					"ROUTPUT_DIR",
-					"RCONFIG_PATH",
-					"radiusd-radmin.conf",
-					"radiusd.conf",
-					"test.radmin.kill",
-					"${container_host}",
-					"docker-exec ",
-					"docker-cleanup",
-					"docker-exec",
-					"Py_RETURN_NONE",
-					"python_function_destroy(&inst->",
-					"python_function_destroy(&inst->_x",
-					"log",
-					"print(",
-					"pframe",
-					"print(\"",
-					"CONTAINER_ID",
-					"CONTAINER_TAG",
-					"IMAGE_OS",
-					"`",
-					"```",
-					"`",
-					"| `",
-					"`",
-					"${Q}docker",
-					"## - `",
-					"### - `%{",
-					".Return: ",
-					":<&ref>",
-					"<string>}",
-					"- unlang\n\n```unlang\n  update reply {\n    &Reply-Message := \"This is a TODO\"\n  }\n```\n\n- output\n\n```unlang\n  This is a TODO output from unlang\n```",
-					"### `%",
-					"  update reply {\n    &Reply-Message := \"This is a TODO\"\n  }",
-					"## `",
-					"### `"
-				],
-				"reverse": false,
-				"show_context": true,
-				"use_buffer2": true,
-				"whole_word": false,
-				"wrap": true
-			},
-			"groups":
-			[
-				{
-					"selected": 0,
-					"sheets":
-					[
-						{
-							"buffer": 0,
-							"file": "notes.txtr",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 2986,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										459,
-										459
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/Text/Plain text.tmLanguage",
-									"tab_size": 4,
-									"translate_tabs_to_spaces": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 1,
-							"type": "text"
-						}
-					]
-				},
-				{
-					"selected": 0,
-					"sheets":
-					[
-						{
-							"buffer": 1,
-							"file": "/Volumes/Users/jpereira/Desktop/IELTS/dicas.txt",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 18,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										18,
-										18
-									]
-								],
-								"settings":
-								{
-									"auto_name": "* Dicas",
-									"syntax": "Packages/Text/Plain text.tmLanguage"
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 0,
-							"type": "text"
-						}
-					]
-				}
-			],
-			"incremental_find":
-			{
-				"height": 26.0
-			},
-			"input":
-			{
-				"height": 0.0
-			},
-			"layout":
-			{
-				"cells":
-				[
-					[
-						0,
-						0,
-						1,
-						1
-					],
-					[
-						1,
-						0,
-						2,
-						1
-					]
-				],
-				"cols":
-				[
-					0.0,
-					0.498111979167,
-					1.0
-				],
-				"rows":
-				[
-					0.0,
-					1.0
-				]
-			},
-			"menu_visible": true,
-			"output.find_results":
-			{
-				"height": 0.0
-			},
-			"pinned_build_system": "",
-			"position": "0 0 0 1680 1027 0 0 1680 1027 ",
-			"project": "freeradius-server.sublime-project",
-			"replace":
-			{
-				"height": 48.0
-			},
-			"save_all_on_build": true,
-			"select_file":
-			{
-				"height": 0.0,
-				"last_filter": "",
-				"selected_items":
-				[
-					[
-						"dhcpv6/encode",
-						"freeradius-server.git/src/protocols/dhcpv6/encode.c"
-					],
-					[
-						"decode.c",
-						"freeradius-server.git/src/protocols/dhcpv6/decode.c"
-					]
-				],
-				"width": 0.0
-			},
-			"select_project":
-			{
-				"height": 0.0,
-				"last_filter": "",
-				"selected_items":
-				[
-				],
-				"width": 0.0
-			},
-			"select_symbol":
-			{
-				"height": 392.0,
-				"last_filter": "",
-				"selected_items":
-				[
-				],
-				"width": 575.0
-			},
-			"selected_group": 1,
-			"settings":
-			{
-			},
-			"show_minimap": false,
-			"show_open_files": true,
-			"show_tabs": true,
-			"side_bar_visible": false,
-			"side_bar_width": 219.0,
-			"status_bar_visible": true,
-			"template_settings":
-			{
-			},
-			"window_id": 132,
-			"workspace_name": "/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.sublime-workspace"
-		}
 	],
 	"workspaces":
 	{

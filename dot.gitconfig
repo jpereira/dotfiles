@@ -53,6 +53,15 @@
 	enabled = 1
 	autoupdate = 1
 
+[rebase]
+	autosquash = true
+
+[branch]
+	autosetuprebase = always
+
+[fetch]
+	prune = true
+
 [alias]
 	s = status
 	st = status
@@ -176,11 +185,11 @@
 	############
 	w = show
 	############
-	meldon = config diff.external ~/bin/meld-git.py
-	meldof = config --remove-section diff
-	############
 	human = name-rev --name-only --refs=refs/heads/*
 
+#
+#	Colors
+#
 [color]
 	ui = true
 
@@ -201,32 +210,21 @@
 	changed = yellow bold
 	untracked = red bold
 
-[rebase]
-	autosquash = true
-
-[branch]
-	autosetuprebase = always
-
-[fetch]
-	prune = true
-
 #
 #	Diff
 #
 [diff]
 	tool = meld
+#	guitool = meld
 #	tool = "sourcetree"
-
-[difftool]
-	prompt = false
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
 
 [difftool "meld"]
-	trustExitCode = true
+#	trustExitCode = true
 	# osx
+#	cmd = open -W -a Meld --args \"$LOCAL\" \"$PWD/$REMOTE\" --label \"DIFF (ORIGINAL MY)\"
 	cmd = open -W -a Meld --args \"$LOCAL\" \"$PWD/$REMOTE\"
 	# linux
 #	cmd = meld \"$LOCAL\" \"$PWD/$REMOTE\"
@@ -243,7 +241,7 @@
 
 [mergetool "meld"]
 	trustExitCode = true
-	cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
+	cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\" --label \"DIFF (ORIGINAL MY)\"
 
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
