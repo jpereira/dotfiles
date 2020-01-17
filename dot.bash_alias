@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Mon Nov 25 19:22:05 2019
+# Last Change: Thu Jan 16 16:49:52 2020
 ##
 
 if [ -e "$HOME/.bash_alias_work" ]; then
@@ -83,6 +83,7 @@ alias vi=vim
 alias grep='grep --color'
 alias grep-h="grep --include '*.h'"
 alias grep-c="grep --include '*.c'"
+alias cat-nocomments='grep -v -E "^($|.*#)"'
 alias beep='echo -en "\x07"'
 alias nobeep='setterm -blen 0'
 alias gdb="gdb --silent"
