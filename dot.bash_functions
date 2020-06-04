@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Sun Dec 15 22:43:33 2019
+# Last Change: Fri Feb 28 00:09:15 2020
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
 
@@ -115,7 +115,10 @@ show-disk-speed() {
 
 show-size-of-my-home() {
     cd ~ && {
-        ls -a | grep -v "^\\.\\.\?$" | xargs du -hs | sort --key=1
+    	ls -a | sort -n |  while read _f; do
+		[ "$_f" = ".." ] && continue
+		sudo du -hs "$_f"
+	done
     }
 }
 
@@ -247,6 +250,14 @@ function vim-to-html() {
 #
 alias git-enable-debug="export GIT_CURL_VERBOSE=1 GIT_TRACE=1"
 alias git-disable-debug="unset GIT_CURL_VERBOSE GIT_TRACE"
+
+git-branch-reset() {
+	set -fx
+	git co master
+	git branch -D $1
+	git co -b $1
+	set +fx
+}
 
 open-git-changed-with-subl() {
 	subl $(git st -s | sed 's/M//g' )
@@ -470,6 +481,24 @@ gdb-attach-by-pid() {
 #
 #	my-*
 #
+my-vm-increase-vmdk() {
+	local _vm="${1:-foo}"
+	local _size="30720"
+
+cat <<EOF
+	VBoxManage clonehd ${_vm}.vmdk ${_vm}.vdi --format VDI --variant Standard
+
+	mv ${_vm}.vmdk ${_vm}.vmdk.orig
+
+	VBoxManage modifyhd ${_vm}.vdi  --resize ${_size}
+
+	VBoxManage clonehd ${_vm}.vdi ${_vm}.vmdk --format VMDK --variant Standard
+
+	# Check and delete ${_vm}.vmdk.orig
+EOF
+
+}
+
 my-ssh-tcpdump2wireshark() {
 	local _host="$1"
 	local _iface="$2"
@@ -513,6 +542,26 @@ my-clean-buffersmemory() {
     sudo sysctl -w vm.drop_caches=1
     sudo sysctl -w vm.drop_caches=2
     sudo sysctl -w vm.drop_caches=3
+}
+
+my-extract-tgz() {
+	for _t in $@; do
+		_dir="$(basename $_t | sed 's/\.tar.gz//g; s/\.tgz//g')"
+
+		mkdir -p $_dir
+		echo "# Extracting $_t in $_dir"
+		tar xzvf $_t -C $_dir
+	done
+}
+
+my-extract-tar() {
+	for _t in $@; do
+		_dir="$(basename $_t | sed 's/\.tar//g')"
+
+		mkdir -p $_dir
+		echo "# Extracting $_t in $_dir"
+		tar xvf $_t -C $_dir
+	done
 }
 
 #

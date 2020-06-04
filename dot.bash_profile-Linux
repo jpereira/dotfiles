@@ -9,5 +9,7 @@ decho "$HOME/.bash_profile-Linux"
 #
 export PATH="/snap/bin:$PATH"
 
+export NCPU=$(grep "cpu family" /proc/cpuinfo  2>&- | wc -l )
+
 # Commands
 export _DD=dd
