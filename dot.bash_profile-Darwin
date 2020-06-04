@@ -73,6 +73,7 @@ export CC=$(brew --prefix llvm)/bin/clang
 # Darwin functions/aliases
 alias show-cpu-info="sysctl -n machdep.cpu.brand_string"
 alias ldd="otool -L"
+alais ls="ls -G"
 
 # cpu
 export NCPU="$(sysctl -n hw.logicalcpu)"

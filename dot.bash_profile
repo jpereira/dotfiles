@@ -1,5 +1,5 @@
 # Por Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Wed Jun  3 22:17:21 2020
+# Last Change: Wed Jun  3 23:36:36 2020
 ##
 
 #
@@ -45,9 +45,6 @@ export ANSIBLE_HOST_KEY_CHECKING=False
 
 # Reset aliases
 unalias -a
-alias ls="gls --color=auto"
-
-export CC=clang
 
 #
 # Settings by $OS
