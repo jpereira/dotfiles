@@ -83,7 +83,12 @@ parse_git_branch(){
 #
 #	Terminal
 #
-export PS1="[\u@\h \W]\\$ "
+#export PS1="[\u@\h \W]\\$ "
+export PS1="\[\e[32m\][\[\e[m\]\[\e[31m\]\u\[\e[m\]\[\e[33m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\]:\[\e[36m\]\W\[\e[m\]\[\e[32m\]]\[\e[m\]\[\e[32;40m\]\\$\[\e[m\] "
+
+if [ -e "/.dockerenv" ]; then
+  export PS1="\e[41;4;33mDocker\e[m~>$PS1"
+fi
 
 case "$TERM" in
   xterm*|rxvt*)
