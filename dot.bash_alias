@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Wed May  6 22:48:48 2020
+# Last Change: Wed Jun  3 23:38:41 2020
 ##
 
 if [ -e "$HOME/.bash_alias_work" ]; then
@@ -12,13 +12,15 @@ fi
 #	Personal sudo
 #
 [ -e "$HOME/bin/sudo" ] && alias sudo="$HOME/bin/sudo"
+
 #
 #	Lazzy
 #
-# Darwin?
-alias ls="ls -G"
-
-alias make=gmake
+#if ls --help | grep -q "color"; then
+#        alias ls="ls --color=auto"
+#else
+#        alias ls="ls -G"
+#fi
 
 # lazzy....
 if ! type sl 1> /dev/null 2>&1; then

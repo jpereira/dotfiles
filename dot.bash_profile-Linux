@@ -13,3 +13,10 @@ export NCPU=$(grep "cpu family" /proc/cpuinfo  2>&- | wc -l )
 
 # Commands
 export _DD=dd
+
+# Dev
+export CC=clang
+
+# aliases
+alias ls="ls --color=auto"
+
