@@ -117,7 +117,7 @@
 	############
 	o = checkout
 	co = checkout
-	cv3 = checkout v3.0.x
+	cov3 = checkout v3.0.x
 	com = checkout master
 	ob = checkout -b
 	############
@@ -250,3 +250,8 @@
 [mergetool "Sublime Merge"]
 	cmd = smerge mergetool \"$BASE\" \"$REMOTE\" \"$LOCAL\" -o \"$MERGED\"
 
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process

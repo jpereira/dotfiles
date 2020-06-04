@@ -22,6 +22,18 @@ export PATH="/usr/local/opt/openssl/bin:$PATH"
 # pdflatex
 export PATH="/usr/local/texlive/2019basic/bin/x86_64-darwin:$PATH"
 
+# android tools
+export PATH="~/Devel/Devices/Celular/platform-tools:$PATH"
+
+# python 3.8
+export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+
+# binutils
+export PATH="/usr/local/Cellar/binutils/2.34/bin:$PATH"
+
+# php
+export PATH="/usr/local//Cellar/php@7.2/7.2.28/bin:$PATH"
+
 # couchbase server
 export PATH="/Applications/Couchbase Server.app/Contents/Resources/couchbase-core/bin:$PATH"
 
@@ -36,6 +48,9 @@ export OPENSSL_CONF=/dev/null
 
 # use touchid for ssh key
 export SSH_AUTH_SOCK=$HOME/.sekey/ssh-agent.ssh
+
+# Java
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/java"
 
 # If you'd like to mimic the colors of a typical Linux terminal:
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
@@ -52,11 +67,20 @@ export _DD=gdd
 export _LS=gls
 
 # gcc settings
-export CC=/usr/local/Cellar/llvm/9.0.0_1/bin/clang-9
+#export CC=/usr/local/Cellar/llvm/9.0.0_1/bin/clang-9
+export CC=$(brew --prefix llvm)/bin/clang
 
 # Darwin functions/aliases
 alias show-cpu-info="sysctl -n machdep.cpu.brand_string"
 alias ldd="otool -L"
+
+# cpu
+export NCPU="$(sysctl -n hw.logicalcpu)"
+
+function reset-osx-acls() {
+	sudo chmod -R -N $@
+	sudo xattr -rc $@
+}
 
 function pyenv-hack-list() {
 	pyenv versions

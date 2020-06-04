@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Thu Jan 16 16:49:52 2020
+# Last Change: Wed May  6 22:48:48 2020
 ##
 
 if [ -e "$HOME/.bash_alias_work" ]; then
@@ -15,13 +15,10 @@ fi
 #
 #	Lazzy
 #
-if ls --color=auto 1> /dev/null 2>&1; then
-	# coreutils/Linux?
-	alias ls='ls --color=auto'
-else
-	# Darwin?
-	alias ls="ls -G"
-fi
+# Darwin?
+alias ls="ls -G"
+
+alias make=gmake
 
 # lazzy....
 if ! type sl 1> /dev/null 2>&1; then
@@ -109,11 +106,9 @@ alias ssh.aws.ipv4="ssh -i ~/Documents/Pessoais/Keys/SSH/aws-jorge1.pem -l root"
 alias ssh.router="ssh -l root 192.168.1.254"
 alias ssh.capacete="ssh -l admin 192.168.1.253"
 
-alias ssh.dev01="ssh -l root 192.168.1.41"
-alias ssh.dev02="ssh -l root 192.168.1.42"
-alias ssh.dev03="ssh -l root 192.168.1.43"
-alias ssh.dev04="ssh -l root 192.168.1.44"
-alias ssh.dev05="ssh -l root 192.168.1.45"
+alias ssh.dev01="ssh -l root dev01.lan"
+alias ssh.dev02="ssh -l root dev02.lan"
+alias ssh.dev03="ssh -l root dev03.lan"
 
 #
 #	Linux
@@ -132,4 +127,12 @@ alias reboot='sudo /sbin/reboot'
 alias mrxvt="/usr/bin/mrxvt -rv -sr -fn 9x15 -title \"Terminal Mrxvt\" -g 90x30 -cr red -tnum 4"
 alias wgetcookie='wget -c --load-cookies=$HOME/.mozilla/firefox/default/cookies.txt'
 alias xterm="/usr/bin/xterm -fg white -bg black -fn 10x20"
+
+#
+#
+#
+function pmake() {
+	echo "# make -j8 --load-average=$NCPU $@"
+	make -j8 --load-average=$NCPU $@
+}
 

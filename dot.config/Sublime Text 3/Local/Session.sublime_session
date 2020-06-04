@@ -13,11 +13,11 @@
 		"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/doc/antora"
 	],
 	"last_version": 3211,
-	"last_window_id": 152,
+	"last_window_id": 154,
 	"log_indexing": false,
 	"settings":
 	{
-		"new_window_height": 1005.0,
+		"new_window_height": 979.0,
 		"new_window_settings":
 		{
 			"auto_complete":
@@ -298,6 +298,8 @@
 			},
 			"file_history":
 			[
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/share/dictionary/dhcpv6/dictionary.rfc7600",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/rfc7600.txt",
 				"/Volumes/Users/jpereira/Devel/FreeRADIUS/networkradius-jorge.git/customers/cloud5/notes.txt",
 				"/Volumes/Users/jpereira/Google Drive/Documents/Work/NetworkRADIUS/Projects/Cloud5/servers.txt",
 				"/Volumes/Users/jpereira/Devel/FreeRADIUS/networkradius-jorge.git/customers/cloud5/raddb/cloud5/db.conf",
@@ -423,9 +425,571 @@
 				"/Volumes/Users/jpereira/.gitconfig",
 				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/util/value.c",
 				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/radmin/all.mk",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/radmin/show-profile-status.txt",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/raddb/sites-enabled/frd-dhcp-dummy",
-				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/.travis.yml"
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/radmin/show-profile-status.txt"
+			],
+			"find":
+			{
+				"height": 39.0
+			},
+			"find_in_files":
+			{
+				"height": 113.0,
+				"where_history":
+				[
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+				],
+				"highlight": false,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"incremental_find":
+			{
+				"height": 26.0
+			},
+			"input":
+			{
+				"height": 0.0
+			},
+			"menu_visible": true,
+			"output.find_results":
+			{
+				"height": 0.0
+			},
+			"pinned_build_system": "",
+			"replace":
+			{
+				"height": 70.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+					[
+						"dhcpv6/encode",
+						"freeradius-server.git/src/protocols/dhcpv6/encode.c"
+					],
+					[
+						"decode.c",
+						"freeradius-server.git/src/protocols/dhcpv6/decode.c"
+					]
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_symbol":
+			{
+				"height": 392.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 575.0
+			},
+			"show_minimap": false,
+			"show_open_files": true,
+			"show_tabs": true,
+			"side_bar_visible": false,
+			"side_bar_width": 223.0,
+			"status_bar_visible": true,
+			"template_settings":
+			{
+			}
+		},
+		"new_window_width": 1680.0
+	},
+	"windows":
+	[
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+					[
+						"TALLOC",
+						"TALLOC_FREE"
+					],
+					[
+						"n",
+						"nothing"
+					],
+					[
+						"rad",
+						"rad_assert"
+					],
+					[
+						"fr_",
+						"fr_skip_whitespace"
+					],
+					[
+						"size",
+						"sizeof"
+					],
+					[
+						"file",
+						"filename"
+					],
+					[
+						"fr_con",
+						"fr_conf_txt"
+					],
+					[
+						"fr_conf",
+						"fr_conf_file"
+					],
+					[
+						"talloc",
+						"talloc_free"
+					],
+					[
+						"func",
+						"funcname"
+					],
+					[
+						"ex",
+						"extras_opts"
+					],
+					[
+						"COCC",
+						"COCCINELLE_OUT"
+					],
+					[
+						"coc",
+						"cocci"
+					],
+					[
+						"myda",
+						"mydata"
+					],
+					[
+						"my",
+						"mydata_free"
+					],
+					[
+						"pack",
+						"packet_desc"
+					],
+					[
+						"decode",
+						"decode_proto"
+					],
+					[
+						"coun",
+						"counter"
+					],
+					[
+						"pro",
+						"decode_proto"
+					],
+					[
+						"prin",
+						"pcap_print"
+					],
+					[
+						"pca",
+						"pcap_file"
+					],
+					[
+						"pcap",
+						"pcap_file"
+					],
+					[
+						"targe",
+						"target_name"
+					],
+					[
+						"FR_TY",
+						"FR_TYPE_STRUCT"
+					],
+					[
+						"fr_cur",
+						"fr_cursor_append"
+					],
+					[
+						"out",
+						"output"
+					],
+					[
+						"data",
+						"data_len"
+					],
+					[
+						"buff",
+						"buffer"
+					],
+					[
+						"_",
+						"_NUMBER"
+					],
+					[
+						"re",
+						"request"
+					],
+					[
+						"reque",
+						"request_file"
+					],
+					[
+						"RADI",
+						"RADIUSD_BIN"
+					],
+					[
+						"RAD",
+						"RADIUSD_BIN"
+					],
+					[
+						"tes",
+						"tests"
+					],
+					[
+						"this",
+						"this_round"
+					],
+					[
+						"build",
+						"build_dir"
+					],
+					[
+						"OS",
+						"OS_TYPE"
+					],
+					[
+						"PA",
+						"PACKAGE"
+					],
+					[
+						"test",
+						"test-systemd"
+					],
+					[
+						"bui",
+						"build_log"
+					],
+					[
+						"docker",
+						"docker-exec"
+					],
+					[
+						"pando",
+						"pandoc_url"
+					],
+					[
+						"uint",
+						"vp_uint8"
+					],
+					[
+						"tuple",
+						"tuple_len"
+					],
+					[
+						"share",
+						"shared_attribute"
+					],
+					[
+						"RLM",
+						"RLM_MODULE_OK"
+					],
+					[
+						"cur",
+						"cur_frame"
+					],
+					[
+						"RLM_MODU",
+						"RLM_MODULE_OK"
+					],
+					[
+						"RLM_",
+						"RLM_MODULE_FAIL"
+					],
+					[
+						"sp1",
+						"sp1_len"
+					],
+					[
+						"ini",
+						"instantiation"
+					],
+					[
+						"ADOC",
+						"ADOC_FILES"
+					],
+					[
+						"doc",
+						"doc_xlat"
+					],
+					[
+						"tmp",
+						"tmp_file"
+					],
+					[
+						"freer",
+						"freeradius_test"
+					],
+					[
+						"cast",
+						"cast-qual"
+					],
+					[
+						"key",
+						"key_datum"
+					]
+				]
+			},
+			"buffers":
+			[
+				{
+					"file": "notes.txtr",
+					"settings":
+					{
+						"buffer_size": 3169,
+						"encoding": "UTF-8",
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"contents": "Tue Dec 17 12:51:22 2019: Debug : export TMP_INTEGER_0=0\n=================================================================\n==21038==ERROR: LeakSanitizer: detected memory leaks\nIndirect leak of 110 byte(s) in 1 object(s) allocated from:\n    #0 0x4c3a53  (/home/travis/build/FreeRADIUS/freeradius-server/build/bin/local/rlm_redis_ippool_tool+0x4c3a53)\n    #1 0x152e184bdc25  (/usr/lib/x86_64-linux-gnu/libtalloc.so.2+0x8c25)\nIndirect leak of 96 byte(s) in 1 object(s) allocated from:\n    #0 0x4c3a53  (/home/travis/build/FreeRADIUS/freeradius-server/build/bin/local/rlm_redis_ippool_tool+0x4c3a53)\n    #1 0x152e184c2d41  (/usr/lib/x86_64-linux-gnu/libtalloc.so.2+0xdd41)\nSUMMARY: AddressSanitizer: 206 byte(s) leaked in 2 allocation(s).\nTue Dec 17 12:51:22 2019: ERROR : ERROR : (0)      Program returned code (1) and output \"Initiating cluster remap\\nCluster map consists of 3 key ranges\\n0 - keys 5461-10922\\n  master: 127.0.0.1:30002\\n  slave0: 127.0.0.1:30005\\n1 - keys 0-5460\\n  master: 127.0.0.1:30001\\n  slave0: 127.0.0.1:30004\\n2 - keys 10923-16383\\n  master: 127.0.0.1:30003\\n  slave0: 127.0.0.1:30006\\nAdded 1 address(es)/prefix(es)\"\nTue Dec 17 12:51:22 2019: ERROR : ERROR : (0)      Exec failed with code (1)\nTue Dec 17 12:51:22 2019: Debug : (0)    } # update request (fail)\nTue Dec 17 12:51:22 2019: Debug : (0)  } # recv Access-Request (fail)\nKQ [20956]: kevent(): --- kevent 3 --- (nchanges = 0, nevents = 256)\nKQ [20956]: linux_kevent_wait(): waiting for events\nKQ [20956]: kevent(): kqops.kevent_wait returned 0\nKQ [20956]: kevent(): (3) returning 0 events\nKQ [20956]: kevent(): --- END kevent 3 ret 0 ---\nAccess-Reject\nOutput file build/tests/modules/redis_ippool/alloc.attrs does not match attributes in filter build/tests/modules/redis_ippool/alloc.attrs (Attribute value \"Packet-Type = Access-Reject\" didn't match filter: Packet-Type == Access-Accept)\n\n\nMust be used in order to prevent small subgroup attacks and forward secrecy.\n\n--------------------\n\nThu Dec 19 14:46:57 2019: Opened listener for radius\nThu Dec 19 14:46:57 2019: Failed binding socket: Bind failed: EACCES: Permission denied\nThu Dec 19 14:46:57 2019: dlopen(./build/lib/local/.libs/libfreeradius-snmp.dylib, 6): image not found\nThu Dec 19 14:46:57 2019: raddb//sites-enabled/frd-dhcp-dummy[17]: Failed opening dhcpv4_udp interface\nThu Dec 19 14:46:57 2019: raddb//sites-enabled/frd-dhcp-dummy[11]: Opening dhcpv4 I/O interface failed\n\n\n\n=================================================================\n==70612==ERROR: LeakSanitizer: detected memory leaks\n\nIndirect leak of 110 byte(s) in 1 object(s) allocated from:\n    #0 0x102bf83ed in wrap_malloc (/usr/local/opt/llvm/lib/clang/9.0.0/lib/darwin/libclang_rt.asan_osx_dynamic.dylib:x86_64h+0x453ed)\n    #1 0x102ae5c87 in __talloc_with_prefix (/usr/local/opt/talloc/lib/libtalloc.dylib:x86_64+0x4c87)\n    #2 0x102ae51bb in _vasprintf_tc (/usr/local/opt/talloc/lib/libtalloc.dylib:x86_64+0x41bb)\n    #3 0x102ae34d0 in talloc_init (/usr/local/opt/talloc/lib/libtalloc.dylib:x86_64+0x24d0)\n    #4 0x1021baade in request_init (/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/build/lib/local//.libs/libfreeradius-server.dylib:x86_64+0xf0ade)\n    #5 0x1021b97d7 in request_alloc (/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/build/lib/local//.libs/libfreeradius-server.dylib:x86_64+0xef7d7)\n    #6 0x10260748c in fr_worker_get_request (/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/build/lib/local//.libs/libfreeradius-io.dylib:x86_64+0x5d48c)\n    #7 0x1025fd0aa in worker_post_event (/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/build/lib/local//.libs/libfreeradius-io.dylib:x86_64+0x530aa)\n    #8 0x1026e1221 in fr_event_service (/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/build/lib/local//.libs/libfreeradius-util.dylib:x86_64+0x63221)\n    #9 0x1026e1ccd in fr_event_loop (/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/build/lib/local//.libs/libfreeradius-util.dylib:x86_64+0x63ccd)\n    #10 0x102166934 in main_loop_start (/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/build/lib/local//.libs/libfreeradius-server.dylib:x86_64+0x9c934)\n    #11 0x101fdaf0a in main (/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/./build/bin/local/radiusd:x86_64+0x100005f0a)\n    #12 0x7fff5f7723d4 in start (/usr/lib/system/libdyld.dylib:x86_64+0x163d4)\n\nIndirect leak of 96 byte(s) in 1 object(s) allocated from:\n    #0 0x102bf83ed in wrap_malloc (/usr/local/opt/llvm/lib/clang/9.0.0/lib/darwin/libclang_rt.asan_osx_dynamic.dylib:x86_64h+0x453ed)\n    #1 0x102ae5c87 in __talloc_with_prefix (/usr/local/opt/talloc/lib/libtalloc.dylib:x86_64+0x4c87)\n    #2 0x102ae3494 in talloc_init (/usr/local/opt/talloc/lib/libtalloc.dylib:x86_64+0x2494)\n    #3 0x1021baade in request_init (/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/build/lib/local//.libs/libfreeradius-server.dylib:x86_64+0xf0ade)\n    #4 0x1021b97d7 in request_alloc (/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/build/lib/local//.libs/libfreeradius-server.dylib:x86_64+0xef7d7)\n    #5 0x10260748c in fr_worker_get_request (/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/build/lib/local//.libs/libfreeradius-io.dylib:x86_64+0x5d48c)\n    #6 0x1025fd0aa in worker_post_event (/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/build/lib/local//.libs/libfreeradius-io.dylib:x86_64+0x530aa)\n    #7 0x1026e1221 in fr_event_service (/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/build/lib/local//.libs/libfreeradius-util.dylib:x86_64+0x63221)\n    #8 0x1026e1ccd in fr_event_loop (/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/build/lib/local//.libs/libfreeradius-util.dylib:x86_64+0x63ccd)\n    #9 0x102166934 in main_loop_start (/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/build/lib/local//.libs/libfreeradius-server.dylib:x86_64+0x9c934)\n    #10 0x101fdaf0a in main (/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/./build/bin/local/radiusd:x86_64+0x100005f0a)\n    #11 0x7fff5f7723d4 in start (/usr/lib/system/libdyld.dylib:x86_64+0x163d4)\n\n\n... set module fail status>\n=================================================================\n==70330==ERROR: LeakSanitizer: detected memory leaks\n\nDirect leak of 32 byte(s) in 1 object(s) allocated from:\n    #0 0x10198b3ed in wrap_malloc (/usr/local/opt/llvm/lib/clang/9.0.0/lib/darwin/libclang_rt.asan_osx_dynamic.dylib:x86_64h+0x453ed)\n    #1 0x101926d78 in xmalloc (/usr/local/opt/readline/lib/libreadline.8.dylib:x86_64+0x22d78)\n    #2 0x10191bb3b in rl_add_undo (/usr/local/opt/readline/lib/libreadline.8.dylib:x86_64+0x17b3b)\n    #3 0x10191e12c in rl_insert_text (/usr/local/opt/readline/lib/libreadline.8.dylib:x86_64+0x1a12c)\n    #4 0x10191eecf in _rl_insert_char (/usr/local/opt/readline/lib/libreadline.8.dylib:x86_64+0x1aecf)\n    #5 0x10191f100 in rl_insert (/usr/local/opt/readline/lib/libreadline.8.dylib:x86_64+0x1b100)\n    #6 0x101906a32 in _rl_dispatch_subseq (/usr/local/opt/readline/lib/libreadline.8.dylib:x86_64+0x2a32)\n    #7 0x1019064df in readline_internal_char (/usr/local/opt/readline/lib/libreadline.8.dylib:x86_64+0x24df)\n    #8 0x101905dd6 in readline (/usr/local/opt/readline/lib/libreadline.8.dylib:x86_64+0x1dd6)\n    #9 0x100e1e71c in my_readline (/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/./build/bin/local/radmin:x86_64+0x10000771c)\n    #10 0x100e1a8d5 in main (/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/./build/bin/local/radmin:x86_64+0x1000038d5)\n    #11 0x7fff5bd123d4 in start (/usr/lib/system/libdyld.dylib:x86_64+0x163d4)\n\nSUMMARY: AddressSanitizer: 32 byte(s) leaked in 1 allocation(s).\n[jpereira@sugarloaf-2 freeradius-server.git]$\n\n\n\n\n\n\n\n\n\n\n\n\n\nTue Dec 24 17:38:29 2019: Debug : radmin-remote> set module ok status disallow\nASSERT FAILED src/lib/server/module.c[175]: rcode != RLM_MODULE_UNKNOWN\nCAUGHT SIGNAL: Abort trap: 6\nBacktrace of last 14 frames:\n0   libfreeradius-util.dylib            0x000000010da8ea0e fr_fault + 558\n1   libfreeradius-util.dylib            0x000000010da9011b fr_assert_exit + 59\n2   libfreeradius-server.dylib          0x000000010d593a56 cmd_set_module_status + 518\n3   libfreeradius-server.dylib          0x000000010d50f7f1 fr_command_run + 4113\n4   radiusd                             0x000000010d3d9b72 fr_radmin_run + 258\n5   proto_control_unix.dylib            0x00000000116374b0 mod_read_command + 5552\n6   proto_control_unix.dylib            0x00000000116319fc mod_read + 1596\n7   libfreeradius-io.dylib              0x000000010d9bec91 mod_read + 6321\n8   libfreeradius-io.dylib              0x000000010d9e79ca fr_network_read + 3066\n9   libfreeradius-util.dylib            0x000000010daddc67 fr_event_service + 5095\n10  libfreeradius-util.dylib            0x000000010dae04ee fr_event_loop + 430\n11  libfreeradius-server.dylib          0x000000010d565915 main_loop_start + 53\n12  radiusd                             0x000000010d3d777b main + 18571\n13  libdyld.dylib                       0x00007fff5bd123d5 start + 1\nCalling: gdb -batch -x src/tests/panic.gdb ./build/bin/local/radiusd 25520 > build/tests/radmin/gdb.log 2>&1; cat build/tests/radmin/gdb.log\nUnable to find Mach task port for process-id 25520: (os/kern) failure (0x5).\n (please check gdb is codesigned - see taskgated(8))\n/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/25520: No such file or directory.\nsrc/tests/panic.gdb:1: Error in sourced command file:\nNo frame selected.\nPanic action exited with 0\n_EXIT(134) CALLED src/lib/util/debug.c[921].  Last error was: Getting value of PR_DUMPABLE not supported on this system\n\n\n\n\n\n    ",
+					"settings":
+					{
+						"buffer_size": 9717,
+						"line_ending": "Unix",
+						"name": "Tue Dec 17 12:51:22 2019: Debug : export TMP_INTEG"
+					}
+				},
+				{
+					"file": "bin/build.sh",
+					"settings":
+					{
+						"buffer_size": 7200,
+						"encoding": "UTF-8",
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "set/v3/raddb/mods-enabled/python",
+					"settings":
+					{
+						"buffer_size": 1680,
+						"encoding": "UTF-8",
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "freeradius-server-v3.0.x.git/src/modules/rlm_python/rlm_python.c",
+					"settings":
+					{
+						"buffer_size": 34219,
+						"line_ending": "Unix"
+					}
+				}
+			],
+			"build_system": "",
+			"build_system_choices":
+			[
+			],
+			"build_varint": "",
+			"command_palette":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+					[
+						"",
+						"Bookmarks: Select Previous"
+					]
+				],
+				"width": 0.0
+			},
+			"console":
+			{
+				"height": 150.0,
+				"history":
+				[
+					"sublime.get_clipboard()",
+					"dir(sublime)",
+					"sublime.status_message(\"bucetaaaa\")",
+					"sublime.status_message(\"buceta\")",
+					"sublime.status_message",
+					"dir(sublime)",
+					"sublime",
+					"import sublime",
+					"sys.version",
+					"sys.path",
+					"import sys",
+					"help",
+					"?"
+				]
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"expanded_folders":
+			[
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib"
+			],
+			"file_history":
+			[
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/rlm_python/rlm_python.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/modules/rlm_python/rlm_python.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/set/v3/raddb/mods-config/python/example.py",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/doc/ChangeLog",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/raddb/clients.conf",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/run-radclient3.sh",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/bin/build.",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/share/dictionary.wimax",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/share/dictionary/radius/dictionary.wimax",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/v4/raddb/mods-available/radius",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/v4/raddb/sites-enabled/default",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/NetworkRADIUS/03837.wiki.networkradius.com.git/minutes/weekly/2020-02-07.md",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/modules/rlm_wimax/rlm_wimax.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/raddb/sites-available/default",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/lib/debug.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/sites-available/default",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/rlm_radius/rlm_radius.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/include/util/debug.c",
+				"/Volumes/Users/jpereira/Devel/VMs/freebsd12.1/Vagrantfile",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/include/autoconf.h.in",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/util/debug.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/configure.ac",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/configure.ac",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/set/v3/raddb/mods-enabled/sql",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/run-radiusd3.sh",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/run-radclient.sh",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/server/cf_parse.h",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/util/time.h",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/share/dictionary/radius/dictionary.fortinet",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/share/dictionary/radius/dictionary.aerohive",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/modules/rlm_sql/rlm_sql.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/main/client.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/main/command.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/modules/rlm_couchbase/mod.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/modules/rlm_ldap/clients.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/run-radiusd4.sh",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/run-radiusd.sh",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/bin/test-radclient.sh",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/v4/raddb/mods-config/files/authorize",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/rlm_radius/track.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/v4/raddb/sites-enabled/control-socket",
+				"/Volumes/Users/jpereira/Google Drive/Documents/Work/NetworkRADIUS/Projects/papo sobre wi-sun.txt",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/modules/rlm_radius/rlm_radius_udp.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/server/command.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/share/dictionary/dhcpv6/dictionary.rfc7078",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/server/trunk_tests.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/rfc7078.txt",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/tests/unit/protocols/dhcpv6/rfc7600.txt",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/share/dictionary/dhcpv6/dictionary.rfc7600",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/doc/antora/modules/developers/pages/coccinelle.adoc",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/build/coccinelle.mk",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/coccinelle/semantic_parentheses.cocci",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/coccinelle/fix_use_of_NUM_ELEMENTS.cocci",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/coccinelle/check_vb_strvalue.cocci.disabled",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/networkradius-jorge.git/customers/cloud5/notes.txt",
+				"/Volumes/Users/jpereira/Google Drive/Documents/Work/NetworkRADIUS/Projects/Cloud5/servers.txt",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/networkradius-jorge.git/customers/cloud5/raddb/cloud5/db.conf",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/networkradius-jorge.git/customers/cloud5/raddb/mods-enabled/sql-hotel",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/networkradius-jorge.git/customers/cloud5/raddb/sites-enabled/server-hotel",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/networkradius-jorge.git/customers/cloud5/config-old/HSIA/Cloud5-HSIA-radius04/freeradius/sql.conf",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/networkradius-jorge.git/customers/cloud5/raddb/mods-config/sql/main/mysql/queries.conf",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/networkradius-jorge.git/customers/cloud5/raddb/cloud5/billing-hotel.pl",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/networkradius-jorge.git/customers/cloud5/raddb/mods-enabled/billing-hotel",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/cloud5/db.conf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-available/sql-hotel",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/raddb/mods-available/sql",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/raddb/mods-available/sql",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-available/billing-hotel",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/cloud5/billing-hotel.pl",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-enabled/sql-hotel",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/sites-enabled/server-hotel",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/clients.conf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-enabled/billing-hotel",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-enabled/hotel-sql",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/sites-enabled/hotel-server",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-available/hotel-sql",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-config/sql/main/mysql/queries.conf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-enabled/mods-config/sql/main/mysql/queries.conf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-enabled/hotel-billing",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/sites-available/default",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/sites-enabled/default",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-available/cloud5-billing-hotel",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/cloud5/cloud5.pl",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/config-old/HSIA/Cloud5-HSIA-radius04/freeradius/sql.conf",
+				"/Volumes/Users/jpereira/Google Drive/Temp/Muambas/LISTA.txt",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/certs/client.cnf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/certs/ca.cnf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/certs/inner-server.cnf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/certs/server.cnf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-enabled/cloud5",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-enabled/sql",
+				"/etc/raddb/mods-enabled/sql",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-available/sql",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/radiusd.conf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/config-old/HSIA/Cloud5-HSIA-radius04/freeradius/radiusd.conf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/config-old/HSIA/Cloud5-HSIA-radius04/freeradius/users",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/users",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/proxy.conf",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/config-old/HSIA/Cloud5-HSIA-radius04/freeradius/proxy.conf",
+				"/tmp/s",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/lib/util/dict_tokenize.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/src/include/util/dict_util.c",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-enabled/eap",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/config-old/HSIA/Cloud5-HSIA-radius04/freeradius/policy.txt",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/hints",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-available/cloud5-billing",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/mods-available/perl",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/raddb/cloud5/billing.pl",
+				"/Volumes/Users/jpereira/Docker/storage/freeradius/cloud5/config-old/HSIA/Cloud5-HSIA-radius04/freeradius/experimental.conf",
+				"/Volumes/Users/jpereira/Devel/github-jpereira/sanddockers.git/freeradius-server/bin/start-devbox.sh",
+				"/Volumes/Users/jpereira/Temp/Cloud5 Files/HSIA/Cloud5-HSIA-radius01/raddb/sites-enabled/control-socket",
+				"/Volumes/Users/jpereira/Devel/github-jpereira/sanddockers.git/freeradius-server/bin/start-devbox-centos7.sh",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/redhat/freeradius.spec",
+				"/Volumes/Users/jpereira/Temp/Cloud5 Files/HSIA/Cloud5-HSIA-radius01/raddb/sites-enabled/inner-tunnel",
+				"/Volumes/Users/jpereira/.ssh/config.hosts",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/main/tls.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server-v3.0.x.git/src/main/modcall.c",
+				"/Volumes/Users/jpereira/Devel/github-jpereira/mbed-os/features/nanostack/sal-stack-nanostack/source/Security/kmp/kmp_api.c",
+				"/Volumes/Users/jpereira/Devel/github-jpereira/mbed-os/features/nanostack/sal-stack-nanostack/source/Security/protocols/sec_prot.h",
+				"/Volumes/Users/jpereira/Devel/github-jpereira/mbed-os/features/nanostack/sal-stack-nanostack/source/Security/protocols/eap_tls_sec_prot/auth_eap_tls_sec_prot.c",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/doc/antora/modules/developers/pages/coverage.adoc",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/build/coverage.mk",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/Makefile",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/doc/antora/modules/developers/pages/index.adoc",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/doc/antora/modules/developers/nav.adoc",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/docker/crossbuild/crossbuild.mk",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/scripts/install.mk",
+				"/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.git/main.mk"
 			],
 			"find":
 			{
@@ -448,134 +1012,134 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					"et == RLM_MODULE_FAIL) p",
+					"(code == RLM_MOD",
+					"Py_XDECREF(pArgs);",
+					"atic rlm_rcode_t do_pyt",
+					"do_python",
+					"if (code != RLM_MODULE_OK) {",
+					"ret =",
+					"do_python(",
+					"do_python",
+					"do_python_single",
+					"python_error_log",
+					"do_python_single",
+					"python_error_log",
+					"(code !",
+					"#######################",
+					"do_python_single",
+					"code <",
+					"cod <",
+					"do_python_single",
+					"#####",
+					"do_python_single",
+					"python_error_log",
+					"_log",
+					"instantiate",
+					"held_trigger_min",
+					"track_connections",
+					"held_trigger_min",
+					"Notification",
+					"jorge",
+					"WiMAX-ASN-Ethernet-Service-Capabilities",
+					"wimax",
+					"WiMAX-MN-NAI",
+					"WiMAX-FA-RK-Key",
+					"WiMax",
+					"&",
+					"Termination-Action",
+					"EAP-MSK",
+					"fr_get_dumpable_flag",
+					"ret =",
+					"ret",
+					"fr_set_dumpable",
+					"fr_set_dumpable_flag",
+					"procctl",
+					"cap_get_proc",
+					"fr_debug_state_to_msg",
+					"Debugger not attach",
+					"fr_get_dumpable_flag",
+					"linux",
+					"HAVE_SYS_PRCTL_H",
+					"prctcl",
+					"PROC_TRACE_CTL_ENABLE",
+					"src/lib/debug.c",
+					"user",
+					"HAVE_SYS_PRCTL_H",
+					"net/if",
+					"procctl",
+					"frebsd",
+					"HAVE_SYS_PROCCTL_H",
+					"PT_ATTACH",
+					"FUNCS",
+					"AC_CHECK_FUNCS",
+					"freebsd",
+					"HAVE_",
+					"dump",
+					".h",
+					"dumpable",
+					"DELTA_STRINGIFY",
+					"type_time_delta",
+					"convert_delta_to_sec",
+					"convert_to_delta",
+					"CONF_PARSER_TERMINATOR",
+					"convert_to_delta",
+					"unused",
+					"zombie_",
+					"DELTA_STRINGIFY",
+					"#define DELTA_STRINGIFY(_x) STRINGIFY(fr_time_delta_to_sec(_x))",
+					"DELTA_STRINGIFY",
+					"FR_TIME_DELTA_BOUND_CHECK",
+					"zombie_period",
+					"(40)",
+					"DELTA_STRINGIFY",
+					"(40)",
+					"40",
+					"FR_TIME_DELTA_BOUND_CHECK",
+					"FR_TYPE_TIME_DELTA",
+					"zombie_period",
+					"DELTA_STRINGIFY",
+					"zombie_period",
+					"(40)",
+					"DELTA_STRINGIFY",
+					"40",
+					"DELTA_STRINGIFY",
+					"Beginning",
+					"client_add",
+					"client_add(",
+					"client_add",
+					"(client)",
+					"client_free1",
+					"client_free",
+					"client_add",
+					"generate_sql_clients",
+					" client_free(",
+					"client_add(",
+					"client_add",
+					"client_free(client)",
+					"client_add",
+					"client_free",
+					"Failed to add",
+					"client",
+					"Status-Server",
+					"status",
+					"Status-Server",
+					"bob",
+					"status",
+					"stats",
+					"\"stats",
+					"reply",
+					"SmPL",
+					"4RD-Map-Rule-EA-Len",
+					"4RD-Map-Rule-IPv4-Prefix-Len",
+					"Traffic-Class-Provide",
+					"group",
 					"```",
 					"sql",
 					"accounting",
 					"accounting_onoff_query",
 					"authorize_group_check_query",
-					"authorize_reply_query",
-					"authorize_check_query",
-					"sql_user_name",
-					"stale",
-					"deletestalesessions",
-					"groupreply_table",
-					"groupcheck_table",
-					"authreply_table",
-					"user_table",
-					"authcheck_table",
-					"nas_table",
-					"postauth_table",
-					"acct_table1",
-					"radius_db",
-					":Console:",
-					"check_stale_sessions",
-					"connect",
-					"server ",
-					"hotel-billing",
-					"INCLUDE",
-					"sql",
-					"billing-hotel",
-					"cloud5",
-					"cloud5_db_",
-					"DB_STALE_SESSIONS_LOGIN",
-					"STALE_SESSIONS_PASSWORD",
-					"DB_STALE_SESSIONS_USERNAME",
-					"DB_USERNAME",
-					"DB_HOST",
-					"$INCLUDE",
-					"INCLUDE",
-					"radius_db",
-					"STALE_SESSIONS_PASSWORD",
-					"rh1_radius",
-					"DB_NAME",
-					"MYSQL_PASSWORD",
-					"MYSQL_USERNAME",
-					"MYSQL_DB",
-					"MYSQL_HOST",
-					"DBI:mysql:CMS:${MYSQL_HOST}",
-					"CMS",
-					"sql",
-					"preacct {",
-					"pre-proxy",
-					"post",
-					"post-auth",
-					"Proxy-To-Realm :=",
-					"authorize {",
-					"y398Lk4eol",
-					"accthost",
-					"home_server",
-					"windows-01.us-il-chi",
-					"cloud5_com",
-					"marriot",
-					"marrior",
-					"narrior",
-					"realm LOCAL",
-					"trerror_printf(\"Failed to find libfreeradiu",
-					"talloc_free(dict);",
-					"goto",
-					"_strerror_printf(\"Failed to find li",
-					"dict_protocol_add",
-					"peap {",
-					"cisco_accounting_username_bug",
-					"ignore_unknown_eap_types",
-					"default_eap_type",
-					"peap {",
-					"default_eap_type",
-					"func_checksimul",
-					"func_preacct",
-					"func_authorize",
-					"func_authenticate",
-					"func_accounting",
-					"sub-config",
-					"config",
-					"innflux",
-					"sql01.private.innflux.net",
-					"docker_rootfs",
-					"We STRONGLY recommned",
-					"getenv",
-					"modcall_debug",
-					"9374889673090817929195",
-					"eapol",
-					"sec_prot_send",
-					"kmp_api_t",
-					"sec_prot_send",
-					"sec_prot_eui64_addr_get",
-					"sec_prot_t",
-					"auth_eap_tls_sec_prot_message_send",
-					"Coverage",
-					"COCCINELLE_IN",
-					"COCCINELLE_OUTPUT",
-					"${Q}",
-					"COCCINELLE_MODE",
-					"testre",
-					"COCCINELLE_OPT",
-					"pthread_mutex",
-					"--with-rlm-python-bin=python2",
-					"|",
-					"table_sorted_value_by_str",
-					"fr_table_sorted_num_by_str",
-					"fr_table_value_by_str",
-					"_status",
-					"fr_table_value_by_str",
-					"_table",
-					"fr_table_sorted_num_by_str",
-					"__clang_analyzer__",
-					"#if",
-					"__clang_analyzer__",
-					"fr_log_levels",
-					"fr_table_value_by_str",
-					"disallow",
-					"alive",
-					"table_sorted_value_by_str",
-					"fr_table_sorted_num_by_str",
-					"rcode_table",
-					"|",
-					"cmd_set_module_status",
-					"fr_command_print_help",
-					"MATCHED_NAME",
-					"fr_command_print_help",
-					"when /= (worker->",
-					"fr_command_run"
+					"authorize_reply_query"
 				],
 				"highlight": false,
 				"in_selection": false,
@@ -583,6 +1147,8 @@
 				"regex": false,
 				"replace_history":
 				[
+					"convert_delta_to_sec",
+					"STRINGIFY",
 					"billing-hotel",
 					"hotel-billing",
 					"cloud5.db.",
@@ -693,6 +1259,168 @@
 				"whole_word": false,
 				"wrap": true
 			},
+			"groups":
+			[
+				{
+					"selected": 1,
+					"sheets":
+					[
+						{
+							"buffer": 0,
+							"file": "notes.txtr",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 3169,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										2137,
+										2137
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Text/Plain text.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 4,
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 9717,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										3192,
+										3192
+									]
+								],
+								"settings":
+								{
+									"auto_name": "Tue Dec 17 12:51:22 2019: Debug : export TMP_INTEG",
+									"syntax": "Packages/Text/Plain text.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 2,
+							"type": "text"
+						}
+					]
+				},
+				{
+					"selected": 2,
+					"sheets":
+					[
+						{
+							"buffer": 2,
+							"file": "bin/build.sh",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 7200,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1030,
+										1030
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/ShellScript/Bash.sublime-syntax",
+									"translate_tabs_to_spaces": false
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 3,
+							"type": "text"
+						},
+						{
+							"buffer": 3,
+							"file": "set/v3/raddb/mods-enabled/python",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 1680,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1093,
+										1093
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Text/Plain text.tmLanguage",
+									"translate_tabs_to_spaces": false
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 1,
+							"type": "text"
+						},
+						{
+							"buffer": 4,
+							"file": "freeradius-server-v3.0.x.git/src/modules/rlm_python/rlm_python.c",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 34219,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										17978,
+										17978
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C++/C.sublime-syntax",
+									"translate_tabs_to_spaces": false
+								},
+								"translation.x": 0.0,
+								"translation.y": 9968.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 0,
+							"type": "text"
+						}
+					]
+				}
+			],
 			"incremental_find":
 			{
 				"height": 26.0
@@ -701,15 +1429,46 @@
 			{
 				"height": 0.0
 			},
+			"layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					],
+					[
+						1,
+						0,
+						2,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					0.5,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			},
 			"menu_visible": true,
 			"output.find_results":
 			{
 				"height": 0.0
 			},
 			"pinned_build_system": "",
+			"position": "0 911 0 1842 1417 0 0 3440 1417 ",
+			"project": "freeradius-server.sublime-project",
 			"replace":
 			{
-				"height": 70.0
+				"height": 48.0
 			},
 			"save_all_on_build": true,
 			"select_file":
@@ -747,6 +1506,10 @@
 				],
 				"width": 575.0
 			},
+			"selected_group": 1,
+			"settings":
+			{
+			},
 			"show_minimap": false,
 			"show_open_files": true,
 			"show_tabs": true,
@@ -755,12 +1518,10 @@
 			"status_bar_visible": true,
 			"template_settings":
 			{
-			}
-		},
-		"new_window_width": 1680.0
-	},
-	"windows":
-	[
+			},
+			"window_id": 154,
+			"workspace_name": "/Volumes/Users/jpereira/Devel/FreeRADIUS/freeradius-server.sublime-workspace"
+		}
 	],
 	"workspaces":
 	{

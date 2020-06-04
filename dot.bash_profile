@@ -1,5 +1,5 @@
 # Por Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Mon Aug 26 21:07:20 2019
+# Last Change: Wed Jun  3 22:17:21 2020
 ##
 
 #
@@ -31,6 +31,7 @@ export ESCDELAY=0
 export EDITOR="vim"
 export DISPLAY=${DISPLAY:-:0.0}
 export GPG_TTY=$(tty)
+export ASAN_SYMBOLIZER_PATH="$(which llvm-symbolizer)"
 
 #
 #	FreeRADIUS
@@ -44,6 +45,9 @@ export ANSIBLE_HOST_KEY_CHECKING=False
 
 # Reset aliases
 unalias -a
+alias ls="gls --color=auto"
+
+export CC=clang
 
 #
 # Settings by $OS
@@ -137,4 +141,7 @@ fi
 #	always core files?
 #ulimit -c unlimited
 # sudo launchctl limit core 0 0
+
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
