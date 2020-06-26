@@ -17,6 +17,9 @@ export _DD=dd
 # Dev
 export CC=clang
 
+# Fix gnome slow issues
+export QT_QPA_PLATFORMTHEME=gtk2
+
 # aliases
 alias ls="ls --color=auto"
 
