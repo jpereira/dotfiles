@@ -26,8 +26,12 @@ bind k focus up
 #bindkey "^[^[[C" next
 
 # Linux <CTRL> + (LEFT || RIGHT)
-bindkey "^[[1;5D" prev
-bindkey "^[[1;5C" next
+#bindkey "^[[1;5D" prev
+#bindkey "^[[1;5C" next
+
+# Linux <SHIFT> + (LEFT || RIGHT)
+bindkey "^[[1;2D" prev
+bindkey "^[[1;2C" next
 
 # scrolling
 defscrollback 5000
