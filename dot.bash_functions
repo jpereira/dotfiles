@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Fri Feb 28 00:09:15 2020
+# Last Change: Thu 25 Jun 2020 07:52:25 AM -03
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
 
@@ -62,6 +62,20 @@ adoc-cleanup() {
 #
 #	show-*
 #
+show-process-memory-usage() {
+	ps -eo size,pid,user,command --sort -size | \
+	    awk '{
+		    hr=$1/1024;
+		    printf("%13.2f Mb ",hr)
+	    }
+	    {
+		    for ( x=4 ; x<=NF ; x++ ) {
+			    printf("%s ",$x)
+		    }
+		    print ""
+	    }'
+}
+
 show-cpu-cores() {
 	if [ "$OS" = "Darwin" ]; then
 		sysctl -n hw.logicalcpu
