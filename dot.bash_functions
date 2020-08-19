@@ -76,6 +76,14 @@ show-process-memory-usage() {
 	    }'
 }
 
+show-openssl-cert-infos() {
+	for i in $@; do
+		set -fx
+		openssl x509 -in $i -noout -text
+		set +fx
+	done
+}
+
 show-cpu-cores() {
 	if [ "$OS" = "Darwin" ]; then
 		sysctl -n hw.logicalcpu
@@ -326,7 +334,7 @@ git-cleanup-branch() {
 }
 
 git-rebase-fixup-autosquash() {
-	local _d="${1:-10}"
+	local _d="${1:-30}"
 
 	#git stash
 
@@ -344,6 +352,13 @@ git-fixup-with-last-commit() {
 
 	GIT_SEQUENCE_EDITOR=: git rebase -i --autosquash HEAD^^
 	set +fx
+}
+
+git-fixup-by-files-last-commit() {
+	git status -s | awk '{if ($1 == "M") print $2}' | while read f; do
+		local _last_commit="$(git log --pretty=format:%h -1 $f)"
+		echo git commit --fixup $_last_commit ${f}
+	done
 }
 
 git-show-lost-found() {
@@ -495,6 +510,11 @@ gdb-attach-by-pid() {
 #
 #	my-*
 #
+my-ip() {
+	echo "# dig +short myip.opendns.com @resolver1.opendns.com $@"
+	dig +short myip.opendns.com @resolver1.opendns.com $@
+}
+
 my-vm-increase-vmdk() {
 	local _vm="${1:-foo}"
 	local _size="30720"
@@ -639,3 +659,14 @@ my-ffmpeg-reduce() {
 	done
 }
 
+#
+# fr-
+#
+fr-hex2code() {
+	_hex="$1"
+	echo "# Copied to clipboard, use with command+v"
+	_o="$(echo "$1" | fold -w2 | tr "\n" " ")"
+
+	echo $_o
+	echo -n $_o | pbcopy
+}
