@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Tue Apr 14 11:29:44 2020
+# Last Change: Tue Oct 13 16:45:59 2020
 ##
 
 set startup-with-shell off
@@ -17,7 +17,7 @@ set print union on
 #set pagination off
 
 def close_stdout
-call close(1)
+	call close(1)
 end
 
 def disable_signals

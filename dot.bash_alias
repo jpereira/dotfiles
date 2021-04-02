@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Thu Jul  9 22:20:07 2020
+# Last Change: Fri Oct  9 07:09:25 2020
 ##
 
 if [ -e "$HOME/.bash_alias_work" ]; then
@@ -129,6 +129,8 @@ alias reboot='sudo /sbin/reboot'
 alias mrxvt="/usr/bin/mrxvt -rv -sr -fn 9x15 -title \"Terminal Mrxvt\" -g 90x30 -cr red -tnum 4"
 alias wgetcookie='wget -c --load-cookies=$HOME/.mozilla/firefox/default/cookies.txt'
 alias xterm="/usr/bin/xterm -fg white -bg black -fn 10x20"
+
+alias psup='ps -ax -o etime,command -c | grep'
 
 #
 #
