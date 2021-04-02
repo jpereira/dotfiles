@@ -144,6 +144,7 @@
 	psof = push origin -f
 	po = push origin
 	pof = push origin -f
+	pom = push origin master
 	pl = pull
 	pr = pull --rebase
 	psf = push -f

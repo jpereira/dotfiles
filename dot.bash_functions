@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Thu 25 Jun 2020 07:52:25 AM -03
+# Last Change: Mon Dec 28 14:00:54 2020
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
 
@@ -57,6 +57,15 @@ adoc-cleanup() {
 	s/+\`/\`/g;
 	' > ${1}.$$
 	mv -f ${1}.$$ ${1}
+}
+
+#
+#
+#
+webp2png() {
+	ls *.webp | while read a; do
+		echo "dwebp -o \"${a/webp/png}\" \"$a\""
+	done
 }
 
 #
@@ -510,6 +519,10 @@ gdb-attach-by-pid() {
 #
 #	my-*
 #
+my-sum-dotplus8() {
+	grep -o "^\d.[0-9]\{1,9\}" $1 | awk '{ n+=$1 } END { printf("Total: %f\n", n); }'
+}
+
 my-ip() {
 	echo "# dig +short myip.opendns.com @resolver1.opendns.com $@"
 	dig +short myip.opendns.com @resolver1.opendns.com $@
@@ -660,13 +673,74 @@ my-ffmpeg-reduce() {
 }
 
 #
+# btc
+#
+btc-show-price() {
+	_dolar=$1
+	_btcs=$2
+
+	if [ -z "$_dolar" ]; then
+		echo "btc-show-price dolar-price"
+		return
+	fi
+
+	echo "R\$1 = R\$${_dolar}"
+	echo
+
+	_d=10
+	while [[ $_d -lt 100 ]]; do
+		_p=$(bc <<< "$_d * $_dolar");
+		avarage=""
+		if [ -n "$_btcs" ]; then
+			_amount=$(bc <<< "($_btcs * ${_p}) * 100")
+			avarage="(${_btcs}btcs x R\$${_p} +/- R\$${_amount})"
+		fi
+
+		echo "BTC\$${_d}000 -> R\$${_p}00 $avarage"
+
+		let "_d+=2"
+	done
+}
+
+#
 # fr-
 #
+fr-fromlog2hex() {
+	echo "# Reading from /dev/stdin"
+	_log=$(cat /dev/stdin | sed 's/^.*: //g' | tr '\n' ' ' | tr -d ' ')
+	fr-hex2code "$_log"
+}
+
 fr-hex2code() {
 	_hex="$1"
-	echo "# Copied to clipboard, use with command+v"
-	_o="$(echo "$1" | fold -w2 | tr "\n" " ")"
+	_tot=0
 
-	echo $_o
+	if [ -f "$_hex" ]; then
+		echo "# Loading $_hex file"
+		_hex="$(xxd -p $_hex | tr -d '\n')"
+	fi
+
+	if [ "$2" = "rev" ]; then
+		echo "# Put in reverse mode"
+		_hex="$(echo $_hex | rev)"
+	fi
+
+	echo "# Copied to clipboard, use with command+v"
+	_tot="$(echo $_hex | fold -w2 | wc -l | tr -d ' ')"
+	_o="$(echo $_hex | fold -w2 | tr '\n' ' ')"
+
+	echo "# tot=$_tot bytes"
+	echo "decode-xxx $_o"
+	echo "match Attr-125 = 0x$(echo $_o | tr -d ' ')"
 	echo -n $_o | pbcopy
+}
+
+#
+#	QNAP
+#
+qnap-mysql-connect() {
+	local _host=dev-mysql.lan
+
+	echo "(*) Connecting to $_host"
+	mysql -u root -p -h $_host $@
 }

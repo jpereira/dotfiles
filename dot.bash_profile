@@ -1,5 +1,5 @@
 # Por Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Wed Jun  3 23:36:36 2020
+# Last Change: Mon Feb  1 16:34:34 2021
 ##
 
 #
@@ -36,7 +36,7 @@ export ASAN_SYMBOLIZER_PATH="$(which llvm-symbolizer)"
 #
 #	FreeRADIUS
 #
-export FR_LIBRARY_PATH=./build/lib/local/.libs/
+#export FR_LIBRARY_PATH=./build/lib/local/.libs/
 
 #
 #	Ansible settings

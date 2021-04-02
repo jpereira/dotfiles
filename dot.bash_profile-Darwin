@@ -16,8 +16,8 @@ export PATH="$PATH:/Applications/Sublime Merge.app/Contents/SharedSupport/bin"
 # Pip3
 export PATH="$PATH:$HOME/Library/Python/3.7/bin/"
 
-# openssl
-export PATH="/usr/local/opt/openssl/bin:$PATH"
+# gnupg
+export PATH="/usr/local/Cellar/gnupg/2.2.25/bin:$PATH"
 
 # pdflatex
 export PATH="/usr/local/texlive/2019basic/bin/x86_64-darwin:$PATH"
@@ -25,8 +25,8 @@ export PATH="/usr/local/texlive/2019basic/bin/x86_64-darwin:$PATH"
 # android tools
 export PATH="~/Devel/Devices/Celular/platform-tools:$PATH"
 
-# python 3.8
-export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+# python 3.7
+export PATH="/usr/local/opt/python@3.7/bin:$PATH"
 
 # binutils
 export PATH="/usr/local/Cellar/binutils/2.34/bin:$PATH"
@@ -39,6 +39,9 @@ export PATH="/Applications/Couchbase Server.app/Contents/Resources/couchbase-cor
 
 # mysql-client
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+# ruby
+export PATH="~/.gem/ruby/2.6.0/bin:$PATH"
 
 # brew bin
 export PATH="/usr/local/bin:$PATH"
@@ -74,6 +77,17 @@ export CC=$(brew --prefix llvm)/bin/clang
 alias show-cpu-info="sysctl -n machdep.cpu.brand_string"
 alias ldd="otool -L"
 alias ls="ls -G"
+
+# Android
+export ANDROID_AVD_HOME="$HOME/.android/avd"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
+export PATH="${ANDROID_SDK_ROOT}/tools:${ANDROID_SDK_ROOT}/tools/bin:${ANDROID_SDK_ROOT}/platform-tools:$PATH"
+
+# openssl
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+
+alias emulator="${ANDROID_SDK_ROOT}/tools/emulator"
 
 # cpu
 export NCPU="$(sysctl -n hw.logicalcpu)"
