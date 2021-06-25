@@ -17,7 +17,7 @@ export PATH="$PATH:/Applications/Sublime Merge.app/Contents/SharedSupport/bin"
 export PATH="$PATH:$HOME/Library/Python/3.7/bin/"
 
 # gnupg
-export PATH="/usr/local/Cellar/gnupg/2.2.25/bin:$PATH"
+export PATH="/usr/local/opt/gnupg/bin:$PATH"
 
 # pdflatex
 export PATH="/usr/local/texlive/2019basic/bin/x86_64-darwin:$PATH"
@@ -41,10 +41,13 @@ export PATH="/Applications/Couchbase Server.app/Contents/Resources/couchbase-cor
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
 # ruby
-export PATH="~/.gem/ruby/2.6.0/bin:$PATH"
+export PATH="$HOME/.gem/bin:$(brew --prefix ruby@2.7)/bin:$PATH"
+
+# make4
+export PATH="$(brew --prefix make)/bin:$PATH"
 
 # brew bin
-export PATH="/usr/local/bin:$PATH"
+export PATH="$PATH:/usr/local/bin"
 
 # fix openssl.cnf complain messages
 export OPENSSL_CONF=/dev/null
@@ -71,7 +74,7 @@ export _LS=gls
 
 # gcc settings
 #export CC=/usr/local/Cellar/llvm/9.0.0_1/bin/clang-9
-export CC=$(brew --prefix llvm)/bin/clang
+export CC=$(brew --prefix llvm@11)/bin/clang
 
 # Darwin functions/aliases
 alias show-cpu-info="sysctl -n machdep.cpu.brand_string"

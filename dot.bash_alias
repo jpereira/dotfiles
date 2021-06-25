@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Fri Oct  9 07:09:25 2020
+# Last Change: Fri Jun 25 11:39:20 2021
 ##
 
 if [ -e "$HOME/.bash_alias_work" ]; then
@@ -16,11 +16,11 @@ fi
 #
 #	Lazzy
 #
-#if ls --help | grep -q "color"; then
-#        alias ls="ls --color=auto"
-#else
+if ls --help | grep -q "color"; then
+        alias ls="ls --color=auto"
+else
         alias ls="ls -G"
-#fi
+fi
 
 # lazzy....
 if ! type sl 1> /dev/null 2>&1; then
