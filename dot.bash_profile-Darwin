@@ -87,10 +87,10 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
 export PATH="${ANDROID_SDK_ROOT}/tools:${ANDROID_SDK_ROOT}/tools/bin:${ANDROID_SDK_ROOT}/platform-tools:$PATH"
 
+alias emulator="${ANDROID_SDK_ROOT}/tools/emulator"
+
 # openssl
 export PATH="/usr/local/opt/openssl/bin:$PATH"
-
-alias emulator="${ANDROID_SDK_ROOT}/tools/emulator"
 
 # cpu
 export NCPU="$(sysctl -n hw.logicalcpu)"
@@ -130,4 +130,3 @@ function set-cc-brew-llvm() {
 	export CC="/usr/local/opt/llvm/bin/clang${_v}"
 	echo CC=\"$CC\"
 }
-

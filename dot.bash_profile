@@ -43,23 +43,6 @@ export ASAN_SYMBOLIZER_PATH="$(which llvm-symbolizer)"
 #
 export ANSIBLE_HOST_KEY_CHECKING=False
 
-# Reset aliases
-unalias -a
-
-#
-# Settings by $OS
-#
-[ -f "$HOME/.bash_profile-$OS" ] && source "$HOME/.bash_profile-$OS"
-
-#
-# Different colors for root & nonroot 
-#
-if [ $UID -eq 0 ];then
-    high="40;31"
-else
-    high="40;34"
-fi
-
 #
 # Git
 #
@@ -76,6 +59,23 @@ parse_git_branch(){
     echo -ne "\e[40;36;1m($he)\e[0m"
   fi
 }
+
+# Reset aliases
+unalias -a
+
+#
+# Settings by $OS
+#
+[ -f "$HOME/.bash_profile-$OS" ] && source "$HOME/.bash_profile-$OS"
+
+#
+# Different colors for root & nonroot 
+#
+if [ $UID -eq 0 ];then
+    high="40;31"
+else
+    high="40;34"
+fi
 
 #
 #	Terminal

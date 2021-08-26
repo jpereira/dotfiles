@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Fri Jun 25 11:39:20 2021
+# Last Change: Mon Aug 23 16:17:30 2021
 ##
 
 if [ -e "$HOME/.bash_alias_work" ]; then
@@ -16,7 +16,7 @@ fi
 #
 #	Lazzy
 #
-if ls --help | grep -q "color"; then
+if ls --help 2> /dev/null | grep -q "color"; then
         alias ls="ls --color=auto"
 else
         alias ls="ls -G"
@@ -99,14 +99,19 @@ alias update-own2me="sudo chown -R $USER:$GROUP"
 alias test-iperf3-torouter="iperf3 -c 192.168.1.254"
 alias tohex="xxd -pu | sed 's/^/0x/g'"
 alias toascii="xxd -rp"
+alias whatismyip="curl api.ipify.org"
+alias ifconfig.publicip="whatismyip"
 
 #
 #	Scp/Ssh
 #
+alias ssh.nokey="ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no"
+alias ssh.force-password="ssh.nokey"
 alias scp.aws.ipv4="scp -i ~/Documents/Pessoais/Keys/SSH/aws-jorge1.pem"
 alias ssh.aws.ipv4="ssh -i ~/Documents/Pessoais/Keys/SSH/aws-jorge1.pem -l root"
 alias ssh.router="ssh -l root 192.168.1.254"
 alias ssh.capacete="ssh -l admin 192.168.1.253"
+alias ssh.tapioca="ssh -p 6922 -l root tapioca.mooo.com"
 
 alias ssh.dev01="ssh -l root dev01.lan"
 alias ssh.dev02="ssh -l root dev02.lan"

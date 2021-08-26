@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Mon Dec 28 14:00:54 2020
+# Last Change: Tue Aug 24 10:57:10 2021
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
 
@@ -182,6 +182,10 @@ docker-run-prev-container() {
 	set +fx
 }
 
+docker-cleanup-images-none() {
+	docker images | awk '/^<none>/{print $3}' | xargs docker rmi -f
+}
+
 docker-cleanup-containers-untagged() {
 	set -fx
 	docker images -a | awk '/<none>/ { print $3}' | xargs docker rmi -f
@@ -252,6 +256,7 @@ EOF
 #	cleanup-*
 #
 cleanup-ssh-sessions() {
+	
 	rm -fv ~/.ssh/sessions/*
 }
 alias ssh-cleanup-sessions="cleanup-ssh-sessions"

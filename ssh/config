@@ -11,8 +11,16 @@ Host *
 Host networkradius.com
 	IdentityFile ~/.ssh/jpereira@networkradius.com-id_rsa.pub
 
+Host freeradius.org
+	IdentityFile ~/.ssh/jpereira@networkradius.com-id_rsa.pub
+
 Host router
 	Hostname router.lan
+	User root
+
+Host tapioca
+	Hostname tapioca.mooo.com
+	Port 6922
 	User root
 
 Include ~/.ssh/config.hosts
