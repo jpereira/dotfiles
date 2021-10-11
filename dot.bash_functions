@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Tue Aug 24 10:57:10 2021
+# Last Change: Thu Oct  7 16:54:36 2021
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
 
@@ -28,6 +28,58 @@ function fr.dictinary-check() {
 
 		echo "\$INCLUDE $_d"
 	done | grep -v -E "\.(dhcp|vqp|illegal)" | sort -n
+}
+
+#
+# iperf3-
+#
+iperf3-test() {
+	list=$@
+
+	if [ -z "$list" ]; then
+		list=(192.168.1.254)
+	fi
+
+	for dst in ${list[*]}; do
+	    echo "-------------------------------------------------------"
+	    echo "Connecting to $dst"
+
+	    echo "------------------------------------"
+	    echo "# TCP client to server"
+	    iperf3 -c $dst
+
+	    echo "------------------------------------"
+	    echo "# TCP server to client"
+	    iperf3 -R -c $dst
+
+	    #echo "------------------------------------"
+	    #echo "# UDP client to server"
+	    #iperf3 -u -b 867M -c $dst
+
+	    #echo "------------------------------------"
+	    #echo "# UDP server to client"
+	    #iperf3 -R -u -b 867M -c $dst
+	done
+}
+
+iperf3-test-publicips() {
+	list=(iperf.par2.as49434.net:9201
+#		  iperf.it-north.net:5201
+#		  speedtest-iperf-akl.vetta.online:5201
+#		  iperf.he.net:5202
+	)
+
+	for dst in ${list[*]}; do
+		_h="${dst/:*}"
+		_p="${dst/*:}"
+
+	    echo "-------------------------------------------------------"
+	    echo "Connecting to ${_h}:${_p}"
+
+	    echo "------------------------------------"
+	    echo "# TCP client to server"
+	    iperf3 -c $_h -p $_p
+	done
 }
 
 #
@@ -707,9 +759,49 @@ btc-show-price() {
 	done
 }
 
+btc-trade-strategy() {
+	local _sale_price=$1
+	local _rebuy_price=$2
+	local _total=${3:-15}
+	local _plus=${4:-0}
+	local _reais=${5:-5.50}
+
+	if [ $# -lt 3 ]; then
+		echo "Usage: btc-trade-strategy <sale_price> <rebuy_price> <total of btc> <increase btcs> <usd in brl>"
+		return
+	fi
+
+	_total_plus=$(echo "${_total} + ${_plus}" | bc)
+	_total_sale=$(echo "scale=2; (${_total} * ${_sale_price})" | bc)
+	_rebuy_total=$(echo "scale=2; (${_total_plus} * ${_rebuy_price})" | bc)
+	_profit=$(echo "scale=2; (${_total_sale} - ${_rebuy_total})" | bc)
+	_total_reais=$(echo "scale=2; ${_profit} * ${_reais}" | bc)
+
+	echo "Estrategia BTC"
+	echo " > Vendendo ${_total} bitcoins por US\$${_sale_price} = +/- US\$${_total_sale}"
+	echo " > Recomprar ${_total}+${_plus}=${_total_plus} bitcoins por US\$${_rebuy_price} totalizando +/- US\$${_rebuy_total}"
+	echo " > Mantendo os ${_total}+${_plus}=${_total_plus}, Embolsando lucro de US\$${_profit} (USD x R\$${_reais} +/- = R\$${_total_reais})"
+}
+
 #
 # fr-
 #
+fr-gen-password() {
+	_clear="$1"
+	_md5=$(echo -n "${_clear}" | md5)
+
+	_clear64=$(echo -n "{clear}${_clear}" | base64)
+	_md564=$(echo -n "{md5}${_md5}" | base64)
+
+	echo "## Raw"
+	echo "{clear}${_clear}"
+	echo "{md5}${_md5}"
+	echo
+	echo "# Base64"
+	echo "${_clear64}"
+	echo "${_md564}"
+}
+
 fr-fromlog2hex() {
 	echo "# Reading from /dev/stdin"
 	_log=$(cat /dev/stdin | sed 's/^.*: //g' | tr '\n' ' ' | tr -d ' ')
@@ -738,6 +830,18 @@ fr-hex2code() {
 	echo "decode-xxx $_o"
 	echo "match Attr-125 = 0x$(echo $_o | tr -d ' ')"
 	echo -n $_o | pbcopy
+}
+
+fr-attr-update-type() {
+	local _attr=$1
+	local _old=$2
+	local _new=$3
+
+	grep $_attr -l -r share/ | \
+	while read _file; do
+		echo "## FR Updating s/${_old}/${_new}/g -i $_file"
+		gsed -i "/${_attr}/s/${_old}$/${_new}/g" $_file
+	done
 }
 
 #
