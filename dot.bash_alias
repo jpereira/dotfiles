@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Mon Aug 23 16:17:30 2021
+# Last Change: Thu Sep 16 11:31:05 2021
 ##
 
 if [ -e "$HOME/.bash_alias_work" ]; then
@@ -116,6 +116,11 @@ alias ssh.tapioca="ssh -p 6922 -l root tapioca.mooo.com"
 alias ssh.dev01="ssh -l root dev01.lan"
 alias ssh.dev02="ssh -l root dev02.lan"
 alias ssh.dev03="ssh -l root dev03.lan"
+
+#
+#
+#
+alias mysql.capacete="mysql -u root -proot -h capacete.lan"
 
 #
 #	Linux

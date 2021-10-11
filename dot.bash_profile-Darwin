@@ -73,8 +73,8 @@ export _DD=gdd
 export _LS=gls
 
 # gcc settings
-#export CC=/usr/local/Cellar/llvm/9.0.0_1/bin/clang-9
 export CC=$(brew --prefix llvm@11)/bin/clang
+export PERL=$(brew --prefix perl)/bin/perl
 
 # Darwin functions/aliases
 alias show-cpu-info="sysctl -n machdep.cpu.brand_string"
@@ -129,4 +129,8 @@ function set-cc-brew-llvm() {
 
 	export CC="/usr/local/opt/llvm/bin/clang${_v}"
 	echo CC=\"$CC\"
+}
+
+function cleanup-brew() {
+	brew cleanup --prune=all
 }
