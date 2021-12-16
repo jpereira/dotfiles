@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Thu Oct  7 16:54:36 2021
+# Last Change: Mon Nov 29 15:55:39 2021
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
 
@@ -198,10 +198,11 @@ show-disk-speed() {
 
 show-size-of-my-home() {
     cd ~ && {
-    	ls -a | sort -n |  while read _f; do
+    	ls -a | while read _f; do
+		[ "$_f" = "." ] && continue
 		[ "$_f" = ".." ] && continue
-		sudo du -hs "$_f"
-	done
+		sudo du -hs "$_f" 2>&-
+	done | sort -n
     }
 }
 
@@ -576,6 +577,21 @@ gdb-attach-by-pid() {
 #
 #	my-*
 #
+my-diff-by-2dates() {
+    DATE1=$1
+    DATE2=$2
+
+    y1=${DATE1:0:4}
+    m1=${DATE1:4:2}
+
+    y2=${DATE2:0:4}
+    m2=${DATE2:4:2}
+
+    diff=$(( ($y2 - $y1) * 12 + (10#$m2 - 10#$m1) ))
+
+    echo "diff between $DATE1 and $DATE2: $diff"
+}
+
 my-sum-dotplus8() {
 	grep -o "^\d.[0-9]\{1,9\}" $1 | awk '{ n+=$1 } END { printf("Total: %f\n", n); }'
 }
@@ -764,7 +780,7 @@ btc-trade-strategy() {
 	local _rebuy_price=$2
 	local _total=${3:-15}
 	local _plus=${4:-0}
-	local _reais=${5:-5.50}
+	local _reais=${5:-5.65}
 
 	if [ $# -lt 3 ]; then
 		echo "Usage: btc-trade-strategy <sale_price> <rebuy_price> <total of btc> <increase btcs> <usd in brl>"

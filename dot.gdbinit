@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Tue Oct 13 16:45:59 2020
+# Last Change: Mon Nov  8 18:01:56 2021
 ##
 
 set startup-with-shell off
@@ -16,9 +16,9 @@ set print union on
 #set non-stop off
 #set pagination off
 
-def close_stdout
-	call close(1)
-end
+#def close_stdout
+#	call close(1)
+#end
 
 def disable_signals
     handle SIGUSR1 nostop noprint
@@ -29,6 +29,11 @@ def disable_signals
     handle SIGALRM nostop
     handle SIGHUP nostop
     handle SIGTERM nostop noprint
+end
+
+def debug-library
+   set detach-on-fork off
+   set schedule-multiple on
 end
 
 def fn

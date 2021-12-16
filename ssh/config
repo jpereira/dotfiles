@@ -5,8 +5,11 @@ Host *
 	Compression yes
 	IdentityFile ~/.ssh/id_rsa
 	# Only OSx
-	UseKeychain yes
-	AddKeysToAgent yes
+#	UseKeychain yes
+#	AddKeysToAgent yes
+
+#Host git.networkradius.com
+#	ProxyCommand=socat - SOCKS4:localhost:%h:%p,socksport=1080
 
 Host networkradius.com
 	IdentityFile ~/.ssh/jpereira@networkradius.com-id_rsa.pub
@@ -14,13 +17,12 @@ Host networkradius.com
 Host freeradius.org
 	IdentityFile ~/.ssh/jpereira@networkradius.com-id_rsa.pub
 
-Host router
-	Hostname router.lan
+Host jp
+	Hostname jorgepereira.com.br
 	User root
 
-Host tapioca
-	Hostname tapioca.mooo.com
-	Port 6922
+Host router
+	Hostname router.lan
 	User root
 
 Include ~/.ssh/config.hosts

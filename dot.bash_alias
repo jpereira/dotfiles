@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Thu Sep 16 11:31:05 2021
+# Last Change: Thu Dec 16 22:54:42 2021
 ##
 
 if [ -e "$HOME/.bash_alias_work" ]; then
@@ -28,6 +28,7 @@ if ! type sl 1> /dev/null 2>&1; then
 	alias sl-l="ls -l"
 	alias sl-la="ls -la"
 fi
+
 alias ls-l="ls -l"
 alias ls-la="ls -la"
 alias cd-="cd -"

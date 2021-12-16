@@ -46,6 +46,9 @@ export PATH="$HOME/.gem/bin:$(brew --prefix ruby@2.7)/bin:$PATH"
 # make4
 export PATH="$(brew --prefix make)/bin:$PATH"
 
+# util-linux (renice,col,cal,rename,renice,flock)
+export PATH="$(brew --prefix util-linux)/bin:$PATH"
+
 # brew bin
 export PATH="$PATH:/usr/local/bin"
 
@@ -75,6 +78,7 @@ export _LS=gls
 # gcc settings
 export CC=$(brew --prefix llvm@11)/bin/clang
 export PERL=$(brew --prefix perl)/bin/perl
+export CPAN=$(dirname $PERL)/cpan
 
 # Darwin functions/aliases
 alias show-cpu-info="sysctl -n machdep.cpu.brand_string"
