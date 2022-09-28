@@ -5,7 +5,7 @@
 alias ls="ls -G"
 if [ "$TERM" != "dumb" ]; then
 
-	export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$PATH"
+	export PATH="/opt/homebrew/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 	# Source global definitions
 	#echo "#.bashrc: Carregando /etc/bashrc"

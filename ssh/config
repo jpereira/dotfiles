@@ -2,28 +2,32 @@ Host *
 	ControlPath ~/.ssh/sessions/S.%r@%h:%p.sock
 	ControlMaster auto
 	ControlPersist 1h
+	ServerAliveInterval 100
+	TCPKeepAlive yes
 	Compression yes
 	IdentityFile ~/.ssh/id_rsa
 	# Only OSx
-#	UseKeychain yes
-#	AddKeysToAgent yes
+	UseKeychain yes
+	AddKeysToAgent yes
 
 #Host git.networkradius.com
 #	ProxyCommand=socat - SOCKS4:localhost:%h:%p,socksport=1080
 
-Host networkradius.com
-	IdentityFile ~/.ssh/jpereira@networkradius.com-id_rsa.pub
-
-Host freeradius.org
-	IdentityFile ~/.ssh/jpereira@networkradius.com-id_rsa.pub
+#Host networkradius.com
+#	IdentityFile ~/.ssh/jpereira@networkradius.com-id_rsa.pub
+#
+#Host freeradius.org
+#	IdentityFile ~/.ssh/jpereira@networkradius.com-id_rsa.pub
 
 Host jp
 	Hostname jorgepereira.com.br
 	User root
+	ForwardAgent yes
 
 Host router
 	Hostname router.lan
 	User root
+	ForwardAgent yes
 
 Include ~/.ssh/config.hosts
 

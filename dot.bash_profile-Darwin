@@ -17,7 +17,7 @@ export PATH="$PATH:/Applications/Sublime Merge.app/Contents/SharedSupport/bin"
 export PATH="$PATH:$HOME/Library/Python/3.7/bin/"
 
 # gnupg
-export PATH="/usr/local/opt/gnupg/bin:$PATH"
+export PATH="$(brew --prefix gpg)/bin:$PATH"
 
 # pdflatex
 export PATH="/usr/local/texlive/2019basic/bin/x86_64-darwin:$PATH"
@@ -32,7 +32,7 @@ export PATH="/usr/local/opt/python@3.7/bin:$PATH"
 export PATH="/usr/local/Cellar/binutils/2.34/bin:$PATH"
 
 # php
-export PATH="/usr/local//Cellar/php@7.2/7.2.28/bin:$PATH"
+export PATH="/usr/local/Cellar/php@7.2/7.2.28/bin:$PATH"
 
 # couchbase server
 export PATH="/Applications/Couchbase Server.app/Contents/Resources/couchbase-core/bin:$PATH"
@@ -50,7 +50,8 @@ export PATH="$(brew --prefix make)/bin:$PATH"
 export PATH="$(brew --prefix util-linux)/bin:$PATH"
 
 # brew bin
-export PATH="$PATH:/usr/local/bin"
+#export PATH="$PATH:/usr/local/bin"
+export PATH="/opt/homebrew/bin:$PATH"
 
 # fix openssl.cnf complain messages
 export OPENSSL_CONF=/dev/null
@@ -76,7 +77,7 @@ export _DD=gdd
 export _LS=gls
 
 # gcc settings
-export CC=$(brew --prefix llvm@11)/bin/clang
+export CC=$(brew --prefix llvm@14)/bin/clang
 export PERL=$(brew --prefix perl)/bin/perl
 export CPAN=$(dirname $PERL)/cpan
 
@@ -92,6 +93,9 @@ export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
 export PATH="${ANDROID_SDK_ROOT}/tools:${ANDROID_SDK_ROOT}/tools/bin:${ANDROID_SDK_ROOT}/platform-tools:$PATH"
 
 alias emulator="${ANDROID_SDK_ROOT}/tools/emulator"
+
+# eapol
+export EAPOL_PROG=/Users/jpereira/bin/eapol_test.ok
 
 # openssl
 export PATH="/usr/local/opt/openssl/bin:$PATH"
