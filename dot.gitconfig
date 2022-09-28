@@ -37,7 +37,7 @@
 	default = current
 
 [gpg]
-	program = /usr/local/bin/gpg
+	program = gpg
 
 # sign all commits by default in any local repository
 [commit]

@@ -1,5 +1,5 @@
 # Por Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Mon Feb  1 16:34:34 2021
+# Last Change: Wed Sep 28 23:30:19 2022
 ##
 
 #
@@ -20,7 +20,7 @@ decho "$HOME/.bash_profile"
 #	Global vars
 #
 export OS="$(uname -s)"
-export PATH="$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
+export PATH="/opt/homebrew/bin:$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LANG="en_US.UTF-8"
@@ -32,6 +32,7 @@ export EDITOR="vim"
 export DISPLAY=${DISPLAY:-:0.0}
 export GPG_TTY=$(tty)
 export ASAN_SYMBOLIZER_PATH="$(which llvm-symbolizer)"
+export NPROC=$(nproc)
 
 #
 #	FreeRADIUS
