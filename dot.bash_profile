@@ -148,3 +148,5 @@ fi
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
+
+source /Users/jpereira/.docker/init-bash.sh || true # Added by Docker Desktop

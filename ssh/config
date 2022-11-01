@@ -19,13 +19,40 @@ Host *
 #Host freeradius.org
 #	IdentityFile ~/.ssh/jpereira@networkradius.com-id_rsa.pub
 
-Host jp
+Host jorge
 	Hostname jorgepereira.com.br
 	User root
 	ForwardAgent yes
 
+#
+# LOCAL ROUTER
+#
 Host router
 	Hostname router.lan
+	User root
+	ForwardAgent yes
+
+#
+# Notebook HP
+#
+Host halfdome
+	Hostname halfdome.lan
+	User root
+	ForwardAgent yes
+
+#
+# LAB DEV SERVER (NAS)
+#
+Host capacete
+	Hostname capacete.lan
+	User admin
+	ForwardAgent yes
+
+#
+# VM IN VirtualizationStation 3
+#
+Host capacete-dev
+	Hostname capacete-ubuntu.lan
 	User root
 	ForwardAgent yes
 

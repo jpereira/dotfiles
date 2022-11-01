@@ -15,3 +15,5 @@ if [ "$TERM" != "dumb" ]; then
 	[ -f ~/.bash_profile ] && source ~/.bash_profile
 fi
 
+
+source /Users/jpereira/.docker/init-bash.sh || true # Added by Docker Desktop

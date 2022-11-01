@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Mon Nov 29 15:55:39 2021
+# Last Change: Wed Oct 26 19:00:12 2022
 # Created: Mon 01 Jun 1999 01:22:10 AM BRT
 ##
 
@@ -750,18 +750,20 @@ my-ffmpeg-reduce() {
 #
 btc-show-price() {
 	_dolar=$1
-	_btcs=$2
+	_btcs=${2:-1}
+	_rnd=${3:-50}
+	_d=18 # btc inicio
 
 	if [ -z "$_dolar" ]; then
-		echo "btc-show-price dolar-price"
+		echo "btc-show-price dolar-price [qtd btcs>] [rounds]"
 		return
 	fi
 
-	echo "R\$1 = R\$${_dolar}"
+	echo "USD\$1    = BRL\$${_dolar}"
+	echo "Qtd BTCs = ${_btcs}"
 	echo
 
-	_d=10
-	while [[ $_d -lt 100 ]]; do
+	while [[ $_d -lt $_rnd ]]; do
 		_p=$(bc <<< "$_d * $_dolar");
 		avarage=""
 		if [ -n "$_btcs" ]; then
