@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Thu Dec 16 22:54:42 2021
+# Last Change: Mon Mar  6 11:36:57 2023
 ##
 
 if [ -e "$HOME/.bash_alias_work" ]; then
@@ -110,8 +110,12 @@ alias ssh.nokey="ssh -o PreferredAuthentications=password -o PubkeyAuthenticatio
 alias ssh.force-password="ssh.nokey"
 alias scp.aws.ipv4="scp -i ~/Documents/Pessoais/Keys/SSH/aws-jorge1.pem"
 alias ssh.aws.ipv4="ssh -i ~/Documents/Pessoais/Keys/SSH/aws-jorge1.pem -l root"
-alias ssh.router="ssh -l root 192.168.1.254"
-alias ssh.capacete="ssh -l admin 192.168.1.253"
+
+alias ssh.halfdome="ssh -l root halfdome.lan"
+alias ssh.dongle="ssh -l root dongle.lan"
+alias ssh.router="ssh -l root router.lan"
+alias ssh.capacete="ssh -l admin capacete.lan"
+alias ssh.capacete-dev="ssh -l root capacete-ubuntu.lan"
 alias ssh.tapioca="ssh -p 6922 -l root tapioca.mooo.com"
 
 alias ssh.dev01="ssh -l root dev01.lan"
