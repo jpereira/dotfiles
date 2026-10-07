@@ -5,13 +5,15 @@
 
 OS="$(uname -s)"
 
-if [ "$1" != "run" ]; then
-    echo "Usage: $0 <run>"
+if [ "$1" != "run" -a "$1" != "dry-run" ]; then
+    echo "Usage: $0 <run|dry-run>"
     echo
     echo "ATTENTION: It will create a symbolic-link from all dot.<name> to ~/.<name> overwriting everything in $HOME/"
 
     exit
 fi
+
+[ "$1" = "dry-run" ] && dryrun=1 || dryrun=0
 
 # main
 for dot in $(ls -1 | grep ^dot); do {
@@ -26,14 +28,27 @@ for dot in $(ls -1 | grep ^dot); do {
         continue
     fi
 
-    ln -vfs "$from" "$to"
+    if [ $dryrun -eq 1 ]; then
+        echo "ln -vfs \"$from\" \"$to\""
+    else
+        ln -vfs "$from" "$to"
+    fi
 } done
 
-mkdir -p ~/.ssh/ ~/bin/$OS/
-ln -fs $PWD/ssh/config ~/.ssh/config
+
+if [ $dryrun -eq 1 ]; then
+    echo "mkdir -p ~/.ssh/ ~/bin/$OS/"
+    echo "ln -fs $PWD/ssh/config ~/.ssh/config"
+else
+    mkdir -p ~/.ssh/ ~/bin/$OS/
+    ln -fs $PWD/ssh/config ~/.ssh/config
+fi
+
+[ $dryrun -eq 1 ] && exit
 
 case $OS in
   Darwin)
+
     # install sudo
 	/usr/bin/sudo cp bin/$OS/sudo-touchid ~/bin/
 	/usr/bin/sudo chown root:staff ~/bin/sudo
