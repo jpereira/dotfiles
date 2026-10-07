@@ -1,5 +1,5 @@
 # Por Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Wed Sep 28 23:30:19 2022
+# Last Change: Wed Oct  7 14:15:00 2026
 ##
 
 #
@@ -20,7 +20,7 @@ decho "$HOME/.bash_profile"
 #	Global vars
 #
 export OS="$(uname -s)"
-export PATH="/opt/homebrew/bin:$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
+export PATH="/opt/homebrew/bin:$HOME/bin:$HOME/.local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LANG="en_US.UTF-8"
