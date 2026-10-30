@@ -15,6 +15,11 @@ if [ "$TERM" != "dumb" ]; then
 	[ -f ~/.bash_profile ] && source ~/.bash_profile
 fi
 
+disable_bracketed_paste() {
+    printf '\033[?2004l'
+}
+
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND; }disable_bracketed_paste"
 
 source /Users/jpereira/.docker/init-bash.sh || true # Added by Docker Desktop
 

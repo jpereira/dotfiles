@@ -107,7 +107,7 @@ fi
 #export PS1='\[\e[90m\][\D{%Y-%m-%d} \t]\[\e[0m\] \[\e[32m\][\[\e[31m\]\u\[\e[33m\]@\[\e[32m\]\h:\[\e[36m\]\W\[\e[32m\]]\[\e[0m\]\$ '
 
 # PS1: data/hora + usuario@host:diretorio (hora branca)
-PS1='\[\e[97m\][\D{%Y-%m-%d} \t]\[\e[0m\] \[\e[32m\][\[\e[31m\]\u\[\e[33m\]@\[\e[32m\]\h:\[\e[36m\]\W\[\e[32m\]]\[\e[0m\]\$ '
+export PS1='\[\e[1;97;40m\][\[\e[0;38;5;250;40m\]\D{%Y-%m-%d} \t\[\e[1;97;40m\]] [\[\e[0;93;40m\]\u\[\e[0;94;40m\]@\[\e[0;91;40m\]\h:\[\e[0;92;40m\]\w\[\e[1;97;40m\]]\[\e[0;96;40m\]\$ \[\e[0m\]'
 
 if [ -e "/.dockerenv" ]; then
   export PS1="\e[41;4;33mDocker\e[m~>$PS1"
