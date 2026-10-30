@@ -1,0 +1,47 @@
+name: Bash
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Bash on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Install validation tools (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y make shellcheck
+
+      - name: Install validation tools (macOS)
+        if: runner.os == 'macOS'
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: '1'
+        run: brew install bash shellcheck
+
+      - name: Test system Bash
+        run: /bin/bash tests/bash.sh
+
+      - name: Test Homebrew Bash
+        if: runner.os == 'macOS'
+        run: '"$(brew --prefix)/bin/bash" tests/bash.sh'
+
+      - name: ShellCheck
+        run: |
+          shellcheck -s bash -S warning dot.bash* local/*.example tests/bash.sh
+          make --no-print-directory -n install | shellcheck -s bash -S warning -
