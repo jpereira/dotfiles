@@ -1,27 +1,12 @@
-# Author: Jorge Pereira <jpereiran@gmail.com>
-# Data: Sex Dez 13 14:33:34 BRST 2013
-# ###
+# Interactive Bash startup (Linux and macOS).
+case $- in *i*) ;; *) return ;; esac
 
-alias ls="ls -G"
-if [ "$TERM" != "dumb" ]; then
-
-	export PATH="/opt/homebrew/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$PATH"
-
-	# Source global definitions
-	#echo "#.bashrc: Carregando /etc/bashrc"
-	[ -f /etc/bashrc ] && . /etc/bashrc
-
-	#echo "#.bashrc: Carregando .bash_profile"
-	[ -f ~/.bash_profile ] && source ~/.bash_profile
+if [ -f /etc/bashrc ]; then
+    source /etc/bashrc
 fi
+[ ! -f "$HOME/.bash_profile" ] || source "$HOME/.bash_profile"
 
-disable_bracketed_paste() {
-    printf '\033[?2004l'
-}
-
-export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND; }disable_bracketed_paste"
-
-source /Users/jpereira/.docker/init-bash.sh || true # Added by Docker Desktop
-
-# strix
-export PATH=/Users/jpereira/.strix/bin:$PATH
+# Readline owns bracketed paste; no repeated PROMPT_COMMAND hooks are necessary.
+if [ "${TERM:-dumb}" != dumb ]; then
+    bind 'set enable-bracketed-paste off' 2>/dev/null || true
+fi

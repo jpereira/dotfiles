@@ -1,25 +1,7 @@
-#
-#	Only for Linux
-#
-
+# Linux-specific interactive settings.
 decho "$HOME/.bash_profile-Linux"
-
-#
-#	Vars
-#
-export PATH="/snap/bin:$PATH"
-
-export NCPU=$(grep "cpu family" /proc/cpuinfo  2>&- | wc -l )
-
-# Commands
-export _DD=dd
-
-# Dev
-export CC=clang
-
-# Fix gnome slow issues
-export QT_QPA_PLATFORMTHEME=gtk2
-
-# aliases
-alias ls="ls --color=auto"
-
+path-prepend /snap/bin
+# @var _DD
+# @help Comando dd disponível; gdd quando instalado no macOS.
+export _DD=dd _LS=ls
+alias ls='ls --color=auto'

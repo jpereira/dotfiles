@@ -1,153 +1,143 @@
-#
-#	Only for MacOSx
-#
-
+# macOS-specific interactive settings. Homebrew is optional.
 decho "$HOME/.bash_profile-Darwin"
 
-# Vagrant
-#export VAGRANT_DEFAULT_PROVIDER=kvm
+# Homebrew's opt links work on Intel and Apple Silicon without pinned cellar versions.
+if command -v brew >/dev/null 2>&1; then
+    brew_prefix=$(brew --prefix)
+    for formula in llvm gpg ruby make util-linux mysql-client openssl perl; do
+        path-prepend "$brew_prefix/opt/$formula/bin"
+    done
+    if [ -x "$brew_prefix/opt/perl/bin/perl" ]; then
+        # @var PERL
+        # @help Perl do Homebrew quando instalado.
+        export PERL="$brew_prefix/opt/perl/bin/perl"
+        # @var CPAN
+        # @help CPAN associado ao Perl do Homebrew.
+        export CPAN="$brew_prefix/opt/perl/bin/cpan"
+    fi
+    unset formula brew_prefix
+fi
 
-# llvm
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+path-prepend "$HOME/.gem/bin" \
+    '/Applications/Sublime Text.app/Contents/SharedSupport/bin' \
+    '/Applications/Sublime Merge.app/Contents/SharedSupport/bin' \
+    '/Applications/Couchbase Server.app/Contents/Resources/couchbase-core/bin' \
+    /Library/TeX/texbin
 
-# sublime
-export PATH="$PATH:/Applications/Sublime Text.app/Contents/SharedSupport/bin"
+if [ -x /usr/libexec/java_home ]; then
+    # @var JAVA_HOME
+    # @help JDK encontrado por java_home no macOS.
+    java_home=$(/usr/libexec/java_home 2>/dev/null) && export JAVA_HOME="$java_home"
+    unset java_home
+fi
 
-# sublime merge
-export PATH="$PATH:/Applications/Sublime Merge.app/Contents/SharedSupport/bin"
+# @var LSCOLORS
+# @help Cores de ls no macOS.
 
-# Pip3
-export PATH="$PATH:$HOME/Library/Python/3.7/bin/"
+# @var CLICOLOR
+# @help Habilita cores de ls no macOS.
+export LSCOLORS='ExGxBxDxCxEgEdxbxgxcxd' CLICOLOR=1
+# @var _LS
+# @help Comando ls disponível; gls quando instalado no macOS.
+export _DD=dd _LS=ls
+command -v gdd >/dev/null 2>&1 && export _DD=gdd
+command -v gls >/dev/null 2>&1 && export _LS=gls
 
-# gnupg
-export PATH="$(brew --prefix gpg)/bin:$PATH"
+alias show-cpu-info='sysctl -n machdep.cpu.brand_string'
+alias ldd='otool -L'
+alias ls='ls -G'
 
-# pdflatex
-export PATH="/usr/local/texlive/2019basic/bin/x86_64-darwin:$PATH"
-
-# android tools
-export PATH="~/Devel/Devices/Celular/platform-tools:$PATH"
-
-# python 3.7
-export PATH="/opt/homebrew/opt/python@3.7/bin:$PATH"
-
-# binutils
-export PATH="/usr/local/Cellar/binutils/2.34/bin:$PATH"
-
-# php
-export PATH="/usr/local/Cellar/php@7.2/7.2.28/bin:$PATH"
-
-# couchbase server
-export PATH="/Applications/Couchbase Server.app/Contents/Resources/couchbase-core/bin:$PATH"
-
-# mysql-client
-export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
-
-# ruby
-export PATH="$HOME/.gem/bin:$(brew --prefix ruby@2.7)/bin:$PATH"
-
-# make4
-export PATH="$(brew --prefix make)/bin:$PATH"
-
-# util-linux (renice,col,cal,rename,renice,flock)
-export PATH="$(brew --prefix util-linux)/bin:$PATH"
-
-# brew bin
-#export PATH="$PATH:/usr/local/bin"
-export PATH="/opt/homebrew/bin:$PATH"
-
-# fix openssl.cnf complain messages
-export OPENSSL_CONF=/dev/null
-
-# use touchid for ssh key
-export SSH_AUTH_SOCK=$HOME/.sekey/ssh-agent.ssh
-
-# Java
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/java"
-
-# If you'd like to mimic the colors of a typical Linux terminal:
-export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
-export CLICOLOR=1
-
-# FreeRADIUS
-#export DYLD_LIBRARY_PATH=./build/lib/.libs/
-export ASAN_SYMBOLIZER_PATH="$(which llvm-symbolizer)"
-export ASAN_OPTIONS="symbolize=1 detect_leaks=1 detect_stack_use_after_return=1"
-export LSAN_OPTIONS="fast_unwind_on_malloc=0:malloc_context_size=50"
-
-# Commands
-export _DD=gdd
-export _LS=gls
-
-# gcc settings
-export CC=$(brew --prefix llvm@14)/bin/clang
-export PERL=$(brew --prefix perl)/bin/perl
-export CPAN=$(dirname $PERL)/cpan
-
-# Darwin functions/aliases
-alias show-cpu-info="sysctl -n machdep.cpu.brand_string"
-alias ldd="otool -L"
-alias ls="ls -G"
-
-# Android
+# @var ANDROID_AVD_HOME
+# @help Diretório dos dispositivos virtuais Android.
 export ANDROID_AVD_HOME="$HOME/.android/avd"
+# @var ANDROID_HOME
+# @help Diretório do SDK Android no macOS.
 export ANDROID_HOME="$HOME/Library/Android/sdk"
-export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
-export PATH="${ANDROID_SDK_ROOT}/tools:${ANDROID_SDK_ROOT}/tools/bin:${ANDROID_SDK_ROOT}/platform-tools:$PATH"
+# @var ANDROID_SDK_ROOT
+# @help Raiz do SDK Android.
+export ANDROID_SDK_ROOT="$ANDROID_HOME"
+path-prepend "$ANDROID_SDK_ROOT/tools" "$ANDROID_SDK_ROOT/tools/bin" \
+    "$ANDROID_SDK_ROOT/platform-tools" "$ANDROID_SDK_ROOT/emulator"
 
-alias emulator="${ANDROID_SDK_ROOT}/tools/emulator"
-
-# eapol
-export EAPOL_PROG=/Users/jpereira/bin/eapol_test.ok
-
-# openssl
-export PATH="/opt/homebrew/opt/openssl/bin:$PATH"
-
-# cpu
-export NCPU="$(sysctl -n hw.logicalcpu)"
-
-#if type brew 2&>/dev/null; then
-source "$(brew --prefix)/etc/bash_completion"
-#else
-#  echo "run: brew install git bash-completion"
-#fi
-
-function reset-osx-acls() {
-	sudo chmod -R -N $@
-	sudo xattr -rc $@
+# @help Remove caches e versões antigas do Homebrew (macOS).
+# @syntax brew-cleanup
+brew-cleanup() {
+    case "${1:-}" in -h|--help) dotfiles-help --exact "${FUNCNAME[0]}"; return;; esac
+    _dotfiles-require "${FUNCNAME[0]}" brew || return
+    brew cleanup --prune=all
 }
 
-function pyenv-hack-list() {
-	pyenv versions
+# @help Seleciona uma versão local e inicializa pyenv.
+# @syntax pyenv-hack-init <versão>
+pyenv-hack-init() {
+    case "${1:-}" in -h|--help) dotfiles-help --exact "${FUNCNAME[0]}"; return;; esac
+    [ "$#" -eq 1 ] || {
+        dotfiles-help --exact "${FUNCNAME[0]}" >&2
+        return 2
+    }
+    _dotfiles-require "${FUNCNAME[0]}" pyenv || return
+    pyenv local "$1" || return
+    eval "$(pyenv init -)"
 }
 
-function pyenv-hack-init() {
-	pyenv local $1
-	eval "$(pyenv init -)"
+# @help Instala versões Python com bibliotecas Homebrew (macOS).
+# @syntax pyenv-hack-install <versão> [...]
+pyenv-hack-install() {
+    case "${1:-}" in -h|--help) dotfiles-help --exact "${FUNCNAME[0]}"; return;; esac
+    _dotfiles-require "${FUNCNAME[0]}" pyenv brew xcrun || return
+    local version readline openssl sdk
+    readline=$(brew --prefix readline) || return
+    openssl=$(brew --prefix openssl) || return
+    sdk=$(xcrun --show-sdk-path) || return
+    for version in "$@"; do
+        CFLAGS="-I$readline/include -I$openssl/include -I$sdk/usr/include" \
+            LDFLAGS="-L$readline/lib -L$openssl/lib" pyenv install -v "$version" || return
+    done
 }
 
-function pyenv-hack-install() {
-	for _v in $@; do
-		echo "## Installing $_v"
-
-		CFLAGS="-I$(brew --prefix readline)/include -I$(brew --prefix openssl)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix readline)/lib -L$(brew --prefix openssl)/lib" PYTHON_CONFIGURE_OPTS=--enable-unicode=ucs2 pyenv install -v $_v
-	done
+# @help Lista versões Python conhecidas pelo pyenv.
+# @syntax pyenv-hack-list
+pyenv-hack-list() {
+    case "${1:-}" in -h|--help) dotfiles-help --exact "${FUNCNAME[0]}"; return;; esac
+    _dotfiles-require "${FUNCNAME[0]}" pyenv || return
+    pyenv versions
 }
 
-function set-cc-xcode-clang() {
-	export CC=$(xcodebuild -find clang)
-	echo CC=\"$CC\"
+# @help Remove ACLs e atributos estendidos recursivamente (macOS).
+# @syntax reset-osx-acls <caminho> [...]
+reset-osx-acls() {
+    case "${1:-}" in -h|--help) dotfiles-help --exact "${FUNCNAME[0]}"; return;; esac
+    [ "$#" -gt 0 ] || {
+        dotfiles-help --exact "${FUNCNAME[0]}" >&2
+        return 2
+    }
+    _dotfiles-require "${FUNCNAME[0]}" sudo chmod xattr || return
+    sudo chmod -R -N "$@" && sudo xattr -rc "$@"
 }
 
-function set-cc-brew-llvm() {
-	local _v="$1"
-
-	[ -n "$_v" ] && _v="-${_v}"
-
-	export CC="/opt/homebrew/opt/llvm/bin/clang${_v}"
-	echo CC=\"$CC\"
+# @help Seleciona clang do Homebrew; aceita sufixo de versão.
+# @syntax set-cc-brew-llvm [versão]
+set-cc-brew-llvm() {
+    case "${1:-}" in -h|--help) dotfiles-help --exact "${FUNCNAME[0]}"; return;; esac
+    _dotfiles-require "${FUNCNAME[0]}" brew || return
+    local prefix compiler
+    prefix=$(brew --prefix llvm) || return
+    compiler="$prefix/bin/clang${1:+-$1}"
+    [ -x "$compiler" ] || { echo "Compiler not found: $compiler" >&2; return 1; }
+    export CC="$compiler"
+    printf 'CC="%s"\n' "$CC"
 }
 
-function cleanup-brew() {
-	brew cleanup --prune=all
+# @help Seleciona clang encontrado por xcrun (macOS).
+# @syntax set-cc-xcode-clang
+set-cc-xcode-clang() {
+    case "${1:-}" in -h|--help) dotfiles-help --exact "${FUNCNAME[0]}"; return;; esac
+    _dotfiles-require "${FUNCNAME[0]}" xcrun || return
+    local compiler
+    compiler=$(xcrun --find clang) || return
+    export CC="$compiler"
+    printf 'CC="%s"\n' "$CC"
 }
+
+alias cleanup-brew='brew-cleanup'
+true

@@ -2,21 +2,10 @@
 # Last Change: Mon Mar  6 11:36:57 2023
 ##
 
-if [ -e "$HOME/.bash_alias_work" ]; then
-    decho "$HOME/.bash_alias_work"
-    source "$HOME/.bash_alias_work"
-    alias edit-alias-work="$EDITOR ~/.bash_alias_work && source ~/.bash_alias_work"
-fi
-
 #
-#	Personal sudo
+#   Lazzy
 #
-[ -e "$HOME/bin/sudo" ] && alias sudo="$HOME/bin/sudo"
-
-#
-#	Lazzy
-#
-if ls --help 2> /dev/null | grep -q "color"; then
+if [ "$(uname -s)" = Linux ]; then
         alias ls="ls --color=auto"
 else
         alias ls="ls -G"
@@ -24,9 +13,9 @@ fi
 
 # lazzy....
 if ! type sl 1> /dev/null 2>&1; then
-	alias sl="ls"
-	alias sl-l="ls -l"
-	alias sl-la="ls -la"
+    alias sl="ls"
+    alias sl-l="ls -l"
+    alias sl-la="ls -la"
 fi
 
 alias ls-l="ls -l"
@@ -41,7 +30,7 @@ alias p='pwd'
 alias la='ls -lah'
 alias l='ls -alF'
 alias v='ls -la'
-alias lsc='ls -1 | wc -l | cut -c 7'
+alias lsc='ls -1 | wc -l'
 alias lsdir='ls -lh | grep "^d"'
 alias lsd='ls -ladh'
 alias lsf='ls -lah | grep "^-"'
@@ -52,11 +41,13 @@ alias lsx='ls -lah | grep "^-..x"'
 alias tm='tail -f /var/log/messages'
 alias reload-bashrc="source ~/.bashrc"
 
+# @var EDITOR_OPTS
+# @help Opções adicionais usadas por edit-*.
 alias set-editor-to-subl="export EDITOR='subl' EDITOR_OPTS='-w'"
 alias set-editor-to-vim="export EDITOR='vim' EDITOR_OPTS=''"
 
 #
-#	Dynamic aliases
+#   Dynamic aliases
 #
 _set-edit2alias "$HOME/.ssh/config" "sshconfig"
 _set-edit2alias "$HOME/.ssh/config.hosts" "sshconfig.hosts"
@@ -71,20 +62,18 @@ _set-edit2alias "$HOME/.bash_profile-Darwin"
 _set-edit2alias "$HOME/.bash_profile-Linux"
 _set-edit2alias "$HOME/.bashrc"
 _set-edit2alias "$HOME/.profile"
-
-_set-dir2alias "$HOME/Devel"
-_set-dir2alias "$HOME/Devel/github-jpereira"
-_set-dir2alias "$HOME/Devel/FreeRADIUS"
+_set-edit2alias "$HOME/.bash_profile.local"
+_set-edit2alias "$HOME/.bash_alias.local"
 
 #
-#	Devel commands
+#   Devel commands
 #
 alias vi=vim
-alias grep='grep --color'
+alias grep='grep --color=auto'
 alias grep-h="grep --include '*.h'"
 alias grep-c="grep --include '*.c'"
 alias cat-nocomments='grep -v -E "^($|.*#)"'
-alias beep='echo -en "\x07"'
+alias beep="printf '\\a'"
 alias nobeep='setterm -blen 0'
 alias gdb="gdb --silent"
 alias rsync='rsync -Cdravzp --progress '
@@ -94,64 +83,61 @@ alias visudo='sudo visudo'
 alias ping='ping -c4'
 
 #
-#	Misc
+#   Misc
 #
-alias update-own2me="sudo chown -R $USER:$GROUP"
-alias test-iperf3-torouter="iperf3 -c 192.168.1.254"
+unalias update-own2me 2>/dev/null || true
+# @help Muda dono/grupo dos caminhos para o usuário atual.
+# @syntax update-own2me <caminho> [...]
+update-own2me() {
+    case "${1:-}" in -h|--help) dotfiles-help --exact "${FUNCNAME[0]}"; return;; esac
+    [ "$#" -gt 0 ] || {
+        dotfiles-help --exact "${FUNCNAME[0]}" >&2
+        return 2
+    }
+    _dotfiles-require "${FUNCNAME[0]}" sudo chown || return
+    sudo chown -R "$(id -un):$(id -gn)" "$@"
+}
 alias tohex="xxd -pu | sed 's/^/0x/g'"
 alias toascii="xxd -rp"
-alias whatismyip="curl api.ipify.org"
+alias whatismyip="curl -fsS https://api.ipify.org"
 alias ifconfig.publicip="whatismyip"
 
 #
-#	Scp/Ssh
+#   Scp/Ssh
 #
 alias ssh.nokey="ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no"
 alias ssh.force-password="ssh.nokey"
-alias scp.aws.ipv4="scp -i ~/Documents/Pessoais/Keys/SSH/aws-jorge1.pem"
-alias ssh.aws.ipv4="ssh -i ~/Documents/Pessoais/Keys/SSH/aws-jorge1.pem -l root"
+#
+#   Linux
+#
+if [ "$(uname -s)" = Linux ]; then
+    alias apt="sudo /usr/bin/apt"
+    alias aptf='apt -y install'
+    alias aptr='apt --reinstall install'
+    alias apt-search='apt-cache search'
+    alias apt-get='sudo /usr/bin/apt-get'
+    alias dpkg='sudo /usr/bin/dpkg'
+    alias iptables='sudo /sbin/iptables'
+    alias lockx="/usr/bin/xscreensaver-command -lock"
+    alias lynx-firefox='/usr/bin/lynx -useragent "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.5) Gecko/20070713 Firefox/2.0.0.5 Lynx"'
+    alias noscanfs='tune2fs -c 0 -i 0'
+    alias reboot='sudo /sbin/reboot'
+    alias mrxvt="/usr/bin/mrxvt -rv -sr -fn 9x15 -title \"Terminal Mrxvt\" -g 90x30 -cr red -tnum 4"
+    alias wgetcookie='wget -c --load-cookies=$HOME/.mozilla/firefox/default/cookies.txt'
+    alias xterm="/usr/bin/xterm -fg white -bg black -fn 10x20"
 
-alias ssh.halfdome="ssh -l root halfdome.lan"
-alias ssh.dongle="ssh -l root dongle.lan"
-alias ssh.router="ssh -l root router.lan"
-alias ssh.capacete="ssh -l admin capacete.lan"
-alias ssh.capacete-dev="ssh -l root capacete-ubuntu.lan"
-alias ssh.tapioca="ssh -p 6922 -l root tapioca.mooo.com"
-
-alias ssh.dev01="ssh -l root dev01.lan"
-alias ssh.dev02="ssh -l root dev02.lan"
-alias ssh.dev03="ssh -l root dev03.lan"
-
-#
-#
-#
-alias mysql.capacete="mysql -u root -proot -h capacete.lan"
-
-#
-#	Linux
-#
-alias apt="sudo /usr/bin/apt"
-alias aptf='apt -y install'
-alias aptr='apt --reinstall install'
-alias apt-search='apt-cache search'
-alias apt-get='sudo /usr/bin/apt-get'
-alias dpkg='sudo /usr/bin/dpkg'
-alias iptables='sudo /sbin/iptables'
-alias lockx="/usr/bin/xscreensaver-command -lock"
-alias lynx-firefox='/usr/bin/lynx -useragent "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.5) Gecko/20070713 Firefox/2.0.0.5 Lynx"'
-alias noscanfs='tune2fs -c 0 -i 0'
-alias reboot='sudo /sbin/reboot'
-alias mrxvt="/usr/bin/mrxvt -rv -sr -fn 9x15 -title \"Terminal Mrxvt\" -g 90x30 -cr red -tnum 4"
-alias wgetcookie='wget -c --load-cookies=$HOME/.mozilla/firefox/default/cookies.txt'
-alias xterm="/usr/bin/xterm -fg white -bg black -fn 10x20"
+fi
 
 alias psup='ps -ax -o etime,command -c | grep'
 
 #
 #
 #
-function pmake() {
-	echo "# make -j8 --load-average=$NCPU $@"
-	make -j8 --load-average=$NCPU $@
+# @help Executa make em paralelo usando NCPU.
+# @syntax pmake [argumentos-make]
+pmake() {
+    case "${1:-}" in -h|--help) dotfiles-help --exact "${FUNCNAME[0]}"; return;; esac
+    _dotfiles-require "${FUNCNAME[0]}" make || return
+    make -j"${NCPU:-1}" "$@"
 }
 

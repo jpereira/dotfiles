@@ -1,9 +1,7 @@
-# ~/.bash_logout: executed by bash(1) when login shell exits.
-
-# when leaving the console clear the screen to increase privacy
-
-/usr/bin/sudo -K
-
-if [ "$SHLVL" = 1 ]; then
-    [ -x /usr/bin/clear_console ] && /usr/bin/clear_console -q
+# Invalidate cached sudo credentials and clear Linux virtual consoles on logout.
+if [ -x /usr/bin/sudo ]; then
+    /usr/bin/sudo -K
+fi
+if [ "$SHLVL" = 1 ] && [ -x /usr/bin/clear_console ]; then
+    /usr/bin/clear_console -q
 fi

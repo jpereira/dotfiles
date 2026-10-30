@@ -4,3 +4,6 @@ vagrant/.vagrant
 dot.vim/.netrwhist
 *.log
 
+
+# Optional personal settings are kept outside version control.
+*.local
