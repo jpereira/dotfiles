@@ -1,11 +1,14 @@
 # Por Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Wed Oct  7 14:15:00 2026
+# Last Change: Fri Oct 30 12:08:10 2026
 ##
 
 #
 #	Disable the print messages
 #
 case $- in *i*) ;; *) return ;; esac
+
+# Silencia o aviso do macOS sobre a troca do shell padrão para zsh.
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # @var NODEBUG
 # @help Vazia habilita decho; preenchida silencia diagnóstico.
@@ -146,8 +149,8 @@ parse_git_branch() {
 
 # Data/hora, usuário, host e diretório; escapes delimitados para o Readline.
 # @var PS1
-# @help Prompt com data/hora, usuário, host e diretório.
-export PS1='\[\e[1;97;40m\][\[\e[0;38;5;250;40m\]\D{%Y-%m-%d} \t\[\e[1;97;40m\]] [\[\e[0;93;40m\]\u\[\e[0;94;40m\]@\[\e[0;91;40m\]\h:\[\e[0;92;40m\]\w\[\e[1;97;40m\]]\[\e[0;96;40m\]\$ \[\e[0m\]'
+# @help Prompt com data/hora, usuário amarelo, host verde e diretório vermelho.
+export PS1='\[\e[1;97;40m\][\[\e[0;38;5;250;40m\]\D{%Y-%m-%d} \t\[\e[1;97;40m\]] [\[\e[0;93;40m\]\u\[\e[0;94;40m\]@\[\e[0;92;40m\]\h:\[\e[0;91;40m\]\w\[\e[1;97;40m\]]\[\e[0;96;40m\]\$ \[\e[0m\]'
 
 if [ "${TERM:-dumb}" = dumb ]; then
     PS1='[\u@\h \w]\$ '
@@ -204,12 +207,12 @@ unset d
 #
 #	Display/X11
 #
-if [ -n "${DISPLAY:-}" ] && [ -f "$HOME/.Xmodmap" ]; then
-  if command -v xmodmap >/dev/null 2>&1; then
-    decho "$HOME/.Xmodmap"
-    xmodmap "$HOME/.Xmodmap"
-  fi
-fi
+#if [ -n "${DISPLAY:-}" ] && [ -f "$HOME/.Xmodmap" ]; then
+#  if command -v xmodmap >/dev/null 2>&1; then
+#    decho "$HOME/.Xmodmap"
+#    xmodmap "$HOME/.Xmodmap"
+#  fi
+#fi
 
 #
 #	fortune!
@@ -239,6 +242,17 @@ for d in "$HOME/.bash_profile.local" "$HOME/.bash_alias.local" "$HOME/.bash_alia
     source "$d"
 done
 unset d
+
+# @var XQUARTZ_ENABLED
+# @help No macOS, 0 desativa o XQuartz (padrão); 1 habilita e abre o aplicativo.
+export XQUARTZ_ENABLED="${XQUARTZ_ENABLED:-0}"
+if [ "$OS" = Darwin ] && [ -f /Library/LaunchAgents/org.xquartz.startx.plist ]; then
+    case "$XQUARTZ_ENABLED" in
+        0) xquartz desativar ;;
+        1) xquartz ativar ;;
+        *) printf 'XQUARTZ_ENABLED deve ser 0 ou 1.\n' >&2 ;;
+    esac
+fi
 if [ -f "$HOME/.bash_alias_work" ]; then
     alias edit-alias-work='_edit-config "$HOME/.bash_alias_work" reload'
 fi

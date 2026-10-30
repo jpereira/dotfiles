@@ -140,4 +140,42 @@ set-cc-xcode-clang() {
 }
 
 alias cleanup-brew='brew-cleanup'
+
+# @help Controla o XQuartz; desativar impede a inicialização automática na conta.
+# @syntax xquartz <ativar|desativar|status>
+xquartz() {
+    case "${1:-}" in -h|--help) dotfiles-help --exact "${FUNCNAME[0]}"; return;; esac
+    local dominio="gui/$(id -u)" servico=org.xquartz.startx
+    local agente=/Library/LaunchAgents/org.xquartz.startx.plist
+    case "${1:-}" in
+        ativar)
+            [ -f "$agente" ] || { echo 'XQuartz não está instalado.' >&2; return 1; }
+            launchctl enable "$dominio/$servico" || return
+            if ! launchctl print "$dominio/$servico" >/dev/null 2>&1; then
+                launchctl bootstrap "$dominio" "$agente" || return
+            fi
+            open -a /Applications/Utilities/XQuartz.app
+            ;;
+        desativar)
+            launchctl disable "$dominio/$servico" || return
+            if launchctl print "$dominio/$servico" >/dev/null 2>&1; then
+                launchctl bootout "$dominio/$servico" || return
+            fi
+            # O aplicativo pode sobreviver ao encerramento do agente.
+            if pgrep -u "$(id -u)" -x X11.bin >/dev/null; then
+                pkill -TERM -u "$(id -u)" -x X11.bin || {
+                    ! pgrep -u "$(id -u)" -x X11.bin >/dev/null || return 1
+                }
+            fi
+            ;;
+        status)
+            launchctl print-disabled "$dominio" || return
+            pgrep -u "$(id -u)" -lf 'X11.bin|/opt/X11/bin/Xquartz' || true
+            ;;
+        *)
+            printf 'Uso: xquartz <ativar|desativar|status>\n' >&2
+            return 2
+            ;;
+    esac
+}
 true

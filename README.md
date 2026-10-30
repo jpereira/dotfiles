@@ -81,6 +81,12 @@ Helpers que apenas exibem comandos não exigem os programas exibidos.
 Comandos de limpeza, rebase e alterações de sistema executam as ações indicadas na ajuda.
 `show-disk-speed` usa um arquivo temporário de 8096 MiB.
 
+No macOS, `xquartz desativar` encerra o XQuartz e bloqueia sua inicialização automática
+na conta, inclusive após novo login. `xquartz ativar` libera a inicialização e abre o
+aplicativo; `xquartz status` consulta os serviços desabilitados e os processos do XQuartz.
+O padrão é `XQUARTZ_ENABLED=0`: cada terminal aplica a desativação. Para habilitar o
+XQuartz ao abrir o terminal, defina `export XQUARTZ_ENABLED=1` em `~/.bash_profile.local`.
+
 Execute a validação com GNU Make, Bash, Git e ferramentas básicas do sistema:
 
 ```bash
@@ -91,7 +97,7 @@ make --no-print-directory -n install | shellcheck -s bash -S warning -
 ```
 
 Os testes usam um `HOME` temporário, um repositório Git descartável e simulações dos
-comandos externos que alteram sistemas ou serviços. Veja [AUDIT.md](AUDIT.md) para o escopo.
+comandos externos que alteram sistemas ou serviços.
 
 O workflow [Bash](.github/workflows/bash.yml) executa testes e ShellCheck em pushes e pull
 requests, com jobs para Linux e macOS. No macOS, testa o Bash do sistema e o do Homebrew.
