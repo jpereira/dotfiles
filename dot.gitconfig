@@ -110,10 +110,10 @@
 	lg = log --oneline --graph --decorate
 	ld = log --pretty=format:\"[%h] gpg:%G?, <%ae>, %ar: %s\" --stat
 	ll = log --graph --decorate --simplify-by-decoration
-	chlogm =  !sh -c 'git log $1...$2  --pretty=format:\"%s [view commit](http://github.com/$3/$4/commit/%H)\"'
+	chlogm = "!f() { [ \"$#\" -eq 4 ] || { echo 'Usage: git chlogm <from> <to> <owner> <repo>' >&2; return 2; }; git log \"$1...$2\" --pretty=format:\"%s [view commit](https://github.com/$3/$4/commit/%H)\"; }; f"
 
 #	 FreeRadius
-	fr-chlogm =  !sh -c 'git log $1...$2  --pretty=format:\"%s [view commit](http://github.com/freeradius/freeradius-server/commit/%H)\"'
+	fr-chlogm = "!f() { [ \"$#\" -eq 2 ] || { echo 'Usage: git fr-chlogm <from> <to>' >&2; return 2; }; git log \"$1...$2\" --pretty=format:\"%s [view commit](https://github.com/freeradius/freeradius-server/commit/%H)\"; }; f"
 	############
 	o = checkout
 	co = checkout
