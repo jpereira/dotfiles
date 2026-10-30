@@ -86,7 +86,7 @@ map ,cl :call InsertChangeLog()<cr>A
 " Cria um cabeçalho para scripts bash
 fun! InsertHeadBash()
     normal(1G)
-    call append(0, "#!bin/bash")
+    call append(0, "#!/bin/bash")
     call append(1, "# Created:" . strftime("%a %d/%b/%Y hs %H:%M"))
     call append(2, "# Last Change:" . strftime("%a %d/%b/%Y hs %H:%M"))
     call append(3, "# Author: Jorge Pereira <jorge.pereira@schibsted.com.br>")
