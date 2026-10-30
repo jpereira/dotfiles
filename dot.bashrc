@@ -17,3 +17,6 @@ fi
 
 
 source /Users/jpereira/.docker/init-bash.sh || true # Added by Docker Desktop
+
+# strix
+export PATH=/Users/jpereira/.strix/bin:$PATH

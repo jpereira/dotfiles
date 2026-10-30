@@ -227,7 +227,15 @@ function tcpdump-http() {
 #
 # 	docker-*
 #
+docker_banner() {
+	echo "#"
+	echo "# DOCKER_CONTEXT=\"${DOCKER_CONTEXT}\" DOCKER_REMOTE_SERVER=\"${DOCKER_REMOTE_SERVER}\""
+	echo "#"
+}
+
 docker-run-prev-container() {
+	docker_banner
+
 	set -fx
 	local prev_container_id="$(docker ps -aq | head -n1)"
 	docker commit "$prev_container_id" "prev_container/$prev_container_id"
@@ -236,33 +244,34 @@ docker-run-prev-container() {
 }
 
 docker-cleanup-images-none() {
+	docker_banner
 	docker images | awk '/^<none>/{print $3}' | xargs docker rmi -f
 }
 
 docker-cleanup-containers-untagged() {
-	set -fx
-	docker images -a | awk '/<none>/ { print $3}' | xargs docker rmi -f
-	set +fx
+	docker_banner
+	docker images -a | awk '/<untagged>/ { print $2}' | xargs docker rmi -f
 }
 
 docker-cleanup-instances-stopped() {
-#	set -fx
+	docker_banner
 	docker ps -a --format '{{.Names}} {{.Status}}' | while read docker_image docker_status; do
 		if echo "$docker_status" | grep -iq "exited"; then
 			echo -n "(*) Removing: "
 			docker rm -f $docker_image
 		fi
 	done
-#	set +fx
 }
 
 docker-cleanup-instances-all() {
+	docker_banner
 	docker ps -a --format '{{.Names}}' | while read docker_image; do
 		docker rm -f $docker_image
 	done
 }
 
 docker-stop-instances() {
+	docker_banner
 	docker ps --format '{{.Names}}' | while read docker_pid; do
 		echo -n "(*) Stopping: "
 		docker stop $docker_pid
@@ -270,6 +279,7 @@ docker-stop-instances() {
 }
 
 docker-show-ips() {
+	docker_banner
 	docker ps --format '{{.Names}}' | while read docker_image; do
 		_ip=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $docker_image)
 		echo "docker_image: $docker_image ipaddr: $_ip"
@@ -277,6 +287,7 @@ docker-show-ips() {
 }
 
 docker-run-bash-in() {
+	docker_banner
 	docker exec -it $1 /bin/bash
 }
 

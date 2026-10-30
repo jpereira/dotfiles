@@ -1,3 +1,7 @@
+# The following lines were added by Docker Desktop to add commands to your PATH.
+export PATH="$PATH:/Users/jpereira/.docker/bin"
+# End of Docker Desktop section.
+
 # Por Jorge Pereira <jpereiran@gmail.com>
 # Last Change: Wed Oct  7 14:15:00 2026
 ##
@@ -26,7 +30,20 @@ export LC_CTYPE="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export LC_COLLATE="C"
 #export MALLOC_CHECK_=2
-export HISTCONTROL="ignoredups"
+
+# Data/hora associada aos comandos do historico
+export HISTTIMEFORMAT='[%Y-%m-%d %H:%M:%S] '
+
+# Tamanho do historico
+export HISTSIZE=100000
+export HISTFILESIZE=200000
+
+# Ignorar comandos duplicados consecutivos
+HISTCONTROL=ignoredups
+
+# Adicionar ao historico, sem sobrescrever outras sessoes
+shopt -s histappend
+
 export ESCDELAY=0
 export EDITOR="vim"
 export DISPLAY=${DISPLAY:-:0.0}
@@ -82,7 +99,15 @@ fi
 #	Terminal
 #
 #export PS1="[\u@\h \W]\\$ "
-export PS1="\[\e[32m\][\[\e[m\]\[\e[31m\]\u\[\e[m\]\[\e[33m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\]:\[\e[36m\]\W\[\e[m\]\[\e[32m\]]\[\e[m\]\[\e[32;40m\]\\$\[\e[m\] "
+
+# PS1: Sem data/hora
+#export PS1="\[\e[32m\][\[\e[m\]\[\e[31m\]\u\[\e[m\]\[\e[33m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\]:\[\e[36m\]\W\[\e[m\]\[\e[32m\]]\[\e[m\]\[\e[32;40m\]\\$\[\e[m\] "
+
+# PS1: data/hora + usuario@host:diretorio
+#export PS1='\[\e[90m\][\D{%Y-%m-%d} \t]\[\e[0m\] \[\e[32m\][\[\e[31m\]\u\[\e[33m\]@\[\e[32m\]\h:\[\e[36m\]\W\[\e[32m\]]\[\e[0m\]\$ '
+
+# PS1: data/hora + usuario@host:diretorio (hora branca)
+PS1='\[\e[97m\][\D{%Y-%m-%d} \t]\[\e[0m\] \[\e[32m\][\[\e[31m\]\u\[\e[33m\]@\[\e[32m\]\h:\[\e[36m\]\W\[\e[32m\]]\[\e[0m\]\$ '
 
 if [ -e "/.dockerenv" ]; then
   export PS1="\e[41;4;33mDocker\e[m~>$PS1"
