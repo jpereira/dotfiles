@@ -17,6 +17,8 @@
 
 [core]
 	editor = vim
+	# delta quando instalado; senão less. O fallback evita quebrar o git sem delta.
+	pager = "if command -v delta >/dev/null 2>&1; then delta; else less -FRX; fi"
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
 [credential]
@@ -61,9 +63,46 @@
 
 [branch]
 	autosetuprebase = always
+	sort = -committerdate
+
+[column]
+	ui = auto
+
+[tag]
+	sort = version:refname
+
+[interactive]
+	diffFilter = "if command -v delta >/dev/null 2>&1; then delta --color-only; else cat; fi"
+
+[delta]
+	features = celestial
+	navigate = true
+	line-numbers = true
+
+[delta "celestial"]
+	file-style = bold "#4997D0"
+	file-decoration-style = "#4997D0" ul
+	hunk-header-style = file line-number syntax
+	hunk-header-decoration-style = "#4997D0" box
+	commit-decoration-style = "#4997D0" box
+	line-numbers-left-style = "#4997D0"
+	line-numbers-right-style = "#4997D0"
 
 [fetch]
 	prune = true
+
+#
+#	Log bonito: vale para git log e git show
+#
+[pretty]
+	fancy = "format:%C(yellow)commit %h%C(reset)%C(auto)%d%C(reset)%n%C(bold)Author:%C(reset) %an <%ae>%n%C(bold)Date:%C(reset)   %C(#4997D0)%ad%C(reset) %C(dim white)(%ar)%C(reset)%n%n%w(0,4,4)%C(bold)%s%C(reset)%n%+b"
+
+[format]
+	pretty = fancy
+
+[log]
+	date = format:%Y-%m-%d %H:%M
+	decorate = short
 
 [alias]
 	s = status
@@ -110,7 +149,8 @@
 	ac = apply --check
 	############
 	l = log --oneline
-	lg = log --oneline --graph --decorate
+	lg = "log --graph --abbrev-commit --decorate --format='%C(yellow)%h%C(reset) %C(#4997D0)%<(14,trunc)%ar%C(reset) %C(auto)%d%C(reset) %s %C(dim white)- %an%C(reset)'"
+	lga = "log --graph --abbrev-commit --decorate --all --format='%C(yellow)%h%C(reset) %C(#4997D0)%<(14,trunc)%ar%C(reset) %C(auto)%d%C(reset) %s %C(dim white)- %an%C(reset)'"
 	ld = log --pretty=format:\"[%h] gpg:%G?, <%ae>, %ar: %s\" --stat
 	ll = log --graph --decorate --simplify-by-decoration
 	chlogm = "!f() { [ \"$#\" -eq 4 ] || { echo 'Usage: git chlogm <from> <to> <owner> <repo>' >&2; return 2; }; git log \"$1...$2\" --pretty=format:\"%s [view commit](https://github.com/$3/$4/commit/%H)\"; }; f"
@@ -202,11 +242,11 @@
 [color "branch"]
 	current = yellow bold
 	local = green bold
-	remote = cyan bold
+	remote = "#4997D0" bold
 
 [color "diff"]
 	meta = yellow bold
-	frag = magenta bold
+	frag = "#4997D0" bold
 	old = red bold
 	new = green bold
 	whitespace = red reverse
