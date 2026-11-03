@@ -1,0 +1,5 @@
+# Aliases locais; copiado para ~/.bash_alias.local pelo "make install" quando não existe.
+# Carregado depois de ~/.bash_profile.local.
+
+#alias meuhost='ssh meuhost'
+true

@@ -284,6 +284,18 @@ for d in "$HOME/.bash_functions" "$HOME/.bash_alias" "$HOME/bin/funcoeszz"; do
 done
 unset d
 
+# fzf: Ctrl-R (histórico) e Ctrl-T (arquivos). O Alt-C não existe no macOS (Option digita
+# acentos), então o cd interativo também fica em Ctrl-G.
+# @help Integração fzf (requer fzf 0.48 ou superior): Ctrl-R, Ctrl-T e Ctrl-G (cd).
+if [ "${TERM:-dumb}" != dumb ] && have fzf && fzf --bash >/dev/null 2>&1; then
+    eval "$(fzf --bash)"
+    _fzf_cd_binding=$(bind -m emacs-standard -s 2>/dev/null | grep '^"\\ec": ')
+    if [ -n "$_fzf_cd_binding" ]; then
+        bind -m emacs-standard "\"\\C-g\": ${_fzf_cd_binding#*: }"
+    fi
+    unset _fzf_cd_binding
+fi
+
 #
 #	Display/X11
 #

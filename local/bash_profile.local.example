@@ -1,0 +1,10 @@
+# Preferências locais; copiado para ~/.bash_profile.local pelo "make install" quando não existe.
+# Carregado depois das definições compartilhadas. Descomente e ajuste.
+
+#export EDITOR=vim
+#export MYSERVERS="homelab capacete"   # hosts que ganham o prefixo NOME> no PS1
+#export MYSQL_HOST=localhost
+#export MYSQL_USER=root
+#export IPERF3_HOST=localhost
+#export XQUARTZ_ENABLED=0              # macOS: 1 habilita o XQuartz
+true

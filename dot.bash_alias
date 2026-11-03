@@ -55,6 +55,7 @@ if have grc; then
         getsebool id ifconfig ip iptables journalctl kubectl ld lsblk lsof lspci make mount \
         mtr netstat ping ps semanage sockstat ss traceroute traceroute6; do
         [ "$_cmd" = ps ] && [ -n "${_PS_WRAPPED:-}" ] && continue
+        case "$_cmd" in *+*) continue;; esac # g++ não é nome válido de função
         unalias "$_cmd" 2> /dev/null
         type "$_cmd" 1> /dev/null 2>&1 || continue
         _opt=""
