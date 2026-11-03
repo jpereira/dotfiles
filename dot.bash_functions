@@ -35,6 +35,12 @@ _edit-config() {
     fi
 }
 
+# @help Ambiente virtual Python ativo para o PS1, no formato " (nome)"; vazio sem venv.
+# @syntax _ps1-venv
+_ps1-venv() {
+    [ -z "${VIRTUAL_ENV:-}" ] || printf ' (%s)' "${VIRTUAL_ENV##*/}"
+}
+
 # @help Branch (ou hash) git para o PS1, no formato " (nome)"; vazio fora de repositório.
 # @syntax _ps1-git
 _ps1-git() {
@@ -891,7 +897,7 @@ man() {
     # begin underline
 
     env LESS_TERMCAP_mb="$(printf "\e[1m")" \
-        LESS_TERMCAP_md="$(printf "\e[1;32m")" \
+        LESS_TERMCAP_md="$(printf "\e[1;38;2;73;151;208m")" \
         LESS_TERMCAP_me="$(printf "\e[0m")" \
         LESS_TERMCAP_se="$(printf "\e[0m")" \
         LESS_TERMCAP_so="$(printf "\e[1;44;37m")" \

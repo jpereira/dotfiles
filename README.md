@@ -99,6 +99,11 @@ XQuartz ao abrir o terminal, defina `export XQUARTZ_ENABLED=1` em `~/.bash_profi
   definidas são mantidas.
 - `make check` roda `tests/secrets.sh`, que acusa IP público, `.pem`, chave privada e <!-- secrets-ok -->
   `password=`/`token=`. Falso positivo: acrescente `# secrets-ok` na linha.
+- Visual: o azul escuro do iTerm2 (ANSI 4) vira `#4997D0` (`TERM_ANSI_BLUE`); `eza`, `grep`,
+  `man`, fzf e `delta` usam o mesmo tom. `PROMPT_SLOW_SECONDS` (padrão 5) mostra `⏱ Ns` no
+  prompt após comandos lentos e `(venv)` aparece com ambiente Python ativo.
+- Git: `git log`/`show` usam o formato `fancy`; `git lg` e `git lga` mostram o grafo.
+  `delta` é o pager quando instalado (senão `less`). Branches ordenados por commit recente.
 - `have <comando>` testa se um comando existe; os aliases opcionais o usam como guarda.
 
 ## Dependências opcionais
@@ -110,8 +115,26 @@ XQuartz ao abrir o terminal, defina `export XQUARTZ_ENABLED=1` em `~/.bash_profi
 | `procs`      | `ps` sem argumentos no macOS                                     |
 | `fzf`        | Ctrl-R, Ctrl-T e Ctrl-G (cd) interativos                         |
 | `fd`, `bat`  | Listagem que respeita `.gitignore` e preview no fzf              |
+| `delta`      | Pager de diff do Git com sintaxe e navegação                     |
+| `zoxide`     | Comando `z` para saltar entre diretórios                         |
+| `btop`       | `top` passa a abrir o `btop`                                     |
 | `shellcheck` | Análise estática no `make check`                                 |
 | `bash-completion` | Completions externas (Bash 4.4 ou superior)                 |
+
+## Dependências (Linux e macOS)
+
+`packages.list` é a lista única de ferramentas, com o pacote do brew (macOS) e do apt (Linux).
+
+```bash
+make packages                                  # o que está instalado e o que falta
+make packages-install PKG_ARGS="-n"            # simula e mostra o comando
+make packages-install                          # pergunta e instala base e visual
+make packages-install PKG_ARGS="-g all -y"     # inclui extras, sem perguntar
+```
+
+Usa `brew` no macOS e `apt-get` (com `sudo`) no Linux, ou `brew` no Linux sem apt. Pacotes sem
+equivalente (`-` na lista) aparecem como instalação manual. No Debian/Ubuntu, `fd` e `bat`
+são usados como `fdfind` e `batcat`.
 
 Execute a validação com GNU Make, Bash, Git e ferramentas básicas do sistema
 (`make check` cobre `bash -n`, ShellCheck e os testes, quando existirem):

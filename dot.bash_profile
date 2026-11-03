@@ -203,7 +203,7 @@ path-prepend /sbin /usr/sbin /usr/local/sbin /bin /usr/bin /usr/local/bin
 # Data/hora, usuário, host e diretório; escapes delimitados para o Readline.
 # @var PS1
 # @help Prompt com data/hora, usuário, host, diretório e branch git; :( se o último comando falhou.
-export PS1='\[\e[1;97;40m\][\[\e[0;38;5;250;40m\]\D{%Y-%m-%d} \t\[\e[1;97;40m\]] [\[\e[0;93;40m\]\u\[\e[0;94;40m\]@\[\e[0;92;40m\]\h:\[\e[0;91;40m\]\w\[\e[1;97;40m\]]\[\e[0;95;40m\]$(_ps1-git)\[\e[0;96;40m\]\$ \[\e[0m\]'
+export PS1='\[\e[1;97;40m\][\[\e[0;38;5;250;40m\]\D{%Y-%m-%d} \t\[\e[1;97;40m\]] [\[\e[0;93;40m\]\u\[\e[0;94;40m\]@\[\e[0;92;40m\]\h:\[\e[0;91;40m\]\w\[\e[1;97;40m\]]\[\e[0;93;40m\]$(_ps1-venv)\[\e[0;95;40m\]$(_ps1-git)\[\e[0;96;40m\]\$ \[\e[0m\]'
 
 # @var MYSERVERS
 # @help Hosts (separados por espaço) que ganham o prefixo NOME> no PS1.
@@ -225,9 +225,18 @@ fi
 
 # Histórico compartilhado entre terminais e marcador de falha (:( ) no próximo prompt.
 # Anexa a PROMPT_COMMAND já existente (iTerm etc.) sem sobrescrevê-la.
+_dotfiles-preexec() { _DOTFILES_CMD_START=$SECONDS; }
+# @var PROMPT_SLOW_SECONDS
+# @help Segundos mínimos para o prompt mostrar a duração do comando (⏱); padrão 5.
 _dotfiles-prompt() {
-    local rc=$?
+    local rc=$? elapsed
     history -a
+    if [ -n "${_DOTFILES_CMD_START:-}" ]; then
+        elapsed=$((SECONDS - _DOTFILES_CMD_START))
+        [ "$elapsed" -lt "${PROMPT_SLOW_SECONDS:-5}" ] ||
+            printf '\033[2;37m⏱ %ss\033[0m\n' "$elapsed"
+        unset _DOTFILES_CMD_START
+    fi
     [ "$rc" -eq 0 ] || printf '\033[1;31m:( %s\033[0m\n' "$rc"
     return "$rc"
 }
@@ -288,21 +297,45 @@ unset d
 # acentos), então o cd interativo também fica em Ctrl-G.
 # @help Integração fzf (0.48+): Ctrl-R, Ctrl-T e Ctrl-G (cd); fd e bat opcionais.
 if [ "${TERM:-dumb}" != dumb ] && have fzf && fzf --bash >/dev/null 2>&1; then
-    # fd respeita .gitignore; bat dá preview. Valores já definidos no ambiente são mantidos.
-    if have fd; then
-        export FZF_DEFAULT_COMMAND="${FZF_DEFAULT_COMMAND:-fd --type f --hidden --follow --exclude .git}"
+    # fd respeita .gitignore; bat dá preview. No Debian/Ubuntu os binários são fdfind e batcat.
+    # Valores já definidos no ambiente são mantidos.
+    # type -P ignora aliases: o fzf executa estes comandos fora do shell interativo.
+    _fd=; _bat=
+    for _cmd in fd fdfind; do type -P "$_cmd" >/dev/null 2>&1 && { _fd=$_cmd; break; }; done
+    for _cmd in bat batcat; do type -P "$_cmd" >/dev/null 2>&1 && { _bat=$_cmd; break; }; done
+    unset _cmd
+    if [ -n "$_fd" ]; then
+        export FZF_DEFAULT_COMMAND="${FZF_DEFAULT_COMMAND:-$_fd --type f --hidden --follow --exclude .git}"
         export FZF_CTRL_T_COMMAND="${FZF_CTRL_T_COMMAND:-$FZF_DEFAULT_COMMAND}"
-        export FZF_ALT_C_COMMAND="${FZF_ALT_C_COMMAND:-fd --type d --hidden --follow --exclude .git}"
+        export FZF_ALT_C_COMMAND="${FZF_ALT_C_COMMAND:-$_fd --type d --hidden --follow --exclude .git}"
     fi
-    if have bat; then
-        export FZF_CTRL_T_OPTS="${FZF_CTRL_T_OPTS:---preview 'bat --color=always --style=numbers --line-range=:200 {}'}"
+    if [ -n "$_bat" ]; then
+        export FZF_CTRL_T_OPTS="${FZF_CTRL_T_OPTS:---preview '$_bat --color=always --style=numbers --line-range=:200 {}'}"
     fi
+    unset _fd _bat
+    _blue="${TERM_ANSI_BLUE:-4997D0}"
+    export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:---height 40% --layout=reverse --border --info=inline --color=hl:#$_blue,hl+:#$_blue,pointer:#$_blue,prompt:#$_blue,border:#$_blue}"
+    unset _blue
     eval "$(fzf --bash)"
     _fzf_cd_binding=$(bind -m emacs-standard -s 2>/dev/null | grep '^"\\ec": ')
     if [ -n "$_fzf_cd_binding" ]; then
         bind -m emacs-standard "\"\\C-g\": ${_fzf_cd_binding#*: }"
     fi
     unset _fzf_cd_binding
+fi
+
+# Visual de ferramentas de texto: less, bat, grep e zoxide (cada um só se existir).
+# @var LESS
+# @help Opções do less: cores ANSI, busca sem distinguir caixa e status longo.
+export LESS="${LESS:--R -i -M}"
+# @var GREP_COLORS
+# @help Cores do grep: trecho encontrado no azul celestial.
+export GREP_COLORS="${GREP_COLORS:-mt=1;38;2;73;151;208}"
+# @var BAT_THEME
+# @help Tema do bat; ansi segue a paleta do terminal.
+{ have bat || have batcat; } && export BAT_THEME="${BAT_THEME:-ansi}"
+if [ "${TERM:-dumb}" != dumb ] && have zoxide; then
+    eval "$(zoxide init bash)"
 fi
 
 #
@@ -340,6 +373,10 @@ if [ "${TERM_PROGRAM:-}" = iTerm.app ] && [ -z "${TMUX:-}" ] && [ -t 1 ]; then
 fi
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+# A duração dos comandos depende do bash-preexec (carregado pela integração do iTerm2).
+if declare -p preexec_functions >/dev/null 2>&1; then
+    preexec_functions+=(_dotfiles-preexec)
+fi
 
 if [ -f ~/.docker/init-bash.sh ]; then
 	# shellcheck disable=SC1090

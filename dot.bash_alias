@@ -42,12 +42,12 @@ alias lsx='command ls -lah | grep "^-..x"'
 # @help Usa eza (ls colorido: permissões, user, group, git) quando instalado.
 if have eza; then
     export EZA_COLORS="${EZA_COLORS:-uu=36:gu=36:da=38;2;73;151;208}"
-    alias ls='eza'
-    alias ls-l='eza -l --git --group-directories-first'
-    alias ls-la='eza -la --git --group-directories-first'
-    alias la='eza -lah --git --group-directories-first'
-    alias l='eza -alF --git'
-    alias v='eza -la --git'
+    alias ls='eza -g'
+    alias ls-l='eza -lg --git --group-directories-first'
+    alias ls-la='eza -lag --git --group-directories-first'
+    alias la='eza -lahg --git --group-directories-first'
+    alias l='eza -algF --git'
+    alias v='eza -lag --git'
 fi
 # @help Colore a saída de ps, df, ping etc. via grc quando instalado (só se for terminal).
 if have grc; then
@@ -94,6 +94,10 @@ _set-edit2alias "$HOME/.profile"
 #
 alias vi=vim
 alias grep='grep --color=auto'
+have btop && alias top='btop'
+# Debian/Ubuntu instalam bat e fd como batcat e fdfind.
+have bat || { have batcat && alias bat='batcat'; }
+have fd || { have fdfind && alias fd='fdfind'; }
 alias grep-h="grep --include '*.h'"
 alias grep-c="grep --include '*.c'"
 alias cat-nocomments='grep -v -E "^($|.*#)"'
