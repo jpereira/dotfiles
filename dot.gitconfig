@@ -56,6 +56,9 @@
 [rebase]
 	autosquash = true
 
+[pull]
+	rebase = true
+
 [branch]
 	autosetuprebase = always
 
@@ -218,6 +221,7 @@
 #
 [diff]
 	tool = meld
+	colorMoved = default
 #	guitool = meld
 #	tool = "sourcetree"
 
