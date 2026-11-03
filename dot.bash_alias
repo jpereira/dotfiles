@@ -30,14 +30,25 @@ alias p='pwd'
 alias la='ls -lah'
 alias l='ls -alF'
 alias v='ls -la'
-alias lsc='ls -1 | wc -l'
-alias lsdir='ls -lh | grep "^d"'
-alias lsd='ls -ladh'
-alias lsf='ls -lah | grep "^-"'
-alias lsh='ls -a | grep "^\."'
-alias lsiz='ls -alS'
-alias lsnew='ls -lctr'
-alias lsx='ls -lah | grep "^-..x"'
+alias lsc='command ls -1 | wc -l'
+alias lsdir='command ls -lh | grep "^d"'
+alias lsd='command ls -ladh'
+alias lsf='command ls -lah | grep "^-"'
+alias lsh='command ls -a | grep "^\."'
+alias lsiz='command ls -alS'
+alias lsnew='command ls -lctr'
+alias lsx='command ls -lah | grep "^-..x"'
+
+# @help Usa eza (ls colorido: permissões, user, group, git) quando instalado.
+if type eza 1> /dev/null 2>&1; then
+    export EZA_COLORS="${EZA_COLORS:-uu=36:gu=36}"
+    alias ls='eza'
+    alias ls-l='eza -l --git --group-directories-first'
+    alias ls-la='eza -la --git --group-directories-first'
+    alias la='eza -lah --git --group-directories-first'
+    alias l='eza -alF --git'
+    alias v='eza -la --git'
+fi
 alias tm='tail -f /var/log/messages'
 alias reload-bashrc="source ~/.bashrc"
 
