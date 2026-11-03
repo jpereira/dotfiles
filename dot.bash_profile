@@ -328,6 +328,17 @@ fi
 #ulimit -c unlimited
 # sudo launchctl limit core 0 0
 
+# Redefine o azul escuro (ANSI 4) da paleta do iTerm2 para o azul celestial usado no eza.
+# Vale para tudo que usa "blue": df/grc, diretórios no eza, ls, git, vim etc. Não afeta
+# bright blue (ANSI 12). Ignorado fora do iTerm2 e dentro do tmux (OSC 4 não passa).
+# @var TERM_ANSI_BLUE
+# @help Azul escuro (ANSI 4) do iTerm2 em RRGGBB hex; padrão 4997D0 (celestial blue).
+if [ "${TERM_PROGRAM:-}" = iTerm.app ] && [ -z "${TMUX:-}" ] && [ -t 1 ]; then
+    _blue="${TERM_ANSI_BLUE:-4997D0}"
+    printf '\033]4;4;rgb:%s/%s/%s\007' "${_blue:0:2}" "${_blue:2:2}" "${_blue:4:2}"
+    unset _blue
+fi
+
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 if [ -f ~/.docker/init-bash.sh ]; then

@@ -41,7 +41,7 @@ alias lsx='command ls -lah | grep "^-..x"'
 
 # @help Usa eza (ls colorido: permissões, user, group, git) quando instalado.
 if have eza; then
-    export EZA_COLORS="${EZA_COLORS:-uu=36:gu=36}"
+    export EZA_COLORS="${EZA_COLORS:-uu=36:gu=36:da=38;2;73;151;208}"
     alias ls='eza'
     alias ls-l='eza -l --git --group-directories-first'
     alias ls-la='eza -la --git --group-directories-first'
