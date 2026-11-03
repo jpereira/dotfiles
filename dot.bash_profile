@@ -176,16 +176,20 @@ parse_git_branch() {
 # Settings by $OS
 #
 # shellcheck disable=SC1090
+# Ordem final do PATH, montada de baixo para cima (path-prepend põe na frente, então o que
+# entra por último ganha prioridade):
+#   1. sistema:  /usr/local/bin /usr/bin /bin /usr/sbin /sbin
+#   2. ferramentas do OS (.bash_profile-$OS: opt/*/bin do Homebrew, apps, gem)
+#   3. Homebrew: bin e sbin (macOS), .docker/bin  } reaplicados no fim do arquivo,
+#   4. pessoal:  ~/bin/$OS ~/bin ~/.local/bin     } depois do init do Docker e dos .local
+# Entradas herdadas de shells pai que não estão acima ficam depois do sistema.
+path-dedupe
+path-prepend /sbin /usr/sbin /usr/local/sbin /bin /usr/bin /usr/local/bin
+# O brew precisa estar no PATH para o .bash_profile-$OS achar os opt/*/bin.
+[ "$OS" = Darwin ] && path-prepend /opt/homebrew/bin
+
 [ -f "$HOME/.bash_profile-$OS" ] && source "$HOME/.bash_profile-$OS"
 
-# Ordem final do PATH (primeiro = maior prioridade):
-#   ~/bin/$OS, ~/bin, ~/.local/bin > Homebrew > .docker/bin > ferramentas do OS > sistema.
-# Fica por último porque path-prepend move para a frente, e path-dedupe limpa repetidos
-# herdados de shells pai (ex.: .docker/bin adicionado pelo config.fish do Docker Desktop).
-path-dedupe
-path-prepend "$HOME/.docker/bin"
-[ "$OS" = Darwin ] && path-prepend /opt/homebrew/sbin /opt/homebrew/bin
-path-prepend "$HOME/.local/bin" "$HOME/bin" "$HOME/bin/$OS"
 
 #
 #	Terminal
@@ -301,6 +305,13 @@ for d in "$HOME/.bash_profile.local" "$HOME/.bash_alias.local" "$HOME/.bash_alia
     source "$d"
 done
 unset d
+
+# Reaplica a prioridade de docker, Homebrew e pessoal por último: o init do Docker Desktop e
+# os arquivos locais também mexem no PATH e deixariam .docker/bin repetido ou na frente.
+path-prepend "$HOME/.docker/bin"
+[ "$OS" = Darwin ] && path-prepend /opt/homebrew/sbin /opt/homebrew/bin
+path-prepend "$HOME/.local/bin" "$HOME/bin" "$HOME/bin/$OS"
+path-dedupe
 
 # @var XQUARTZ_ENABLED
 # @help No macOS, 0 desativa o XQuartz (padrão); 1 habilita e abre o aplicativo.

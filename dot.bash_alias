@@ -49,6 +49,20 @@ if type eza 1> /dev/null 2>&1; then
     alias l='eza -alF --git'
     alias v='eza -la --git'
 fi
+# @help Colore a saída de ps, df, ping etc. via grc quando instalado (só se for terminal).
+if type grc 1> /dev/null 2>&1; then
+    for _cmd in as blkid df diff dig docker docker-compose du fdisk findmnt free g++ gas gcc \
+        getsebool id ifconfig ip iptables journalctl kubectl ld lsblk lsof lspci make mount \
+        mtr netstat ping ps semanage sockstat ss traceroute traceroute6; do
+        [ "$_cmd" = ps ] && [ -n "${_PS_WRAPPED:-}" ] && continue
+        unalias "$_cmd" 2> /dev/null
+        type "$_cmd" 1> /dev/null 2>&1 || continue
+        _opt=""
+        [ "$_cmd" = ping ] && _opt="-c4"
+        eval "$_cmd() { if [ -t 1 ]; then grc -es $_cmd $_opt \"\$@\"; else command $_cmd $_opt \"\$@\"; fi; }"
+    done
+    unset _cmd _opt
+fi
 alias tm='tail -f /var/log/messages'
 alias reload-bashrc="source ~/.bashrc"
 
@@ -91,7 +105,8 @@ alias rsync='rsync -Cdravzp --progress '
 alias untar='tar -xzvf'
 alias unbz='tar -xjfv'
 alias visudo='sudo visudo'
-alias ping='ping -c4'
+# Com grc, o -c4 vai dentro da função ping (alias teria precedência sobre ela).
+type grc 1> /dev/null 2>&1 || alias ping='ping -c4'
 
 #
 #   Misc
