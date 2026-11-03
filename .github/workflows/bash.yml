@@ -41,7 +41,10 @@ jobs:
         if: runner.os == 'macOS'
         run: '"$(brew --prefix)/bin/bash" tests/bash.sh'
 
+      - name: Secrets
+        run: bash tests/secrets.sh
+
       - name: ShellCheck
         run: |
-          shellcheck -s bash -S warning dot.bash* local/*.example tests/bash.sh
+          shellcheck -s bash -S warning dot.bash* local/*.example tests/*.sh
           make --no-print-directory -n install | shellcheck -s bash -S warning -

@@ -12,7 +12,7 @@ make -C /path/dotfiles.git dry-run
 make -C /path/dotfiles.git install
 make -C /path/dotfiles.git status       # links ok, quebrados ou arquivos reais
 make -C /path/dotfiles.git uninstall    # remove só links deste repo (DRY_RUN=1 simula)
-make -C /path/dotfiles.git check        # bash -n, ShellCheck e testes
+make -C /path/dotfiles.git check        # bash -n, ShellCheck, testes e busca de segredos
 make -C /path/dotfiles.git install-hooks # pre-commit que roda "make check"
 ```
 
@@ -21,14 +21,8 @@ mas recusa diretórios reais existentes. Exibe cada comando executado, os caminh
 e os arquivos locais preservados.
 `dot.config` não faz parte da instalação. No macOS, `~/.lldb` é clonado quando não existe.
 
-O instalador também cria `~/.bash_profile.local` e `~/.bash_alias.local` a partir dos
-exemplos de `local/`, apenas quando os arquivos não existem. São cópias editáveis,
-carregadas após as definições compartilhadas: primeiro preferências, depois aliases.
-`~/.bash_alias_work`, quando presente, é carregado por último.
-
-Emails, hosts, caminhos e preferências pessoais ficam nesses arquivos locais.
-Os exemplos preservam os valores pessoais fornecidos neste repositório; edite suas cópias
-conforme o ambiente. Arquivos `*.local` são ignorados pelo Git.
+Preferências, aliases e hosts pessoais ficam em `dot.bash_profile` e `dot.bash_alias`.
+`~/.bash_alias_work`, quando presente, é carregado por último e não é versionado.
 
 Recarregue com `source ~/.bashrc` e consulte a ajuda:
 
@@ -89,7 +83,7 @@ No macOS, `xquartz desativar` encerra o XQuartz e bloqueia sua inicialização a
 na conta, inclusive após novo login. `xquartz ativar` libera a inicialização e abre o
 aplicativo; `xquartz status` consulta os serviços desabilitados e os processos do XQuartz.
 O padrão é `XQUARTZ_ENABLED=0`: cada terminal aplica a desativação. Para habilitar o
-XQuartz ao abrir o terminal, defina `export XQUARTZ_ENABLED=1` em `~/.bash_profile.local`.
+XQuartz ao abrir o terminal, defina `export XQUARTZ_ENABLED=1` em `~/.bash_profile`.
 
 ## Shell
 
@@ -98,7 +92,13 @@ XQuartz ao abrir o terminal, defina `export XQUARTZ_ENABLED=1` em `~/.bash_profi
 - Prompt: mostra ` (branch)` em repositórios Git e `:( <código>` quando o último comando falha.
 - SSH: `ssh-list` (alias `sshl`) lista os hosts de `~/.ssh/config`, dos `Include` e de
   `MYSERVERS`; o mesmo conjunto completa `ssh`, `scp`, `sftp` e `ssh-copy-id`.
-  `~/.ssh/config.local` (opcional) é incluído primeiro e sobrescreve o restante.
+  `~/.ssh/config.local` (criado pelo `make install` a partir de `local/ssh_config.local.example`,
+  nunca versionado) é incluído primeiro e sobrescreve o restante.
+- fzf (0.48+): `Ctrl-R` histórico, `Ctrl-T` arquivos e `Ctrl-G` cd (o Alt-C não existe no
+  macOS). Com `fd` usa o `.gitignore`; com `bat` mostra preview. Variáveis `FZF_*` já
+  definidas são mantidas.
+- `make check` roda `tests/secrets.sh`, que acusa IP público, `.pem`, chave privada e <!-- secrets-ok -->
+  `password=`/`token=`. Falso positivo: acrescente `# secrets-ok` na linha.
 - `have <comando>` testa se um comando existe; os aliases opcionais o usam como guarda.
 
 ## Dependências opcionais
@@ -108,6 +108,8 @@ XQuartz ao abrir o terminal, defina `export XQUARTZ_ENABLED=1` em `~/.bash_profi
 | `eza`        | `ls`, `la`, `l` e `v` coloridos, com Git                         |
 | `grc`        | Cores em `ps`, `df`, `ping`, `ip`, `make` etc. (só em terminal)  |
 | `procs`      | `ps` sem argumentos no macOS                                     |
+| `fzf`        | Ctrl-R, Ctrl-T e Ctrl-G (cd) interativos                         |
+| `fd`, `bat`  | Listagem que respeita `.gitignore` e preview no fzf              |
 | `shellcheck` | Análise estática no `make check`                                 |
 | `bash-completion` | Completions externas (Bash 4.4 ou superior)                 |
 

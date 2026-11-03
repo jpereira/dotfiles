@@ -62,20 +62,18 @@ dry-run install:
 	if [ "$$mode" != dry-run ]; then \
 		mkdir -p "$$HOME/.ssh/sessions" "$$HOME/bin/$$os"; \
 	fi; \
+	if [ "$$mode" != dry-run ]; then chmod 700 "$$HOME/.ssh"; else printf 'chmod 700 %q\n' "$$HOME/.ssh"; fi; \
 	install-link "$$repo/ssh/config" "$$HOME/.ssh/config"; \
-	for name in bash_profile.local bash_alias.local; do \
-		from="$$repo/local/$$name.example"; \
-		to="$$HOME/.$$name"; \
-		[ -f "$$from" ] || continue; \
+	from="$$repo/local/ssh_config.local.example"; \
+	to="$$HOME/.ssh/config.local"; \
+	if [ -f "$$from" ]; then \
 		if [ -e "$$to" ] || [ -L "$$to" ]; then \
 			printf 'Preservado: %s (já existe)\n' "$$to"; \
-			continue; \
+		else \
+			printf 'cp -n %q %q\n' "$$from" "$$to"; \
+			if [ "$$mode" != dry-run ]; then cp -n "$$from" "$$to" && chmod 600 "$$to"; fi; \
 		fi; \
-		printf 'cp -n %q %q\n' "$$from" "$$to"; \
-		if [ "$$mode" != dry-run ]; then \
-			cp -n "$$from" "$$to"; \
-		fi; \
-	done; \
+	fi; \
 	if [ "$$os" = Darwin ]; then \
 		if [ -e "$$HOME/.lldb" ]; then \
 			printf 'Preservado: %s (já existe)\n' "$$HOME/.lldb"; \
@@ -122,12 +120,12 @@ uninstall: ## Remove os links que apontam para este repositório (DRY_RUN=1 simu
 		fi; \
 	done < <(links "$$repo")
 
-check: ## Valida sintaxe (bash -n), ShellCheck e testes, quando disponíveis.
+check: ## Valida sintaxe (bash -n), ShellCheck, testes e busca de segredos.
 	@set -e; \
 	read -r makefile <<< "$$DOTFILES_MAKEFILE"; \
 	repo=$$(cd -- "$$(dirname -- "$$makefile")" && pwd -P); \
 	cd "$$repo"; \
-	files=$$(ls dot.bash* local/*.example tests/bash.sh 2>/dev/null || true); \
+	files=$$(ls dot.bash* local/*.example tests/*.sh 2>/dev/null || true); \
 	for f in $$files; do bash -n "$$f"; done; \
 	printf 'bash -n: %s arquivos ok\n' "$$(echo "$$files" | wc -w | tr -d ' ')"; \
 	if command -v shellcheck >/dev/null 2>&1; then \
@@ -137,7 +135,8 @@ check: ## Valida sintaxe (bash -n), ShellCheck e testes, quando disponíveis.
 	else \
 		echo 'shellcheck: não instalado, ignorado'; \
 	fi; \
-	if [ -f tests/bash.sh ]; then bash tests/bash.sh; fi
+	if [ -f tests/bash.sh ]; then bash tests/bash.sh; fi; \
+	if [ -f tests/secrets.sh ]; then bash tests/secrets.sh; fi
 
 install-hooks: ## Instala o pre-commit que executa "make check".
 	@set -e; \

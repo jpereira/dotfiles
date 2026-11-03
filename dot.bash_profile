@@ -184,7 +184,7 @@ parse_git_branch() {
 #   1. sistema:  /usr/local/bin /usr/bin /bin /usr/sbin /sbin
 #   2. ferramentas do OS (.bash_profile-$OS: opt/*/bin do Homebrew, apps, gem)
 #   3. Homebrew: bin e sbin (macOS), .docker/bin  } reaplicados no fim do arquivo,
-#   4. pessoal:  ~/bin/$OS ~/bin ~/.local/bin     } depois do init do Docker e dos .local
+#   4. pessoal:  ~/bin/$OS ~/bin ~/.local/bin     } depois do init do Docker e das preferências pessoais
 # Entradas herdadas de shells pai que não estão acima ficam depois do sistema.
 path-dedupe
 path-prepend /sbin /usr/sbin /usr/local/sbin /bin /usr/bin /usr/local/bin
@@ -286,8 +286,17 @@ unset d
 
 # fzf: Ctrl-R (histórico) e Ctrl-T (arquivos). O Alt-C não existe no macOS (Option digita
 # acentos), então o cd interativo também fica em Ctrl-G.
-# @help Integração fzf (requer fzf 0.48 ou superior): Ctrl-R, Ctrl-T e Ctrl-G (cd).
+# @help Integração fzf (0.48+): Ctrl-R, Ctrl-T e Ctrl-G (cd); fd e bat opcionais.
 if [ "${TERM:-dumb}" != dumb ] && have fzf && fzf --bash >/dev/null 2>&1; then
+    # fd respeita .gitignore; bat dá preview. Valores já definidos no ambiente são mantidos.
+    if have fd; then
+        export FZF_DEFAULT_COMMAND="${FZF_DEFAULT_COMMAND:-fd --type f --hidden --follow --exclude .git}"
+        export FZF_CTRL_T_COMMAND="${FZF_CTRL_T_COMMAND:-$FZF_DEFAULT_COMMAND}"
+        export FZF_ALT_C_COMMAND="${FZF_ALT_C_COMMAND:-fd --type d --hidden --follow --exclude .git}"
+    fi
+    if have bat; then
+        export FZF_CTRL_T_OPTS="${FZF_CTRL_T_OPTS:---preview 'bat --color=always --style=numbers --line-range=:200 {}'}"
+    fi
     eval "$(fzf --bash)"
     _fzf_cd_binding=$(bind -m emacs-standard -s 2>/dev/null | grep '^"\\ec": ')
     if [ -n "$_fzf_cd_binding" ]; then
@@ -327,13 +336,74 @@ if [ -f ~/.docker/init-bash.sh ]; then
 fi
 
 
-# Local files override shared preferences. The legacy work file remains optional.
-for d in "$HOME/.bash_profile.local" "$HOME/.bash_alias.local" "$HOME/.bash_alias_work"; do
-    [ -f "$d" ] || continue
+# Preferências pessoais.
+# @var ANSIBLE_HOST_KEY_CHECKING
+# @help Verificação de chaves SSH pelo Ansible.
+export ANSIBLE_HOST_KEY_CHECKING=False
+
+# @var EMAIL_ADDRESS
+# @help Email pessoal usado pelos helpers.
+export EMAIL_ADDRESS="jpereiran@gmail.com"
+
+# @var CHANGE_LOG_EMAIL_ADDRESS
+# @help Email para changelogs.
+export CHANGE_LOG_EMAIL_ADDRESS="${EMAIL_ADDRESS}"
+
+# @var CHANGE_LOG_NAME
+# @help Nome para changelogs.
+export CHANGE_LOG_NAME="Jorge Pereira"
+
+# @var IPERF3_HOST
+# @help Destino padrão de iperf3-test; sem configuração, usa localhost.
+export IPERF3_HOST=192.168.1.254
+
+# @var MYSQL_HOST
+# @help Servidor usado por mysql-connect.
+export MYSQL_HOST=dev-mysql.lan
+
+# @var MYSQL_USER
+# @help Usuário usado por mysql-connect; padrão root.
+export MYSQL_USER=root
+
+# @var CC
+# @help Compilador C selecionado.
+if command -v clang >/dev/null 2>&1; then
+    export CC=clang
+fi
+
+if [ "$OS" = Linux ]; then
+    # @var QT_QPA_PLATFORMTHEME
+    # @help Tema Qt configurado no Linux.
+    export QT_QPA_PLATFORMTHEME=gtk2
+fi
+
+path-prepend "$HOME/.strix/bin"
+
+if [ "$OS" = Darwin ]; then
+    if [ -S "$HOME/.sekey/ssh-agent.ssh" ]; then
+        # @var SSH_AUTH_SOCK
+        # @help Socket do agente SSH; sekey quando disponível no macOS.
+        export SSH_AUTH_SOCK="$HOME/.sekey/ssh-agent.ssh"
+    fi
+
+    # @var ASAN_OPTIONS
+    # @help Opções de AddressSanitizer configuradas no macOS.
+    export ASAN_OPTIONS='symbolize=1 detect_leaks=1 detect_stack_use_after_return=1'
+
+    # @var LSAN_OPTIONS
+    # @help Opções de LeakSanitizer configuradas no macOS.
+    export LSAN_OPTIONS='fast_unwind_on_malloc=0:malloc_context_size=50'
+
+    # @var EAPOL_PROG
+    # @help Executável eapol_test pessoal no macOS.
+    export EAPOL_PROG="$HOME/bin/eapol_test.ok"
+fi
+
+# Arquivo opcional de trabalho (não versionado).
+if [ -f "$HOME/.bash_alias_work" ]; then
     # shellcheck disable=SC1090
-    source "$d"
-done
-unset d
+    source "$HOME/.bash_alias_work"
+fi
 
 # Reaplica a prioridade de docker, Homebrew e pessoal por último: o init do Docker Desktop e
 # os arquivos locais também mexem no PATH e deixariam .docker/bin repetido ou na frente.

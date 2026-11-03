@@ -421,9 +421,7 @@ HELP
     for name in bash_functions bash_alias bash_profile bash_profile-Linux bash_profile-Darwin; do
         [ ! -f "$directory/$prefix$name" ] || sources+=("$directory/$prefix$name")
     done
-    for name in .bash_profile.local .bash_alias.local .bash_alias_work; do
-        [ ! -f "$HOME/$name" ] || sources+=("$HOME/$name")
-    done
+    [ ! -f "$HOME/.bash_alias_work" ] || sources+=("$HOME/.bash_alias_work")
 
     # Read comments as data. No documented code is sourced or evaluated.
     while IFS=$'\t' read -r kind name description syntax; do
@@ -909,7 +907,7 @@ mysql-connect() {
     _dotfiles-require "${FUNCNAME[0]}" mysql || return
     local host="${MYSQL_HOST:-}"
     [ -n "$host" ] || {
-        echo 'mysql-connect: configure MYSQL_HOST em ~/.bash_profile.local' >&2
+        echo 'mysql-connect: configure MYSQL_HOST em ~/.bash_profile' >&2
         return 2
     }
     mysql -u "${MYSQL_USER:-root}" -p -h "$host" "$@"

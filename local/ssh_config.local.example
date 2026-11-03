@@ -1,0 +1,9 @@
+# Hosts e overrides específicos da máquina; copiado para ~/.ssh/config.local pelo
+# "make install" quando não existe. Não é versionado: IPs, chaves e usuários ficam aqui.
+# Incluído no topo de ~/.ssh/config; o primeiro valor encontrado vence.
+
+#Host exemplo
+#	Hostname exemplo.local
+#	User root
+#	ForwardAgent yes
+#	IdentityFile ~/.ssh/exemplo

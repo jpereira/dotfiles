@@ -1,5 +1,5 @@
 # Author: Jorge Pereira <jpereiran@gmail.com>
-# Last Change: Mon Mar  6 11:36:57 2023
+# Last Change: Mon Nov  2 23:48:15 2026
 ##
 
 #
@@ -88,8 +88,6 @@ _set-edit2alias "$HOME/.bash_profile-Darwin"
 _set-edit2alias "$HOME/.bash_profile-Linux"
 _set-edit2alias "$HOME/.bashrc"
 _set-edit2alias "$HOME/.profile"
-_set-edit2alias "$HOME/.bash_profile.local"
-_set-edit2alias "$HOME/.bash_alias.local"
 
 #
 #   Devel commands
@@ -147,7 +145,7 @@ if [ "$(uname -s)" = Linux ]; then
     alias dpkg='sudo /usr/bin/dpkg'
     alias iptables='sudo /sbin/iptables'
     alias lockx="/usr/bin/xscreensaver-command -lock"
-    alias lynx-firefox='/usr/bin/lynx -useragent "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.5) Gecko/20070713 Firefox/2.0.0.5 Lynx"'
+    alias lynx-firefox='/usr/bin/lynx -useragent "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.5) Gecko/20070713 Firefox/2.0.0.5 Lynx"' # secrets-ok (versão do user agent)
     alias noscanfs='tune2fs -c 0 -i 0'
     alias reboot='sudo /sbin/reboot'
     alias mrxvt="/usr/bin/mrxvt -rv -sr -fn 9x15 -title \"Terminal Mrxvt\" -g 90x30 -cr red -tnum 4"
@@ -168,4 +166,27 @@ pmake() {
     _dotfiles-require "${FUNCNAME[0]}" make || return
     make -j"${NCPU:-1}" "$@"
 }
+
+#
+#	Pessoal
+#
+if [ -x "$HOME/bin/sudo" ]; then
+    printf -v sudo_path '%q' "$HOME/bin/sudo"
+    # shellcheck disable=SC2139
+    alias "sudo=$sudo_path"
+    unset sudo_path
+fi
+
+_set-dir2alias "$HOME/Devel"
+_set-dir2alias "$HOME/Devel/github-jpereira"
+_set-dir2alias "$HOME/Devel/FreeRADIUS"
+
+alias ssh.dev01="ssh -l root dev01.lan"
+alias ssh.dev02="ssh -l root dev02.lan"
+alias ssh.dev03="ssh -l root dev03.lan"
+
+#
+#
+#
+alias test-iperf3-torouter="iperf3 -c 192.168.1.254"
 
