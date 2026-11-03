@@ -47,6 +47,19 @@ alias show-cpu-info='sysctl -n machdep.cpu.brand_string'
 alias ldd='otool -L'
 alias ls='ls -G'
 
+# @help ps sem argumentos usa procs (se instalado); com argumentos, ps nativo (grc se houver).
+# procps é só Linux (precisa de /proc), então no macOS o equivalente é o procs.
+_PS_WRAPPED=1
+ps() {
+    if [ -t 1 ] && [ $# -eq 0 ] && command -v procs >/dev/null 2>&1; then
+        procs
+    elif [ -t 1 ] && command -v grc >/dev/null 2>&1; then
+        grc -es ps "$@"
+    else
+        command ps "$@"
+    fi
+}
+
 # @var ANDROID_AVD_HOME
 # @help Diretório dos dispositivos virtuais Android.
 export ANDROID_AVD_HOME="$HOME/.android/avd"
@@ -56,8 +69,8 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 # @var ANDROID_SDK_ROOT
 # @help Raiz do SDK Android.
 export ANDROID_SDK_ROOT="$ANDROID_HOME"
-path-prepend "$ANDROID_SDK_ROOT/tools" "$ANDROID_SDK_ROOT/tools/bin" \
-    "$ANDROID_SDK_ROOT/platform-tools" "$ANDROID_SDK_ROOT/emulator"
+# O SDK do Android não fica mais no PATH (inclusive entradas herdadas do shell pai).
+path-remove "$ANDROID_SDK_ROOT/*"
 
 # @help Remove caches e versões antigas do Homebrew (macOS).
 # @syntax brew-cleanup

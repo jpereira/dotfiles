@@ -37,22 +37,58 @@ export OS
 # @var PATH
 # @help Diretórios usados para procurar executáveis.
 
-# @help Adiciona diretórios existentes ao PATH sem duplicar entradas.
+# @help Remove diretórios do PATH; aceita padrões glob (ex.: "$HOME/Android/*").
+# @syntax path-remove <diretório|padrão> [...]
+path-remove() {
+    case "${1:-}" in -h|--help) dotfiles-help --exact "${FUNCNAME[0]}"; return;; esac
+    local IFS=: directory pattern new=
+    for directory in $PATH; do
+        for pattern in "$@"; do
+            # shellcheck disable=SC2254
+            case "$directory" in $pattern) continue 2;; esac
+        done
+        new="${new:+$new:}$directory"
+    done
+    PATH="$new"
+    export PATH
+}
+
+# @help Remove entradas repetidas do PATH, mantendo a primeira ocorrência.
+# @syntax path-dedupe
+path-dedupe() {
+    case "${1:-}" in -h|--help) dotfiles-help --exact "${FUNCNAME[0]}"; return;; esac
+    local IFS=: directory new=
+    for directory in $PATH; do
+        case ":$new:" in *":$directory:"*) continue;; esac
+        new="${new:+$new:}$directory"
+    done
+    PATH="$new"
+    export PATH
+}
+
+# @help Coloca diretórios existentes no início do PATH; o último argumento fica na frente.
 # @syntax path-prepend <diretório> [...]
 path-prepend() {
     case "${1:-}" in -h|--help) dotfiles-help --exact "${FUNCNAME[0]}"; return;; esac
     local directory
     for directory in "$@"; do
         [ -d "$directory" ] || continue
-        case ":$PATH:" in *":$directory:"*) ;; *) PATH="$directory:$PATH";; esac
+        path-remove "$directory"
+        PATH="$directory${PATH:+:$PATH}"
     done
     export PATH
 }
-path-prepend /usr/local/sbin /usr/local/bin "$HOME/.local/bin" "$HOME/bin" \
-    "$HOME/bin/$OS" "$HOME/.docker/bin"
-if [ "$OS" = Darwin ]; then
-    path-prepend /opt/homebrew/bin
-fi
+# @help Lista os diretórios do PATH na ordem de busca, com número.
+# @syntax path-show
+path-show() {
+    case "${1:-}" in -h|--help) dotfiles-help --exact "${FUNCNAME[0]}"; return;; esac
+    local IFS=: i=1 directory
+    for directory in $PATH; do
+        printf '%3d  %s\n' "$i" "$directory"
+        i=$((i + 1))
+    done
+}
+path-prepend /usr/local/sbin /usr/local/bin
 # Respect installed/user-selected locales (LC_ALL would override LC_COLLATE).
 # @var LANG
 # @help Locale principal; respeita o ambiente recebido.
@@ -141,6 +177,15 @@ parse_git_branch() {
 #
 # shellcheck disable=SC1090
 [ -f "$HOME/.bash_profile-$OS" ] && source "$HOME/.bash_profile-$OS"
+
+# Ordem final do PATH (primeiro = maior prioridade):
+#   ~/bin/$OS, ~/bin, ~/.local/bin > Homebrew > .docker/bin > ferramentas do OS > sistema.
+# Fica por último porque path-prepend move para a frente, e path-dedupe limpa repetidos
+# herdados de shells pai (ex.: .docker/bin adicionado pelo config.fish do Docker Desktop).
+path-dedupe
+path-prepend "$HOME/.docker/bin"
+[ "$OS" = Darwin ] && path-prepend /opt/homebrew/sbin /opt/homebrew/bin
+path-prepend "$HOME/.local/bin" "$HOME/bin" "$HOME/bin/$OS"
 
 #
 #	Terminal
