@@ -40,7 +40,7 @@ alias lsnew='command ls -lctr'
 alias lsx='command ls -lah | grep "^-..x"'
 
 # @help Usa eza (ls colorido: permissões, user, group, git) quando instalado.
-if type eza 1> /dev/null 2>&1; then
+if have eza; then
     export EZA_COLORS="${EZA_COLORS:-uu=36:gu=36}"
     alias ls='eza'
     alias ls-l='eza -l --git --group-directories-first'
@@ -50,7 +50,7 @@ if type eza 1> /dev/null 2>&1; then
     alias v='eza -la --git'
 fi
 # @help Colore a saída de ps, df, ping etc. via grc quando instalado (só se for terminal).
-if type grc 1> /dev/null 2>&1; then
+if have grc; then
     for _cmd in as blkid df diff dig docker docker-compose du fdisk findmnt free g++ gas gcc \
         getsebool id ifconfig ip iptables journalctl kubectl ld lsblk lsof lspci make mount \
         mtr netstat ping ps semanage sockstat ss traceroute traceroute6; do
@@ -106,7 +106,7 @@ alias untar='tar -xzvf'
 alias unbz='tar -xjfv'
 alias visudo='sudo visudo'
 # Com grc, o -c4 vai dentro da função ping (alias teria precedência sobre ela).
-type grc 1> /dev/null 2>&1 || alias ping='ping -c4'
+have grc || alias ping='ping -c4'
 
 #
 #   Misc
@@ -131,6 +131,7 @@ alias ifconfig.publicip="whatismyip"
 #
 #   Scp/Ssh
 #
+alias sshl="ssh-list"
 alias ssh.nokey="ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no"
 alias ssh.force-password="ssh.nokey"
 #

@@ -51,9 +51,9 @@ alias ls='ls -G'
 # procps é só Linux (precisa de /proc), então no macOS o equivalente é o procs.
 _PS_WRAPPED=1
 ps() {
-    if [ -t 1 ] && [ $# -eq 0 ] && command -v procs >/dev/null 2>&1; then
+    if [ -t 1 ] && [ $# -eq 0 ] && have procs; then
         procs
-    elif [ -t 1 ] && command -v grc >/dev/null 2>&1; then
+    elif [ -t 1 ] && have grc; then
         grc -es ps "$@"
     else
         command ps "$@"
@@ -158,7 +158,8 @@ alias cleanup-brew='brew-cleanup'
 # @syntax xquartz <ativar|desativar|status>
 xquartz() {
     case "${1:-}" in -h|--help) dotfiles-help --exact "${FUNCNAME[0]}"; return;; esac
-    local dominio="gui/$(id -u)" servico=org.xquartz.startx
+    local dominio servico=org.xquartz.startx
+    dominio="gui/$(id -u)"
     local agente=/Library/LaunchAgents/org.xquartz.startx.plist
     case "${1:-}" in
         ativar)

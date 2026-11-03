@@ -10,6 +10,10 @@ Use GNU Make para consultar a ajuda, simular ou instalar a partir de qualquer di
 make -C /path/dotfiles.git help
 make -C /path/dotfiles.git dry-run
 make -C /path/dotfiles.git install
+make -C /path/dotfiles.git status       # links ok, quebrados ou arquivos reais
+make -C /path/dotfiles.git uninstall    # remove só links deste repo (DRY_RUN=1 simula)
+make -C /path/dotfiles.git check        # bash -n, ShellCheck e testes
+make -C /path/dotfiles.git install-hooks # pre-commit que roda "make check"
 ```
 
 `make` sem argumentos exibe a ajuda. `make install` substitui arquivos e links em `HOME`,
@@ -87,7 +91,28 @@ aplicativo; `xquartz status` consulta os serviços desabilitados e os processos 
 O padrão é `XQUARTZ_ENABLED=0`: cada terminal aplica a desativação. Para habilitar o
 XQuartz ao abrir o terminal, defina `export XQUARTZ_ENABLED=1` em `~/.bash_profile.local`.
 
-Execute a validação com GNU Make, Bash, Git e ferramentas básicas do sistema:
+## Shell
+
+- Histórico: `HISTCONTROL=ignoreboth:erasedups`, `histappend` e `history -a` a cada prompt,
+  então terminais diferentes compartilham o histórico.
+- Prompt: mostra ` (branch)` em repositórios Git e `:( <código>` quando o último comando falha.
+- SSH: `ssh-list` (alias `sshl`) lista os hosts de `~/.ssh/config`, dos `Include` e de
+  `MYSERVERS`; o mesmo conjunto completa `ssh`, `scp`, `sftp` e `ssh-copy-id`.
+  `~/.ssh/config.local` (opcional) é incluído primeiro e sobrescreve o restante.
+- `have <comando>` testa se um comando existe; os aliases opcionais o usam como guarda.
+
+## Dependências opcionais
+
+| Ferramenta   | O que ativa                                                      |
+| ------------ | ---------------------------------------------------------------- |
+| `eza`        | `ls`, `la`, `l` e `v` coloridos, com Git                         |
+| `grc`        | Cores em `ps`, `df`, `ping`, `ip`, `make` etc. (só em terminal)  |
+| `procs`      | `ps` sem argumentos no macOS                                     |
+| `shellcheck` | Análise estática no `make check`                                 |
+| `bash-completion` | Completions externas (Bash 4.4 ou superior)                 |
+
+Execute a validação com GNU Make, Bash, Git e ferramentas básicas do sistema
+(`make check` cobre `bash -n`, ShellCheck e os testes, quando existirem):
 
 ```bash
 /bin/bash tests/bash.sh

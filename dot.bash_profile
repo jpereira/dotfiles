@@ -113,11 +113,14 @@ export HISTFILESIZE=200000
 
 # Ignorar comandos duplicados consecutivos
 # @var HISTCONTROL
-# @help ignoredups ignora duplicatas consecutivas.
-HISTCONTROL=ignoredups
+# @help ignoreboth ignora duplicatas e comandos iniciados por espaço; erasedups remove antigas.
+HISTCONTROL=ignoreboth:erasedups
 
 # Adicionar ao historico, sem sobrescrever outras sessoes
 shopt -s histappend
+
+# Várias linhas do mesmo comando viram uma só entrada no histórico.
+shopt -s cmdhist
 
 # @var ESCDELAY
 # @help Espera por sequências Escape em programas ncurses.
@@ -188,6 +191,7 @@ path-prepend /sbin /usr/sbin /usr/local/sbin /bin /usr/bin /usr/local/bin
 # O brew precisa estar no PATH para o .bash_profile-$OS achar os opt/*/bin.
 [ "$OS" = Darwin ] && path-prepend /opt/homebrew/bin
 
+# shellcheck disable=SC1090
 [ -f "$HOME/.bash_profile-$OS" ] && source "$HOME/.bash_profile-$OS"
 
 
@@ -198,8 +202,8 @@ path-prepend /sbin /usr/sbin /usr/local/sbin /bin /usr/bin /usr/local/bin
 
 # Data/hora, usuário, host e diretório; escapes delimitados para o Readline.
 # @var PS1
-# @help Prompt com data/hora, usuário amarelo, host verde e diretório vermelho.
-export PS1='\[\e[1;97;40m\][\[\e[0;38;5;250;40m\]\D{%Y-%m-%d} \t\[\e[1;97;40m\]] [\[\e[0;93;40m\]\u\[\e[0;94;40m\]@\[\e[0;92;40m\]\h:\[\e[0;91;40m\]\w\[\e[1;97;40m\]]\[\e[0;96;40m\]\$ \[\e[0m\]'
+# @help Prompt com data/hora, usuário, host, diretório e branch git; :( se o último comando falhou.
+export PS1='\[\e[1;97;40m\][\[\e[0;38;5;250;40m\]\D{%Y-%m-%d} \t\[\e[1;97;40m\]] [\[\e[0;93;40m\]\u\[\e[0;94;40m\]@\[\e[0;92;40m\]\h:\[\e[0;91;40m\]\w\[\e[1;97;40m\]]\[\e[0;95;40m\]$(_ps1-git)\[\e[0;96;40m\]\$ \[\e[0m\]'
 
 # @var MYSERVERS
 # @help Hosts (separados por espaço) que ganham o prefixo NOME> no PS1.
@@ -218,6 +222,19 @@ unset _host _srv _name
 if [ "${TERM:-dumb}" = dumb ]; then
     PS1='[\u@\h \w]\$ '
 fi
+
+# Histórico compartilhado entre terminais e marcador de falha (:( ) no próximo prompt.
+# Anexa a PROMPT_COMMAND já existente (iTerm etc.) sem sobrescrevê-la.
+_dotfiles-prompt() {
+    local rc=$?
+    history -a
+    [ "$rc" -eq 0 ] || printf '\033[1;31m:( %s\033[0m\n' "$rc"
+    return "$rc"
+}
+case "${PROMPT_COMMAND:-}" in
+    *_dotfiles-prompt*) ;;
+    *) PROMPT_COMMAND="_dotfiles-prompt${PROMPT_COMMAND:+; $PROMPT_COMMAND}" ;;
+esac
 
 if [ -e "/.dockerenv" ] && [ "${TERM:-dumb}" != dumb ]; then
   export PS1='\[\e[41;4;33m\]Docker\[\e[m\]~>'"$PS1"

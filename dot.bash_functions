@@ -35,6 +35,15 @@ _edit-config() {
     fi
 }
 
+# @help Branch (ou hash) git para o PS1, no formato " (nome)"; vazio fora de repositório.
+# @syntax _ps1-git
+_ps1-git() {
+    local ref
+    ref=$(git symbolic-ref --quiet --short HEAD 2>/dev/null ||
+        git rev-parse --short HEAD 2>/dev/null) || return 0
+    printf ' (%s)' "$ref"
+}
+
 # @help Cria atalhos cd.*; caracteres especiais no nome viram _.
 # @syntax _set-dir2alias <diretório>
 _set-dir2alias() {
@@ -810,6 +819,13 @@ git-show-lost-found() {
         done
 }
 
+# @help Retorna 0 quando o comando existe (função, alias ou executável).
+# @syntax have <comando>
+have() {
+    case "${1:-}" in -h|--help) dotfiles-help --exact "${FUNCNAME[0]}"; return;; esac
+    command -v "${1:?comando}" >/dev/null 2>&1
+}
+
 # @help Organiza palavras em grupos de oito e conta o total.
 # @syntax hex-count <byte ...>
 hex-count() {
@@ -997,6 +1013,38 @@ show-wifi() {
         watch -n2 'nmcli -f "CHAN,BARS,SIGNAL,SSID" d wifi list'
     fi
 }
+
+# @help Lista os hosts de ~/.ssh/config (e Include) e de MYSERVERS, sem curingas.
+# @syntax ssh-list
+ssh-list() {
+    case "${1:-}" in -h|--help) dotfiles-help --exact "${FUNCNAME[0]}"; return;; esac
+    local file word line
+    local -a files=("$HOME/.ssh/config")
+    # Segue as diretivas Include de primeiro nível, expandindo globs.
+    while IFS= read -r line; do
+        for word in ${line#*[Ii]nclude}; do
+            case "$word" in /*) ;; "~"/*) word="$HOME/${word#"~"/}";; *) word="$HOME/.ssh/$word";; esac
+            for file in $word; do [ -f "$file" ] && files+=("$file"); done
+        done
+    done < <(grep -i '^[[:space:]]*include[[:space:]]' "${files[0]}" 2>/dev/null)
+    {
+        for file in "${files[@]}"; do
+            [ -f "$file" ] || continue
+            awk 'tolower($1) == "host" { for (i = 2; i <= NF; i++) print $i }' "$file"
+        done
+        printf '%s\n' ${MYSERVERS:-}
+    } | grep -v '[*?!]' | sort -u
+}
+
+# Completa o host de ssh/scp/sftp/ssh-copy-id com ssh-list.
+_ssh-complete-hosts() {
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    case "$cur" in -*) return 0;; esac
+    local IFS=$'\n'
+    # shellcheck disable=SC2207
+    COMPREPLY=($(compgen -W "$(ssh-list)" -- "$cur"))
+}
+complete -o default -F _ssh-complete-hosts ssh scp sftp ssh-copy-id
 
 # @help Transmite captura remota por SSH para Wireshark.
 # @syntax ssh-tcpdump-to-wireshark <host> <interface> <filtro>
