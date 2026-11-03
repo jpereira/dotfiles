@@ -152,6 +152,20 @@ parse_git_branch() {
 # @help Prompt com data/hora, usuário amarelo, host verde e diretório vermelho.
 export PS1='\[\e[1;97;40m\][\[\e[0;38;5;250;40m\]\D{%Y-%m-%d} \t\[\e[1;97;40m\]] [\[\e[0;93;40m\]\u\[\e[0;94;40m\]@\[\e[0;92;40m\]\h:\[\e[0;91;40m\]\w\[\e[1;97;40m\]]\[\e[0;96;40m\]\$ \[\e[0m\]'
 
+# @var MYSERVERS
+# @help Hosts (separados por espaço) que ganham o prefixo NOME> no PS1.
+MYSERVERS="${MYSERVERS:-homelab capacete}"
+_host="${HOSTNAME:-$(hostname)}"
+_host="${_host%%.*}"
+for _srv in $MYSERVERS; do
+    if [ "$(echo "$_host" | tr '[:upper:]' '[:lower:]')" = "$_srv" ]; then
+        _name="$(echo "$_srv" | tr '[:lower:]' '[:upper:]')"
+        PS1='\[\e[21;92;40m\]'"$_name"'> '"$PS1"
+        break
+    fi
+done
+unset _host _srv _name
+
 if [ "${TERM:-dumb}" = dumb ]; then
     PS1='[\u@\h \w]\$ '
 fi
