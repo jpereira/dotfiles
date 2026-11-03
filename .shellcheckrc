@@ -1,0 +1,2 @@
+# Funções aceitam só -h/--help ($1 opcional): o aviso de "argumentos nunca passados" não se aplica.
+disable=SC2120,SC2119

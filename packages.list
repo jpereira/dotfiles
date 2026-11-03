@@ -1,0 +1,31 @@
+# Dependências dos dotfiles. Campos separados por "|":
+#   grupo | comando(s) | pacote brew | pacote apt | descrição
+# - comando: o que "command -v" procura; vários separados por espaço quando o binário varia
+#   (fd fdfind). Prefixo @ testa a existência de um arquivo (bibliotecas sem comando).
+# - pacote "-" significa que não existe naquele gerenciador (instale à mão).
+# Grupos: base (necessário), visual (cores e UX do shell), extras (usados só por helpers).
+
+base|git|git|git|Controle de versão
+base|make|make|make|Instalação (make install) e validação (make check)
+base|shellcheck|shellcheck|shellcheck|Análise estática no make check
+base|rsync|rsync|rsync|Helpers de cópia
+base|openssl|openssl|openssl|Helpers de certificados
+
+visual|eza|eza|eza|ls colorido (ls, la, l)
+visual|grc|grc|grc|Cores em ps, df, ping, ip, make...
+visual|fzf|fzf|fzf|Ctrl-R, Ctrl-T e Ctrl-G
+visual|fd fdfind|fd|fd-find|Listagem do fzf respeitando .gitignore
+visual|bat batcat|bat|bat|Preview no fzf e tema ansi
+visual|delta|git-delta|git-delta|Pager de diff do Git
+visual|zoxide|zoxide|zoxide|Comando z para saltar entre diretórios
+visual|btop|btop|btop|top moderno
+visual|procs|procs|-|ps moderno (macOS)
+visual|duf|duf|duf|df moderno (uso direto)
+visual|dust|dust|du-dust|du moderno (uso direto)
+visual|@/opt/homebrew/etc/profile.d/bash_completion.sh @/usr/local/etc/profile.d/bash_completion.sh @/usr/share/bash-completion/bash_completion @/etc/bash_completion|bash-completion@2|bash-completion|Completions externas (Bash 4.4+)
+
+extras|ffmpeg|ffmpeg|ffmpeg|ffmpeg-reduce
+extras|exiftool|exiftool|libimage-exiftool-perl|update-photos-date-to
+extras|sipcalc|sipcalc|sipcalc|Cálculo de redes
+extras|iperf3|iperf3|iperf3|iperf3-test
+extras|mysql|mysql-client|default-mysql-client|mysql-connect

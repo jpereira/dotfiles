@@ -39,4 +39,8 @@ check '_ps1-git: fora de repositório' '' "$(cd "$tmp" && _ps1-git)"
 git init -q -b main "$tmp/repo"
 check '_ps1-git: dentro de repositório' ' (main)' "$(cd "$tmp/repo" && _ps1-git)"
 
+# packages.list: cada linha de dados tem 5 campos
+bad=$(awk -F'|' '!/^#/ && NF && NF != 5 { print NR": "$0 }' "$repo/packages.list")
+check 'packages.list: 5 campos por linha' '' "$bad"
+
 exit "$fail"

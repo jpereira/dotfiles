@@ -4,7 +4,7 @@ SHELL := /bin/bash
 # Keep the path intact when Makefile is invoked with -f and contains spaces.
 export DOTFILES_MAKEFILE := $(MAKEFILE_LIST)
 
-.PHONY: help dry-run install status uninstall check install-hooks
+.PHONY: help dry-run install status uninstall check install-hooks packages packages-install
 
 # Alvos documentados com "## descrição" aparecem aqui automaticamente.
 help: ## Exibe esta ajuda (padrão).
@@ -125,7 +125,7 @@ check: ## Valida sintaxe (bash -n), ShellCheck, testes e busca de segredos.
 	read -r makefile <<< "$$DOTFILES_MAKEFILE"; \
 	repo=$$(cd -- "$$(dirname -- "$$makefile")" && pwd -P); \
 	cd "$$repo"; \
-	files=$$(ls dot.bash* local/*.example tests/*.sh 2>/dev/null || true); \
+	files=$$(ls dot.bash* local/*.example tests/*.sh scripts/*.sh 2>/dev/null || true); \
 	for f in $$files; do bash -n "$$f"; done; \
 	printf 'bash -n: %s arquivos ok\n' "$$(echo "$$files" | wc -w | tr -d ' ')"; \
 	if command -v shellcheck >/dev/null 2>&1; then \
@@ -150,3 +150,10 @@ install-hooks: ## Instala o pre-commit que executa "make check".
 	printf '#!/bin/bash\n# dotfiles make check\nexec make --no-print-directory -C %q check\n' "$$repo" > "$$hook"; \
 	chmod +x "$$hook"; \
 	printf 'Instalado: %s\n' "$$hook"
+
+packages: ## Mostra quais dependências (packages.list) estão instaladas ou faltam.
+	@$(dir $(firstword $(MAKEFILE_LIST)))scripts/packages.sh check $(PKG_ARGS)
+
+# Exemplos: make packages-install PKG_ARGS="-n" | PKG_ARGS="-g all -y"
+packages-install: ## Instala o que falta via brew ou apt (PKG_ARGS="-n" simula, "-g all" inclui extras).
+	@$(dir $(firstword $(MAKEFILE_LIST)))scripts/packages.sh install $(PKG_ARGS)
