@@ -80,6 +80,22 @@ brew-cleanup() {
     brew cleanup --prune=all
 }
 
+# @help Atualiza o Homebrew por completo: índice, fórmulas, casks, mas e limpeza (macOS).
+# @syntax brew-upgrade
+brew-upgrade() {
+    case "${1:-}" in -h|--help) dotfiles-help --exact "${FUNCNAME[0]}"; return;; esac
+    _dotfiles-require "${FUNCNAME[0]}" brew || return
+    brew update || return
+    brew upgrade || return
+    brew upgrade --cask --greedy || return
+    if command -v mas >/dev/null 2>&1; then
+        mas upgrade || return
+    fi
+    brew autoremove || return
+    brew cleanup --prune=all || return
+    brew doctor
+}
+
 # @help Seleciona uma versão local e inicializa pyenv.
 # @syntax pyenv-hack-init <versão>
 pyenv-hack-init() {
@@ -153,6 +169,7 @@ set-cc-xcode-clang() {
 }
 
 alias cleanup-brew='brew-cleanup'
+alias upgrade-brew='brew-upgrade'
 
 # @help Controla o XQuartz; desativar impede a inicialização automática na conta.
 # @syntax xquartz <ativar|desativar|status>
