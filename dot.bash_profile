@@ -1,3 +1,7 @@
+# The following lines were added by Docker Desktop to add commands to your PATH.
+export PATH="$PATH:$HOME/.docker/bin"
+# End of Docker Desktop section.
+
 # Por Jorge Pereira <jpereiran@gmail.com>
 # Last Change: Fri Oct 30 12:08:10 2026
 ##
