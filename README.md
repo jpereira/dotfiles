@@ -4,6 +4,8 @@ Configuração pessoal para Bash 3.2 ou superior no Linux e macOS.
 As funções seguem namespaces como `docker-`, `git-`, `fr-` e `show-`, em ordem alfabética.
 Nomes antigos continuam disponíveis como aliases.
 
+![Demo: eza, git diff com delta, grep, fd, bat, zoxide, helpers e dotfiles-help](docs/demo.gif)
+
 Use GNU Make para consultar a ajuda, simular ou instalar a partir de qualquer diretório:
 
 ```bash
