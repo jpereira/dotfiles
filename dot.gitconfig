@@ -87,6 +87,21 @@
 	commit-decoration-style = "#4997D0" box
 	line-numbers-left-style = "#4997D0"
 	line-numbers-right-style = "#4997D0"
+	# cores iguais ao padrão do vimdiff (background=dark, paleta ANSI do terminal):
+	# DiffAdd bg 4, DiffDelete fg 12 bg 6, DiffText bg 9 bold
+	syntax-theme = Monokai Extended Bright
+	minus-style = bold 12 6
+	minus-non-emph-style = bold 12 6
+	minus-emph-style = bold 12 9
+	plus-style = syntax 4
+	plus-non-emph-style = syntax 4
+	plus-emph-style = bold syntax 9
+	zero-style = syntax
+	line-numbers-minus-style = "#ff9aa5"
+	line-numbers-plus-style = "#8be0a8"
+	line-numbers-zero-style = "#a8b0b8"
+	hunk-header-file-style = bold "#9ccbee"
+	hunk-header-line-number-style = "#9ccbee"
 
 [fetch]
 	prune = true
