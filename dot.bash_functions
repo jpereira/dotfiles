@@ -368,6 +368,69 @@ docker-run-prev-container() {
     docker run -it --entrypoint=/bin/bash "$image"
 }
 
+# @help Exibe containers, redes, bridge e interface veth no host (Linux e Docker Desktop no macOS).
+# @syntax docker-show-ifaces
+docker-show-ifaces() {
+    case "${1:-}" in -h|--help) dotfiles-help --exact "${FUNCNAME[0]}"; return;; esac
+    _dotfiles-require "${FUNCNAME[0]}" docker || return
+
+    # Lista de interfaces do host que roda o daemon. No macOS o daemon vive numa VM,
+    # então usamos um container efêmero no netns da VM (--net=host).
+    local links where
+    if [ "$(uname -s)" = Darwin ]; then
+        where="VM"
+        links=$(docker run --rm --net=host alpine ip -o link 2>/dev/null)
+    else
+        where="host"
+        links=$(ip -o link 2>/dev/null)
+    fi
+
+    local cid
+    {
+    echo "CONTAINER REDE BRIDGE INTERFACE($where)"
+    for cid in $(docker ps -q); do
+        local c_name net net_id bridge_name ifindex ifname
+        c_name=$(docker inspect --format '{{.Name}}' "$cid" | sed 's/^\///')
+
+        docker inspect --format '{{range $net, $conf := .NetworkSettings.Networks}}{{$net}}{{"\n"}}{{end}}' "$cid" \
+            | while read -r net; do
+            [ -n "$net" ] || continue
+
+            # Nome da bridge: opção explícita da rede, docker0 (rede padrão) ou br-<id>
+            bridge_name=$(docker network inspect --format \
+                '{{index .Options "com.docker.network.bridge.name"}}' "$net" 2>/dev/null)
+            if [ -z "$bridge_name" ]; then
+                if [ "$net" = "bridge" ]; then
+                    bridge_name="docker0"
+                else
+                    net_id=$(docker network inspect --format '{{.ID}}' "$net" | cut -c1-12)
+                    bridge_name="br-$net_id"
+                fi
+            fi
+
+            # Interface do container que pertence a esta rede (pelo IP); fallback: eth0
+            local ip dev
+            ip=$(docker inspect --format "{{(index .NetworkSettings.Networks \"$net\").IPAddress}}" "$cid")
+            dev=""
+            if [ -n "$ip" ]; then
+                dev=$(docker exec "$cid" ip -o -4 addr 2>/dev/null \
+                    | awk -v ip="$ip" '$4 ~ "^"ip"/" {print $2; exit}')
+            fi
+            ifindex=$(docker exec "$cid" cat "/sys/class/net/${dev:-eth0}/iflink" 2>/dev/null)
+
+            ifname="N/A"
+            if [ -n "$ifindex" ] && [ -n "$links" ]; then
+                ifname=$(printf '%s\n' "$links" \
+                    | awk -F': ' -v i="$ifindex" '$1 == i {sub(/@.*/, "", $2); print $2; exit}')
+                [ -n "$ifname" ] || ifname="N/A"
+            fi
+
+            echo "$c_name $net $bridge_name $ifname"
+        done
+    done
+    } | column -t
+}
+
 # @help Lista endereços dos containers em execução.
 # @syntax docker-show-ips
 docker-show-ips() {
